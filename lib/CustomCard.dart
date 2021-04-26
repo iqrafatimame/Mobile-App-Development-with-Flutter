@@ -13,6 +13,7 @@ class PictureCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
       ),
+      
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
