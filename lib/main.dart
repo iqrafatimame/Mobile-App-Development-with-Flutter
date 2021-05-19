@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_drawer/AddRecors.dart';
-import 'package:flutter_drawer/MyDrawer.dart';
-import 'package:flutter_drawer/Screen2.dart';
-//import 'package:flutter_drawer/ShowRecords.dart';
+import 'package:flutter_drawer/Custom%20Widgets/MyDrawer.dart';
+import 'package:flutter_drawer/Screens/AddRecors.dart';
+import 'package:flutter_drawer/Screens/Screen2.dart';
+import 'package:flutter_drawer/Screens/SetProfile.dart';
+import 'package:flutter_drawer/Custom%20Widgets/aesthetic.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,12 +16,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(),
+        '/Aesthetic': (context) => Aesthetic(),
+        '/setProfile': (context) => SetProfile(),
         '/Screen2': (context) => Screen2(),
+        '/AddRecords': (context) => AddRecords(),
       },
       home: Scaffold(
         appBar: AppBar(
-        title: Text("MY Home Page"),
+        title: Text("Mobile App Development"),
         backgroundColor: Colors.brown,
       ),
         drawer: MyDrawer(),
@@ -35,7 +38,19 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MyDrawer(),
-      body: AddRecords(),
+      body: Container( 
+        child: Center(
+          child: Container(
+            child: Image(
+              height: 600,
+              width: 600,
+              image: NetworkImage(
+                'https://media.giphy.com/media/bcKmIWkUMCjVm/giphy.gif'
+                ),
+              ),
+          ),
+        ),
+      ),
     );
   }
 }
