@@ -101,6 +101,18 @@ class MyDrawer extends StatelessWidget {
               },
             ),
           ),
+          ListTile(
+            leading: Icon(
+              Icons.account_box,
+              
+            ),
+            title: TextButton(
+              child: Text('Registration Form'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/RegistrationForm');
+              },
+            ),
+          ),
         ],
       ),
     );

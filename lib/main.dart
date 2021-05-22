@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer/Custom%20Widgets/MyDrawer.dart';
 import 'package:flutter_drawer/Screens/AddRecors.dart';
+import 'package:flutter_drawer/Screens/RegisterScreen.dart';
 import 'package:flutter_drawer/Screens/Screen2.dart';
 import 'package:flutter_drawer/Screens/SetProfile.dart';
 import 'package:flutter_drawer/Custom%20Widgets/aesthetic.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/setProfile': (context) => SetProfile(),
         '/Screen2': (context) => Screen2(),
         '/AddRecords': (context) => AddRecords(),
+        '/RegistrationForm' : (context) => RegisterForm(),
       },
       home: Scaffold(
         appBar: AppBar(
