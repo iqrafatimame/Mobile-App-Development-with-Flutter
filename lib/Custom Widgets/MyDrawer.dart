@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
+  BuildContext context1;
+  MyDrawer({this.context1});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -52,6 +55,7 @@ class MyDrawer extends StatelessWidget {
             title: TextButton(
               child: Text('Home'),
               onPressed: () {
+                Navigator.of(context1).pop();
                 Navigator.pushNamed(context, '/');
               },
             ),
@@ -68,9 +72,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(
-              Icons.image
-            ),
+            leading: Icon(Icons.image),
             title: TextButton(
               child: Text('Set Profile Image'),
               onPressed: () {
@@ -92,7 +94,6 @@ class MyDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.add,
-              
             ),
             title: TextButton(
               child: Text('Add Records'),
@@ -104,7 +105,6 @@ class MyDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.account_box,
-              
             ),
             title: TextButton(
               child: Text('Registration Form'),

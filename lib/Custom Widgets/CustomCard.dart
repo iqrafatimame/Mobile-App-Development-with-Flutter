@@ -4,7 +4,7 @@ class PictureCard extends StatelessWidget {
   
   final String url;
   PictureCard({this.url});
-
+///c
   @override
   Widget build(BuildContext context) {
     return Card(

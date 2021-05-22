@@ -11,7 +11,7 @@ class Screen2 extends StatelessWidget {
         title: Text("Mobile App Development"),
         backgroundColor: Colors.brown,
       ),
-        drawer: MyDrawer(),
+        drawer: MyDrawer(context1: context),
         body: ShowRecords(),
       ),
      );
