@@ -5,13 +5,14 @@ import 'package:flutter_drawer/Custom%20Widgets/MyDrawer.dart';
 class Aesthetic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-          home: Scaffold(
+    return Scaffold(
             appBar: AppBar(
-              title: Text("Mobile App Development"),
-              backgroundColor: Colors.brown,
-            ),
-          drawer: MyDrawer(),
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
+            title: Text("Aesthetic Field"),
+            backgroundColor: Colors.brown,
+          ),
           body: Center(
         child: new SingleChildScrollView(
           child: Column(
@@ -127,7 +128,6 @@ class Aesthetic extends StatelessWidget {
             ],
           ),
         ),
-      ),
       ),
     );
   }

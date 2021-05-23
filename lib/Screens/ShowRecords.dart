@@ -58,40 +58,42 @@ class _ShowRecordsState extends State<ShowRecords> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: FutureBuilder<List<Data>>(
-        future: futureData,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            List<Data> data = snapshot.data;
-            return ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return DataTable(
-                    headingRowHeight: 0,
-                    
-                    columns: [
-                    DataColumn(label: Text('')),
-                    DataColumn(label: Text('')),
-                    DataColumn(label: Text('')),
-                    DataColumn(label: Text('')),
-                    DataColumn(label: Text('')),
-                  ], rows: [
-                    DataRow(
-                      cells: [
-                      DataCell(Text(data[index + 1].firstName)),
-                      DataCell(Text(data[index + 1].lastName)),
-                      DataCell(Text(data[index + 1].gender)),
-                      DataCell(Text(data[index + 1].email)),
-                      DataCell(Text(data[index + 1].phone)),
-                    ])
-                  ]);
-                });
-          } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
-          }
-          return CircularProgressIndicator();
-        },
+    return Scaffold(
+          body: Container(
+        child: FutureBuilder<List<Data>>(
+          future: futureData,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              List<Data> data = snapshot.data;
+              return ListView.builder(
+                  itemCount: data.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return DataTable(
+                      headingRowHeight: 0,
+                      
+                      columns: [
+                      DataColumn(label: Text('')),
+                      DataColumn(label: Text('')),
+                      DataColumn(label: Text('')),
+                      DataColumn(label: Text('')),
+                      DataColumn(label: Text('')),
+                    ], rows: [
+                      DataRow(
+                        cells: [
+                        DataCell(Text(data[index + 1].firstName)),
+                        DataCell(Text(data[index + 1].lastName)),
+                        DataCell(Text(data[index + 1].gender)),
+                        DataCell(Text(data[index + 1].email)),
+                        DataCell(Text(data[index + 1].phone)),
+                      ])
+                    ]);
+                  });
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+            return CircularProgressIndicator();
+          },
+        ),
       ),
     );
   }

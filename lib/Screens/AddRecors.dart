@@ -20,8 +20,15 @@ class _AddRecordsState extends State<AddRecords> {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
+        appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
+          title: Text("Successfully Registered"),
+          backgroundColor: Colors.brown,
+          centerTitle: true,
+        ),
         body: Container(
           color: Colors.orange[100],
           padding: EdgeInsets.all(20),
@@ -71,8 +78,7 @@ class _AddRecordsState extends State<AddRecords> {
                 ),
               )),
         ),
-      ),
-    );
+      );
   }
 
  

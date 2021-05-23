@@ -10,8 +10,14 @@ class SetProfile extends StatefulWidget {
 class _SetProfileState extends State<SetProfile> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
+            title: Text("Set Profile Image"),
+            backgroundColor: Colors.brown,
+          ),
         body: Container(
           width: MediaQuery.of(context).size.width,
           color: Colors.orange[100],
@@ -26,7 +32,6 @@ class _SetProfileState extends State<SetProfile> {
                 ],
               )),
         ),
-      ),
-    );
+      );
   }
 }
