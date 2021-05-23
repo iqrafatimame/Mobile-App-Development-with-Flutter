@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer/Custom%20Widgets/CustomCard.dart';
-import 'package:flutter_drawer/Custom%20Widgets/MyDrawer.dart';
 
 class Aesthetic extends StatelessWidget {
   @override

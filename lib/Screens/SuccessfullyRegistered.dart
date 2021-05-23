@@ -18,11 +18,21 @@ class _SuccessfullyRegisteredState extends State<SuccessfullyRegistered> {
         centerTitle: true,
       ),
       body: Center(
-        child: Card(
-          elevation: 8,
-          child: Padding(
-            padding: const EdgeInsets.all(100.0),
-            child: Text("You have succesfully Registered!"),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Ink.image(
+                  image: NetworkImage('https://media.giphy.com/media/l4HodBpDmoMA5p9bG/giphy.gif'),
+                  height: 350,
+                  width: 300,
+                  fit: BoxFit.cover,
+                ),
+                SizedBox(height: 20,),
+              Text("You have succesfully Registered!",
+              style: TextStyle(fontSize: 20),),
+            ],
           ),
         ),
       ),

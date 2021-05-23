@@ -52,67 +52,72 @@ class MyDrawer extends StatelessWidget {
             leading: Icon(
               Icons.home,
             ),
-            title: TextButton(
-              child: Text('Home'),
-              onPressed: () {
-                Navigator.of(context1).pop();
+            title: Text('Home',
+              style: TextStyle(color: Colors.black
+                ),
+               ),
+              onTap: () {
                 Navigator.pushNamed(context, '/');
               },
-            ),
           ),
           ListTile(
             leading: Icon(
               Icons.table_chart,
             ),
-            title: TextButton(
-              child: Text('Show Records'),
-              onPressed: () {
+            title: Text('Show Records',
+              style: TextStyle(color: Colors.black
+                ),
+               ),
+              onTap: () {
                 Navigator.pushNamed(context, '/Screen2');
               },
-            ),
           ),
           ListTile(
             leading: Icon(Icons.image),
-            title: TextButton(
-              child: Text('Set Profile Image'),
-              onPressed: () {
+            title: Text('Set Profile Image',
+              style: TextStyle(color: Colors.black
+                ),
+               ),
+              onTap: () {
                 Navigator.pushNamed(context, '/setProfile');
               },
-            ),
           ),
           ListTile(
             leading: Icon(
               Icons.album,
             ),
-            title: TextButton(
-              child: Text('Aesthetic FIeld'),
-              onPressed: () {
+            title:Text('Aesthetic FIeld',
+              style: TextStyle(color: Colors.black
+                ),
+               ),
+              onTap: () {
                 Navigator.pushNamed(context, '/Aesthetic');
               },
-            ),
           ),
           ListTile(
             leading: Icon(
               Icons.add,
             ),
-            title: TextButton(
-              child: Text('Add Records'),
-              onPressed: () {
+            title: Text('Add Records',
+              style: TextStyle(color: Colors.black
+               ),
+              ),
+              onTap: () {
                 Navigator.pushNamed(context, '/AddRecords');
               },
-            ),
           ),
           ListTile(
             leading: Icon(
               Icons.account_box,
             ),
-            title: TextButton(
-              child: Text('Registration Form'),
-              onPressed: () {
+            title: Text('Registration Form',
+                style: TextStyle(color: Colors.black,
+                  ),
+                 ),
+              onTap: () {
                 Navigator.pushNamed(context, '/RegistrationForm');
               },
             ),
-          ),
         ],
       ),
     );
