@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer/Screens/SuccessfullyRegistered.dart';
 
@@ -17,43 +19,83 @@ class _RegisterFormState extends State<RegisterForm> {
         title: Text("Register User"),
         backgroundColor: Colors.brown,
       ),
-      body: Container(
-        alignment: Alignment.center,
-        color: Colors.orange[100],
-        padding: EdgeInsets.all(20),
-        child: SingleChildScrollView(
-          child: Card(
-            elevation: 8,
+      body: ConstrainedBox(
+        constraints: const BoxConstraints.expand(),
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: new BoxDecoration(
+              shape: BoxShape.rectangle,
+              image: new DecorationImage(
+                fit: BoxFit.fill,
+                image: NetworkImage(
+                    'https://images.unsplash.com/photo-1569154107747-fb00e3b3430d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80'),
+              )),
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(20),
+          child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(40.0),
-              child: Column(
+              padding: const EdgeInsets.all(0),
+              child:
+                frostedContainer(
+                  Stack(
+                    children: <Widget> [ 
+                      Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(30.0),
+                        child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
-                    'Register',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25.0,
-                    ),
-                  ),
-                  Text(
-                    'SignUp to experience new ways',
-                    style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 18.0,
-                    ),
-                  ),
-                  SizedBox(height: 25),
-                  SignUp(),
+                        Text(
+                          'Register',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 25.0,
+                          ),
+                        ),
+                         Padding(
+                           padding: const EdgeInsets.all(8.0),
+                           child: Text(
+                            'SignUp to experience new ways',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                            ),
+                        ),
+                         ),
+                        SizedBox(height: 25),
+                        SignUp(),
                 ],
               ),
+                      ),
+                    ),
+                    ],
+                  ),
+                ),
             ),
           ),
         ),
+                    
       ),
     );
   }
+  
+Widget frostedContainer(Widget child) {
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(15),
+    child: BackdropFilter( 
+      filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+      child: Container( 
+        color: Colors.brown.withOpacity(0.1),
+        child: child,
+      ),
+    ),
+  );
 }
+
+}
+
 
 class SignUp extends StatefulWidget {
   @override
@@ -105,11 +147,14 @@ class _SignUpState extends State<SignUp> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
-                style: TextStyle(fontSize: 14.0),
+                style: TextStyle(fontSize: 14.0, color: Colors.white),
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black26)),
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                  prefixIcon: Icon(Icons.account_box),
+                  prefixIcon: Icon(Icons.account_box, color: Colors.white,),
                   hintText: "User Name",
+                  hintStyle: TextStyle(color: Colors.white),
+                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Colors.blue[300], width: 32.0),
@@ -127,9 +172,12 @@ class _SignUpState extends State<SignUp> {
             child: TextFormField(
                 style: TextStyle(fontSize: 14.0),
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black26)),
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: Icon(Icons.email, color: Colors.white,),
                   hintText: "Email Id",
+                  hintStyle: TextStyle(color: Colors.white),
+                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Colors.blue[300], width: 32.0),
@@ -147,9 +195,12 @@ class _SignUpState extends State<SignUp> {
             child: TextFormField(
                 style: TextStyle(fontSize: 14.0),
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black26)),
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                  prefixIcon: Icon(Icons.phone),
+                  prefixIcon: Icon(Icons.phone, color: Colors.white,),
                   hintText: "Mobile No",
+                  hintStyle: TextStyle(color: Colors.white),
+                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Colors.blue[300], width: 32.0),
@@ -167,9 +218,12 @@ class _SignUpState extends State<SignUp> {
             child: TextFormField(
                 style: TextStyle(fontSize: 14.0),
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black26)),
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                  prefixIcon: Icon(Icons.lock),
+                  prefixIcon: Icon(Icons.lock, color: Colors.white,),
                   hintText: "Password",
+                  hintStyle: TextStyle(color: Colors.white),
+                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                   border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.blue, width: 32.0),
                       borderRadius: BorderRadius.circular(5.0)),
@@ -189,6 +243,8 @@ class _SignUpState extends State<SignUp> {
                   Row(
                     children: <Widget>[
                       Checkbox(
+                        
+                        activeColor: Colors.white,
                           value: checkboxValue,
                           onChanged: (value) {
                             setState(() {
@@ -196,8 +252,10 @@ class _SignUpState extends State<SignUp> {
                               state.didChange(value);
                             });
                           }),
-                      Text('I accept all the terms & conditions',
-                      style: TextStyle(color: Colors.grey[600]),),
+                      Text(
+                        'I accept all the terms & conditions',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ],
                   ),
                   Text(
@@ -251,3 +309,4 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
+
