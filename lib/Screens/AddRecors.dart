@@ -29,54 +29,61 @@ class _AddRecordsState extends State<AddRecords> {
           backgroundColor: Colors.brown,
           centerTitle: true,
         ),
-        body: Container(
-          color: Colors.orange[100],
-          padding: EdgeInsets.all(20),
-          child: Card(
-              elevation: 8,
-              child: Padding(
-                padding: const EdgeInsets.all(40),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    TextField(
-                      controller: _controllerFirstName,
-                      decoration: InputDecoration(hintText: 'Enter First Name'),
-                    ),
-                    TextField(
-                      controller: _controllerLastName,
-                      decoration: InputDecoration(hintText: 'Enter Last Name'),
-                    ),
-                    TextField(
-                      controller: _controllerGender,
-                      decoration: InputDecoration(hintText: 'Enter Gender'),
-                    ),
-                    TextField(
-                      controller: _controllerEmail,
-                      decoration: InputDecoration(hintText: 'Enter Email'),
-                    ),
-                    TextField(
-                      controller: _controllerPhone,
-                      decoration:
-                          InputDecoration(hintText: 'Enter Phone Number'),
-                    ),
-                    SizedBox(height: 40),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.brown, // background
-                          onPrimary: Colors.white, // foreground
+        body: SingleChildScrollView(
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+            color: Colors.orange[100],
+            alignment: Alignment.center,
+            padding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+            child: Container(
+              height: MediaQuery.of(context).size.height/2,
+              child: Card(
+                  elevation: 8,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        TextField(
+                          controller: _controllerFirstName,
+                          decoration: InputDecoration(hintText: 'Enter First Name'),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 15, horizontal: 30),
-                          child: Text('Add Provider'),
+                        TextField(
+                          controller: _controllerLastName,
+                          decoration: InputDecoration(hintText: 'Enter Last Name'),
                         ),
-                        onPressed: () {
-                          providerRegistrations(context);
-                        }),
-                  ],
-                ),
-              )),
+                        TextField(
+                          controller: _controllerGender,
+                          decoration: InputDecoration(hintText: 'Enter Gender'),
+                        ),
+                        TextField(
+                          controller: _controllerEmail,
+                          decoration: InputDecoration(hintText: 'Enter Email'),
+                        ),
+                        TextField(
+                          controller: _controllerPhone,
+                          decoration:
+                              InputDecoration(hintText: 'Enter Phone Number'),
+                        ),
+                        SizedBox(height: 40),
+                        ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.brown, // background
+                              onPrimary: Colors.white, // foreground
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 15, horizontal: 30),
+                              child: Text('Add Provider'),
+                            ),
+                            onPressed: () {
+                              providerRegistrations(context);
+                            }),
+                      ],
+                    ),
+                  )),
+            ),
+          ),
         ),
       );
   }

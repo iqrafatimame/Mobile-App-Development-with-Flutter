@@ -1,26 +1,23 @@
-define(['dart_sdk', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/characters/src/characters_impl.dart', 'packages/characters/src/extensions.dart', 'packages/flutter/src/services/text_editing.dart'], (function load__packages__flutter__src__services__text_formatter_dart(dart_sdk, packages__flutter__src__services__text_input$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__characters__src__characters_impl$46dart, packages__characters__src__extensions$46dart, packages__flutter__src__services__text_editing$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/foundation/print.dart'], (function load__packages__flutter__src__gestures__force_press_dart(dart_sdk, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__foundation__print$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _internal = dart_sdk._internal;
-  const math = dart_sdk.math;
   const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
-  const platform$ = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
-  const characters_impl = packages__characters__src__characters_impl$46dart.src__characters_impl;
-  const extensions = packages__characters__src__extensions$46dart.src__extensions;
-  const text_editing = packages__flutter__src__services__text_editing$46dart.src__services__text_editing;
-  var text_formatter = Object.create(dart.library);
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $splitMapJoin = dartx.splitMapJoin;
-  var $length = dartx.length;
-  var $substring = dartx.substring;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
+  var force_press = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $isNaN = dartx.isNaN;
+  var $clamp = dartx.clamp;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    MaxLengthEnforcementL: () => (T.MaxLengthEnforcementL = dart.constFn(dart.legacy(text_formatter.MaxLengthEnforcement)))(),
-    MatchToString: () => (T.MatchToString = dart.constFn(dart.fnType(core.String, [core.Match])))(),
-    StringToString: () => (T.StringToString = dart.constFn(dart.fnType(core.String, [core.String])))()
+    _ForceStateL: () => (T._ForceStateL = dart.constFn(dart.legacy(force_press._ForceState)))(),
+    doubleAnddoubleAnddoubleTodouble: () => (T.doubleAnddoubleAnddoubleTodouble = dart.constFn(dart.fnType(core.double, [core.double, core.double, core.double])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -37,446 +34,362 @@ define(['dart_sdk', 'packages/flutter/src/services/text_input.dart', 'packages/f
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: text_formatter.MaxLengthEnforcement.prototype,
-        [_name$]: "MaxLengthEnforcement.none",
+        __proto__: force_press._ForceState.prototype,
+        [_name$]: "_ForceState.ready",
         index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: text_formatter.MaxLengthEnforcement.prototype,
-        [_name$]: "MaxLengthEnforcement.enforced",
+        __proto__: force_press._ForceState.prototype,
+        [_name$]: "_ForceState.possible",
         index: 1
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: text_formatter.MaxLengthEnforcement.prototype,
-        [_name$]: "MaxLengthEnforcement.truncateAfterCompositionEnds",
+        __proto__: force_press._ForceState.prototype,
+        [_name$]: "_ForceState.accepted",
         index: 2
       });
     },
     get C3() {
-      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], T.MaxLengthEnforcementL());
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.android",
-        index: 0
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.windows",
-        index: 5
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.iOS",
-        index: 2
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.macOS",
-        index: 4
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.linux",
+      return C[3] = dart.const({
+        __proto__: force_press._ForceState.prototype,
+        [_name$]: "_ForceState.started",
         index: 3
       });
     },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: platform$.TargetPlatform.prototype,
-        [_name]: "TargetPlatform.fuchsia",
-        index: 1
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: force_press._ForceState.prototype,
+        [_name$]: "_ForceState.peaked",
+        index: 4
       });
     },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: ui.TextAffinity.prototype,
-        [_name$0]: "TextAffinity.downstream",
-        index: 1
-      });
+    get C5() {
+      return C[5] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], T._ForceStateL());
     },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: text_editing.TextSelection.prototype,
-        [TextRange_end]: -1,
-        [TextRange_start]: -1,
-        [TextSelection_isDirectional]: false,
-        [TextSelection_affinity]: C[11] || CT.C11,
-        [TextSelection_extentOffset]: -1,
-        [TextSelection_baseOffset]: -1
-      });
+    get C6() {
+      return C[6] = dart.fn(force_press.ForcePressGestureRecognizer._inverseLerp, T.doubleAnddoubleAnddoubleTodouble());
     }
   }, false);
-  var C = Array(12).fill(void 0);
+  var C = Array(7).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/services/text_formatter.dart",
-    "package:flutter/src/services/text_formatter.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/gestures/force_press.dart",
+    "package:flutter/src/gestures/force_press.dart"
   ];
-  var _name$ = dart.privateName(text_formatter, "_name");
-  text_formatter.MaxLengthEnforcement = class MaxLengthEnforcement extends core.Object {
+  var _name$ = dart.privateName(force_press, "_name");
+  force_press._ForceState = class _ForceState extends core.Object {
     toString() {
       return this[_name$];
     }
   };
-  (text_formatter.MaxLengthEnforcement.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 42, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 42, 6, "_name");
+  (force_press._ForceState.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 11, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 11, 6, "_name");
     this.index = index;
     this[_name$] = _name;
     ;
-  }).prototype = text_formatter.MaxLengthEnforcement.prototype;
-  dart.addTypeTests(text_formatter.MaxLengthEnforcement);
-  dart.addTypeCaches(text_formatter.MaxLengthEnforcement);
-  dart.setLibraryUri(text_formatter.MaxLengthEnforcement, I[1]);
-  dart.setFieldSignature(text_formatter.MaxLengthEnforcement, () => ({
-    __proto__: dart.getFields(text_formatter.MaxLengthEnforcement.__proto__),
+  }).prototype = force_press._ForceState.prototype;
+  dart.addTypeTests(force_press._ForceState);
+  dart.addTypeCaches(force_press._ForceState);
+  dart.setLibraryUri(force_press._ForceState, I[1]);
+  dart.setFieldSignature(force_press._ForceState, () => ({
+    __proto__: dart.getFields(force_press._ForceState.__proto__),
     index: dart.finalFieldType(core.int),
     [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.defineExtensionMethods(text_formatter.MaxLengthEnforcement, ['toString']);
-  text_formatter.MaxLengthEnforcement.none = C[0] || CT.C0;
-  text_formatter.MaxLengthEnforcement.enforced = C[1] || CT.C1;
-  text_formatter.MaxLengthEnforcement.truncateAfterCompositionEnds = C[2] || CT.C2;
-  text_formatter.MaxLengthEnforcement.values = C[3] || CT.C3;
-  text_formatter.TextInputFormatter = class TextInputFormatter extends core.Object {
-    static withFunction(formatFunction) {
-      if (formatFunction == null) dart.nullFailed(I[0], 95, 29, "formatFunction");
-      return new text_formatter._SimpleTextInputFormatter.new(formatFunction);
+  dart.defineExtensionMethods(force_press._ForceState, ['toString']);
+  force_press._ForceState.ready = C[0] || CT.C0;
+  force_press._ForceState.possible = C[1] || CT.C1;
+  force_press._ForceState.accepted = C[2] || CT.C2;
+  force_press._ForceState.started = C[3] || CT.C3;
+  force_press._ForceState.peaked = C[4] || CT.C4;
+  force_press._ForceState.values = C[5] || CT.C5;
+  var globalPosition$ = dart.privateName(force_press, "ForcePressDetails.globalPosition");
+  var localPosition$ = dart.privateName(force_press, "ForcePressDetails.localPosition");
+  var pressure$ = dart.privateName(force_press, "ForcePressDetails.pressure");
+  force_press.ForcePressDetails = class ForcePressDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$];
+    }
+    set globalPosition(value) {
+      super.globalPosition = value;
+    }
+    get localPosition() {
+      return this[localPosition$];
+    }
+    set localPosition(value) {
+      super.localPosition = value;
+    }
+    get pressure() {
+      return this[pressure$];
+    }
+    set pressure(value) {
+      super.pressure = value;
     }
   };
-  (text_formatter.TextInputFormatter.new = function() {
-    ;
-  }).prototype = text_formatter.TextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter.TextInputFormatter);
-  dart.addTypeCaches(text_formatter.TextInputFormatter);
-  dart.setLibraryUri(text_formatter.TextInputFormatter, I[1]);
-  text_formatter._SimpleTextInputFormatter = class _SimpleTextInputFormatter extends text_formatter.TextInputFormatter {
-    formatEditUpdate(oldValue, newValue) {
-      let t1, t0;
-      if (oldValue == null) dart.nullFailed(I[0], 117, 22, "oldValue");
-      if (newValue == null) dart.nullFailed(I[0], 118, 22, "newValue");
-      t0 = oldValue;
-      t1 = newValue;
-      return this.formatFunction(t0, t1);
-    }
-  };
-  (text_formatter._SimpleTextInputFormatter.new = function(formatFunction) {
-    if (formatFunction == null) dart.nullFailed(I[0], 110, 34, "formatFunction");
-    this.formatFunction = formatFunction;
-    if (!(formatFunction != null)) dart.assertFailed(null, I[0], 111, 14, "formatFunction != null");
-    ;
-  }).prototype = text_formatter._SimpleTextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter._SimpleTextInputFormatter);
-  dart.addTypeCaches(text_formatter._SimpleTextInputFormatter);
-  dart.setMethodSignature(text_formatter._SimpleTextInputFormatter, () => ({
-    __proto__: dart.getMethods(text_formatter._SimpleTextInputFormatter.__proto__),
-    formatEditUpdate: dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue])
-  }));
-  dart.setLibraryUri(text_formatter._SimpleTextInputFormatter, I[1]);
-  dart.setFieldSignature(text_formatter._SimpleTextInputFormatter, () => ({
-    __proto__: dart.getFields(text_formatter._SimpleTextInputFormatter.__proto__),
-    formatFunction: dart.finalFieldType(dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue]))
-  }));
-  var filterPattern$ = dart.privateName(text_formatter, "FilteringTextInputFormatter.filterPattern");
-  var allow$ = dart.privateName(text_formatter, "FilteringTextInputFormatter.allow");
-  var replacementString$ = dart.privateName(text_formatter, "FilteringTextInputFormatter.replacementString");
-  text_formatter.FilteringTextInputFormatter = class FilteringTextInputFormatter extends text_formatter.TextInputFormatter {
-    get filterPattern() {
-      return this[filterPattern$];
-    }
-    set filterPattern(value) {
-      super.filterPattern = value;
-    }
-    get allow() {
-      return this[allow$];
-    }
-    set allow(value) {
-      super.allow = value;
-    }
-    get replacementString() {
-      return this[replacementString$];
-    }
-    set replacementString(value) {
-      super.replacementString = value;
-    }
-    formatEditUpdate(oldValue, newValue) {
-      if (oldValue == null) dart.nullFailed(I[0], 263, 22, "oldValue");
-      if (newValue == null) dart.nullFailed(I[0], 264, 22, "newValue");
-      return text_formatter._selectionAwareTextManipulation(newValue, dart.fn(substring => {
-        if (substring == null) dart.nullFailed(I[0], 268, 15, "substring");
-        return substring[$splitMapJoin](this.filterPattern, {onMatch: !dart.test(this.allow) ? dart.fn(match => {
-            if (match == null) dart.nullFailed(I[0], 271, 36, "match");
-            return this.replacementString;
-          }, T.MatchToString()) : null, onNonMatch: dart.test(this.allow) ? dart.fn(nonMatch => {
-            if (nonMatch == null) dart.nullFailed(I[0], 272, 39, "nonMatch");
-            return nonMatch[$isNotEmpty] ? this.replacementString : "";
-          }, T.StringToString()) : null});
-      }, T.StringToString()));
-    }
-  };
-  (text_formatter.FilteringTextInputFormatter.new = function(filterPattern, opts) {
-    if (filterPattern == null) dart.nullFailed(I[0], 150, 10, "filterPattern");
-    let allow = opts && 'allow' in opts ? opts.allow : null;
-    if (allow == null) dart.nullFailed(I[0], 151, 19, "allow");
-    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
-    if (replacementString == null) dart.nullFailed(I[0], 152, 10, "replacementString");
-    this[filterPattern$] = filterPattern;
-    this[allow$] = allow;
-    this[replacementString$] = replacementString;
-    if (!(filterPattern != null)) dart.assertFailed(null, I[0], 153, 15, "filterPattern != null");
-    if (!(allow != null)) dart.assertFailed(null, I[0], 154, 15, "allow != null");
-    if (!(replacementString != null)) dart.assertFailed(null, I[0], 155, 15, "replacementString != null");
-    ;
-  }).prototype = text_formatter.FilteringTextInputFormatter.prototype;
-  (text_formatter.FilteringTextInputFormatter.allow = function(filterPattern, opts) {
-    if (filterPattern == null) dart.nullFailed(I[0], 162, 10, "filterPattern");
-    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
-    if (replacementString == null) dart.nullFailed(I[0], 163, 10, "replacementString");
-    this[filterPattern$] = filterPattern;
-    this[replacementString$] = replacementString;
-    if (!(filterPattern != null)) dart.assertFailed(null, I[0], 164, 15, "filterPattern != null");
-    if (!(replacementString != null)) dart.assertFailed(null, I[0], 165, 15, "replacementString != null");
-    this[allow$] = true;
-    ;
-  }).prototype = text_formatter.FilteringTextInputFormatter.prototype;
-  (text_formatter.FilteringTextInputFormatter.deny = function(filterPattern, opts) {
-    if (filterPattern == null) dart.nullFailed(I[0], 173, 10, "filterPattern");
-    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
-    if (replacementString == null) dart.nullFailed(I[0], 174, 10, "replacementString");
-    this[filterPattern$] = filterPattern;
-    this[replacementString$] = replacementString;
-    if (!(filterPattern != null)) dart.assertFailed(null, I[0], 175, 15, "filterPattern != null");
-    if (!(replacementString != null)) dart.assertFailed(null, I[0], 176, 15, "replacementString != null");
-    this[allow$] = false;
-    ;
-  }).prototype = text_formatter.FilteringTextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter.FilteringTextInputFormatter);
-  dart.addTypeCaches(text_formatter.FilteringTextInputFormatter);
-  dart.setMethodSignature(text_formatter.FilteringTextInputFormatter, () => ({
-    __proto__: dart.getMethods(text_formatter.FilteringTextInputFormatter.__proto__),
-    formatEditUpdate: dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue])
-  }));
-  dart.setLibraryUri(text_formatter.FilteringTextInputFormatter, I[1]);
-  dart.setFieldSignature(text_formatter.FilteringTextInputFormatter, () => ({
-    __proto__: dart.getFields(text_formatter.FilteringTextInputFormatter.__proto__),
-    filterPattern: dart.finalFieldType(core.Pattern),
-    allow: dart.finalFieldType(core.bool),
-    replacementString: dart.finalFieldType(core.String)
-  }));
-  dart.defineLazy(text_formatter.FilteringTextInputFormatter, {
-    /*text_formatter.FilteringTextInputFormatter.singleLineFormatter*/get singleLineFormatter() {
-      return new text_formatter.FilteringTextInputFormatter.deny("\n");
-    },
-    /*text_formatter.FilteringTextInputFormatter.digitsOnly*/get digitsOnly() {
-      return new text_formatter.FilteringTextInputFormatter.allow(core.RegExp.new("[0-9]"));
-    }
-  }, false);
-  text_formatter.BlacklistingTextInputFormatter = class BlacklistingTextInputFormatter extends text_formatter.FilteringTextInputFormatter {
-    get blacklistedPattern() {
-      return this.filterPattern;
-    }
-  };
-  (text_formatter.BlacklistingTextInputFormatter.new = function(blacklistedPattern, opts) {
-    if (blacklistedPattern == null) dart.nullFailed(I[0], 297, 13, "blacklistedPattern");
-    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
-    if (replacementString == null) dart.nullFailed(I[0], 298, 12, "replacementString");
-    text_formatter.BlacklistingTextInputFormatter.__proto__.deny.call(this, blacklistedPattern, {replacementString: replacementString});
-    ;
-  }).prototype = text_formatter.BlacklistingTextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter.BlacklistingTextInputFormatter);
-  dart.addTypeCaches(text_formatter.BlacklistingTextInputFormatter);
-  dart.setGetterSignature(text_formatter.BlacklistingTextInputFormatter, () => ({
-    __proto__: dart.getGetters(text_formatter.BlacklistingTextInputFormatter.__proto__),
-    blacklistedPattern: core.Pattern
-  }));
-  dart.setLibraryUri(text_formatter.BlacklistingTextInputFormatter, I[1]);
-  dart.defineLazy(text_formatter.BlacklistingTextInputFormatter, {
-    /*text_formatter.BlacklistingTextInputFormatter.singleLineFormatter*/get singleLineFormatter() {
-      return new text_formatter.BlacklistingTextInputFormatter.new(core.RegExp.new("\\n"));
-    }
-  }, false);
-  text_formatter.WhitelistingTextInputFormatter = class WhitelistingTextInputFormatter extends text_formatter.FilteringTextInputFormatter {
-    get whitelistedPattern() {
-      return this.filterPattern;
-    }
-  };
-  (text_formatter.WhitelistingTextInputFormatter.new = function(whitelistedPattern) {
-    if (whitelistedPattern == null) dart.nullFailed(I[0], 328, 42, "whitelistedPattern");
-    if (!(whitelistedPattern != null)) dart.assertFailed(null, I[0], 329, 14, "whitelistedPattern != null");
-    text_formatter.WhitelistingTextInputFormatter.__proto__.allow.call(this, whitelistedPattern);
-    ;
-  }).prototype = text_formatter.WhitelistingTextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter.WhitelistingTextInputFormatter);
-  dart.addTypeCaches(text_formatter.WhitelistingTextInputFormatter);
-  dart.setGetterSignature(text_formatter.WhitelistingTextInputFormatter, () => ({
-    __proto__: dart.getGetters(text_formatter.WhitelistingTextInputFormatter.__proto__),
-    whitelistedPattern: core.Pattern
-  }));
-  dart.setLibraryUri(text_formatter.WhitelistingTextInputFormatter, I[1]);
-  dart.defineLazy(text_formatter.WhitelistingTextInputFormatter, {
-    /*text_formatter.WhitelistingTextInputFormatter.digitsOnly*/get digitsOnly() {
-      return new text_formatter.WhitelistingTextInputFormatter.new(core.RegExp.new("\\d+"));
-    }
-  }, false);
-  var maxLength$ = dart.privateName(text_formatter, "LengthLimitingTextInputFormatter.maxLength");
-  var maxLengthEnforcement$ = dart.privateName(text_formatter, "LengthLimitingTextInputFormatter.maxLengthEnforcement");
-  var _name = dart.privateName(platform$, "_name");
-  text_formatter.LengthLimitingTextInputFormatter = class LengthLimitingTextInputFormatter extends text_formatter.TextInputFormatter {
-    get maxLength() {
-      return this[maxLength$];
-    }
-    set maxLength(value) {
-      super.maxLength = value;
-    }
-    get maxLengthEnforcement() {
-      return this[maxLengthEnforcement$];
-    }
-    set maxLengthEnforcement(value) {
-      super.maxLengthEnforcement = value;
-    }
-    static getDefaultMaxLengthEnforcement(platform = null) {
-      let t0;
-      if (true) {
-        return text_formatter.MaxLengthEnforcement.truncateAfterCompositionEnds;
-      } else {
-        switch (t0 = platform, t0 == null ? platform$.defaultTargetPlatform : t0) {
-          case C[4] || CT.C4:
-          case C[5] || CT.C5:
-          {
-            return text_formatter.MaxLengthEnforcement.enforced;
-          }
-          case C[6] || CT.C6:
-          case C[7] || CT.C7:
-          case C[8] || CT.C8:
-          case C[9] || CT.C9:
-          {
-            return text_formatter.MaxLengthEnforcement.truncateAfterCompositionEnds;
-          }
-          default:
-          {
-            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-          }
-        }
-      }
-    }
-    static truncate(value, maxLength) {
-      if (value == null) dart.nullFailed(I[0], 462, 53, "value");
-      if (maxLength == null) dart.nullFailed(I[0], 462, 64, "maxLength");
-      let iterator = new characters_impl.StringCharacterRange.new(value.text);
-      if (dart.notNull(extensions['StringCharacters|get#characters'](value.text)[$length]) > dart.notNull(maxLength)) {
-        iterator.expandNext(maxLength);
-      }
-      let truncated = iterator.current;
-      return new text_input.TextEditingValue.new({text: truncated, selection: value.selection.copyWith({baseOffset: math.min(core.int, value.selection.start, truncated.length), extentOffset: math.min(core.int, value.selection.end, truncated.length)}), composing: !dart.test(value.composing.isCollapsed) && truncated.length > dart.notNull(value.composing.start) ? new ui.TextRange.new({start: value.composing.start, end: math.min(core.int, value.composing.end, truncated.length)}) : ui.TextRange.empty});
-    }
-    formatEditUpdate(oldValue, newValue) {
-      let t0;
-      if (oldValue == null) dart.nullFailed(I[0], 486, 22, "oldValue");
-      if (newValue == null) dart.nullFailed(I[0], 487, 22, "newValue");
-      let maxLength = this.maxLength;
-      if (maxLength == null || maxLength === -1 || dart.notNull(extensions['StringCharacters|get#characters'](newValue.text)[$length]) <= dart.notNull(maxLength)) {
-        return newValue;
-      }
-      if (!(dart.notNull(maxLength) > 0)) dart.assertFailed(null, I[0], 497, 12, "maxLength > 0");
-      switch (t0 = this.maxLengthEnforcement, t0 == null ? text_formatter.LengthLimitingTextInputFormatter.getDefaultMaxLengthEnforcement() : t0) {
-        case C[0] || CT.C0:
-        {
-          return newValue;
-        }
-        case C[1] || CT.C1:
-        {
-          if (extensions['StringCharacters|get#characters'](oldValue.text)[$length] == maxLength && !dart.test(oldValue.selection.isValid)) {
-            return oldValue;
-          }
-          return text_formatter.LengthLimitingTextInputFormatter.truncate(newValue, maxLength);
-        }
-        case C[2] || CT.C2:
-        {
-          if (extensions['StringCharacters|get#characters'](oldValue.text)[$length] == maxLength && !dart.test(oldValue.composing.isValid)) {
-            return oldValue;
-          }
-          if (dart.test(newValue.composing.isValid)) {
-            return newValue;
-          }
-          return text_formatter.LengthLimitingTextInputFormatter.truncate(newValue, maxLength);
-        }
-        default:
-        {
-          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
-        }
-      }
-    }
-  };
-  (text_formatter.LengthLimitingTextInputFormatter.new = function(maxLength, opts) {
-    let maxLengthEnforcement = opts && 'maxLengthEnforcement' in opts ? opts.maxLengthEnforcement : null;
-    this[maxLength$] = maxLength;
-    this[maxLengthEnforcement$] = maxLengthEnforcement;
-    if (!(maxLength == null || maxLength === -1 || dart.notNull(maxLength) > 0)) dart.assertFailed(null, I[0], 371, 15, "maxLength == null || maxLength == -1 || maxLength > 0");
-    ;
-  }).prototype = text_formatter.LengthLimitingTextInputFormatter.prototype;
-  dart.addTypeTests(text_formatter.LengthLimitingTextInputFormatter);
-  dart.addTypeCaches(text_formatter.LengthLimitingTextInputFormatter);
-  dart.setMethodSignature(text_formatter.LengthLimitingTextInputFormatter, () => ({
-    __proto__: dart.getMethods(text_formatter.LengthLimitingTextInputFormatter.__proto__),
-    formatEditUpdate: dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue])
-  }));
-  dart.setLibraryUri(text_formatter.LengthLimitingTextInputFormatter, I[1]);
-  dart.setFieldSignature(text_formatter.LengthLimitingTextInputFormatter, () => ({
-    __proto__: dart.getFields(text_formatter.LengthLimitingTextInputFormatter.__proto__),
-    maxLength: dart.finalFieldType(dart.nullable(core.int)),
-    maxLengthEnforcement: dart.finalFieldType(dart.nullable(text_formatter.MaxLengthEnforcement))
-  }));
-  var TextRange_end = dart.privateName(ui, "TextRange.end");
-  var TextRange_start = dart.privateName(ui, "TextRange.start");
-  var TextSelection_isDirectional = dart.privateName(text_editing, "TextSelection.isDirectional");
-  var _name$0 = dart.privateName(ui, "_name");
-  var TextSelection_affinity = dart.privateName(text_editing, "TextSelection.affinity");
-  var TextSelection_extentOffset = dart.privateName(text_editing, "TextSelection.extentOffset");
-  var TextSelection_baseOffset = dart.privateName(text_editing, "TextSelection.baseOffset");
-  text_formatter._selectionAwareTextManipulation = function _selectionAwareTextManipulation(value, substringManipulation) {
+  (force_press.ForcePressDetails.new = function(opts) {
     let t0;
-    if (value == null) dart.nullFailed(I[0], 532, 20, "value");
-    if (substringManipulation == null) dart.nullFailed(I[0], 533, 10, "substringManipulation");
-    let selectionStartIndex = value.selection.start;
-    let selectionEndIndex = value.selection.end;
-    let manipulatedText = null;
-    let manipulatedSelection = null;
-    if (dart.notNull(selectionStartIndex) < 0 || dart.notNull(selectionEndIndex) < 0) {
-      manipulatedText = substringManipulation(value.text);
-    } else {
-      let beforeSelection = substringManipulation(value.text[$substring](0, selectionStartIndex));
-      let inSelection = substringManipulation(value.text[$substring](selectionStartIndex, selectionEndIndex));
-      let afterSelection = substringManipulation(value.text[$substring](selectionEndIndex));
-      manipulatedText = dart.notNull(beforeSelection) + dart.notNull(inSelection) + dart.notNull(afterSelection);
-      if (dart.notNull(value.selection.baseOffset) > dart.notNull(value.selection.extentOffset)) {
-        manipulatedSelection = value.selection.copyWith({baseOffset: beforeSelection.length + inSelection.length, extentOffset: beforeSelection.length});
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : null;
+    if (globalPosition == null) dart.nullFailed(I[0], 49, 19, "globalPosition");
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let pressure = opts && 'pressure' in opts ? opts.pressure : null;
+    if (pressure == null) dart.nullFailed(I[0], 51, 19, "pressure");
+    this[globalPosition$] = globalPosition;
+    this[pressure$] = pressure;
+    if (!(globalPosition != null)) dart.assertFailed(null, I[0], 52, 15, "globalPosition != null");
+    if (!(pressure != null)) dart.assertFailed(null, I[0], 53, 15, "pressure != null");
+    this[localPosition$] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+    ;
+  }).prototype = force_press.ForcePressDetails.prototype;
+  dart.addTypeTests(force_press.ForcePressDetails);
+  dart.addTypeCaches(force_press.ForcePressDetails);
+  dart.setLibraryUri(force_press.ForcePressDetails, I[1]);
+  dart.setFieldSignature(force_press.ForcePressDetails, () => ({
+    __proto__: dart.getFields(force_press.ForcePressDetails.__proto__),
+    globalPosition: dart.finalFieldType(ui.Offset),
+    localPosition: dart.finalFieldType(ui.Offset),
+    pressure: dart.finalFieldType(core.double)
+  }));
+  var onStart = dart.privateName(force_press, "ForcePressGestureRecognizer.onStart");
+  var onUpdate = dart.privateName(force_press, "ForcePressGestureRecognizer.onUpdate");
+  var onPeak = dart.privateName(force_press, "ForcePressGestureRecognizer.onPeak");
+  var onEnd = dart.privateName(force_press, "ForcePressGestureRecognizer.onEnd");
+  var startPressure$ = dart.privateName(force_press, "ForcePressGestureRecognizer.startPressure");
+  var peakPressure$ = dart.privateName(force_press, "ForcePressGestureRecognizer.peakPressure");
+  var interpolation$ = dart.privateName(force_press, "ForcePressGestureRecognizer.interpolation");
+  var __ForcePressGestureRecognizer__lastPosition = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPosition");
+  var __ForcePressGestureRecognizer__lastPosition_isSet = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPosition#isSet");
+  var __ForcePressGestureRecognizer__lastPressure = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPressure");
+  var __ForcePressGestureRecognizer__lastPressure_isSet = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPressure#isSet");
+  var _state = dart.privateName(force_press, "_state");
+  var _lastPosition = dart.privateName(force_press, "_lastPosition");
+  var _lastPressure = dart.privateName(force_press, "_lastPressure");
+  force_press.ForcePressGestureRecognizer = class ForcePressGestureRecognizer extends recognizer.OneSequenceGestureRecognizer {
+    get onStart() {
+      return this[onStart];
+    }
+    set onStart(value) {
+      this[onStart] = value;
+    }
+    get onUpdate() {
+      return this[onUpdate];
+    }
+    set onUpdate(value) {
+      this[onUpdate] = value;
+    }
+    get onPeak() {
+      return this[onPeak];
+    }
+    set onPeak(value) {
+      this[onPeak] = value;
+    }
+    get onEnd() {
+      return this[onEnd];
+    }
+    set onEnd(value) {
+      this[onEnd] = value;
+    }
+    get startPressure() {
+      return this[startPressure$];
+    }
+    set startPressure(value) {
+      super.startPressure = value;
+    }
+    get peakPressure() {
+      return this[peakPressure$];
+    }
+    set peakPressure(value) {
+      super.peakPressure = value;
+    }
+    get interpolation() {
+      return this[interpolation$];
+    }
+    set interpolation(value) {
+      super.interpolation = value;
+    }
+    get [_lastPosition]() {
+      let t0;
+      return dart.test(this[__ForcePressGestureRecognizer__lastPosition_isSet]) ? (t0 = this[__ForcePressGestureRecognizer__lastPosition], t0) : dart.throw(new _internal.LateError.fieldNI("_lastPosition"));
+    }
+    set [_lastPosition](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 207, 19, "null");
+      this[__ForcePressGestureRecognizer__lastPosition_isSet] = true;
+      this[__ForcePressGestureRecognizer__lastPosition] = t0;
+    }
+    get [_lastPressure]() {
+      let t1;
+      return dart.test(this[__ForcePressGestureRecognizer__lastPressure_isSet]) ? (t1 = this[__ForcePressGestureRecognizer__lastPressure], t1) : dart.throw(new _internal.LateError.fieldNI("_lastPressure"));
+    }
+    set [_lastPressure](t1) {
+      if (t1 == null) dart.nullFailed(I[0], 208, 15, "null");
+      this[__ForcePressGestureRecognizer__lastPressure_isSet] = true;
+      this[__ForcePressGestureRecognizer__lastPressure] = t1;
+    }
+    addAllowedPointer(event) {
+      if (event == null) dart.nullFailed(I[0], 212, 39, "event");
+      if (!events.PointerUpEvent.is(event) && dart.notNull(event.pressureMax) <= 1.0) {
+        this.resolve(arena.GestureDisposition.rejected);
       } else {
-        manipulatedSelection = value.selection.copyWith({baseOffset: beforeSelection.length, extentOffset: beforeSelection.length + inSelection.length});
+        this.startTrackingPointer(event.pointer, event.transform);
+        if (this[_state] == force_press._ForceState.ready) {
+          this[_state] = force_press._ForceState.possible;
+          this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
+        }
       }
     }
-    return new text_input.TextEditingValue.new({text: manipulatedText, selection: (t0 = manipulatedSelection, t0 == null ? C[10] || CT.C10 : t0), composing: manipulatedText == value.text ? value.composing : ui.TextRange.empty});
+    handleEvent(event) {
+      let t4, t3, t2;
+      if (event == null) dart.nullFailed(I[0], 228, 33, "event");
+      if (!(this[_state] != force_press._ForceState.ready)) dart.assertFailed(null, I[0], 229, 12, "_state != _ForceState.ready");
+      if (events.PointerMoveEvent.is(event) || events.PointerDownEvent.is(event)) {
+        if (dart.notNull(event.pressure) > dart.notNull(event.pressureMax) || dart.notNull(event.pressure) < dart.notNull(event.pressureMin)) {
+          print.debugPrint("The reported device pressure " + dart.toString(event.pressure) + " is outside of the device pressure range where: " + dart.toString(event.pressureMin) + " <= pressure <= " + dart.toString(event.pressureMax));
+        }
+        let pressure = (t2 = event.pressureMin, t3 = event.pressureMax, t4 = event.pressure, this.interpolation(t2, t3, t4));
+        if (!(dart.notNull(pressure) >= 0.0 && dart.notNull(pressure) <= 1.0 || pressure[$isNaN])) dart.assertFailed(null, I[0], 242, 9, "(pressure >= 0.0 && pressure <= 1.0) || // Interpolated pressure must be between 1.0 and 0.0...\r\n        pressure.isNaN");
+        this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
+        this[_lastPressure] = pressure;
+        if (this[_state] == force_press._ForceState.possible) {
+          if (dart.notNull(pressure) > dart.notNull(this.startPressure)) {
+            this[_state] = force_press._ForceState.started;
+            this.resolve(arena.GestureDisposition.accepted);
+          } else if (dart.notNull(event.delta.distanceSquared) > dart.notNull(events.computeHitSlop(event.kind))) {
+            this.resolve(arena.GestureDisposition.rejected);
+          }
+        }
+        if (dart.notNull(pressure) > dart.notNull(this.startPressure) && this[_state] == force_press._ForceState.accepted) {
+          this[_state] = force_press._ForceState.started;
+          if (this.onStart != null) {
+            this.invokeCallback(dart.void, "onStart", dart.fn(() => dart.nullCheck(this.onStart)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), T.VoidTovoid()));
+          }
+        }
+        if (this.onPeak != null && dart.notNull(pressure) > dart.notNull(this.peakPressure) && this[_state] == force_press._ForceState.started) {
+          this[_state] = force_press._ForceState.peaked;
+          if (this.onPeak != null) {
+            this.invokeCallback(dart.void, "onPeak", dart.fn(() => dart.nullCheck(this.onPeak)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: event.position, localPosition: event.localPosition})), T.VoidTovoid()));
+          }
+        }
+        if (this.onUpdate != null && !pressure[$isNaN] && (this[_state] == force_press._ForceState.started || this[_state] == force_press._ForceState.peaked)) {
+          if (this.onUpdate != null) {
+            this.invokeCallback(dart.void, "onUpdate", dart.fn(() => dart.nullCheck(this.onUpdate)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: event.position, localPosition: event.localPosition})), T.VoidTovoid()));
+          }
+        }
+      }
+      this.stopTrackingIfPointerNoLongerDown(event);
+    }
+    acceptGesture(pointer) {
+      if (pointer == null) dart.nullFailed(I[0], 295, 26, "pointer");
+      if (this[_state] == force_press._ForceState.possible) this[_state] = force_press._ForceState.accepted;
+      if (this.onStart != null && this[_state] == force_press._ForceState.started) {
+        this.invokeCallback(dart.void, "onStart", dart.fn(() => dart.nullCheck(this.onStart)(new force_press.ForcePressDetails.new({pressure: this[_lastPressure], globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), T.VoidTovoid()));
+      }
+    }
+    didStopTrackingLastPointer(pointer) {
+      if (pointer == null) dart.nullFailed(I[0], 309, 39, "pointer");
+      let wasAccepted = this[_state] == force_press._ForceState.started || this[_state] == force_press._ForceState.peaked;
+      if (this[_state] == force_press._ForceState.possible) {
+        this.resolve(arena.GestureDisposition.rejected);
+        return;
+      }
+      if (wasAccepted && this.onEnd != null) {
+        if (this.onEnd != null) {
+          this.invokeCallback(dart.void, "onEnd", dart.fn(() => dart.nullCheck(this.onEnd)(new force_press.ForcePressDetails.new({pressure: 0.0, globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), T.VoidTovoid()));
+        }
+      }
+      this[_state] = force_press._ForceState.ready;
+    }
+    rejectGesture(pointer) {
+      if (pointer == null) dart.nullFailed(I[0], 328, 26, "pointer");
+      this.stopTrackingPointer(pointer);
+      this.didStopTrackingLastPointer(pointer);
+    }
+    static _inverseLerp(min, max, t) {
+      if (min == null) dart.nullFailed(I[0], 333, 37, "min");
+      if (max == null) dart.nullFailed(I[0], 333, 49, "max");
+      if (t == null) dart.nullFailed(I[0], 333, 61, "t");
+      if (!(dart.notNull(min) <= dart.notNull(max))) dart.assertFailed(null, I[0], 334, 12, "min <= max");
+      let value = (dart.notNull(t) - dart.notNull(min)) / (dart.notNull(max) - dart.notNull(min));
+      if (!value[$isNaN]) value = value[$clamp](0.0, 1.0);
+      return value;
+    }
+    get debugDescription() {
+      return "force press";
+    }
   };
-  dart.trackLibraries("packages/flutter/src/services/text_formatter.dart", {
-    "package:flutter/src/services/text_formatter.dart": text_formatter
+  (force_press.ForcePressGestureRecognizer.new = function(opts) {
+    let startPressure = opts && 'startPressure' in opts ? opts.startPressure : 0.4;
+    if (startPressure == null) dart.nullFailed(I[0], 123, 10, "startPressure");
+    let peakPressure = opts && 'peakPressure' in opts ? opts.peakPressure : 0.85;
+    if (peakPressure == null) dart.nullFailed(I[0], 124, 10, "peakPressure");
+    let interpolation = opts && 'interpolation' in opts ? opts.interpolation : C[6] || CT.C6;
+    if (interpolation == null) dart.nullFailed(I[0], 125, 10, "interpolation");
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[onStart] = null;
+    this[onUpdate] = null;
+    this[onPeak] = null;
+    this[onEnd] = null;
+    this[__ForcePressGestureRecognizer__lastPosition] = null;
+    this[__ForcePressGestureRecognizer__lastPosition_isSet] = false;
+    this[__ForcePressGestureRecognizer__lastPressure] = null;
+    this[__ForcePressGestureRecognizer__lastPressure_isSet] = false;
+    this[_state] = force_press._ForceState.ready;
+    this[startPressure$] = startPressure;
+    this[peakPressure$] = peakPressure;
+    this[interpolation$] = interpolation;
+    if (!(startPressure != null)) dart.assertFailed(null, I[0], 128, 15, "startPressure != null");
+    if (!(peakPressure != null)) dart.assertFailed(null, I[0], 129, 15, "peakPressure != null");
+    if (!(interpolation != null)) dart.assertFailed(null, I[0], 130, 15, "interpolation != null");
+    if (!(dart.notNull(peakPressure) > dart.notNull(startPressure))) dart.assertFailed(null, I[0], 131, 15, "peakPressure > startPressure");
+    force_press.ForcePressGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+    ;
+  }).prototype = force_press.ForcePressGestureRecognizer.prototype;
+  dart.addTypeTests(force_press.ForcePressGestureRecognizer);
+  dart.addTypeCaches(force_press.ForcePressGestureRecognizer);
+  dart.setMethodSignature(force_press.ForcePressGestureRecognizer, () => ({
+    __proto__: dart.getMethods(force_press.ForcePressGestureRecognizer.__proto__),
+    addAllowedPointer: dart.fnType(dart.void, [events.PointerEvent]),
+    handleEvent: dart.fnType(dart.void, [events.PointerEvent]),
+    didStopTrackingLastPointer: dart.fnType(dart.void, [core.int])
+  }));
+  dart.setGetterSignature(force_press.ForcePressGestureRecognizer, () => ({
+    __proto__: dart.getGetters(force_press.ForcePressGestureRecognizer.__proto__),
+    [_lastPosition]: recognizer.OffsetPair,
+    [_lastPressure]: core.double,
+    debugDescription: core.String
+  }));
+  dart.setSetterSignature(force_press.ForcePressGestureRecognizer, () => ({
+    __proto__: dart.getSetters(force_press.ForcePressGestureRecognizer.__proto__),
+    [_lastPosition]: recognizer.OffsetPair,
+    [_lastPressure]: core.double
+  }));
+  dart.setLibraryUri(force_press.ForcePressGestureRecognizer, I[1]);
+  dart.setFieldSignature(force_press.ForcePressGestureRecognizer, () => ({
+    __proto__: dart.getFields(force_press.ForcePressGestureRecognizer.__proto__),
+    onStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
+    onUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
+    onPeak: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
+    onEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
+    startPressure: dart.finalFieldType(core.double),
+    peakPressure: dart.finalFieldType(core.double),
+    interpolation: dart.finalFieldType(dart.fnType(core.double, [core.double, core.double, core.double])),
+    [__ForcePressGestureRecognizer__lastPosition]: dart.fieldType(dart.nullable(recognizer.OffsetPair)),
+    [__ForcePressGestureRecognizer__lastPosition_isSet]: dart.fieldType(core.bool),
+    [__ForcePressGestureRecognizer__lastPressure]: dart.fieldType(dart.nullable(core.double)),
+    [__ForcePressGestureRecognizer__lastPressure_isSet]: dart.fieldType(core.bool),
+    [_state]: dart.fieldType(force_press._ForceState)
+  }));
+  dart.trackLibraries("packages/flutter/src/gestures/force_press.dart", {
+    "package:flutter/src/gestures/force_press.dart": force_press
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["text_formatter.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/services/text_formatter.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["force_press.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/gestures/force_press.dart.lib.js"}');
   // Exports:
   return {
-    src__services__text_formatter: text_formatter
+    src__gestures__force_press: force_press
   };
 }));
 
-//# sourceMappingURL=text_formatter.dart.lib.js.map
+//# sourceMappingURL=force_press.dart.lib.js.map

@@ -19,15 +19,15 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "ik0fmb7l11bc/9TPZhPm/Q==";
+    window.$dartAppId = "swj7qgiRLsnm6YRN8FF+yw==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "7.1.1";
-window.$dwdsDevHandlerPath = "http://localhost:49847/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:58178/$dwdsSseHandler";
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:49849/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:58180/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -493,7 +493,6 @@ let modulePaths = {
  "packages/flutter/src/material/animated_icons.dart": "packages/flutter/src/material/animated_icons.dart.lib",
  "packages/flutter/src/material/about.dart": "packages/flutter/src/material/about.dart.lib",
  "packages/flutter_drawer/Custom%20Widgets/aesthetic.dart": "packages/flutter_drawer/Custom%20Widgets/aesthetic.dart.lib",
- "packages/flutter_drawer/Custom%20Widgets/MyDrawer.dart": "packages/flutter_drawer/Custom%20Widgets/MyDrawer.dart.lib",
  "packages/flutter_drawer/Custom%20Widgets/CustomCard.dart": "packages/flutter_drawer/Custom%20Widgets/CustomCard.dart.lib",
  "packages/flutter_drawer/Screens/SetProfile.dart": "packages/flutter_drawer/Screens/SetProfile.dart.lib",
  "packages/flutter_drawer/Custom%20Widgets/ImageProfile.dart": "packages/flutter_drawer/Custom%20Widgets/ImageProfile.dart.lib",
@@ -501,7 +500,8 @@ let modulePaths = {
  "packages/flutter_drawer/Screens/Screen2.dart": "packages/flutter_drawer/Screens/Screen2.dart.lib",
  "packages/flutter_drawer/Screens/ShowRecords.dart": "packages/flutter_drawer/Screens/ShowRecords.dart.lib",
  "packages/flutter_drawer/Screens/RegisterScreen.dart": "packages/flutter_drawer/Screens/RegisterScreen.dart.lib",
- "packages/flutter_drawer/Screens/AddRecors.dart": "packages/flutter_drawer/Screens/AddRecors.dart.lib"
+ "packages/flutter_drawer/Screens/AddRecors.dart": "packages/flutter_drawer/Screens/AddRecors.dart.lib",
+ "packages/flutter_drawer/Custom%20Widgets/MyDrawer.dart": "packages/flutter_drawer/Custom%20Widgets/MyDrawer.dart.lib"
 };
 let moduleNames = {
  "web_entrypoint.dart.lib": "web_entrypoint.dart",
@@ -917,7 +917,6 @@ let moduleNames = {
  "packages/flutter/src/material/animated_icons.dart.lib": "packages/flutter/src/material/animated_icons.dart",
  "packages/flutter/src/material/about.dart.lib": "packages/flutter/src/material/about.dart",
  "packages/flutter_drawer/Custom%20Widgets/aesthetic.dart.lib": "packages/flutter_drawer/Custom%20Widgets/aesthetic.dart",
- "packages/flutter_drawer/Custom%20Widgets/MyDrawer.dart.lib": "packages/flutter_drawer/Custom%20Widgets/MyDrawer.dart",
  "packages/flutter_drawer/Custom%20Widgets/CustomCard.dart.lib": "packages/flutter_drawer/Custom%20Widgets/CustomCard.dart",
  "packages/flutter_drawer/Screens/SetProfile.dart.lib": "packages/flutter_drawer/Screens/SetProfile.dart",
  "packages/flutter_drawer/Custom%20Widgets/ImageProfile.dart.lib": "packages/flutter_drawer/Custom%20Widgets/ImageProfile.dart",
@@ -925,7 +924,8 @@ let moduleNames = {
  "packages/flutter_drawer/Screens/Screen2.dart.lib": "packages/flutter_drawer/Screens/Screen2.dart",
  "packages/flutter_drawer/Screens/ShowRecords.dart.lib": "packages/flutter_drawer/Screens/ShowRecords.dart",
  "packages/flutter_drawer/Screens/RegisterScreen.dart.lib": "packages/flutter_drawer/Screens/RegisterScreen.dart",
- "packages/flutter_drawer/Screens/AddRecors.dart.lib": "packages/flutter_drawer/Screens/AddRecors.dart"
+ "packages/flutter_drawer/Screens/AddRecors.dart.lib": "packages/flutter_drawer/Screens/AddRecors.dart",
+ "packages/flutter_drawer/Custom%20Widgets/MyDrawer.dart.lib": "packages/flutter_drawer/Custom%20Widgets/MyDrawer.dart"
 };
 if(!window.$requireLoader) {
    window.$requireLoader = {

@@ -1,54 +1,59 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/services/text_editing.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__services__text_input_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__services__text_editing$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__services__system_channels$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/widgets/scroll_metrics.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/physics/spring_simulation.dart', 'packages/flutter/src/physics/tolerance.dart', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/widgets/sliver_fill.dart', 'packages/flutter/src/rendering/viewport_offset.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__widgets__page_view_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__widgets__scroll_metrics$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__physics__spring_simulation$46dart, packages__flutter__src__physics__tolerance$46dart, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__widgets__sliver_fill$46dart, packages__flutter__src__rendering__viewport_offset$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const math = dart_sdk.math;
   const _js_helper = dart_sdk._js_helper;
   const ui = dart_sdk.ui;
-  const io = dart_sdk.io;
   const _internal = dart_sdk._internal;
-  const async = dart_sdk.async;
   const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const text_editing = packages__flutter__src__services__text_editing$46dart.src__services__text_editing;
-  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
-  const system_channels = packages__flutter__src__services__system_channels$46dart.src__services__system_channels;
-  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
-  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const scroll_controller = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_controller;
+  const scroll_position = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_position;
+  const page_storage = packages__flutter__src__widgets__widget_span$46dart.src__widgets__page_storage;
+  const scroll_position_with_single_context = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_position_with_single_context;
+  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const sliver = packages__flutter__src__widgets__widget_span$46dart.src__widgets__sliver;
+  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const notification_listener = packages__flutter__src__widgets__widget_span$46dart.src__widgets__notification_listener;
+  const scroll_notification = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_notification;
+  const scrollable = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scrollable;
+  const viewport = packages__flutter__src__widgets__widget_span$46dart.src__widgets__viewport;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const scroll_metrics = packages__flutter__src__widgets__scroll_metrics$46dart.src__widgets__scroll_metrics;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const spring_simulation = packages__flutter__src__physics__spring_simulation$46dart.src__physics__spring_simulation;
+  const tolerance = packages__flutter__src__physics__tolerance$46dart.src__physics__tolerance;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const viewport$ = packages__flutter__src__rendering__sliver$46dart.src__rendering__viewport;
+  const sliver_fill = packages__flutter__src__widgets__sliver_fill$46dart.src__widgets__sliver_fill;
+  const viewport_offset = packages__flutter__src__rendering__viewport_offset$46dart.src__rendering__viewport_offset;
   const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var text_input = Object.create(dart.library);
-  var autofill = Object.create(dart.library);
-  var $_get = dartx._get;
-  var $_set = dartx._set;
-  var $toString = dartx.toString;
-  var $hashCode = dartx.hashCode;
-  var $contains = dartx.contains;
-  var $keys = dartx.keys;
+  var page_view = Object.create(dart.library);
   var $isNotEmpty = dartx.isNotEmpty;
-  var $map = dartx.map;
-  var $toList = dartx.toList;
-  var $any = dartx.any;
+  var $length = dartx.length;
+  var $toDouble = dartx.toDouble;
+  var $round = dartx.round;
+  var $clamp = dartx.clamp;
+  var $roundToDouble = dartx.roundToDouble;
+  var $abs = dartx.abs;
+  var $noSuchMethod = dartx.noSuchMethod;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    SmartDashesTypeL: () => (T.SmartDashesTypeL = dart.constFn(dart.legacy(text_input.SmartDashesType)))(),
-    SmartQuotesTypeL: () => (T.SmartQuotesTypeL = dart.constFn(dart.legacy(text_input.SmartQuotesType)))(),
-    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
-    TextInputTypeL: () => (T.TextInputTypeL = dart.constFn(dart.legacy(text_input.TextInputType)))(),
-    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
-    TextInputActionL: () => (T.TextInputActionL = dart.constFn(dart.legacy(text_input.TextInputAction)))(),
-    TextCapitalizationL: () => (T.TextCapitalizationL = dart.constFn(dart.legacy(text_input.TextCapitalization)))(),
-    FloatingCursorDragStateL: () => (T.FloatingCursorDragStateL = dart.constFn(dart.legacy(text_input.FloatingCursorDragState)))(),
-    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
-    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
-    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))(),
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    TextInputConfigurationToMapOfString$dynamic: () => (T.TextInputConfigurationToMapOfString$dynamic = dart.constFn(dart.fnType(T.MapOfString$dynamic(), [text_input.TextInputConfiguration])))(),
-    AutofillClientTobool: () => (T.AutofillClientTobool = dart.constFn(dart.fnType(core.bool, [autofill.AutofillClient])))(),
-    AutofillClientToTextInputConfiguration: () => (T.AutofillClientToTextInputConfiguration = dart.constFn(dart.fnType(text_input.TextInputConfiguration, [autofill.AutofillClient])))()
+    doubleN: () => (T.doubleN = dart.constFn(dart.nullable(core.double)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    NotificationListenerOfScrollNotification: () => (T.NotificationListenerOfScrollNotification = dart.constFn(notification_listener.NotificationListener$(scroll_notification.ScrollNotification)))(),
+    ScrollNotificationTobool: () => (T.ScrollNotificationTobool = dart.constFn(dart.fnType(core.bool, [scroll_notification.ScrollNotification])))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    BuildContextAndViewportOffsetToViewport: () => (T.BuildContextAndViewportOffsetToViewport = dart.constFn(dart.fnType(viewport.Viewport, [framework.BuildContext, viewport_offset.ViewportOffset])))(),
+    EnumPropertyOfAxis: () => (T.EnumPropertyOfAxis = dart.constFn(diagnostics.EnumProperty$(basic_types.Axis)))(),
+    DiagnosticsPropertyOfPageController: () => (T.DiagnosticsPropertyOfPageController = dart.constFn(diagnostics.DiagnosticsProperty$(page_view.PageController)))(),
+    DiagnosticsPropertyOfScrollPhysics: () => (T.DiagnosticsPropertyOfScrollPhysics = dart.constFn(diagnostics.DiagnosticsProperty$(scroll_physics.ScrollPhysics)))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -65,1733 +70,1042 @@ define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flu
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: text_input.SmartDashesType.prototype,
-        [_name$]: "SmartDashesType.disabled",
-        index: 0
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: text_input.SmartDashesType.prototype,
-        [_name$]: "SmartDashesType.enabled",
-        index: 1
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.25,
+        [Cubic_b]: 0.1,
+        [Cubic_a]: 0.25
       });
     },
     get C2() {
-      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], T.SmartDashesTypeL());
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: text_input.SmartQuotesType.prototype,
-        [_name$]: "SmartQuotesType.disabled",
+      return C[2] = dart.const({
+        __proto__: scroll_position.ScrollPositionAlignmentPolicy.prototype,
+        [_name]: "ScrollPositionAlignmentPolicy.explicit",
         index: 0
       });
     },
+    get C3() {
+      return C[3] = dart.const(new _js_helper.PrivateSymbol.new('_maxScrollExtent', _maxScrollExtent));
+    },
     get C4() {
-      return C[4] = dart.const({
-        __proto__: text_input.SmartQuotesType.prototype,
-        [_name$]: "SmartQuotesType.enabled",
-        index: 1
-      });
+      return C[4] = dart.const(new _js_helper.PrivateSymbol.new('_minScrollExtent', _minScrollExtent));
     },
     get C5() {
-      return C[5] = dart.constList([C[3] || CT.C3, C[4] || CT.C4], T.SmartQuotesTypeL());
+      return C[5] = dart.const(new _js_helper.PrivateSymbol.new('_viewportDimension', _viewportDimension));
     },
     get C6() {
-      return C[6] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 0
-      });
+      return C[6] = dart.const(new _js_helper.PrivateSymbol.new('_pixels', _pixels));
     },
     get C7() {
       return C[7] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 1
+        __proto__: basic_types.Axis.prototype,
+        [_name$]: "Axis.horizontal",
+        index: 0
       });
     },
     get C8() {
-      return C[8] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: false,
-        [signed$]: false,
-        [index$]: 2
-      });
+      return C[8] = dart.constList([], T.WidgetL());
     },
     get C9() {
       return C[9] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 3
+        __proto__: recognizer.DragStartBehavior.prototype,
+        [_name$0]: "DragStartBehavior.start",
+        index: 1
       });
     },
     get C10() {
       return C[10] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 4
+        __proto__: ui.Clip.prototype,
+        [_name$1]: "Clip.hardEdge",
+        index: 1
       });
     },
     get C11() {
       return C[11] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 5
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 6
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 7
+        __proto__: basic_types.Axis.prototype,
+        [_name$]: "Axis.vertical",
+        index: 1
       });
     },
     get C14() {
       return C[14] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 8
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "viewportFraction",
+        [_Location_column]: 17,
+        [_Location_line]: 918,
+        [_Location_file]: null
       });
     },
     get C15() {
       return C[15] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 9
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "delegate",
+        [_Location_column]: 17,
+        [_Location_line]: 919,
+        [_Location_file]: null
       });
     },
-    get C16() {
-      return C[16] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15], T.TextInputTypeL());
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15], T._LocationL());
     },
-    get C17() {
-      return C[17] = dart.constList(["text", "multiline", "number", "phone", "datetime", "emailAddress", "url", "visiblePassword", "name", "address"], T.StringL());
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 917,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/page_view.dart"
+      });
     },
     get C18() {
       return C[18] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.none",
-        index: 0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "cacheExtent",
+        [_Location_column]: 13,
+        [_Location_line]: 911,
+        [_Location_file]: null
       });
     },
     get C19() {
       return C[19] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.unspecified",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "cacheExtentStyle",
+        [_Location_column]: 13,
+        [_Location_line]: 912,
+        [_Location_file]: null
       });
     },
     get C20() {
       return C[20] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.done",
-        index: 2
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisDirection",
+        [_Location_column]: 13,
+        [_Location_line]: 913,
+        [_Location_file]: null
       });
     },
     get C21() {
       return C[21] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.go",
-        index: 3
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "offset",
+        [_Location_column]: 13,
+        [_Location_line]: 914,
+        [_Location_file]: null
       });
     },
     get C22() {
       return C[22] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.search",
-        index: 4
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipBehavior",
+        [_Location_column]: 13,
+        [_Location_line]: 915,
+        [_Location_file]: null
       });
     },
     get C23() {
       return C[23] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.send",
-        index: 5
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "slivers",
+        [_Location_column]: 13,
+        [_Location_line]: 916,
+        [_Location_file]: null
       });
     },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.next",
-        index: 6
-      });
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23], T._LocationL());
     },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.previous",
-        index: 7
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 907,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/page_view.dart"
       });
     },
     get C26() {
       return C[26] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.continueAction",
-        index: 8
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dragStartBehavior",
+        [_Location_column]: 9,
+        [_Location_line]: 901,
+        [_Location_file]: null
       });
     },
     get C27() {
       return C[27] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.join",
-        index: 9
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisDirection",
+        [_Location_column]: 9,
+        [_Location_line]: 902,
+        [_Location_file]: null
       });
     },
     get C28() {
       return C[28] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.route",
-        index: 10
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 9,
+        [_Location_line]: 903,
+        [_Location_file]: null
       });
     },
     get C29() {
       return C[29] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.emergencyCall",
-        index: 11
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "physics",
+        [_Location_column]: 9,
+        [_Location_line]: 904,
+        [_Location_file]: null
       });
     },
     get C30() {
       return C[30] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.newline",
-        index: 12
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "restorationId",
+        [_Location_column]: 9,
+        [_Location_line]: 905,
+        [_Location_file]: null
       });
     },
     get C31() {
-      return C[31] = dart.constList([C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30], T.TextInputActionL());
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: text_input.TextCapitalization.prototype,
-        [_name$]: "TextCapitalization.words",
-        index: 0
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "viewportBuilder",
+        [_Location_column]: 9,
+        [_Location_line]: 906,
+        [_Location_file]: null
       });
     },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: text_input.TextCapitalization.prototype,
-        [_name$]: "TextCapitalization.sentences",
-        index: 1
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31], T._LocationL());
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 900,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/page_view.dart"
       });
     },
     get C34() {
       return C[34] = dart.const({
-        __proto__: text_input.TextCapitalization.prototype,
-        [_name$]: "TextCapitalization.characters",
-        index: 2
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onNotification",
+        [_Location_column]: 7,
+        [_Location_line]: 889,
+        [_Location_file]: null
       });
     },
     get C35() {
       return C[35] = dart.const({
-        __proto__: text_input.TextCapitalization.prototype,
-        [_name$]: "TextCapitalization.none",
-        index: 3
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 900,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.constList([C[34] || CT.C34, C[35] || CT.C35], T._LocationL());
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[33] || CT.C33,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 888,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/page_view.dart"
       });
     },
     get C36() {
-      return C[36] = dart.constList([C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], T.TextCapitalizationL());
-    },
-    get C37() {
-      return C[37] = dart.const({
-        __proto__: ui.Brightness.prototype,
-        [_name]: "Brightness.light",
-        index: 1
+      return C[36] = dart.const({
+        __proto__: page_view.PageScrollPhysics.prototype,
+        [ScrollPhysics_parent]: null
       });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: text_input.FloatingCursorDragState.prototype,
-        [_name$]: "FloatingCursorDragState.Start",
-        index: 0
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: text_input.FloatingCursorDragState.prototype,
-        [_name$]: "FloatingCursorDragState.Update",
-        index: 1
-      });
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: text_input.FloatingCursorDragState.prototype,
-        [_name$]: "FloatingCursorDragState.End",
-        index: 2
-      });
-    },
-    get C41() {
-      return C[41] = dart.constList([C[38] || CT.C38, C[39] || CT.C39, C[40] || CT.C40], T.FloatingCursorDragStateL());
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: ui.TextAffinity.prototype,
-        [_name]: "TextAffinity.downstream",
-        index: 1
-      });
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: text_editing.TextSelection.prototype,
-        [TextRange_end]: -1,
-        [TextRange_start]: -1,
-        [TextSelection_isDirectional]: false,
-        [TextSelection_affinity]: C[43] || CT.C43,
-        [TextSelection_extentOffset]: -1,
-        [TextSelection_baseOffset]: -1
-      });
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: ui.TextRange.prototype,
-        [TextRange_end]: -1,
-        [TextRange_start]: -1
-      });
-    },
-    get C45() {
-      return C[45] = dart.const({
-        __proto__: text_input.TextEditingValue.prototype,
-        [composing$]: C[44] || CT.C44,
-        [selection$]: C[42] || CT.C42,
-        [text$]: ""
-      });
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: ui.Size.prototype,
-        [OffsetBase__dy]: -1,
-        [OffsetBase__dx]: -1
-      });
-    },
-    get C47() {
-      return C[47] = dart.constList([C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[23] || CT.C23, C[21] || CT.C21, C[22] || CT.C22, C[24] || CT.C24, C[25] || CT.C25, C[30] || CT.C30], T.TextInputActionL());
-    },
-    get C48() {
-      return C[48] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[23] || CT.C23, C[21] || CT.C21, C[22] || CT.C22, C[24] || CT.C24, C[30] || CT.C30, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29], T.TextInputActionL());
     }
   }, false);
-  var C = Array(49).fill(void 0);
+  var C = Array(37).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/services/text_input.dart",
-    "package:flutter/src/services/text_input.dart",
-    "package:flutter/src/services/autofill.dart",
-    "file:///C:/src/flutter/packages/flutter/lib/src/services/autofill.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/widgets/page_view.dart",
+    "package:flutter/src/widgets/page_view.dart"
   ];
-  var _name$ = dart.privateName(text_input, "_name");
-  text_input.SmartDashesType = class SmartDashesType extends core.Object {
-    toString() {
-      return this[_name$];
+  var initialPage$ = dart.privateName(page_view, "PageController.initialPage");
+  var keepPage$ = dart.privateName(page_view, "PageController.keepPage");
+  var viewportFraction$ = dart.privateName(page_view, "PageController.viewportFraction");
+  page_view.PageController = class PageController extends scroll_controller.ScrollController {
+    get initialPage() {
+      return this[initialPage$];
+    }
+    set initialPage(value) {
+      super.initialPage = value;
+    }
+    get keepPage() {
+      return this[keepPage$];
+    }
+    set keepPage(value) {
+      super.keepPage = value;
+    }
+    get viewportFraction() {
+      return this[viewportFraction$];
+    }
+    set viewportFraction(value) {
+      super.viewportFraction = value;
+    }
+    get page() {
+      if (!dart.test(this.positions[$isNotEmpty])) dart.assertFailed("PageController.page cannot be accessed before a PageView is built with it.", I[0], 170, 7, "positions.isNotEmpty");
+      if (!(this.positions[$length] === 1)) dart.assertFailed("The page property cannot be read when multiple PageViews are attached to " + "the same PageController.", I[0], 174, 7, "positions.length == 1");
+      let position = page_view._PagePosition.as(this.position);
+      return position.page;
+    }
+    animateToPage(page, opts) {
+      if (page == null) dart.nullFailed(I[0], 189, 9, "page");
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      if (duration == null) dart.nullFailed(I[0], 190, 23, "duration");
+      let curve = opts && 'curve' in opts ? opts.curve : null;
+      if (curve == null) dart.nullFailed(I[0], 191, 20, "curve");
+      let position = page_view._PagePosition.as(this.position);
+      return position.animateTo(position.getPixelsFromPage(page[$toDouble]()), {duration: duration, curve: curve});
+    }
+    jumpToPage(page) {
+      if (page == null) dart.nullFailed(I[0], 205, 23, "page");
+      let position = page_view._PagePosition.as(this.position);
+      position.jumpTo(position.getPixelsFromPage(page[$toDouble]()));
+    }
+    nextPage(opts) {
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      if (duration == null) dart.nullFailed(I[0], 216, 45, "duration");
+      let curve = opts && 'curve' in opts ? opts.curve : null;
+      if (curve == null) dart.nullFailed(I[0], 216, 70, "curve");
+      return this.animateToPage(dart.nullCheck(this.page)[$round]() + 1, {duration: duration, curve: curve});
+    }
+    previousPage(opts) {
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      if (duration == null) dart.nullFailed(I[0], 226, 49, "duration");
+      let curve = opts && 'curve' in opts ? opts.curve : null;
+      if (curve == null) dart.nullFailed(I[0], 226, 74, "curve");
+      return this.animateToPage(dart.nullCheck(this.page)[$round]() - 1, {duration: duration, curve: curve});
+    }
+    createScrollPosition(physics, context, oldPosition) {
+      if (physics == null) dart.nullFailed(I[0], 231, 53, "physics");
+      if (context == null) dart.nullFailed(I[0], 231, 76, "context");
+      return new page_view._PagePosition.new({physics: physics, context: context, initialPage: this.initialPage, keepPage: this.keepPage, viewportFraction: this.viewportFraction, oldPosition: oldPosition});
+    }
+    attach(position) {
+      if (position == null) dart.nullFailed(I[0], 243, 30, "position");
+      super.attach(position);
+      let pagePosition = page_view._PagePosition.as(position);
+      pagePosition.viewportFraction = this.viewportFraction;
     }
   };
-  (text_input.SmartDashesType.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 38, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 38, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
+  (page_view.PageController.new = function(opts) {
+    let initialPage = opts && 'initialPage' in opts ? opts.initialPage : 0;
+    if (initialPage == null) dart.nullFailed(I[0], 117, 10, "initialPage");
+    let keepPage = opts && 'keepPage' in opts ? opts.keepPage : true;
+    if (keepPage == null) dart.nullFailed(I[0], 118, 10, "keepPage");
+    let viewportFraction = opts && 'viewportFraction' in opts ? opts.viewportFraction : 1;
+    if (viewportFraction == null) dart.nullFailed(I[0], 119, 10, "viewportFraction");
+    this[initialPage$] = initialPage;
+    this[keepPage$] = keepPage;
+    this[viewportFraction$] = viewportFraction;
+    if (!(initialPage != null)) dart.assertFailed(null, I[0], 120, 15, "initialPage != null");
+    if (!(keepPage != null)) dart.assertFailed(null, I[0], 121, 15, "keepPage != null");
+    if (!(viewportFraction != null)) dart.assertFailed(null, I[0], 122, 15, "viewportFraction != null");
+    if (!(dart.notNull(viewportFraction) > 0.0)) dart.assertFailed(null, I[0], 123, 15, "viewportFraction > 0.0");
+    page_view.PageController.__proto__.new.call(this);
     ;
-  }).prototype = text_input.SmartDashesType.prototype;
-  dart.addTypeTests(text_input.SmartDashesType);
-  dart.addTypeCaches(text_input.SmartDashesType);
-  dart.setLibraryUri(text_input.SmartDashesType, I[1]);
-  dart.setFieldSignature(text_input.SmartDashesType, () => ({
-    __proto__: dart.getFields(text_input.SmartDashesType.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
+  }).prototype = page_view.PageController.prototype;
+  dart.addTypeTests(page_view.PageController);
+  dart.addTypeCaches(page_view.PageController);
+  dart.setMethodSignature(page_view.PageController, () => ({
+    __proto__: dart.getMethods(page_view.PageController.__proto__),
+    animateToPage: dart.fnType(async.Future$(dart.void), [core.int], {}, {curve: curves.Curve, duration: core.Duration}),
+    jumpToPage: dart.fnType(dart.void, [core.int]),
+    nextPage: dart.fnType(async.Future$(dart.void), [], {}, {curve: curves.Curve, duration: core.Duration}),
+    previousPage: dart.fnType(async.Future$(dart.void), [], {}, {curve: curves.Curve, duration: core.Duration})
   }));
-  dart.defineExtensionMethods(text_input.SmartDashesType, ['toString']);
-  text_input.SmartDashesType.disabled = C[0] || CT.C0;
-  text_input.SmartDashesType.enabled = C[1] || CT.C1;
-  text_input.SmartDashesType.values = C[2] || CT.C2;
-  text_input.SmartQuotesType = class SmartQuotesType extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (text_input.SmartQuotesType.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 60, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 60, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = text_input.SmartQuotesType.prototype;
-  dart.addTypeTests(text_input.SmartQuotesType);
-  dart.addTypeCaches(text_input.SmartQuotesType);
-  dart.setLibraryUri(text_input.SmartQuotesType, I[1]);
-  dart.setFieldSignature(text_input.SmartQuotesType, () => ({
-    __proto__: dart.getFields(text_input.SmartQuotesType.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
+  dart.setGetterSignature(page_view.PageController, () => ({
+    __proto__: dart.getGetters(page_view.PageController.__proto__),
+    page: dart.nullable(core.double)
   }));
-  dart.defineExtensionMethods(text_input.SmartQuotesType, ['toString']);
-  text_input.SmartQuotesType.disabled = C[3] || CT.C3;
-  text_input.SmartQuotesType.enabled = C[4] || CT.C4;
-  text_input.SmartQuotesType.values = C[5] || CT.C5;
-  var index$ = dart.privateName(text_input, "TextInputType.index");
-  var signed$ = dart.privateName(text_input, "TextInputType.signed");
-  var decimal$ = dart.privateName(text_input, "TextInputType.decimal");
-  text_input.TextInputType = class TextInputType extends core.Object {
-    get index() {
-      return this[index$];
-    }
-    set index(value) {
-      super.index = value;
-    }
-    get signed() {
-      return this[signed$];
-    }
-    set signed(value) {
-      super.signed = value;
-    }
-    get decimal() {
-      return this[decimal$];
-    }
-    set decimal(value) {
-      super.decimal = value;
-    }
-    get [_name$]() {
-      return "TextInputType." + dart.str(text_input.TextInputType._names[$_get](this.index));
-    }
-    toJson() {
-      return new (T.IdentityMapOfString$dynamic()).from(["name", this[_name$], "signed", this.signed, "decimal", this.decimal]);
-    }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "TextInputType")) + "(" + "name: " + dart.str(this[_name$]) + ", " + "signed: " + dart.str(this.signed) + ", " + "decimal: " + dart.str(this.decimal) + ")";
-    }
-    _equals(other) {
-      if (other == null) return false;
-      return text_input.TextInputType.is(other) && other.index == this.index && other.signed == this.signed && other.decimal == this.decimal;
-    }
-    get hashCode() {
-      return ui.hashValues(this.index, this.signed, this.decimal);
-    }
-  };
-  (text_input.TextInputType.__ = function(index) {
-    if (index == null) dart.nullFailed(I[0], 83, 30, "index");
-    this[index$] = index;
-    this[signed$] = null;
-    this[decimal$] = null;
-    ;
-  }).prototype = text_input.TextInputType.prototype;
-  (text_input.TextInputType.numberWithOptions = function(opts) {
-    let signed = opts && 'signed' in opts ? opts.signed : false;
-    let decimal = opts && 'decimal' in opts ? opts.decimal : false;
-    this[signed$] = signed;
-    this[decimal$] = decimal;
-    this[index$] = 2;
-    ;
-  }).prototype = text_input.TextInputType.prototype;
-  dart.addTypeTests(text_input.TextInputType);
-  dart.addTypeCaches(text_input.TextInputType);
-  dart.setMethodSignature(text_input.TextInputType, () => ({
-    __proto__: dart.getMethods(text_input.TextInputType.__proto__),
-    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  dart.setLibraryUri(page_view.PageController, I[1]);
+  dart.setFieldSignature(page_view.PageController, () => ({
+    __proto__: dart.getFields(page_view.PageController.__proto__),
+    initialPage: dart.finalFieldType(core.int),
+    keepPage: dart.finalFieldType(core.bool),
+    viewportFraction: dart.finalFieldType(core.double)
   }));
-  dart.setGetterSignature(text_input.TextInputType, () => ({
-    __proto__: dart.getGetters(text_input.TextInputType.__proto__),
-    [_name$]: core.String
-  }));
-  dart.setLibraryUri(text_input.TextInputType, I[1]);
-  dart.setFieldSignature(text_input.TextInputType, () => ({
-    __proto__: dart.getFields(text_input.TextInputType.__proto__),
-    index: dart.finalFieldType(core.int),
-    signed: dart.finalFieldType(dart.nullable(core.bool)),
-    decimal: dart.finalFieldType(dart.nullable(core.bool))
-  }));
-  dart.defineExtensionMethods(text_input.TextInputType, ['toString', '_equals']);
-  dart.defineExtensionAccessors(text_input.TextInputType, ['hashCode']);
-  dart.defineLazy(text_input.TextInputType, {
-    /*text_input.TextInputType.text*/get text() {
-      return C[6] || CT.C6;
-    },
-    /*text_input.TextInputType.multiline*/get multiline() {
-      return C[7] || CT.C7;
-    },
-    /*text_input.TextInputType.number*/get number() {
-      return C[8] || CT.C8;
-    },
-    /*text_input.TextInputType.phone*/get phone() {
-      return C[9] || CT.C9;
-    },
-    /*text_input.TextInputType.datetime*/get datetime() {
-      return C[10] || CT.C10;
-    },
-    /*text_input.TextInputType.emailAddress*/get emailAddress() {
-      return C[11] || CT.C11;
-    },
-    /*text_input.TextInputType.url*/get url() {
-      return C[12] || CT.C12;
-    },
-    /*text_input.TextInputType.visiblePassword*/get visiblePassword() {
-      return C[13] || CT.C13;
-    },
-    /*text_input.TextInputType.name_*/get name_() {
-      return C[14] || CT.C14;
-    },
-    /*text_input.TextInputType.streetAddress*/get streetAddress() {
-      return C[15] || CT.C15;
-    },
-    /*text_input.TextInputType.values*/get values() {
-      return C[16] || CT.C16;
-    },
-    /*text_input.TextInputType._names*/get _names() {
-      return C[17] || CT.C17;
+  var viewportFraction$0 = dart.privateName(page_view, "PageMetrics.viewportFraction");
+  page_view.PageMetrics = class PageMetrics extends scroll_metrics.FixedScrollMetrics {
+    get viewportFraction() {
+      return this[viewportFraction$0];
     }
-  }, false);
-  text_input.TextInputAction = class TextInputAction extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (text_input.TextInputAction.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 252, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 252, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = text_input.TextInputAction.prototype;
-  dart.addTypeTests(text_input.TextInputAction);
-  dart.addTypeCaches(text_input.TextInputAction);
-  dart.setLibraryUri(text_input.TextInputAction, I[1]);
-  dart.setFieldSignature(text_input.TextInputAction, () => ({
-    __proto__: dart.getFields(text_input.TextInputAction.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(text_input.TextInputAction, ['toString']);
-  text_input.TextInputAction.none = C[18] || CT.C18;
-  text_input.TextInputAction.unspecified = C[19] || CT.C19;
-  text_input.TextInputAction.done = C[20] || CT.C20;
-  text_input.TextInputAction.go = C[21] || CT.C21;
-  text_input.TextInputAction.search = C[22] || CT.C22;
-  text_input.TextInputAction.send = C[23] || CT.C23;
-  text_input.TextInputAction.next = C[24] || CT.C24;
-  text_input.TextInputAction.previous = C[25] || CT.C25;
-  text_input.TextInputAction.continueAction = C[26] || CT.C26;
-  text_input.TextInputAction.join = C[27] || CT.C27;
-  text_input.TextInputAction.route = C[28] || CT.C28;
-  text_input.TextInputAction.emergencyCall = C[29] || CT.C29;
-  text_input.TextInputAction.newline = C[30] || CT.C30;
-  text_input.TextInputAction.values = C[31] || CT.C31;
-  text_input.TextCapitalization = class TextCapitalization extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (text_input.TextCapitalization.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 408, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 408, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = text_input.TextCapitalization.prototype;
-  dart.addTypeTests(text_input.TextCapitalization);
-  dart.addTypeCaches(text_input.TextCapitalization);
-  dart.setLibraryUri(text_input.TextCapitalization, I[1]);
-  dart.setFieldSignature(text_input.TextCapitalization, () => ({
-    __proto__: dart.getFields(text_input.TextCapitalization.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(text_input.TextCapitalization, ['toString']);
-  text_input.TextCapitalization.words = C[32] || CT.C32;
-  text_input.TextCapitalization.sentences = C[33] || CT.C33;
-  text_input.TextCapitalization.characters = C[34] || CT.C34;
-  text_input.TextCapitalization.none = C[35] || CT.C35;
-  text_input.TextCapitalization.values = C[36] || CT.C36;
-  var inputType$ = dart.privateName(text_input, "TextInputConfiguration.inputType");
-  var readOnly$ = dart.privateName(text_input, "TextInputConfiguration.readOnly");
-  var obscureText$ = dart.privateName(text_input, "TextInputConfiguration.obscureText");
-  var autocorrect$ = dart.privateName(text_input, "TextInputConfiguration.autocorrect");
-  var autofillConfiguration$ = dart.privateName(text_input, "TextInputConfiguration.autofillConfiguration");
-  var smartDashesType$ = dart.privateName(text_input, "TextInputConfiguration.smartDashesType");
-  var smartQuotesType$ = dart.privateName(text_input, "TextInputConfiguration.smartQuotesType");
-  var enableSuggestions$ = dart.privateName(text_input, "TextInputConfiguration.enableSuggestions");
-  var actionLabel$ = dart.privateName(text_input, "TextInputConfiguration.actionLabel");
-  var inputAction$ = dart.privateName(text_input, "TextInputConfiguration.inputAction");
-  var textCapitalization$ = dart.privateName(text_input, "TextInputConfiguration.textCapitalization");
-  var keyboardAppearance$ = dart.privateName(text_input, "TextInputConfiguration.keyboardAppearance");
-  var _name = dart.privateName(ui, "_name");
-  text_input.TextInputConfiguration = class TextInputConfiguration extends core.Object {
-    get inputType() {
-      return this[inputType$];
-    }
-    set inputType(value) {
-      super.inputType = value;
-    }
-    get readOnly() {
-      return this[readOnly$];
-    }
-    set readOnly(value) {
-      super.readOnly = value;
-    }
-    get obscureText() {
-      return this[obscureText$];
-    }
-    set obscureText(value) {
-      super.obscureText = value;
-    }
-    get autocorrect() {
-      return this[autocorrect$];
-    }
-    set autocorrect(value) {
-      super.autocorrect = value;
-    }
-    get autofillConfiguration() {
-      return this[autofillConfiguration$];
-    }
-    set autofillConfiguration(value) {
-      super.autofillConfiguration = value;
-    }
-    get smartDashesType() {
-      return this[smartDashesType$];
-    }
-    set smartDashesType(value) {
-      super.smartDashesType = value;
-    }
-    get smartQuotesType() {
-      return this[smartQuotesType$];
-    }
-    set smartQuotesType(value) {
-      super.smartQuotesType = value;
-    }
-    get enableSuggestions() {
-      return this[enableSuggestions$];
-    }
-    set enableSuggestions(value) {
-      super.enableSuggestions = value;
-    }
-    get actionLabel() {
-      return this[actionLabel$];
-    }
-    set actionLabel(value) {
-      super.actionLabel = value;
-    }
-    get inputAction() {
-      return this[inputAction$];
-    }
-    set inputAction(value) {
-      super.inputAction = value;
-    }
-    get textCapitalization() {
-      return this[textCapitalization$];
-    }
-    set textCapitalization(value) {
-      super.textCapitalization = value;
-    }
-    get keyboardAppearance() {
-      return this[keyboardAppearance$];
-    }
-    set keyboardAppearance(value) {
-      super.keyboardAppearance = value;
-    }
-    toJson() {
-      return (() => {
-        let t0 = new (T.IdentityMapOfString$dynamic()).new();
-        t0[$_set]("inputType", this.inputType.toJson());
-        t0[$_set]("readOnly", this.readOnly);
-        t0[$_set]("obscureText", this.obscureText);
-        t0[$_set]("autocorrect", this.autocorrect);
-        t0[$_set]("smartDashesType", dart.toString(this.smartDashesType.index));
-        t0[$_set]("smartQuotesType", dart.toString(this.smartQuotesType.index));
-        t0[$_set]("enableSuggestions", this.enableSuggestions);
-        t0[$_set]("actionLabel", this.actionLabel);
-        t0[$_set]("inputAction", dart.toString(this.inputAction));
-        t0[$_set]("textCapitalization", dart.toString(this.textCapitalization));
-        t0[$_set]("keyboardAppearance", dart.toString(this.keyboardAppearance));
-        if (this.autofillConfiguration != null) t0[$_set]("autofill", dart.nullCheck(this.autofillConfiguration).toJson());
-        return t0;
-      })();
-    }
-  };
-  (text_input.TextInputConfiguration.new = function(opts) {
-    let t0, t0$;
-    let inputType = opts && 'inputType' in opts ? opts.inputType : C[6] || CT.C6;
-    if (inputType == null) dart.nullFailed(I[0], 454, 10, "inputType");
-    let readOnly = opts && 'readOnly' in opts ? opts.readOnly : false;
-    if (readOnly == null) dart.nullFailed(I[0], 455, 10, "readOnly");
-    let obscureText = opts && 'obscureText' in opts ? opts.obscureText : false;
-    if (obscureText == null) dart.nullFailed(I[0], 456, 10, "obscureText");
-    let autocorrect = opts && 'autocorrect' in opts ? opts.autocorrect : true;
-    if (autocorrect == null) dart.nullFailed(I[0], 457, 10, "autocorrect");
-    let smartDashesType = opts && 'smartDashesType' in opts ? opts.smartDashesType : null;
-    let smartQuotesType = opts && 'smartQuotesType' in opts ? opts.smartQuotesType : null;
-    let enableSuggestions = opts && 'enableSuggestions' in opts ? opts.enableSuggestions : true;
-    if (enableSuggestions == null) dart.nullFailed(I[0], 460, 10, "enableSuggestions");
-    let actionLabel = opts && 'actionLabel' in opts ? opts.actionLabel : null;
-    let inputAction = opts && 'inputAction' in opts ? opts.inputAction : C[20] || CT.C20;
-    if (inputAction == null) dart.nullFailed(I[0], 462, 10, "inputAction");
-    let keyboardAppearance = opts && 'keyboardAppearance' in opts ? opts.keyboardAppearance : C[37] || CT.C37;
-    if (keyboardAppearance == null) dart.nullFailed(I[0], 463, 10, "keyboardAppearance");
-    let textCapitalization = opts && 'textCapitalization' in opts ? opts.textCapitalization : C[35] || CT.C35;
-    if (textCapitalization == null) dart.nullFailed(I[0], 464, 10, "textCapitalization");
-    let autofillConfiguration = opts && 'autofillConfiguration' in opts ? opts.autofillConfiguration : null;
-    this[inputType$] = inputType;
-    this[readOnly$] = readOnly;
-    this[obscureText$] = obscureText;
-    this[autocorrect$] = autocorrect;
-    this[enableSuggestions$] = enableSuggestions;
-    this[actionLabel$] = actionLabel;
-    this[inputAction$] = inputAction;
-    this[keyboardAppearance$] = keyboardAppearance;
-    this[textCapitalization$] = textCapitalization;
-    this[autofillConfiguration$] = autofillConfiguration;
-    if (!(inputType != null)) dart.assertFailed(null, I[0], 466, 15, "inputType != null");
-    if (!(obscureText != null)) dart.assertFailed(null, I[0], 467, 15, "obscureText != null");
-    this[smartDashesType$] = (t0 = smartDashesType, t0 == null ? dart.test(obscureText) ? text_input.SmartDashesType.disabled : text_input.SmartDashesType.enabled : t0);
-    this[smartQuotesType$] = (t0$ = smartQuotesType, t0$ == null ? dart.test(obscureText) ? text_input.SmartQuotesType.disabled : text_input.SmartQuotesType.enabled : t0$);
-    if (!(autocorrect != null)) dart.assertFailed(null, I[0], 470, 15, "autocorrect != null");
-    if (!(enableSuggestions != null)) dart.assertFailed(null, I[0], 471, 15, "enableSuggestions != null");
-    if (!(keyboardAppearance != null)) dart.assertFailed(null, I[0], 472, 15, "keyboardAppearance != null");
-    if (!(inputAction != null)) dart.assertFailed(null, I[0], 473, 15, "inputAction != null");
-    if (!(textCapitalization != null)) dart.assertFailed(null, I[0], 474, 15, "textCapitalization != null");
-    ;
-  }).prototype = text_input.TextInputConfiguration.prototype;
-  dart.addTypeTests(text_input.TextInputConfiguration);
-  dart.addTypeCaches(text_input.TextInputConfiguration);
-  dart.setMethodSignature(text_input.TextInputConfiguration, () => ({
-    __proto__: dart.getMethods(text_input.TextInputConfiguration.__proto__),
-    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
-  }));
-  dart.setLibraryUri(text_input.TextInputConfiguration, I[1]);
-  dart.setFieldSignature(text_input.TextInputConfiguration, () => ({
-    __proto__: dart.getFields(text_input.TextInputConfiguration.__proto__),
-    inputType: dart.finalFieldType(text_input.TextInputType),
-    readOnly: dart.finalFieldType(core.bool),
-    obscureText: dart.finalFieldType(core.bool),
-    autocorrect: dart.finalFieldType(core.bool),
-    autofillConfiguration: dart.finalFieldType(dart.nullable(autofill.AutofillConfiguration)),
-    smartDashesType: dart.finalFieldType(text_input.SmartDashesType),
-    smartQuotesType: dart.finalFieldType(text_input.SmartQuotesType),
-    enableSuggestions: dart.finalFieldType(core.bool),
-    actionLabel: dart.finalFieldType(dart.nullable(core.String)),
-    inputAction: dart.finalFieldType(text_input.TextInputAction),
-    textCapitalization: dart.finalFieldType(text_input.TextCapitalization),
-    keyboardAppearance: dart.finalFieldType(ui.Brightness)
-  }));
-  text_input.FloatingCursorDragState = class FloatingCursorDragState extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (text_input.FloatingCursorDragState.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 621, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 621, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = text_input.FloatingCursorDragState.prototype;
-  dart.addTypeTests(text_input.FloatingCursorDragState);
-  dart.addTypeCaches(text_input.FloatingCursorDragState);
-  dart.setLibraryUri(text_input.FloatingCursorDragState, I[1]);
-  dart.setFieldSignature(text_input.FloatingCursorDragState, () => ({
-    __proto__: dart.getFields(text_input.FloatingCursorDragState.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(text_input.FloatingCursorDragState, ['toString']);
-  text_input.FloatingCursorDragState.Start = C[38] || CT.C38;
-  text_input.FloatingCursorDragState.Update = C[39] || CT.C39;
-  text_input.FloatingCursorDragState.End = C[40] || CT.C40;
-  text_input.FloatingCursorDragState.values = C[41] || CT.C41;
-  var offset$ = dart.privateName(text_input, "RawFloatingCursorPoint.offset");
-  var state$ = dart.privateName(text_input, "RawFloatingCursorPoint.state");
-  text_input.RawFloatingCursorPoint = class RawFloatingCursorPoint extends core.Object {
-    get offset() {
-      return this[offset$];
-    }
-    set offset(value) {
-      super.offset = value;
-    }
-    get state() {
-      return this[state$];
-    }
-    set state(value) {
-      super.state = value;
-    }
-  };
-  (text_input.RawFloatingCursorPoint.new = function(opts) {
-    let offset = opts && 'offset' in opts ? opts.offset : null;
-    let state = opts && 'state' in opts ? opts.state : null;
-    if (state == null) dart.nullFailed(I[0], 642, 19, "state");
-    this[offset$] = offset;
-    this[state$] = state;
-    if (!(state != null)) dart.assertFailed(null, I[0], 643, 15, "state != null");
-    if (!(state != text_input.FloatingCursorDragState.Update || offset != null)) dart.assertFailed(null, I[0], 644, 15, "state != FloatingCursorDragState.Update || offset != null");
-    ;
-  }).prototype = text_input.RawFloatingCursorPoint.prototype;
-  dart.addTypeTests(text_input.RawFloatingCursorPoint);
-  dart.addTypeCaches(text_input.RawFloatingCursorPoint);
-  dart.setLibraryUri(text_input.RawFloatingCursorPoint, I[1]);
-  dart.setFieldSignature(text_input.RawFloatingCursorPoint, () => ({
-    __proto__: dart.getFields(text_input.RawFloatingCursorPoint.__proto__),
-    offset: dart.finalFieldType(dart.nullable(ui.Offset)),
-    state: dart.finalFieldType(text_input.FloatingCursorDragState)
-  }));
-  var text$ = dart.privateName(text_input, "TextEditingValue.text");
-  var selection$ = dart.privateName(text_input, "TextEditingValue.selection");
-  var composing$ = dart.privateName(text_input, "TextEditingValue.composing");
-  var TextRange_end = dart.privateName(ui, "TextRange.end");
-  var TextRange_start = dart.privateName(ui, "TextRange.start");
-  var TextSelection_isDirectional = dart.privateName(text_editing, "TextSelection.isDirectional");
-  var TextSelection_affinity = dart.privateName(text_editing, "TextSelection.affinity");
-  var TextSelection_extentOffset = dart.privateName(text_editing, "TextSelection.extentOffset");
-  var TextSelection_baseOffset = dart.privateName(text_editing, "TextSelection.baseOffset");
-  text_input.TextEditingValue = class TextEditingValue extends core.Object {
-    get text() {
-      return this[text$];
-    }
-    set text(value) {
-      super.text = value;
-    }
-    get selection() {
-      return this[selection$];
-    }
-    set selection(value) {
-      super.selection = value;
-    }
-    get composing() {
-      return this[composing$];
-    }
-    set composing(value) {
-      super.composing = value;
-    }
-    static fromJSON(encoded) {
-      let t1, t1$, t1$0, t1$1, t1$2, t1$3;
-      if (encoded == null) dart.nullFailed(I[0], 671, 58, "encoded");
-      return new text_input.TextEditingValue.new({text: core.String.as(encoded[$_get]("text")), selection: new text_editing.TextSelection.new({baseOffset: (t1 = T.intN().as(encoded[$_get]("selectionBase")), t1 == null ? -1 : t1), extentOffset: (t1$ = T.intN().as(encoded[$_get]("selectionExtent")), t1$ == null ? -1 : t1$), affinity: (t1$0 = text_input._toTextAffinity(T.StringN().as(encoded[$_get]("selectionAffinity"))), t1$0 == null ? ui.TextAffinity.downstream : t1$0), isDirectional: (t1$1 = T.boolN().as(encoded[$_get]("selectionIsDirectional")), t1$1 == null ? false : t1$1)}), composing: new ui.TextRange.new({start: (t1$2 = T.intN().as(encoded[$_get]("composingBase")), t1$2 == null ? -1 : t1$2), end: (t1$3 = T.intN().as(encoded[$_get]("composingExtent")), t1$3 == null ? -1 : t1$3)})});
-    }
-    toJSON() {
-      return new (T.IdentityMapOfString$dynamic()).from(["text", this.text, "selectionBase", this.selection.baseOffset, "selectionExtent", this.selection.extentOffset, "selectionAffinity", dart.toString(this.selection.affinity), "selectionIsDirectional", this.selection.isDirectional, "composingBase", this.composing.start, "composingExtent", this.composing.end]);
+    set viewportFraction(value) {
+      super.viewportFraction = value;
     }
     copyWith(opts) {
-      let t1, t1$, t1$0;
-      let text = opts && 'text' in opts ? opts.text : null;
-      let selection = opts && 'selection' in opts ? opts.selection : null;
-      let composing = opts && 'composing' in opts ? opts.composing : null;
-      return new text_input.TextEditingValue.new({text: (t1 = text, t1 == null ? this.text : t1), selection: (t1$ = selection, t1$ == null ? this.selection : t1$), composing: (t1$0 = composing, t1$0 == null ? this.composing : t1$0)});
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3;
+      let minScrollExtent = opts && 'minScrollExtent' in opts ? opts.minScrollExtent : null;
+      let maxScrollExtent = opts && 'maxScrollExtent' in opts ? opts.maxScrollExtent : null;
+      let pixels = opts && 'pixels' in opts ? opts.pixels : null;
+      let viewportDimension = opts && 'viewportDimension' in opts ? opts.viewportDimension : null;
+      let axisDirection = opts && 'axisDirection' in opts ? opts.axisDirection : null;
+      let viewportFraction = opts && 'viewportFraction' in opts ? opts.viewportFraction : null;
+      return new page_view.PageMetrics.new({minScrollExtent: (t0 = minScrollExtent, t0 == null ? dart.test(this.hasContentDimensions) ? this.minScrollExtent : null : t0), maxScrollExtent: (t0$ = maxScrollExtent, t0$ == null ? dart.test(this.hasContentDimensions) ? this.maxScrollExtent : null : t0$), pixels: (t0$0 = pixels, t0$0 == null ? dart.test(this.hasPixels) ? this.pixels : null : t0$0), viewportDimension: (t0$1 = viewportDimension, t0$1 == null ? dart.test(this.hasViewportDimension) ? this.viewportDimension : null : t0$1), axisDirection: (t0$2 = axisDirection, t0$2 == null ? this.axisDirection : t0$2), viewportFraction: (t0$3 = viewportFraction, t0$3 == null ? this.viewportFraction : t0$3)});
     }
-    get isComposingRangeValid() {
-      return dart.test(this.composing.isValid) && dart.test(this.composing.isNormalized) && dart.notNull(this.composing.end) <= this.text.length;
-    }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "TextEditingValue")) + "(text: ┤" + dart.str(this.text) + "├, selection: " + dart.str(this.selection) + ", composing: " + dart.str(this.composing) + ")";
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      return text_input.TextEditingValue.is(other) && other.text == this.text && dart.equals(other.selection, this.selection) && dart.equals(other.composing, this.composing);
-    }
-    get hashCode() {
-      return ui.hashValues(dart.hashCode(this.text), dart.hashCode(this.selection), dart.hashCode(this.composing));
+    get page() {
+      return math.max(core.double, 0.0, this.pixels[$clamp](this.minScrollExtent, this.maxScrollExtent)) / math.max(core.num, 1.0, dart.notNull(this.viewportDimension) * dart.notNull(this.viewportFraction));
     }
   };
-  (text_input.TextEditingValue.new = function(opts) {
-    let text = opts && 'text' in opts ? opts.text : "";
-    if (text == null) dart.nullFailed(I[0], 663, 10, "text");
-    let selection = opts && 'selection' in opts ? opts.selection : C[42] || CT.C42;
-    if (selection == null) dart.nullFailed(I[0], 664, 10, "selection");
-    let composing = opts && 'composing' in opts ? opts.composing : C[44] || CT.C44;
-    if (composing == null) dart.nullFailed(I[0], 665, 10, "composing");
-    this[text$] = text;
-    this[selection$] = selection;
-    this[composing$] = composing;
-    if (!(text != null)) dart.assertFailed(null, I[0], 666, 15, "text != null");
-    if (!(selection != null)) dart.assertFailed(null, I[0], 667, 15, "selection != null");
-    if (!(composing != null)) dart.assertFailed(null, I[0], 668, 15, "composing != null");
+  (page_view.PageMetrics.new = function(opts) {
+    let minScrollExtent = opts && 'minScrollExtent' in opts ? opts.minScrollExtent : null;
+    let maxScrollExtent = opts && 'maxScrollExtent' in opts ? opts.maxScrollExtent : null;
+    let pixels = opts && 'pixels' in opts ? opts.pixels : null;
+    let viewportDimension = opts && 'viewportDimension' in opts ? opts.viewportDimension : null;
+    let axisDirection = opts && 'axisDirection' in opts ? opts.axisDirection : null;
+    if (axisDirection == null) dart.nullFailed(I[0], 261, 28, "axisDirection");
+    let viewportFraction = opts && 'viewportFraction' in opts ? opts.viewportFraction : null;
+    if (viewportFraction == null) dart.nullFailed(I[0], 262, 19, "viewportFraction");
+    this[viewportFraction$0] = viewportFraction;
+    page_view.PageMetrics.__proto__.new.call(this, {minScrollExtent: minScrollExtent, maxScrollExtent: maxScrollExtent, pixels: pixels, viewportDimension: viewportDimension, axisDirection: axisDirection});
     ;
-  }).prototype = text_input.TextEditingValue.prototype;
-  dart.addTypeTests(text_input.TextEditingValue);
-  dart.addTypeCaches(text_input.TextEditingValue);
-  dart.setMethodSignature(text_input.TextEditingValue, () => ({
-    __proto__: dart.getMethods(text_input.TextEditingValue.__proto__),
-    toJSON: dart.fnType(core.Map$(core.String, dart.dynamic), []),
-    copyWith: dart.fnType(text_input.TextEditingValue, [], {composing: dart.nullable(ui.TextRange), selection: dart.nullable(text_editing.TextSelection), text: dart.nullable(core.String)}, {})
+  }).prototype = page_view.PageMetrics.prototype;
+  dart.addTypeTests(page_view.PageMetrics);
+  dart.addTypeCaches(page_view.PageMetrics);
+  dart.setMethodSignature(page_view.PageMetrics, () => ({
+    __proto__: dart.getMethods(page_view.PageMetrics.__proto__),
+    copyWith: dart.fnType(page_view.PageMetrics, [], {axisDirection: dart.nullable(basic_types.AxisDirection), maxScrollExtent: dart.nullable(core.double), minScrollExtent: dart.nullable(core.double), pixels: dart.nullable(core.double), viewportDimension: dart.nullable(core.double), viewportFraction: dart.nullable(core.double)}, {})
   }));
-  dart.setGetterSignature(text_input.TextEditingValue, () => ({
-    __proto__: dart.getGetters(text_input.TextEditingValue.__proto__),
-    isComposingRangeValid: core.bool
+  dart.setGetterSignature(page_view.PageMetrics, () => ({
+    __proto__: dart.getGetters(page_view.PageMetrics.__proto__),
+    page: dart.nullable(core.double)
   }));
-  dart.setLibraryUri(text_input.TextEditingValue, I[1]);
-  dart.setFieldSignature(text_input.TextEditingValue, () => ({
-    __proto__: dart.getFields(text_input.TextEditingValue.__proto__),
-    text: dart.finalFieldType(core.String),
-    selection: dart.finalFieldType(text_editing.TextSelection),
-    composing: dart.finalFieldType(ui.TextRange)
+  dart.setLibraryUri(page_view.PageMetrics, I[1]);
+  dart.setFieldSignature(page_view.PageMetrics, () => ({
+    __proto__: dart.getFields(page_view.PageMetrics.__proto__),
+    viewportFraction: dart.finalFieldType(core.double)
   }));
-  dart.defineExtensionMethods(text_input.TextEditingValue, ['toString', '_equals']);
-  dart.defineExtensionAccessors(text_input.TextEditingValue, ['hashCode']);
-  dart.defineLazy(text_input.TextEditingValue, {
-    /*text_input.TextEditingValue.empty*/get empty() {
-      return C[45] || CT.C45;
+  var _viewportFraction = dart.privateName(page_view, "_viewportFraction");
+  var _pageToUseOnStartup = dart.privateName(page_view, "_pageToUseOnStartup");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var Cubic_d = dart.privateName(curves, "Cubic.d");
+  var Cubic_c = dart.privateName(curves, "Cubic.c");
+  var Cubic_b = dart.privateName(curves, "Cubic.b");
+  var Cubic_a = dart.privateName(curves, "Cubic.a");
+  var _name = dart.privateName(scroll_position, "_name");
+  var _initialPageOffset = dart.privateName(page_view, "_initialPageOffset");
+  var _maxScrollExtent = dart.privateName(page_view, "_maxScrollExtent");
+  var _maxScrollExtent$ = dart.privateName(scroll_metrics, "_maxScrollExtent");
+  var _minScrollExtent = dart.privateName(page_view, "_minScrollExtent");
+  var _minScrollExtent$ = dart.privateName(scroll_metrics, "_minScrollExtent");
+  var _viewportDimension = dart.privateName(page_view, "_viewportDimension");
+  var _viewportDimension$ = dart.privateName(scroll_metrics, "_viewportDimension");
+  var _pixels = dart.privateName(page_view, "_pixels");
+  var _pixels$ = dart.privateName(scroll_metrics, "_pixels");
+  page_view._PagePosition = class _PagePosition extends scroll_position_with_single_context.ScrollPositionWithSingleContext {
+    ensureVisible(object, opts) {
+      if (object == null) dart.nullFailed(I[0], 329, 18, "object");
+      let alignment = opts && 'alignment' in opts ? opts.alignment : 0;
+      if (alignment == null) dart.nullFailed(I[0], 330, 12, "alignment");
+      let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
+      if (duration == null) dart.nullFailed(I[0], 331, 14, "duration");
+      let curve = opts && 'curve' in opts ? opts.curve : C[1] || CT.C1;
+      if (curve == null) dart.nullFailed(I[0], 332, 11, "curve");
+      let alignmentPolicy = opts && 'alignmentPolicy' in opts ? opts.alignmentPolicy : C[2] || CT.C2;
+      if (alignmentPolicy == null) dart.nullFailed(I[0], 333, 35, "alignmentPolicy");
+      let targetRenderObject = opts && 'targetRenderObject' in opts ? opts.targetRenderObject : null;
+      return super.ensureVisible(object, {alignment: alignment, duration: duration, curve: curve, alignmentPolicy: alignmentPolicy, targetRenderObject: null});
     }
-  }, false);
-  text_input.TextSelectionDelegate = class TextSelectionDelegate extends core.Object {
-    get cutEnabled() {
-      return true;
+    get viewportFraction() {
+      return this[_viewportFraction];
     }
-    get copyEnabled() {
-      return true;
+    set viewportFraction(value) {
+      if (value == null) dart.nullFailed(I[0], 353, 31, "value");
+      if (this[_viewportFraction] == value) return;
+      let oldPage = this.page;
+      this[_viewportFraction] = value;
+      if (oldPage != null) this.forcePixels(this.getPixelsFromPage(oldPage));
     }
-    get pasteEnabled() {
-      return true;
+    get [_initialPageOffset]() {
+      return math.max(core.double, 0.0, dart.notNull(this.viewportDimension) * (dart.notNull(this.viewportFraction) - 1) / 2);
     }
-    get selectAllEnabled() {
-      return true;
+    getPageFromPixels(pixels, viewportDimension) {
+      if (pixels == null) dart.nullFailed(I[0], 370, 35, "pixels");
+      if (viewportDimension == null) dart.nullFailed(I[0], 370, 50, "viewportDimension");
+      let actual = math.max(core.double, 0.0, dart.notNull(pixels) - dart.notNull(this[_initialPageOffset])) / math.max(core.num, 1.0, dart.notNull(viewportDimension) * dart.notNull(this.viewportFraction));
+      let round = actual[$roundToDouble]();
+      if ((actual - round)[$abs]() < 1e-10) {
+        return round;
+      }
+      return actual;
     }
-  };
-  (text_input.TextSelectionDelegate.new = function() {
-    ;
-  }).prototype = text_input.TextSelectionDelegate.prototype;
-  dart.addTypeTests(text_input.TextSelectionDelegate);
-  dart.addTypeCaches(text_input.TextSelectionDelegate);
-  dart.setGetterSignature(text_input.TextSelectionDelegate, () => ({
-    __proto__: dart.getGetters(text_input.TextSelectionDelegate.__proto__),
-    cutEnabled: core.bool,
-    copyEnabled: core.bool,
-    pasteEnabled: core.bool,
-    selectAllEnabled: core.bool
-  }));
-  dart.setLibraryUri(text_input.TextSelectionDelegate, I[1]);
-  text_input.TextInputClient = class TextInputClient extends core.Object {};
-  (text_input.TextInputClient.new = function() {
-    ;
-  }).prototype = text_input.TextInputClient.prototype;
-  dart.addTypeTests(text_input.TextInputClient);
-  dart.addTypeCaches(text_input.TextInputClient);
-  dart.setLibraryUri(text_input.TextInputClient, I[1]);
-  var _cachedSize = dart.privateName(text_input, "_cachedSize");
-  var _cachedTransform = dart.privateName(text_input, "_cachedTransform");
-  var _cachedRect = dart.privateName(text_input, "_cachedRect");
-  var _client$ = dart.privateName(text_input, "_client");
-  var _id = dart.privateName(text_input, "_id");
-  var _currentConnection = dart.privateName(text_input, "_currentConnection");
-  var _show = dart.privateName(text_input, "_show");
-  var _requestAutofill = dart.privateName(text_input, "_requestAutofill");
-  var _updateConfig = dart.privateName(text_input, "_updateConfig");
-  var _setEditingState = dart.privateName(text_input, "_setEditingState");
-  var _setEditableSizeAndTransform = dart.privateName(text_input, "_setEditableSizeAndTransform");
-  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
-  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  var _setComposingTextRect = dart.privateName(text_input, "_setComposingTextRect");
-  var _setStyle = dart.privateName(text_input, "_setStyle");
-  var _clearClient = dart.privateName(text_input, "_clearClient");
-  text_input.TextInputConnection = class TextInputConnection extends core.Object {
-    static debugResetId(opts) {
-      let to = opts && 'to' in opts ? opts.to : 1;
-      if (to == null) dart.nullFailed(I[0], 886, 33, "to");
-      if (!(to != null)) dart.assertFailed(null, I[0], 887, 12, "to != null");
-      if (!dart.test(dart.fn(() => {
-        text_input.TextInputConnection._nextId = to;
+    getPixelsFromPage(page) {
+      if (page == null) dart.nullFailed(I[0], 379, 35, "page");
+      return dart.notNull(page) * dart.notNull(this.viewportDimension) * dart.notNull(this.viewportFraction) + dart.notNull(this[_initialPageOffset]);
+    }
+    get page() {
+      if (!(!dart.test(this.hasPixels) || this.minScrollExtent != null && this.maxScrollExtent != null)) dart.assertFailed("Page value is only available after content dimensions are established.", I[0], 386, 7, "!hasPixels || (minScrollExtent != null && maxScrollExtent != null)");
+      return !dart.test(this.hasPixels) ? null : this.getPageFromPixels(this.pixels[$clamp](this.minScrollExtent, this.maxScrollExtent), this.viewportDimension);
+    }
+    saveScrollOffset() {
+      let t0;
+      t0 = page_storage.PageStorage.of(this.context.storageContext);
+      t0 == null ? null : t0.writeState(this.context.storageContext, this.getPageFromPixels(this.pixels, this.viewportDimension));
+    }
+    restoreScrollOffset() {
+      let t0;
+      if (!dart.test(this.hasPixels)) {
+        let value = T.doubleN().as((t0 = page_storage.PageStorage.of(this.context.storageContext), t0 == null ? null : t0.readState(this.context.storageContext)));
+        if (value != null) this[_pageToUseOnStartup] = value;
+      }
+    }
+    saveOffset() {
+      this.context.saveOffset(this.getPageFromPixels(this.pixels, this.viewportDimension));
+    }
+    restoreOffset(offset, opts) {
+      if (offset == null) dart.nullFailed(I[0], 412, 29, "offset");
+      let initialRestore = opts && 'initialRestore' in opts ? opts.initialRestore : false;
+      if (initialRestore == null) dart.nullFailed(I[0], 412, 43, "initialRestore");
+      if (!(initialRestore != null)) dart.assertFailed(null, I[0], 413, 12, "initialRestore != null");
+      if (!(offset != null)) dart.assertFailed(null, I[0], 414, 12, "offset != null");
+      if (dart.test(initialRestore)) {
+        this[_pageToUseOnStartup] = offset;
+      } else {
+        this.jumpTo(this.getPixelsFromPage(offset));
+      }
+    }
+    applyViewportDimension(viewportDimension) {
+      if (viewportDimension == null) dart.nullFailed(I[0], 423, 38, "viewportDimension");
+      let oldViewportDimensions = dart.test(this.hasViewportDimension) ? this.viewportDimension : null;
+      if (viewportDimension == oldViewportDimensions) {
         return true;
-      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 888, 12, "() {\r\n      _nextId = to;\r\n      return true;\r\n    }()");
-    }
-    get attached() {
-      return dart.equals(text_input.TextInput._instance[_currentConnection], this);
-    }
-    show() {
-      if (!dart.test(this.attached)) dart.assertFailed(null, I[0], 901, 12, "attached");
-      text_input.TextInput._instance[_show]();
-    }
-    requestAutofill() {
-      if (!dart.test(this.attached)) dart.assertFailed(null, I[0], 914, 12, "attached");
-      text_input.TextInput._instance[_requestAutofill]();
-    }
-    updateConfig(configuration) {
-      if (configuration == null) dart.nullFailed(I[0], 920, 44, "configuration");
-      if (!dart.test(this.attached)) dart.assertFailed(null, I[0], 921, 12, "attached");
-      text_input.TextInput._instance[_updateConfig](configuration);
-    }
-    setEditingState(value) {
-      if (value == null) dart.nullFailed(I[0], 927, 41, "value");
-      if (!dart.test(this.attached)) dart.assertFailed(null, I[0], 928, 12, "attached");
-      text_input.TextInput._instance[_setEditingState](value);
-    }
-    setEditableSizeAndTransform(editableBoxSize, transform) {
-      if (editableBoxSize == null) dart.nullFailed(I[0], 941, 41, "editableBoxSize");
-      if (transform == null) dart.nullFailed(I[0], 941, 66, "transform");
-      if (!dart.equals(editableBoxSize, this[_cachedSize]) || !dart.equals(transform, this[_cachedTransform])) {
-        this[_cachedSize] = editableBoxSize;
-        this[_cachedTransform] = transform;
-        text_input.TextInput._instance[_setEditableSizeAndTransform](new (T.IdentityMapOfString$dynamic()).from(["width", editableBoxSize.width, "height", editableBoxSize.height, "transform", transform.storage]));
       }
-    }
-    setComposingRect(rect) {
-      if (rect == null) dart.nullFailed(I[0], 962, 30, "rect");
-      if (!(rect != null)) dart.assertFailed(null, I[0], 963, 12, "rect != null");
-      if (dart.equals(rect, this[_cachedRect])) return;
-      this[_cachedRect] = rect;
-      let validRect = dart.test(rect.isFinite) ? rect : ui.Offset.zero['&'](C[46] || CT.C46);
-      text_input.TextInput._instance[_setComposingTextRect](new (T.IdentityMapOfString$dynamic()).from(["width", validRect.width, "height", validRect.height, "x", validRect.left, "y", validRect.top]));
-    }
-    setStyle(opts) {
-      let t1;
-      let fontFamily = opts && 'fontFamily' in opts ? opts.fontFamily : null;
-      let fontSize = opts && 'fontSize' in opts ? opts.fontSize : null;
-      let fontWeight = opts && 'fontWeight' in opts ? opts.fontWeight : null;
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      if (textDirection == null) dart.nullFailed(I[0], 987, 28, "textDirection");
-      let textAlign = opts && 'textAlign' in opts ? opts.textAlign : null;
-      if (textAlign == null) dart.nullFailed(I[0], 988, 24, "textAlign");
-      if (!dart.test(this.attached)) dart.assertFailed(null, I[0], 990, 12, "attached");
-      text_input.TextInput._instance[_setStyle](new (T.IdentityMapOfString$dynamic()).from(["fontFamily", fontFamily, "fontSize", fontSize, "fontWeightIndex", (t1 = fontWeight, t1 == null ? null : t1.index), "textAlignIndex", textAlign.index, "textDirectionIndex", textDirection.index]));
-    }
-    close() {
-      if (dart.test(this.attached)) {
-        text_input.TextInput._instance[_clearClient]();
+      let result = super.applyViewportDimension(viewportDimension);
+      let oldPixels = dart.test(this.hasPixels) ? this.pixels : null;
+      let page = oldPixels == null || oldViewportDimensions === 0.0 ? this[_pageToUseOnStartup] : this.getPageFromPixels(oldPixels, dart.nullCheck(oldViewportDimensions));
+      let newPixels = this.getPixelsFromPage(page);
+      if (newPixels != oldPixels) {
+        this.correctPixels(newPixels);
+        return false;
       }
-      if (!!dart.test(this.attached)) dart.assertFailed(null, I[0], 1011, 12, "!attached");
-    }
-    connectionClosedReceived() {
-      text_input.TextInput._instance[_currentConnection] = null;
-      if (!!dart.test(this.attached)) dart.assertFailed(null, I[0], 1019, 12, "!attached");
-    }
-  };
-  (text_input.TextInputConnection.__ = function(_client) {
-    let t1;
-    if (_client == null) dart.nullFailed(I[0], 870, 30, "_client");
-    this[_cachedSize] = null;
-    this[_cachedTransform] = null;
-    this[_cachedRect] = null;
-    this[_client$] = _client;
-    if (!(_client != null)) dart.assertFailed(null, I[0], 871, 16, "_client != null");
-    this[_id] = (t1 = text_input.TextInputConnection._nextId, text_input.TextInputConnection._nextId = dart.notNull(t1) + 1, t1);
-    ;
-  }).prototype = text_input.TextInputConnection.prototype;
-  dart.addTypeTests(text_input.TextInputConnection);
-  dart.addTypeCaches(text_input.TextInputConnection);
-  dart.setMethodSignature(text_input.TextInputConnection, () => ({
-    __proto__: dart.getMethods(text_input.TextInputConnection.__proto__),
-    show: dart.fnType(dart.void, []),
-    requestAutofill: dart.fnType(dart.void, []),
-    updateConfig: dart.fnType(dart.void, [text_input.TextInputConfiguration]),
-    setEditingState: dart.fnType(dart.void, [text_input.TextEditingValue]),
-    setEditableSizeAndTransform: dart.fnType(dart.void, [ui.Size, vector_math_64.Matrix4]),
-    setComposingRect: dart.fnType(dart.void, [ui.Rect]),
-    setStyle: dart.fnType(dart.void, [], {}, {fontFamily: dart.nullable(core.String), fontSize: dart.nullable(core.double), fontWeight: dart.nullable(ui.FontWeight), textAlign: ui.TextAlign, textDirection: ui.TextDirection}),
-    close: dart.fnType(dart.void, []),
-    connectionClosedReceived: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(text_input.TextInputConnection, () => ({
-    __proto__: dart.getGetters(text_input.TextInputConnection.__proto__),
-    attached: core.bool
-  }));
-  dart.setLibraryUri(text_input.TextInputConnection, I[1]);
-  dart.setFieldSignature(text_input.TextInputConnection, () => ({
-    __proto__: dart.getFields(text_input.TextInputConnection.__proto__),
-    [_cachedSize]: dart.fieldType(dart.nullable(ui.Size)),
-    [_cachedTransform]: dart.fieldType(dart.nullable(vector_math_64.Matrix4)),
-    [_cachedRect]: dart.fieldType(dart.nullable(ui.Rect)),
-    [_id]: dart.finalFieldType(core.int),
-    [_client$]: dart.finalFieldType(text_input.TextInputClient)
-  }));
-  dart.defineLazy(text_input.TextInputConnection, {
-    /*text_input.TextInputConnection._nextId*/get _nextId() {
-      return 1;
-    },
-    set _nextId(_) {}
-  }, false);
-  var __TextInput__channel = dart.privateName(text_input, "_#TextInput#_channel");
-  var __TextInput__channel_isSet = dart.privateName(text_input, "_#TextInput#_channel#isSet");
-  var __TextInput__currentConfiguration = dart.privateName(text_input, "_#TextInput#_currentConfiguration");
-  var __TextInput__currentConfiguration_isSet = dart.privateName(text_input, "_#TextInput#_currentConfiguration#isSet");
-  var _hidePending = dart.privateName(text_input, "_hidePending");
-  var _channel = dart.privateName(text_input, "_channel");
-  var _handleTextInputInvocation = dart.privateName(text_input, "_handleTextInputInvocation");
-  var _attach = dart.privateName(text_input, "_attach");
-  var _currentConfiguration = dart.privateName(text_input, "_currentConfiguration");
-  var _scheduleHide = dart.privateName(text_input, "_scheduleHide");
-  text_input.TextInput = class TextInput extends core.Object {
-    static setChannel(newChannel) {
-      if (newChannel == null) dart.nullFailed(I[0], 1143, 40, "newChannel");
-      if (!dart.test(dart.fn(() => {
-        let t1;
-        text_input.TextInput._instance[_channel] = (t1 = newChannel, (() => {
-          t1.setMethodCallHandler(dart.bind(text_input.TextInput._instance, _handleTextInputInvocation));
-          return t1;
-        })());
-        return true;
-      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 1144, 12, "() {\r\n      _instance._channel = newChannel..setMethodCallHandler(_instance._handleTextInputInvocation);\r\n      return true;\r\n    }()");
-    }
-    static attach(client, configuration) {
-      if (client == null) dart.nullFailed(I[0], 1188, 53, "client");
-      if (configuration == null) dart.nullFailed(I[0], 1188, 84, "configuration");
-      if (!(client != null)) dart.assertFailed(null, I[0], 1189, 12, "client != null");
-      if (!(configuration != null)) dart.assertFailed(null, I[0], 1190, 12, "configuration != null");
-      let connection = new text_input.TextInputConnection.__(client);
-      text_input.TextInput._instance[_attach](connection, configuration);
-      return connection;
-    }
-    [_attach](connection, configuration) {
-      if (connection == null) dart.nullFailed(I[0], 1199, 36, "connection");
-      if (configuration == null) dart.nullFailed(I[0], 1199, 71, "configuration");
-      if (!(connection != null)) dart.assertFailed(null, I[0], 1200, 12, "connection != null");
-      if (!(connection[_client$] != null)) dart.assertFailed(null, I[0], 1201, 12, "connection._client != null");
-      if (!(configuration != null)) dart.assertFailed(null, I[0], 1202, 12, "configuration != null");
-      if (!dart.test(text_input.TextInput._debugEnsureInputActionWorksOnPlatform(configuration.inputAction))) dart.assertFailed(null, I[0], 1203, 12, "_debugEnsureInputActionWorksOnPlatform(configuration.inputAction)");
-      this[_channel].invokeMethod(dart.void, "TextInput.setClient", [connection[_id], configuration.toJson()]);
-      this[_currentConnection] = connection;
-      this[_currentConfiguration] = configuration;
-    }
-    static _debugEnsureInputActionWorksOnPlatform(inputAction) {
-      if (inputAction == null) dart.nullFailed(I[0], 1212, 70, "inputAction");
-      if (!dart.test(dart.fn(() => {
-        if (true) {
-          return true;
-        }
-        if (dart.test(io.Platform.isIOS)) {
-          if (!dart.test(text_input.TextInput._iOSSupportedInputActions[$contains](inputAction))) dart.assertFailed("The requested TextInputAction \"" + dart.str(inputAction) + "\" is not supported on iOS.", I[0], 1220, 11, "_iOSSupportedInputActions.contains(inputAction)");
-        } else if (dart.test(io.Platform.isAndroid)) {
-          if (!dart.test(text_input.TextInput._androidSupportedInputActions[$contains](inputAction))) dart.assertFailed("The requested TextInputAction \"" + dart.str(inputAction) + "\" is not supported on Android.", I[0], 1225, 11, "_androidSupportedInputActions.contains(inputAction)");
-        }
-        return true;
-      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 1213, 12, "() {\r\n      if (kIsWeb) {\r\n        // TODO(flutterweb): what makes sense here?\r\n        return true;\r\n      }\r\n      if (Platform.isIOS) {\r\n        assert(\r\n          _iOSSupportedInputActions.contains(inputAction),\r\n          'The requested TextInputAction \"$inputAction\" is not supported on iOS.',\r\n        );\r\n      } else if (Platform.isAndroid) {\r\n        assert(\r\n          _androidSupportedInputActions.contains(inputAction),\r\n          'The requested TextInputAction \"$inputAction\" is not supported on Android.',\r\n        );\r\n      }\r\n      return true;\r\n    }()");
-      return true;
-    }
-    get [_channel]() {
-      let t1;
-      return dart.test(this[__TextInput__channel_isSet]) ? (t1 = this[__TextInput__channel], t1) : dart.throw(new _internal.LateError.fieldNI("_channel"));
-    }
-    set [_channel](t1) {
-      if (t1 == null) dart.nullFailed(I[0], 1234, 22, "null");
-      this[__TextInput__channel_isSet] = true;
-      this[__TextInput__channel] = t1;
-    }
-    get [_currentConfiguration]() {
-      let t2;
-      return dart.test(this[__TextInput__currentConfiguration_isSet]) ? (t2 = this[__TextInput__currentConfiguration], t2) : dart.throw(new _internal.LateError.fieldNI("_currentConfiguration"));
-    }
-    set [_currentConfiguration](t2) {
-      if (t2 == null) dart.nullFailed(I[0], 1237, 31, "null");
-      this[__TextInput__currentConfiguration_isSet] = true;
-      this[__TextInput__currentConfiguration] = t2;
-    }
-    [_handleTextInputInvocation](methodCall) {
-      if (methodCall == null) dart.nullFailed(I[0], 1239, 57, "methodCall");
-      return async.async(dart.dynamic, (function* _handleTextInputInvocation() {
-        let t4, t3;
-        if (this[_currentConnection] == null) return;
-        let method = methodCall.method;
-        if (method === "TextInputClient.requestExistingInputState") {
-          if (!(dart.nullCheck(this[_currentConnection])[_client$] != null)) dart.assertFailed(null, I[0], 1247, 14, "_currentConnection!._client != null");
-          this[_attach](dart.nullCheck(this[_currentConnection]), this[_currentConfiguration]);
-          let editingValue = dart.nullCheck(this[_currentConnection])[_client$].currentTextEditingValue;
-          if (editingValue != null) {
-            this[_setEditingState](editingValue);
-          }
-          return;
-        }
-        let args = core.List.as(methodCall.arguments);
-        if (method === "TextInputClient.updateEditingStateWithTag") {
-          let client = dart.nullCheck(this[_currentConnection])[_client$];
-          if (!(client != null)) dart.assertFailed(null, I[0], 1260, 14, "client != null");
-          let scope = client.currentAutofillScope;
-          let editingValue = T.MapOfString$dynamic().as(args[$_get](1));
-          for (let tag of editingValue[$keys]) {
-            let textEditingValue = text_input.TextEditingValue.fromJSON(T.MapOfString$dynamic().as(editingValue[$_get](tag)));
-            t3 = scope;
-            t3 == null ? null : (t4 = t3.getAutofillClient(tag), t4 == null ? null : t4.updateEditingValue(textEditingValue));
-          }
-          return;
-        }
-        let client = core.int.as(args[$_get](0));
-        if (client != dart.nullCheck(this[_currentConnection])[_id]) return;
-        switch (method) {
-          case "TextInputClient.updateEditingState":
-          {
-            dart.nullCheck(this[_currentConnection])[_client$].updateEditingValue(text_input.TextEditingValue.fromJSON(T.MapOfString$dynamic().as(args[$_get](1))));
-            break;
-          }
-          case "TextInputClient.performAction":
-          {
-            dart.nullCheck(this[_currentConnection])[_client$].performAction(text_input._toTextInputAction(core.String.as(args[$_get](1))));
-            break;
-          }
-          case "TextInputClient.performPrivateCommand":
-          {
-            dart.nullCheck(this[_currentConnection])[_client$].performPrivateCommand(core.String.as(dart.dsend(args[$_get](1), '_get', ["action"])), T.MapOfString$dynamic().as(dart.dsend(args[$_get](1), '_get', ["data"])));
-            break;
-          }
-          case "TextInputClient.updateFloatingCursor":
-          {
-            dart.nullCheck(this[_currentConnection])[_client$].updateFloatingCursor(text_input._toTextPoint(text_input._toTextCursorAction(core.String.as(args[$_get](1))), T.MapOfString$dynamic().as(args[$_get](2))));
-            break;
-          }
-          case "TextInputClient.onConnectionClosed":
-          {
-            dart.nullCheck(this[_currentConnection])[_client$].connectionClosed();
-            break;
-          }
-          case "TextInputClient.showAutocorrectionPromptRect":
-          {
-            dart.nullCheck(this[_currentConnection])[_client$].showAutocorrectionPromptRect(core.int.as(args[$_get](1)), core.int.as(args[$_get](2)));
-            break;
-          }
-          default:
-          {
-            dart.throw(new message_codec.MissingPluginException.new());
-          }
-        }
-      }).bind(this));
-    }
-    [_scheduleHide]() {
-      if (dart.test(this[_hidePending])) return;
-      this[_hidePending] = true;
-      async.scheduleMicrotask(dart.fn(() => {
-        this[_hidePending] = false;
-        if (this[_currentConnection] == null) this[_channel].invokeMethod(dart.void, "TextInput.hide");
-      }, T.VoidTovoid()));
-    }
-    [_clearClient]() {
-      this[_channel].invokeMethod(dart.void, "TextInput.clearClient");
-      this[_currentConnection] = null;
-      this[_scheduleHide]();
-    }
-    [_updateConfig](configuration) {
-      if (configuration == null) dart.nullFailed(I[0], 1328, 45, "configuration");
-      if (!(configuration != null)) dart.assertFailed(null, I[0], 1329, 12, "configuration != null");
-      this[_channel].invokeMethod(dart.void, "TextInput.updateConfig", configuration.toJson());
-    }
-    [_setEditingState](value) {
-      if (value == null) dart.nullFailed(I[0], 1336, 42, "value");
-      if (!(value != null)) dart.assertFailed(null, I[0], 1337, 12, "value != null");
-      this[_channel].invokeMethod(dart.void, "TextInput.setEditingState", value.toJSON());
-    }
-    [_show]() {
-      this[_channel].invokeMethod(dart.void, "TextInput.show");
-    }
-    [_requestAutofill]() {
-      this[_channel].invokeMethod(dart.void, "TextInput.requestAutofill");
-    }
-    [_setEditableSizeAndTransform](args) {
-      if (args == null) dart.nullFailed(I[0], 1352, 58, "args");
-      this[_channel].invokeMethod(dart.void, "TextInput.setEditableSizeAndTransform", args);
-    }
-    [_setComposingTextRect](args) {
-      if (args == null) dart.nullFailed(I[0], 1359, 51, "args");
-      this[_channel].invokeMethod(dart.void, "TextInput.setMarkedTextRect", args);
-    }
-    [_setStyle](args) {
-      if (args == null) dart.nullFailed(I[0], 1366, 39, "args");
-      this[_channel].invokeMethod(dart.void, "TextInput.setStyle", args);
-    }
-    static finishAutofillContext(opts) {
-      let shouldSave = opts && 'shouldSave' in opts ? opts.shouldSave : true;
-      if (shouldSave == null) dart.nullFailed(I[0], 1421, 44, "shouldSave");
-      if (!(shouldSave != null)) dart.assertFailed(null, I[0], 1422, 12, "shouldSave != null");
-      text_input.TextInput._instance[_channel].invokeMethod(dart.void, "TextInput.finishAutofillContext", shouldSave);
-    }
-  };
-  (text_input.TextInput.__ = function() {
-    this[__TextInput__channel] = null;
-    this[__TextInput__channel_isSet] = false;
-    this[_currentConnection] = null;
-    this[__TextInput__currentConfiguration] = null;
-    this[__TextInput__currentConfiguration_isSet] = false;
-    this[_hidePending] = false;
-    this[_channel] = system_channels.SystemChannels.textInput;
-    this[_channel].setMethodCallHandler(dart.bind(this, _handleTextInputInvocation));
-  }).prototype = text_input.TextInput.prototype;
-  dart.addTypeTests(text_input.TextInput);
-  dart.addTypeCaches(text_input.TextInput);
-  dart.setMethodSignature(text_input.TextInput, () => ({
-    __proto__: dart.getMethods(text_input.TextInput.__proto__),
-    [_attach]: dart.fnType(dart.void, [text_input.TextInputConnection, text_input.TextInputConfiguration]),
-    [_handleTextInputInvocation]: dart.fnType(async.Future, [message_codec.MethodCall]),
-    [_scheduleHide]: dart.fnType(dart.void, []),
-    [_clearClient]: dart.fnType(dart.void, []),
-    [_updateConfig]: dart.fnType(dart.void, [text_input.TextInputConfiguration]),
-    [_setEditingState]: dart.fnType(dart.void, [text_input.TextEditingValue]),
-    [_show]: dart.fnType(dart.void, []),
-    [_requestAutofill]: dart.fnType(dart.void, []),
-    [_setEditableSizeAndTransform]: dart.fnType(dart.void, [core.Map$(core.String, dart.dynamic)]),
-    [_setComposingTextRect]: dart.fnType(dart.void, [core.Map$(core.String, dart.dynamic)]),
-    [_setStyle]: dart.fnType(dart.void, [core.Map$(core.String, dart.dynamic)])
-  }));
-  dart.setGetterSignature(text_input.TextInput, () => ({
-    __proto__: dart.getGetters(text_input.TextInput.__proto__),
-    [_channel]: platform_channel.MethodChannel,
-    [_currentConfiguration]: text_input.TextInputConfiguration
-  }));
-  dart.setSetterSignature(text_input.TextInput, () => ({
-    __proto__: dart.getSetters(text_input.TextInput.__proto__),
-    [_channel]: platform_channel.MethodChannel,
-    [_currentConfiguration]: text_input.TextInputConfiguration
-  }));
-  dart.setLibraryUri(text_input.TextInput, I[1]);
-  dart.setFieldSignature(text_input.TextInput, () => ({
-    __proto__: dart.getFields(text_input.TextInput.__proto__),
-    [__TextInput__channel]: dart.fieldType(dart.nullable(platform_channel.MethodChannel)),
-    [__TextInput__channel_isSet]: dart.fieldType(core.bool),
-    [_currentConnection]: dart.fieldType(dart.nullable(text_input.TextInputConnection)),
-    [__TextInput__currentConfiguration]: dart.fieldType(dart.nullable(text_input.TextInputConfiguration)),
-    [__TextInput__currentConfiguration_isSet]: dart.fieldType(core.bool),
-    [_hidePending]: dart.fieldType(core.bool)
-  }));
-  dart.defineLazy(text_input.TextInput, {
-    /*text_input.TextInput._instance*/get _instance() {
-      return new text_input.TextInput.__();
-    },
-    /*text_input.TextInput._androidSupportedInputActions*/get _androidSupportedInputActions() {
-      return C[47] || CT.C47;
-    },
-    /*text_input.TextInput._iOSSupportedInputActions*/get _iOSSupportedInputActions() {
-      return C[48] || CT.C48;
-    }
-  }, false);
-  text_input._toTextAffinity = function _toTextAffinity(affinity) {
-    switch (affinity) {
-      case "TextAffinity.downstream":
-      {
-        return ui.TextAffinity.downstream;
-      }
-      case "TextAffinity.upstream":
-      {
-        return ui.TextAffinity.upstream;
-      }
-    }
-    return null;
-  };
-  text_input._toTextInputAction = function _toTextInputAction(action) {
-    if (action == null) dart.nullFailed(I[0], 1023, 43, "action");
-    switch (action) {
-      case "TextInputAction.none":
-      {
-        return text_input.TextInputAction.none;
-      }
-      case "TextInputAction.unspecified":
-      {
-        return text_input.TextInputAction.unspecified;
-      }
-      case "TextInputAction.go":
-      {
-        return text_input.TextInputAction.go;
-      }
-      case "TextInputAction.search":
-      {
-        return text_input.TextInputAction.search;
-      }
-      case "TextInputAction.send":
-      {
-        return text_input.TextInputAction.send;
-      }
-      case "TextInputAction.next":
-      {
-        return text_input.TextInputAction.next;
-      }
-      case "TextInputAction.previous":
-      {
-        return text_input.TextInputAction.previous;
-      }
-      case "TextInputAction.continue_action":
-      {
-        return text_input.TextInputAction.continueAction;
-      }
-      case "TextInputAction.join":
-      {
-        return text_input.TextInputAction.join;
-      }
-      case "TextInputAction.route":
-      {
-        return text_input.TextInputAction.route;
-      }
-      case "TextInputAction.emergencyCall":
-      {
-        return text_input.TextInputAction.emergencyCall;
-      }
-      case "TextInputAction.done":
-      {
-        return text_input.TextInputAction.done;
-      }
-      case "TextInputAction.newline":
-      {
-        return text_input.TextInputAction.newline;
-      }
-    }
-    dart.throw(new assertions.FlutterError.fromParts(T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("Unknown text input action: " + dart.str(action))])));
-  };
-  text_input._toTextCursorAction = function _toTextCursorAction(state) {
-    if (state == null) dart.nullFailed(I[0], 1055, 52, "state");
-    switch (state) {
-      case "FloatingCursorDragState.start":
-      {
-        return text_input.FloatingCursorDragState.Start;
-      }
-      case "FloatingCursorDragState.update":
-      {
-        return text_input.FloatingCursorDragState.Update;
-      }
-      case "FloatingCursorDragState.end":
-      {
-        return text_input.FloatingCursorDragState.End;
-      }
-    }
-    dart.throw(new assertions.FlutterError.fromParts(T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("Unknown text cursor action: " + dart.str(state))])));
-  };
-  text_input._toTextPoint = function _toTextPoint(state, encoded) {
-    if (state == null) dart.nullFailed(I[0], 1067, 61, "state");
-    if (encoded == null) dart.nullFailed(I[0], 1067, 89, "encoded");
-    if (!(state != null)) dart.assertFailed("You must provide a state to set a new editing point.", I[0], 1068, 10, "state != null");
-    if (!(encoded[$_get]("X") != null)) dart.assertFailed("You must provide a value for the horizontal location of the floating cursor.", I[0], 1069, 10, "encoded['X'] != null");
-    if (!(encoded[$_get]("Y") != null)) dart.assertFailed("You must provide a value for the vertical location of the floating cursor.", I[0], 1070, 10, "encoded['Y'] != null");
-    let offset = state == text_input.FloatingCursorDragState.Update ? new ui.Offset.new(core.double.as(encoded[$_get]("X")), core.double.as(encoded[$_get]("Y"))) : ui.Offset.zero;
-    return new text_input.RawFloatingCursorPoint.new({offset: offset, state: state});
-  };
-  autofill.AutofillHints = class AutofillHints extends core.Object {};
-  (autofill.AutofillHints.__ = function() {
-    ;
-  }).prototype = autofill.AutofillHints.prototype;
-  dart.addTypeTests(autofill.AutofillHints);
-  dart.addTypeCaches(autofill.AutofillHints);
-  dart.setLibraryUri(autofill.AutofillHints, I[2]);
-  dart.defineLazy(autofill.AutofillHints, {
-    /*autofill.AutofillHints.addressCity*/get addressCity() {
-      return "addressCity";
-    },
-    /*autofill.AutofillHints.addressCityAndState*/get addressCityAndState() {
-      return "addressCityAndState";
-    },
-    /*autofill.AutofillHints.addressState*/get addressState() {
-      return "addressState";
-    },
-    /*autofill.AutofillHints.birthday*/get birthday() {
-      return "birthday";
-    },
-    /*autofill.AutofillHints.birthdayDay*/get birthdayDay() {
-      return "birthdayDay";
-    },
-    /*autofill.AutofillHints.birthdayMonth*/get birthdayMonth() {
-      return "birthdayMonth";
-    },
-    /*autofill.AutofillHints.birthdayYear*/get birthdayYear() {
-      return "birthdayYear";
-    },
-    /*autofill.AutofillHints.countryCode*/get countryCode() {
-      return "countryCode";
-    },
-    /*autofill.AutofillHints.countryName*/get countryName() {
-      return "countryName";
-    },
-    /*autofill.AutofillHints.creditCardExpirationDate*/get creditCardExpirationDate() {
-      return "creditCardExpirationDate";
-    },
-    /*autofill.AutofillHints.creditCardExpirationDay*/get creditCardExpirationDay() {
-      return "creditCardExpirationDay";
-    },
-    /*autofill.AutofillHints.creditCardExpirationMonth*/get creditCardExpirationMonth() {
-      return "creditCardExpirationMonth";
-    },
-    /*autofill.AutofillHints.creditCardExpirationYear*/get creditCardExpirationYear() {
-      return "creditCardExpirationYear";
-    },
-    /*autofill.AutofillHints.creditCardFamilyName*/get creditCardFamilyName() {
-      return "creditCardFamilyName";
-    },
-    /*autofill.AutofillHints.creditCardGivenName*/get creditCardGivenName() {
-      return "creditCardGivenName";
-    },
-    /*autofill.AutofillHints.creditCardMiddleName*/get creditCardMiddleName() {
-      return "creditCardMiddleName";
-    },
-    /*autofill.AutofillHints.creditCardName*/get creditCardName() {
-      return "creditCardName";
-    },
-    /*autofill.AutofillHints.creditCardNumber*/get creditCardNumber() {
-      return "creditCardNumber";
-    },
-    /*autofill.AutofillHints.creditCardSecurityCode*/get creditCardSecurityCode() {
-      return "creditCardSecurityCode";
-    },
-    /*autofill.AutofillHints.creditCardType*/get creditCardType() {
-      return "creditCardType";
-    },
-    /*autofill.AutofillHints.email*/get email() {
-      return "email";
-    },
-    /*autofill.AutofillHints.familyName*/get familyName() {
-      return "familyName";
-    },
-    /*autofill.AutofillHints.fullStreetAddress*/get fullStreetAddress() {
-      return "fullStreetAddress";
-    },
-    /*autofill.AutofillHints.gender*/get gender() {
-      return "gender";
-    },
-    /*autofill.AutofillHints.givenName*/get givenName() {
-      return "givenName";
-    },
-    /*autofill.AutofillHints.impp*/get impp() {
-      return "impp";
-    },
-    /*autofill.AutofillHints.jobTitle*/get jobTitle() {
-      return "jobTitle";
-    },
-    /*autofill.AutofillHints.language*/get language() {
-      return "language";
-    },
-    /*autofill.AutofillHints.location*/get location() {
-      return "location";
-    },
-    /*autofill.AutofillHints.middleInitial*/get middleInitial() {
-      return "middleInitial";
-    },
-    /*autofill.AutofillHints.middleName*/get middleName() {
-      return "middleName";
-    },
-    /*autofill.AutofillHints.name_*/get name_() {
-      return "name";
-    },
-    /*autofill.AutofillHints.namePrefix*/get namePrefix() {
-      return "namePrefix";
-    },
-    /*autofill.AutofillHints.nameSuffix*/get nameSuffix() {
-      return "nameSuffix";
-    },
-    /*autofill.AutofillHints.newPassword*/get newPassword() {
-      return "newPassword";
-    },
-    /*autofill.AutofillHints.newUsername*/get newUsername() {
-      return "newUsername";
-    },
-    /*autofill.AutofillHints.nickname*/get nickname() {
-      return "nickname";
-    },
-    /*autofill.AutofillHints.oneTimeCode*/get oneTimeCode() {
-      return "oneTimeCode";
-    },
-    /*autofill.AutofillHints.organizationName*/get organizationName() {
-      return "organizationName";
-    },
-    /*autofill.AutofillHints.password*/get password() {
-      return "password";
-    },
-    /*autofill.AutofillHints.photo*/get photo() {
-      return "photo";
-    },
-    /*autofill.AutofillHints.postalAddress*/get postalAddress() {
-      return "postalAddress";
-    },
-    /*autofill.AutofillHints.postalAddressExtended*/get postalAddressExtended() {
-      return "postalAddressExtended";
-    },
-    /*autofill.AutofillHints.postalAddressExtendedPostalCode*/get postalAddressExtendedPostalCode() {
-      return "postalAddressExtendedPostalCode";
-    },
-    /*autofill.AutofillHints.postalCode*/get postalCode() {
-      return "postalCode";
-    },
-    /*autofill.AutofillHints.streetAddressLevel1*/get streetAddressLevel1() {
-      return "streetAddressLevel1";
-    },
-    /*autofill.AutofillHints.streetAddressLevel2*/get streetAddressLevel2() {
-      return "streetAddressLevel2";
-    },
-    /*autofill.AutofillHints.streetAddressLevel3*/get streetAddressLevel3() {
-      return "streetAddressLevel3";
-    },
-    /*autofill.AutofillHints.streetAddressLevel4*/get streetAddressLevel4() {
-      return "streetAddressLevel4";
-    },
-    /*autofill.AutofillHints.streetAddressLine1*/get streetAddressLine1() {
-      return "streetAddressLine1";
-    },
-    /*autofill.AutofillHints.streetAddressLine2*/get streetAddressLine2() {
-      return "streetAddressLine2";
-    },
-    /*autofill.AutofillHints.streetAddressLine3*/get streetAddressLine3() {
-      return "streetAddressLine3";
-    },
-    /*autofill.AutofillHints.sublocality*/get sublocality() {
-      return "sublocality";
-    },
-    /*autofill.AutofillHints.telephoneNumber*/get telephoneNumber() {
-      return "telephoneNumber";
-    },
-    /*autofill.AutofillHints.telephoneNumberAreaCode*/get telephoneNumberAreaCode() {
-      return "telephoneNumberAreaCode";
-    },
-    /*autofill.AutofillHints.telephoneNumberCountryCode*/get telephoneNumberCountryCode() {
-      return "telephoneNumberCountryCode";
-    },
-    /*autofill.AutofillHints.telephoneNumberDevice*/get telephoneNumberDevice() {
-      return "telephoneNumberDevice";
-    },
-    /*autofill.AutofillHints.telephoneNumberExtension*/get telephoneNumberExtension() {
-      return "telephoneNumberExtension";
-    },
-    /*autofill.AutofillHints.telephoneNumberLocal*/get telephoneNumberLocal() {
-      return "telephoneNumberLocal";
-    },
-    /*autofill.AutofillHints.telephoneNumberLocalPrefix*/get telephoneNumberLocalPrefix() {
-      return "telephoneNumberLocalPrefix";
-    },
-    /*autofill.AutofillHints.telephoneNumberLocalSuffix*/get telephoneNumberLocalSuffix() {
-      return "telephoneNumberLocalSuffix";
-    },
-    /*autofill.AutofillHints.telephoneNumberNational*/get telephoneNumberNational() {
-      return "telephoneNumberNational";
-    },
-    /*autofill.AutofillHints.transactionAmount*/get transactionAmount() {
-      return "transactionAmount";
-    },
-    /*autofill.AutofillHints.transactionCurrency*/get transactionCurrency() {
-      return "transactionCurrency";
-    },
-    /*autofill.AutofillHints.url*/get url() {
-      return "url";
-    },
-    /*autofill.AutofillHints.username*/get username() {
-      return "username";
-    }
-  }, false);
-  var uniqueIdentifier$ = dart.privateName(autofill, "AutofillConfiguration.uniqueIdentifier");
-  var autofillHints$ = dart.privateName(autofill, "AutofillConfiguration.autofillHints");
-  var currentEditingValue$ = dart.privateName(autofill, "AutofillConfiguration.currentEditingValue");
-  autofill.AutofillConfiguration = class AutofillConfiguration extends core.Object {
-    get uniqueIdentifier() {
-      return this[uniqueIdentifier$];
-    }
-    set uniqueIdentifier(value) {
-      super.uniqueIdentifier = value;
-    }
-    get autofillHints() {
-      return this[autofillHints$];
-    }
-    set autofillHints(value) {
-      super.autofillHints = value;
-    }
-    get currentEditingValue() {
-      return this[currentEditingValue$];
-    }
-    set currentEditingValue(value) {
-      super.currentEditingValue = value;
-    }
-    toJson() {
-      if (!dart.test(this.autofillHints[$isNotEmpty])) dart.assertFailed(null, I[3], 700, 12, "autofillHints.isNotEmpty");
-      return new (T.IdentityMapOfString$dynamic()).from(["uniqueIdentifier", this.uniqueIdentifier, "hints", this.autofillHints, "editingValue", this.currentEditingValue.toJSON()]);
-    }
-  };
-  (autofill.AutofillConfiguration.new = function(opts) {
-    let uniqueIdentifier = opts && 'uniqueIdentifier' in opts ? opts.uniqueIdentifier : null;
-    if (uniqueIdentifier == null) dart.nullFailed(I[3], 632, 19, "uniqueIdentifier");
-    let autofillHints = opts && 'autofillHints' in opts ? opts.autofillHints : null;
-    if (autofillHints == null) dart.nullFailed(I[3], 633, 19, "autofillHints");
-    let currentEditingValue = opts && 'currentEditingValue' in opts ? opts.currentEditingValue : null;
-    if (currentEditingValue == null) dart.nullFailed(I[3], 634, 19, "currentEditingValue");
-    this[uniqueIdentifier$] = uniqueIdentifier;
-    this[autofillHints$] = autofillHints;
-    this[currentEditingValue$] = currentEditingValue;
-    if (!(uniqueIdentifier != null)) dart.assertFailed(null, I[3], 635, 15, "uniqueIdentifier != null");
-    if (!(autofillHints != null)) dart.assertFailed(null, I[3], 636, 15, "autofillHints != null");
-    ;
-  }).prototype = autofill.AutofillConfiguration.prototype;
-  dart.addTypeTests(autofill.AutofillConfiguration);
-  dart.addTypeCaches(autofill.AutofillConfiguration);
-  dart.setMethodSignature(autofill.AutofillConfiguration, () => ({
-    __proto__: dart.getMethods(autofill.AutofillConfiguration.__proto__),
-    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
-  }));
-  dart.setLibraryUri(autofill.AutofillConfiguration, I[2]);
-  dart.setFieldSignature(autofill.AutofillConfiguration, () => ({
-    __proto__: dart.getFields(autofill.AutofillConfiguration.__proto__),
-    uniqueIdentifier: dart.finalFieldType(core.String),
-    autofillHints: dart.finalFieldType(core.List$(core.String)),
-    currentEditingValue: dart.finalFieldType(text_input.TextEditingValue)
-  }));
-  autofill.AutofillClient = class AutofillClient extends core.Object {};
-  (autofill.AutofillClient.new = function() {
-    ;
-  }).prototype = autofill.AutofillClient.prototype;
-  dart.addTypeTests(autofill.AutofillClient);
-  dart.addTypeCaches(autofill.AutofillClient);
-  dart.setLibraryUri(autofill.AutofillClient, I[2]);
-  autofill.AutofillScope = class AutofillScope extends core.Object {};
-  (autofill.AutofillScope.new = function() {
-    ;
-  }).prototype = autofill.AutofillScope.prototype;
-  dart.addTypeTests(autofill.AutofillScope);
-  dart.addTypeCaches(autofill.AutofillScope);
-  dart.setLibraryUri(autofill.AutofillScope, I[2]);
-  autofill._AutofillScopeTextInputConfiguration = class _AutofillScopeTextInputConfiguration extends text_input.TextInputConfiguration {
-    toJson() {
-      let result = super.toJson();
-      result[$_set]("fields", this.allConfigurations[$map](T.MapOfString$dynamic(), dart.fn(configuration => {
-        if (configuration == null) dart.nullFailed(I[3], 793, 36, "configuration");
-        return configuration.toJson();
-      }, T.TextInputConfigurationToMapOfString$dynamic()))[$toList]({growable: false}));
       return result;
     }
-  };
-  (autofill._AutofillScopeTextInputConfiguration.new = function(opts) {
-    let allConfigurations = opts && 'allConfigurations' in opts ? opts.allConfigurations : null;
-    if (allConfigurations == null) dart.nullFailed(I[3], 770, 19, "allConfigurations");
-    let currentClientConfiguration = opts && 'currentClientConfiguration' in opts ? opts.currentClientConfiguration : null;
-    if (currentClientConfiguration == null) dart.nullFailed(I[3], 771, 37, "currentClientConfiguration");
-    this.allConfigurations = allConfigurations;
-    if (!(allConfigurations != null)) dart.assertFailed(null, I[3], 772, 15, "allConfigurations != null");
-    if (!(currentClientConfiguration != null)) dart.assertFailed(null, I[3], 773, 15, "currentClientConfiguration != null");
-    autofill._AutofillScopeTextInputConfiguration.__proto__.new.call(this, {inputType: currentClientConfiguration.inputType, obscureText: currentClientConfiguration.obscureText, autocorrect: currentClientConfiguration.autocorrect, smartDashesType: currentClientConfiguration.smartDashesType, smartQuotesType: currentClientConfiguration.smartQuotesType, enableSuggestions: currentClientConfiguration.enableSuggestions, inputAction: currentClientConfiguration.inputAction, textCapitalization: currentClientConfiguration.textCapitalization, keyboardAppearance: currentClientConfiguration.keyboardAppearance, actionLabel: currentClientConfiguration.actionLabel, autofillConfiguration: currentClientConfiguration.autofillConfiguration});
-    ;
-  }).prototype = autofill._AutofillScopeTextInputConfiguration.prototype;
-  dart.addTypeTests(autofill._AutofillScopeTextInputConfiguration);
-  dart.addTypeCaches(autofill._AutofillScopeTextInputConfiguration);
-  dart.setLibraryUri(autofill._AutofillScopeTextInputConfiguration, I[2]);
-  dart.setFieldSignature(autofill._AutofillScopeTextInputConfiguration, () => ({
-    __proto__: dart.getFields(autofill._AutofillScopeTextInputConfiguration.__proto__),
-    allConfigurations: dart.finalFieldType(core.Iterable$(text_input.TextInputConfiguration))
-  }));
-  autofill.AutofillScopeMixin = class AutofillScopeMixin extends core.Object {};
-  autofill.AutofillScopeMixin[dart.mixinOn] = Object => class AutofillScopeMixin extends Object {
-    attach(trigger, configuration) {
-      if (trigger == null) dart.nullFailed(I[3], 804, 46, "trigger");
-      if (configuration == null) dart.nullFailed(I[3], 804, 78, "configuration");
-      if (!(trigger != null)) dart.assertFailed(null, I[3], 805, 12, "trigger != null");
-      if (!!dart.test(this.autofillClients[$any](dart.fn(client => {
-        if (client == null) dart.nullFailed(I[3], 807, 44, "client");
-        return client.textInputConfiguration.autofillConfiguration == null;
-      }, T.AutofillClientTobool())))) dart.assertFailed("Every client in AutofillScope.autofillClients must enable autofill", I[3], 807, 7, "!autofillClients.any((AutofillClient client) => client.textInputConfiguration.autofillConfiguration == null)");
-      let inputConfiguration = new autofill._AutofillScopeTextInputConfiguration.new({allConfigurations: this.autofillClients[$map](text_input.TextInputConfiguration, dart.fn(client => {
-          if (client == null) dart.nullFailed(I[3], 812, 62, "client");
-          return client.textInputConfiguration;
-        }, T.AutofillClientToTextInputConfiguration())), currentClientConfiguration: configuration});
-      return text_input.TextInput.attach(trigger, inputConfiguration);
+    applyContentDimensions(minScrollExtent, maxScrollExtent) {
+      if (minScrollExtent == null) dart.nullFailed(I[0], 441, 38, "minScrollExtent");
+      if (maxScrollExtent == null) dart.nullFailed(I[0], 441, 62, "maxScrollExtent");
+      let newMinScrollExtent = dart.notNull(minScrollExtent) + dart.notNull(this[_initialPageOffset]);
+      return super.applyContentDimensions(newMinScrollExtent, math.max(core.double, newMinScrollExtent, dart.notNull(maxScrollExtent) - dart.notNull(this[_initialPageOffset])));
+    }
+    copyWith(opts) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3;
+      let minScrollExtent = opts && 'minScrollExtent' in opts ? opts.minScrollExtent : null;
+      let maxScrollExtent = opts && 'maxScrollExtent' in opts ? opts.maxScrollExtent : null;
+      let pixels = opts && 'pixels' in opts ? opts.pixels : null;
+      let viewportDimension = opts && 'viewportDimension' in opts ? opts.viewportDimension : null;
+      let axisDirection = opts && 'axisDirection' in opts ? opts.axisDirection : null;
+      let viewportFraction = opts && 'viewportFraction' in opts ? opts.viewportFraction : null;
+      return new page_view.PageMetrics.new({minScrollExtent: (t0 = minScrollExtent, t0 == null ? dart.test(this.hasContentDimensions) ? this.minScrollExtent : null : t0), maxScrollExtent: (t0$ = maxScrollExtent, t0$ == null ? dart.test(this.hasContentDimensions) ? this.maxScrollExtent : null : t0$), pixels: (t0$0 = pixels, t0$0 == null ? dart.test(this.hasPixels) ? this.pixels : null : t0$0), viewportDimension: (t0$1 = viewportDimension, t0$1 == null ? dart.test(this.hasViewportDimension) ? this.viewportDimension : null : t0$1), axisDirection: (t0$2 = axisDirection, t0$2 == null ? this.axisDirection : t0$2), viewportFraction: (t0$3 = viewportFraction, t0$3 == null ? this.viewportFraction : t0$3)});
+    }
+    get [_maxScrollExtent$]() {
+      return T.doubleN().as(this[$noSuchMethod](new core._Invocation.getter(C[3] || CT.C3)));
+    }
+    get [_minScrollExtent$]() {
+      return T.doubleN().as(this[$noSuchMethod](new core._Invocation.getter(C[4] || CT.C4)));
+    }
+    get [_viewportDimension$]() {
+      return T.doubleN().as(this[$noSuchMethod](new core._Invocation.getter(C[5] || CT.C5)));
+    }
+    get [_pixels$]() {
+      return T.doubleN().as(this[$noSuchMethod](new core._Invocation.getter(C[6] || CT.C6)));
     }
   };
-  (autofill.AutofillScopeMixin[dart.mixinNew] = function() {
-  }).prototype = autofill.AutofillScopeMixin.prototype;
-  dart.addTypeTests(autofill.AutofillScopeMixin);
-  dart.addTypeCaches(autofill.AutofillScopeMixin);
-  autofill.AutofillScopeMixin[dart.implements] = () => [autofill.AutofillScope, core.Object];
-  dart.setMethodSignature(autofill.AutofillScopeMixin, () => ({
-    __proto__: dart.getMethods(autofill.AutofillScopeMixin.__proto__),
-    attach: dart.fnType(text_input.TextInputConnection, [text_input.TextInputClient, text_input.TextInputConfiguration])
+  (page_view._PagePosition.new = function(opts) {
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    if (physics == null) dart.nullFailed(I[0], 304, 28, "physics");
+    let context = opts && 'context' in opts ? opts.context : null;
+    if (context == null) dart.nullFailed(I[0], 305, 28, "context");
+    let initialPage = opts && 'initialPage' in opts ? opts.initialPage : 0;
+    if (initialPage == null) dart.nullFailed(I[0], 306, 10, "initialPage");
+    let keepPage = opts && 'keepPage' in opts ? opts.keepPage : true;
+    if (keepPage == null) dart.nullFailed(I[0], 307, 10, "keepPage");
+    let viewportFraction = opts && 'viewportFraction' in opts ? opts.viewportFraction : 1;
+    if (viewportFraction == null) dart.nullFailed(I[0], 308, 12, "viewportFraction");
+    let oldPosition = opts && 'oldPosition' in opts ? opts.oldPosition : null;
+    this.initialPage = initialPage;
+    if (!(initialPage != null)) dart.assertFailed(null, I[0], 310, 15, "initialPage != null");
+    if (!(keepPage != null)) dart.assertFailed(null, I[0], 311, 15, "keepPage != null");
+    if (!(viewportFraction != null)) dart.assertFailed(null, I[0], 312, 15, "viewportFraction != null");
+    if (!(dart.notNull(viewportFraction) > 0.0)) dart.assertFailed(null, I[0], 313, 15, "viewportFraction > 0.0");
+    this[_viewportFraction] = viewportFraction;
+    this[_pageToUseOnStartup] = initialPage[$toDouble]();
+    page_view._PagePosition.__proto__.new.call(this, {physics: physics, context: context, initialPixels: null, keepScrollOffset: keepPage, oldPosition: oldPosition});
+    ;
+  }).prototype = page_view._PagePosition.prototype;
+  dart.addTypeTests(page_view._PagePosition);
+  dart.addTypeCaches(page_view._PagePosition);
+  page_view._PagePosition[dart.implements] = () => [page_view.PageMetrics];
+  dart.setMethodSignature(page_view._PagePosition, () => ({
+    __proto__: dart.getMethods(page_view._PagePosition.__proto__),
+    getPageFromPixels: dart.fnType(core.double, [core.double, core.double]),
+    getPixelsFromPage: dart.fnType(core.double, [core.double]),
+    copyWith: dart.fnType(page_view.PageMetrics, [], {axisDirection: dart.nullable(basic_types.AxisDirection), maxScrollExtent: dart.nullable(core.double), minScrollExtent: dart.nullable(core.double), pixels: dart.nullable(core.double), viewportDimension: dart.nullable(core.double), viewportFraction: dart.nullable(core.double)}, {})
   }));
-  dart.setLibraryUri(autofill.AutofillScopeMixin, I[2]);
-  dart.trackLibraries("packages/flutter/src/services/text_input.dart", {
-    "package:flutter/src/services/text_input.dart": text_input,
-    "package:flutter/src/services/autofill.dart": autofill
+  dart.setGetterSignature(page_view._PagePosition, () => ({
+    __proto__: dart.getGetters(page_view._PagePosition.__proto__),
+    viewportFraction: core.double,
+    [_initialPageOffset]: core.double,
+    page: dart.nullable(core.double),
+    [_maxScrollExtent$]: dart.nullable(core.double),
+    [_minScrollExtent$]: dart.nullable(core.double),
+    [_viewportDimension$]: dart.nullable(core.double),
+    [_pixels$]: dart.nullable(core.double)
+  }));
+  dart.setSetterSignature(page_view._PagePosition, () => ({
+    __proto__: dart.getSetters(page_view._PagePosition.__proto__),
+    viewportFraction: core.double
+  }));
+  dart.setLibraryUri(page_view._PagePosition, I[1]);
+  dart.setFieldSignature(page_view._PagePosition, () => ({
+    __proto__: dart.getFields(page_view._PagePosition.__proto__),
+    initialPage: dart.finalFieldType(core.int),
+    [_pageToUseOnStartup]: dart.fieldType(core.double),
+    [_viewportFraction]: dart.fieldType(core.double)
+  }));
+  var allowImplicitScrolling$ = dart.privateName(page_view, "_ForceImplicitScrollPhysics.allowImplicitScrolling");
+  page_view._ForceImplicitScrollPhysics = class _ForceImplicitScrollPhysics extends scroll_physics.ScrollPhysics {
+    get allowImplicitScrolling() {
+      return this[allowImplicitScrolling$];
+    }
+    set allowImplicitScrolling(value) {
+      super.allowImplicitScrolling = value;
+    }
+    applyTo(ancestor) {
+      return new page_view._ForceImplicitScrollPhysics.new({allowImplicitScrolling: this.allowImplicitScrolling, parent: this.buildParent(ancestor)});
+    }
+  };
+  (page_view._ForceImplicitScrollPhysics.new = function(opts) {
+    let allowImplicitScrolling = opts && 'allowImplicitScrolling' in opts ? opts.allowImplicitScrolling : null;
+    if (allowImplicitScrolling == null) dart.nullFailed(I[0], 471, 19, "allowImplicitScrolling");
+    let parent = opts && 'parent' in opts ? opts.parent : null;
+    this[allowImplicitScrolling$] = allowImplicitScrolling;
+    if (!(allowImplicitScrolling != null)) dart.assertFailed(null, I[0], 473, 15, "allowImplicitScrolling != null");
+    page_view._ForceImplicitScrollPhysics.__proto__.new.call(this, {parent: parent});
+    ;
+  }).prototype = page_view._ForceImplicitScrollPhysics.prototype;
+  dart.addTypeTests(page_view._ForceImplicitScrollPhysics);
+  dart.addTypeCaches(page_view._ForceImplicitScrollPhysics);
+  dart.setMethodSignature(page_view._ForceImplicitScrollPhysics, () => ({
+    __proto__: dart.getMethods(page_view._ForceImplicitScrollPhysics.__proto__),
+    applyTo: dart.fnType(page_view._ForceImplicitScrollPhysics, [dart.nullable(scroll_physics.ScrollPhysics)])
+  }));
+  dart.setLibraryUri(page_view._ForceImplicitScrollPhysics, I[1]);
+  dart.setFieldSignature(page_view._ForceImplicitScrollPhysics, () => ({
+    __proto__: dart.getFields(page_view._ForceImplicitScrollPhysics.__proto__),
+    allowImplicitScrolling: dart.finalFieldType(core.bool)
+  }));
+  var _getPage = dart.privateName(page_view, "_getPage");
+  var _getPixels = dart.privateName(page_view, "_getPixels");
+  var _getTargetPixels = dart.privateName(page_view, "_getTargetPixels");
+  page_view.PageScrollPhysics = class PageScrollPhysics extends scroll_physics.ScrollPhysics {
+    applyTo(ancestor) {
+      return new page_view.PageScrollPhysics.new({parent: this.buildParent(ancestor)});
+    }
+    [_getPage](position) {
+      if (position == null) dart.nullFailed(I[0], 506, 33, "position");
+      if (page_view._PagePosition.is(position)) return dart.nullCheck(position.page);
+      return dart.notNull(position.pixels) / dart.notNull(position.viewportDimension);
+    }
+    [_getPixels](position, page) {
+      if (position == null) dart.nullFailed(I[0], 512, 35, "position");
+      if (page == null) dart.nullFailed(I[0], 512, 52, "page");
+      if (page_view._PagePosition.is(position)) return position.getPixelsFromPage(page);
+      return dart.notNull(page) * dart.notNull(position.viewportDimension);
+    }
+    [_getTargetPixels](position, tolerance, velocity) {
+      if (position == null) dart.nullFailed(I[0], 518, 41, "position");
+      if (tolerance == null) dart.nullFailed(I[0], 518, 61, "tolerance");
+      if (velocity == null) dart.nullFailed(I[0], 518, 79, "velocity");
+      let page = this[_getPage](position);
+      if (dart.notNull(velocity) < -dart.notNull(tolerance.velocity))
+        page = dart.notNull(page) - 0.5;
+      else if (dart.notNull(velocity) > dart.notNull(tolerance.velocity)) page = dart.notNull(page) + 0.5;
+      return this[_getPixels](position, page[$roundToDouble]());
+    }
+    createBallisticSimulation(position, velocity) {
+      if (position == null) dart.nullFailed(I[0], 528, 55, "position");
+      if (velocity == null) dart.nullFailed(I[0], 528, 72, "velocity");
+      if (dart.notNull(velocity) <= 0.0 && dart.notNull(position.pixels) <= dart.notNull(position.minScrollExtent) || dart.notNull(velocity) >= 0.0 && dart.notNull(position.pixels) >= dart.notNull(position.maxScrollExtent)) return super.createBallisticSimulation(position, velocity);
+      let tolerance = this.tolerance;
+      let target = this[_getTargetPixels](position, tolerance, velocity);
+      if (target != position.pixels) return new spring_simulation.ScrollSpringSimulation.new(this.spring, position.pixels, target, velocity, {tolerance: tolerance});
+      return null;
+    }
+    get allowImplicitScrolling() {
+      return false;
+    }
+  };
+  (page_view.PageScrollPhysics.new = function(opts) {
+    let parent = opts && 'parent' in opts ? opts.parent : null;
+    page_view.PageScrollPhysics.__proto__.new.call(this, {parent: parent});
+    ;
+  }).prototype = page_view.PageScrollPhysics.prototype;
+  dart.addTypeTests(page_view.PageScrollPhysics);
+  dart.addTypeCaches(page_view.PageScrollPhysics);
+  dart.setMethodSignature(page_view.PageScrollPhysics, () => ({
+    __proto__: dart.getMethods(page_view.PageScrollPhysics.__proto__),
+    applyTo: dart.fnType(page_view.PageScrollPhysics, [dart.nullable(scroll_physics.ScrollPhysics)]),
+    [_getPage]: dart.fnType(core.double, [scroll_metrics.ScrollMetrics]),
+    [_getPixels]: dart.fnType(core.double, [scroll_metrics.ScrollMetrics, core.double]),
+    [_getTargetPixels]: dart.fnType(core.double, [scroll_metrics.ScrollMetrics, tolerance.Tolerance, core.double])
+  }));
+  dart.setLibraryUri(page_view.PageScrollPhysics, I[1]);
+  var allowImplicitScrolling$0 = dart.privateName(page_view, "PageView.allowImplicitScrolling");
+  var restorationId$ = dart.privateName(page_view, "PageView.restorationId");
+  var scrollDirection$ = dart.privateName(page_view, "PageView.scrollDirection");
+  var reverse$ = dart.privateName(page_view, "PageView.reverse");
+  var controller$ = dart.privateName(page_view, "PageView.controller");
+  var physics$ = dart.privateName(page_view, "PageView.physics");
+  var pageSnapping$ = dart.privateName(page_view, "PageView.pageSnapping");
+  var onPageChanged$ = dart.privateName(page_view, "PageView.onPageChanged");
+  var childrenDelegate$ = dart.privateName(page_view, "PageView.childrenDelegate");
+  var dragStartBehavior$ = dart.privateName(page_view, "PageView.dragStartBehavior");
+  var clipBehavior$ = dart.privateName(page_view, "PageView.clipBehavior");
+  var _name$ = dart.privateName(basic_types, "_name");
+  var _name$0 = dart.privateName(recognizer, "_name");
+  var _name$1 = dart.privateName(ui, "_name");
+  page_view.PageView = class PageView extends framework.StatefulWidget {
+    get allowImplicitScrolling() {
+      return this[allowImplicitScrolling$0];
+    }
+    set allowImplicitScrolling(value) {
+      super.allowImplicitScrolling = value;
+    }
+    get restorationId() {
+      return this[restorationId$];
+    }
+    set restorationId(value) {
+      super.restorationId = value;
+    }
+    get scrollDirection() {
+      return this[scrollDirection$];
+    }
+    set scrollDirection(value) {
+      super.scrollDirection = value;
+    }
+    get reverse() {
+      return this[reverse$];
+    }
+    set reverse(value) {
+      super.reverse = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get physics() {
+      return this[physics$];
+    }
+    set physics(value) {
+      super.physics = value;
+    }
+    get pageSnapping() {
+      return this[pageSnapping$];
+    }
+    set pageSnapping(value) {
+      super.pageSnapping = value;
+    }
+    get onPageChanged() {
+      return this[onPageChanged$];
+    }
+    set onPageChanged(value) {
+      super.onPageChanged = value;
+    }
+    get childrenDelegate() {
+      return this[childrenDelegate$];
+    }
+    set childrenDelegate(value) {
+      super.childrenDelegate = value;
+    }
+    get dragStartBehavior() {
+      return this[dragStartBehavior$];
+    }
+    set dragStartBehavior(value) {
+      super.dragStartBehavior = value;
+    }
+    get clipBehavior() {
+      return this[clipBehavior$];
+    }
+    set clipBehavior(value) {
+      super.clipBehavior = value;
+    }
+    createState() {
+      return new page_view._PageViewState.new();
+    }
+  };
+  (page_view.PageView.new = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[7] || CT.C7;
+    if (scrollDirection == null) dart.nullFailed(I[0], 626, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 627, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let pageSnapping = opts && 'pageSnapping' in opts ? opts.pageSnapping : true;
+    if (pageSnapping == null) dart.nullFailed(I[0], 630, 10, "pageSnapping");
+    let onPageChanged = opts && 'onPageChanged' in opts ? opts.onPageChanged : null;
+    let children = opts && 'children' in opts ? opts.children : C[8] || CT.C8;
+    if (children == null) dart.nullFailed(I[0], 632, 18, "children");
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[9] || CT.C9;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 633, 10, "dragStartBehavior");
+    let allowImplicitScrolling = opts && 'allowImplicitScrolling' in opts ? opts.allowImplicitScrolling : false;
+    if (allowImplicitScrolling == null) dart.nullFailed(I[0], 634, 10, "allowImplicitScrolling");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[10] || CT.C10;
+    if (clipBehavior == null) dart.nullFailed(I[0], 636, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[scrollDirection$] = scrollDirection;
+    this[reverse$] = reverse;
+    this[physics$] = physics;
+    this[pageSnapping$] = pageSnapping;
+    this[onPageChanged$] = onPageChanged;
+    this[dragStartBehavior$] = dragStartBehavior;
+    this[allowImplicitScrolling$0] = allowImplicitScrolling;
+    this[restorationId$] = restorationId;
+    this[clipBehavior$] = clipBehavior;
+    if (!(allowImplicitScrolling != null)) dart.assertFailed(null, I[0], 637, 15, "allowImplicitScrolling != null");
+    if (!(clipBehavior != null)) dart.assertFailed(null, I[0], 638, 15, "clipBehavior != null");
+    this[controller$] = (t0 = controller, t0 == null ? page_view._defaultPageController : t0);
+    this[childrenDelegate$] = new sliver.SliverChildListDelegate.new(children);
+    page_view.PageView.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = page_view.PageView.prototype;
+  (page_view.PageView.builder = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[7] || CT.C7;
+    if (scrollDirection == null) dart.nullFailed(I[0], 663, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 664, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let pageSnapping = opts && 'pageSnapping' in opts ? opts.pageSnapping : true;
+    if (pageSnapping == null) dart.nullFailed(I[0], 667, 10, "pageSnapping");
+    let onPageChanged = opts && 'onPageChanged' in opts ? opts.onPageChanged : null;
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    if (itemBuilder == null) dart.nullFailed(I[0], 669, 35, "itemBuilder");
+    let itemCount = opts && 'itemCount' in opts ? opts.itemCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[9] || CT.C9;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 671, 10, "dragStartBehavior");
+    let allowImplicitScrolling = opts && 'allowImplicitScrolling' in opts ? opts.allowImplicitScrolling : false;
+    if (allowImplicitScrolling == null) dart.nullFailed(I[0], 672, 10, "allowImplicitScrolling");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[10] || CT.C10;
+    if (clipBehavior == null) dart.nullFailed(I[0], 674, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[scrollDirection$] = scrollDirection;
+    this[reverse$] = reverse;
+    this[physics$] = physics;
+    this[pageSnapping$] = pageSnapping;
+    this[onPageChanged$] = onPageChanged;
+    this[dragStartBehavior$] = dragStartBehavior;
+    this[allowImplicitScrolling$0] = allowImplicitScrolling;
+    this[restorationId$] = restorationId;
+    this[clipBehavior$] = clipBehavior;
+    if (!(allowImplicitScrolling != null)) dart.assertFailed(null, I[0], 675, 15, "allowImplicitScrolling != null");
+    if (!(clipBehavior != null)) dart.assertFailed(null, I[0], 676, 15, "clipBehavior != null");
+    this[controller$] = (t0 = controller, t0 == null ? page_view._defaultPageController : t0);
+    this[childrenDelegate$] = new sliver.SliverChildBuilderDelegate.new(itemBuilder, {childCount: itemCount});
+    page_view.PageView.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = page_view.PageView.prototype;
+  (page_view.PageView.custom = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[7] || CT.C7;
+    if (scrollDirection == null) dart.nullFailed(I[0], 765, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 766, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let pageSnapping = opts && 'pageSnapping' in opts ? opts.pageSnapping : true;
+    if (pageSnapping == null) dart.nullFailed(I[0], 769, 10, "pageSnapping");
+    let onPageChanged = opts && 'onPageChanged' in opts ? opts.onPageChanged : null;
+    let childrenDelegate = opts && 'childrenDelegate' in opts ? opts.childrenDelegate : null;
+    if (childrenDelegate == null) dart.nullFailed(I[0], 771, 19, "childrenDelegate");
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[9] || CT.C9;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 772, 10, "dragStartBehavior");
+    let allowImplicitScrolling = opts && 'allowImplicitScrolling' in opts ? opts.allowImplicitScrolling : false;
+    if (allowImplicitScrolling == null) dart.nullFailed(I[0], 773, 10, "allowImplicitScrolling");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[10] || CT.C10;
+    if (clipBehavior == null) dart.nullFailed(I[0], 775, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[scrollDirection$] = scrollDirection;
+    this[reverse$] = reverse;
+    this[physics$] = physics;
+    this[pageSnapping$] = pageSnapping;
+    this[onPageChanged$] = onPageChanged;
+    this[childrenDelegate$] = childrenDelegate;
+    this[dragStartBehavior$] = dragStartBehavior;
+    this[allowImplicitScrolling$0] = allowImplicitScrolling;
+    this[restorationId$] = restorationId;
+    this[clipBehavior$] = clipBehavior;
+    if (!(childrenDelegate != null)) dart.assertFailed(null, I[0], 776, 15, "childrenDelegate != null");
+    if (!(allowImplicitScrolling != null)) dart.assertFailed(null, I[0], 777, 15, "allowImplicitScrolling != null");
+    if (!(clipBehavior != null)) dart.assertFailed(null, I[0], 778, 15, "clipBehavior != null");
+    this[controller$] = (t0 = controller, t0 == null ? page_view._defaultPageController : t0);
+    page_view.PageView.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = page_view.PageView.prototype;
+  dart.addTypeTests(page_view.PageView);
+  dart.addTypeCaches(page_view.PageView);
+  dart.setMethodSignature(page_view.PageView, () => ({
+    __proto__: dart.getMethods(page_view.PageView.__proto__),
+    createState: dart.fnType(page_view._PageViewState, [])
+  }));
+  dart.setLibraryUri(page_view.PageView, I[1]);
+  dart.setFieldSignature(page_view.PageView, () => ({
+    __proto__: dart.getFields(page_view.PageView.__proto__),
+    allowImplicitScrolling: dart.finalFieldType(core.bool),
+    restorationId: dart.finalFieldType(dart.nullable(core.String)),
+    scrollDirection: dart.finalFieldType(basic_types.Axis),
+    reverse: dart.finalFieldType(core.bool),
+    controller: dart.finalFieldType(page_view.PageController),
+    physics: dart.finalFieldType(dart.nullable(scroll_physics.ScrollPhysics)),
+    pageSnapping: dart.finalFieldType(core.bool),
+    onPageChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
+    childrenDelegate: dart.finalFieldType(sliver.SliverChildDelegate),
+    dragStartBehavior: dart.finalFieldType(recognizer.DragStartBehavior),
+    clipBehavior: dart.finalFieldType(ui.Clip)
+  }));
+  var _lastReportedPage = dart.privateName(page_view, "_lastReportedPage");
+  var _getDirection = dart.privateName(page_view, "_getDirection");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  page_view._PageViewState = class _PageViewState extends framework.State$(page_view.PageView) {
+    initState() {
+      super.initState();
+      this[_lastReportedPage] = this.widget.controller.initialPage;
+    }
+    [_getDirection](context) {
+      if (context == null) dart.nullFailed(I[0], 867, 44, "context");
+      switch (this.widget.scrollDirection) {
+        case C[7] || CT.C7:
+        {
+          if (!dart.test(debug.debugCheckHasDirectionality(context))) dart.assertFailed(null, I[0], 870, 16, "debugCheckHasDirectionality(context)");
+          let textDirection = basic.Directionality.of(context);
+          let axisDirection = basic_types.textDirectionToAxisDirection(textDirection);
+          return dart.test(this.widget.reverse) ? basic_types.flipAxisDirection(axisDirection) : axisDirection;
+        }
+        case C[11] || CT.C11:
+        {
+          return dart.test(this.widget.reverse) ? basic_types.AxisDirection.up : basic_types.AxisDirection.down;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 880, 29, "context");
+      let axisDirection = this[_getDirection](context);
+      let physics = new page_view._ForceImplicitScrollPhysics.new({allowImplicitScrolling: this.widget.allowImplicitScrolling}).applyTo(dart.test(this.widget.pageSnapping) ? page_view._kPagePhysics.applyTo(this.widget.physics) : this.widget.physics);
+      return new (T.NotificationListenerOfScrollNotification()).new({onNotification: dart.fn(notification => {
+          if (notification == null) dart.nullFailed(I[0], 889, 43, "notification");
+          if (notification.depth === 0 && this.widget.onPageChanged != null && scroll_notification.ScrollUpdateNotification.is(notification)) {
+            let metrics = page_view.PageMetrics.as(notification.metrics);
+            let currentPage = dart.nullCheck(metrics.page)[$round]();
+            if (currentPage !== this[_lastReportedPage]) {
+              this[_lastReportedPage] = currentPage;
+              dart.nullCheck(this.widget.onPageChanged)(currentPage);
+            }
+          }
+          return false;
+        }, T.ScrollNotificationTobool()), child: new scrollable.Scrollable.new({dragStartBehavior: this.widget.dragStartBehavior, axisDirection: axisDirection, controller: this.widget.controller, physics: physics, restorationId: this.widget.restorationId, viewportBuilder: dart.fn((context, position) => {
+            if (context == null) dart.nullFailed(I[0], 906, 40, "context");
+            if (position == null) dart.nullFailed(I[0], 906, 64, "position");
+            return new viewport.Viewport.new({cacheExtent: dart.test(this.widget.allowImplicitScrolling) ? 1.0 : 0.0, cacheExtentStyle: viewport$.CacheExtentStyle.viewport, axisDirection: axisDirection, offset: position, clipBehavior: this.widget.clipBehavior, slivers: T.JSArrayOfWidget().of([new sliver_fill.SliverFillViewport.new({viewportFraction: this.widget.controller.viewportFraction, delegate: this.widget.childrenDelegate, $creationLocationd_0dea112b090073317d4: C[12] || CT.C12})]), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16});
+          }, T.BuildContextAndViewportOffsetToViewport()), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), $creationLocationd_0dea112b090073317d4: C[32] || CT.C32});
+    }
+    debugFillProperties(description) {
+      if (description == null) dart.nullFailed(I[0], 929, 56, "description");
+      super.debugFillProperties(description);
+      description.add(new (T.EnumPropertyOfAxis()).new("scrollDirection", this.widget.scrollDirection));
+      description.add(new diagnostics.FlagProperty.new("reverse", {value: this.widget.reverse, ifTrue: "reversed"}));
+      description.add(new (T.DiagnosticsPropertyOfPageController()).new("controller", this.widget.controller, {showName: false}));
+      description.add(new (T.DiagnosticsPropertyOfScrollPhysics()).new("physics", this.widget.physics, {showName: false}));
+      description.add(new diagnostics.FlagProperty.new("pageSnapping", {value: this.widget.pageSnapping, ifFalse: "snapping disabled"}));
+      description.add(new diagnostics.FlagProperty.new("allowImplicitScrolling", {value: this.widget.allowImplicitScrolling, ifTrue: "allow implicit scrolling"}));
+    }
+  };
+  (page_view._PageViewState.new = function() {
+    this[_lastReportedPage] = 0;
+    page_view._PageViewState.__proto__.new.call(this);
+    ;
+  }).prototype = page_view._PageViewState.prototype;
+  dart.addTypeTests(page_view._PageViewState);
+  dart.addTypeCaches(page_view._PageViewState);
+  dart.setMethodSignature(page_view._PageViewState, () => ({
+    __proto__: dart.getMethods(page_view._PageViewState.__proto__),
+    [_getDirection]: dart.fnType(basic_types.AxisDirection, [framework.BuildContext]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(page_view._PageViewState, I[1]);
+  dart.setFieldSignature(page_view._PageViewState, () => ({
+    __proto__: dart.getFields(page_view._PageViewState.__proto__),
+    [_lastReportedPage]: dart.fieldType(core.int)
+  }));
+  var ScrollPhysics_parent = dart.privateName(scroll_physics, "ScrollPhysics.parent");
+  dart.defineLazy(page_view, {
+    /*page_view._defaultPageController*/get _defaultPageController() {
+      return new page_view.PageController.new();
+    },
+    /*page_view._kPagePhysics*/get _kPagePhysics() {
+      return C[36] || CT.C36;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/widgets/page_view.dart", {
+    "package:flutter/src/widgets/page_view.dart": page_view
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["text_input.dart","autofill.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/services/text_input.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["page_view.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/widgets/page_view.dart.lib.js"}');
   // Exports:
   return {
-    src__services__text_input: text_input,
-    src__services__autofill: autofill
+    src__widgets__page_view: page_view
   };
 }));
 
-//# sourceMappingURL=text_input.dart.lib.js.map
+//# sourceMappingURL=page_view.dart.lib.js.map

@@ -18,6 +18,7 @@ class _RegisterFormState extends State<RegisterForm> {
         backgroundColor: Colors.brown,
       ),
       body: Container(
+        alignment: Alignment.center,
         color: Colors.orange[100],
         padding: EdgeInsets.all(20),
         child: SingleChildScrollView(

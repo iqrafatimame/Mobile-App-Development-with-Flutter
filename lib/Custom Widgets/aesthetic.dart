@@ -28,13 +28,14 @@ class Aesthetic extends StatelessWidget {
                       Text(
                         "Aesthetic",
                         style: TextStyle(
-                          fontSize: 70,
+                          fontSize: 50,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
                       SizedBox(height: 30),
                       Text(
-                          "Aesthetic is the measure or appreciation of beauty. "),
+                          "Aesthetic is the measure or appreciation of beauty. ",
+                          textAlign: TextAlign.center,),
                     ],
                   ),
                 ),

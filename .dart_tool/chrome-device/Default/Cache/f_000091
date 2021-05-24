@@ -1,12 +1,11 @@
-define(['dart_sdk', 'packages/characters/src/grapheme_clusters/table.dart'], (function load__packages__characters__src__grapheme_clusters__breaks_dart(dart_sdk, packages__characters__src__grapheme_clusters__table$46dart) {
+define(['dart_sdk'], (function load__packages__characters__src__grapheme_clusters__table_dart(dart_sdk) {
   'use strict';
   const core = dart_sdk.core;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const table = packages__characters__src__grapheme_clusters__table$46dart.src__grapheme_clusters__table;
-  var breaks = Object.create(dart.library);
+  var table = Object.create(dart.library);
+  var $rightShift = dartx['>>'];
   var $codeUnitAt = dartx.codeUnitAt;
-  var $toRadixString = dartx.toRadixString;
   dart._checkModuleNullSafetyMode(false);
   var T = {
     _: () => T
@@ -24,390 +23,56 @@ define(['dart_sdk', 'packages/characters/src/grapheme_clusters/table.dart'], (fu
     _: () => (C, CT)
   });
   var C = [];
-  var I = [
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0/lib/src/grapheme_clusters/breaks.dart",
-    "package:characters/src/grapheme_clusters/breaks.dart"
-  ];
-  var base$ = dart.privateName(breaks, "Breaks.base");
-  var end$ = dart.privateName(breaks, "Breaks.end");
-  var cursor$ = dart.privateName(breaks, "Breaks.cursor");
-  var state$ = dart.privateName(breaks, "Breaks.state");
-  breaks.Breaks = class Breaks extends core.Object {
-    get base() {
-      return this[base$];
-    }
-    set base(value) {
-      super.base = value;
-    }
-    get end() {
-      return this[end$];
-    }
-    set end(value) {
-      super.end = value;
-    }
-    get cursor() {
-      return this[cursor$];
-    }
-    set cursor(value) {
-      this[cursor$] = value;
-    }
-    get state() {
-      return this[state$];
-    }
-    set state(value) {
-      this[state$] = value;
-    }
-    copy() {
-      return new breaks.Breaks.new(this.base, this.cursor, this.end, this.state);
-    }
-    nextBreak() {
-      let t0;
-      while (dart.notNull(this.cursor) < dart.notNull(this.end)) {
-        let breakAt = this.cursor;
-        let char = this.base[$codeUnitAt]((t0 = this.cursor, this.cursor = dart.notNull(t0) + 1, t0));
-        if ((char & 64512) !== 55296) {
-          this.state = table.move(this.state, table.low(char));
-          if ((dart.notNull(this.state) & 1) === 0) {
-            return breakAt;
-          }
-          continue;
-        }
-        let category = 2;
-        if (dart.notNull(this.cursor) < dart.notNull(this.end)) {
-          let nextChar = this.base[$codeUnitAt](this.cursor);
-          if ((nextChar & 64512) === 56320) {
-            category = table.high(char, nextChar);
-            this.cursor = dart.notNull(this.cursor) + 1;
-          }
-        }
-        this.state = table.move(this.state, category);
-        if ((dart.notNull(this.state) & 1) === 0) {
-          return breakAt;
-        }
-      }
-      this.state = table.move(this.state, 15);
-      if ((dart.notNull(this.state) & 1) === 0) return this.cursor;
-      return -1;
-    }
+  var I = ["file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0/lib/src/grapheme_clusters/table.dart"];
+  table.low = function low(codeUnit) {
+    if (codeUnit == null) dart.nullFailed(I[0], 319, 13, "codeUnit");
+    let chunkStart = table._start[$codeUnitAt](codeUnit[$rightShift](6));
+    let index = chunkStart + (dart.notNull(codeUnit) & 63);
+    let bit = index & 1;
+    let pair = table._data[$codeUnitAt](index[$rightShift](1));
+    return (pair[$rightShift](4) & -bit | pair & 15 & bit - 1) >>> 0;
   };
-  (breaks.Breaks.new = function(base, cursor, end, state) {
-    if (base == null) dart.nullFailed(I[0], 37, 15, "base");
-    if (cursor == null) dart.nullFailed(I[0], 37, 26, "cursor");
-    if (end == null) dart.nullFailed(I[0], 37, 39, "end");
-    if (state == null) dart.nullFailed(I[0], 37, 49, "state");
-    this[base$] = base;
-    this[cursor$] = cursor;
-    this[end$] = end;
-    this[state$] = state;
-    ;
-  }).prototype = breaks.Breaks.prototype;
-  dart.addTypeTests(breaks.Breaks);
-  dart.addTypeCaches(breaks.Breaks);
-  dart.setMethodSignature(breaks.Breaks, () => ({
-    __proto__: dart.getMethods(breaks.Breaks.__proto__),
-    copy: dart.fnType(breaks.Breaks, []),
-    nextBreak: dart.fnType(core.int, [])
-  }));
-  dart.setLibraryUri(breaks.Breaks, I[1]);
-  dart.setFieldSignature(breaks.Breaks, () => ({
-    __proto__: dart.getFields(breaks.Breaks.__proto__),
-    base: dart.finalFieldType(core.String),
-    end: dart.finalFieldType(core.int),
-    cursor: dart.fieldType(core.int),
-    state: dart.fieldType(core.int)
-  }));
-  var base$0 = dart.privateName(breaks, "BackBreaks.base");
-  var start$ = dart.privateName(breaks, "BackBreaks.start");
-  var cursor$0 = dart.privateName(breaks, "BackBreaks.cursor");
-  var state$0 = dart.privateName(breaks, "BackBreaks.state");
-  var _lookAhead = dart.privateName(breaks, "_lookAhead");
-  breaks.BackBreaks = class BackBreaks extends core.Object {
-    get base() {
-      return this[base$0];
-    }
-    set base(value) {
-      super.base = value;
-    }
-    get start() {
-      return this[start$];
-    }
-    set start(value) {
-      super.start = value;
-    }
-    get cursor() {
-      return this[cursor$0];
-    }
-    set cursor(value) {
-      this[cursor$0] = value;
-    }
-    get state() {
-      return this[state$0];
-    }
-    set state(value) {
-      this[state$0] = value;
-    }
-    copy() {
-      return new breaks.BackBreaks.new(this.base, this.cursor, this.start, this.state);
-    }
-    nextBreak() {
-      while (dart.notNull(this.cursor) > dart.notNull(this.start)) {
-        let breakAt = this.cursor;
-        let char = this.base[$codeUnitAt](this.cursor = dart.notNull(this.cursor) - 1);
-        if ((char & 64512) !== 56320) {
-          this.state = table.moveBack(this.state, table.low(char));
-          if (dart.notNull(this.state) >= 208) this.state = this[_lookAhead](this.state);
-          if ((dart.notNull(this.state) & 1) === 0) {
-            return breakAt;
-          }
-          continue;
-        }
-        let category = 2;
-        if (dart.notNull(this.cursor) >= dart.notNull(this.start)) {
-          let prevChar = this.base[$codeUnitAt](dart.notNull(this.cursor) - 1);
-          if ((prevChar & 64512) === 55296) {
-            category = table.high(prevChar, char);
-            this.cursor = dart.notNull(this.cursor) - 1;
-          }
-        }
-        this.state = table.moveBack(this.state, category);
-        if (dart.notNull(this.state) >= 208) this.state = this[_lookAhead](this.state);
-        if ((dart.notNull(this.state) & 1) === 0) {
-          return breakAt;
-        }
-      }
-      this.state = table.moveBack(this.state, 15);
-      if (dart.notNull(this.state) >= 208) this.state = this[_lookAhead](this.state);
-      if ((dart.notNull(this.state) & 1) === 0) return this.cursor;
-      return -1;
-    }
-    [_lookAhead](state) {
-      if (state == null) dart.nullFailed(I[0], 146, 22, "state");
-      return breaks.lookAhead(this.base, this.start, this.cursor, state);
-    }
+  table.high = function high(lead, tail) {
+    if (lead == null) dart.nullFailed(I[0], 327, 14, "lead");
+    if (tail == null) dart.nullFailed(I[0], 327, 24, "tail");
+    let chunkStart = table._start[$codeUnitAt](1024 + (1023 & dart.notNull(lead)));
+    let index = chunkStart + (1023 & dart.notNull(tail));
+    let bit = index & 1;
+    let pair = table._data[$codeUnitAt](index[$rightShift](1));
+    return (pair[$rightShift](4) & -bit | pair & 15 & bit - 1) >>> 0;
   };
-  (breaks.BackBreaks.new = function(base, cursor, start, state) {
-    if (base == null) dart.nullFailed(I[0], 105, 19, "base");
-    if (cursor == null) dart.nullFailed(I[0], 105, 30, "cursor");
-    if (start == null) dart.nullFailed(I[0], 105, 43, "start");
-    if (state == null) dart.nullFailed(I[0], 105, 55, "state");
-    this[base$0] = base;
-    this[cursor$0] = cursor;
-    this[start$] = start;
-    this[state$0] = state;
-    ;
-  }).prototype = breaks.BackBreaks.prototype;
-  dart.addTypeTests(breaks.BackBreaks);
-  dart.addTypeCaches(breaks.BackBreaks);
-  dart.setMethodSignature(breaks.BackBreaks, () => ({
-    __proto__: dart.getMethods(breaks.BackBreaks.__proto__),
-    copy: dart.fnType(breaks.BackBreaks, []),
-    nextBreak: dart.fnType(core.int, []),
-    [_lookAhead]: dart.fnType(core.int, [core.int])
-  }));
-  dart.setLibraryUri(breaks.BackBreaks, I[1]);
-  dart.setFieldSignature(breaks.BackBreaks, () => ({
-    __proto__: dart.getFields(breaks.BackBreaks.__proto__),
-    base: dart.finalFieldType(core.String),
-    start: dart.finalFieldType(core.int),
-    cursor: dart.fieldType(core.int),
-    state: dart.fieldType(core.int)
-  }));
-  breaks.lookAhead = function lookAhead(base, start, cursor, state) {
-    if (base == null) dart.nullFailed(I[0], 155, 22, "base");
-    if (start == null) dart.nullFailed(I[0], 155, 32, "start");
-    if (cursor == null) dart.nullFailed(I[0], 155, 43, "cursor");
-    if (state == null) dart.nullFailed(I[0], 155, 55, "state");
-    if (!(dart.notNull(state) >= 208)) dart.assertFailed(null, I[0], 156, 10, "state >= stateLookaheadMin");
-    if (state === 208) {
-      return breaks.lookAheadRegional(base, start, cursor);
-    }
-    if (state === 224) {
-      let prevPic = breaks.lookAheadPictorgraphicExtend(base, start, cursor);
-      if (dart.notNull(prevPic) >= 0) return (144 | 1) >>> 0;
-      return 64;
-    }
-    dart.throw(new core.StateError.new("Unexpected state: " + state[$toRadixString](16)));
+  table.move = function move(state, inputCategory) {
+    if (state == null) dart.nullFailed(I[0], 340, 14, "state");
+    if (inputCategory == null) dart.nullFailed(I[0], 340, 25, "inputCategory");
+    return table._stateMachine[$codeUnitAt]((dart.notNull(state) & 240 | dart.notNull(inputCategory)) >>> 0);
   };
-  breaks.lookAheadRegional = function lookAheadRegional(base, start, cursor) {
-    if (base == null) dart.nullFailed(I[0], 178, 30, "base");
-    if (start == null) dart.nullFailed(I[0], 178, 40, "start");
-    if (cursor == null) dart.nullFailed(I[0], 178, 51, "cursor");
-    let count = 0;
-    let index = cursor;
-    while (dart.notNull(index) - 2 >= dart.notNull(start)) {
-      let tail = base[$codeUnitAt](dart.notNull(index) - 1);
-      if ((tail & 64512) !== 56320) break;
-      let lead = base[$codeUnitAt](dart.notNull(index) - 2);
-      if ((lead & 64512) !== 55296) break;
-      let category = table.high(lead, tail);
-      if (category !== 6) break;
-      index = dart.notNull(index) - 2;
-      count = (count ^ 1) >>> 0;
-    }
-    if (count === 0) {
-      return (192 | 1) >>> 0;
-    } else {
-      return 144;
-    }
+  table.moveBack = function moveBack(state, inputCategory) {
+    if (state == null) dart.nullFailed(I[0], 349, 18, "state");
+    if (inputCategory == null) dart.nullFailed(I[0], 349, 29, "inputCategory");
+    return table._backStateMachine[$codeUnitAt]((dart.notNull(state) & 240 | dart.notNull(inputCategory)) >>> 0);
   };
-  breaks.lookAheadPictorgraphicExtend = function lookAheadPictorgraphicExtend(base, start, cursor) {
-    if (base == null) dart.nullFailed(I[0], 208, 41, "base");
-    if (start == null) dart.nullFailed(I[0], 208, 51, "start");
-    if (cursor == null) dart.nullFailed(I[0], 208, 62, "cursor");
-    let index = cursor;
-    while (dart.notNull(index) > dart.notNull(start)) {
-      let char = base[$codeUnitAt](index = dart.notNull(index) - 1);
-      let prevChar = 0;
-      let category = 2;
-      if ((char & 64512) !== 56320) {
-        category = table.low(char);
-      } else if (dart.notNull(index) > dart.notNull(start) && ((prevChar = base[$codeUnitAt](index = dart.notNull(index) - 1)) & 64512) === 55296) {
-        category = table.high(prevChar, char);
-      } else {
-        break;
-      }
-      if (category === 7) {
-        return index;
-      }
-      if (category !== 4) break;
+  dart.defineLazy(table, {
+    /*table._data*/get _data() {
+      return "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"3333s3#7333333339433333333333333CDDDDDDDDDDDDDDDDDDDDDDC433DDDDD4DDDDDDDDDDDDDDDDDD3CU33333333333333333333333333334T5333333333333333333333333333CCD3D33CD533333333333333333333333TEDTET53U5UE3333C33333333333333333333333333333CETUTDT5333333333333333333333333SUUUUUEUDDDDD43333433333333333333333333ET533E3333SDD3U3U4333343333C4333333333333CSD33343333333433333333333333333SUUUEDDDTE4333SDDSUSU333343333C43333333333333333s333333333337333333333333wwwww73sw33sww7swwwwwss33373733s33333w33333£ªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªº»»»»»»»»»»»»»»»»»»»ËÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌìîÞîîîîîîîîîîîîîÞîîîîîîîîîîîîîÞîîîîîîîîîîîîî>33333³»»»»»»»;3ÃÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌ334343C33333333333SET333333333333333EDTETD433333333CD33333333333333CD33333CDD4333333333333333333333333CDTDDDCTE43C4CD3C333333333333333D3C3333333333DDDDD42333333333333333333CDDD4333333333333333333333333DDDD433334333C53333333333333333333333C33TEDCSUUU433333333S533333333333333333333333333333CD4DDDDD3D5333333333333333333333333333CSEUCUSE4333D33333C43333333333333CDDD9DDD3DCD433333333CDCDDDDDDEDDD33433C3E433#\"\"\"\"\" \"\"\"\"\"\"\"\"2333333333333333CDUUDU53SEUUUD43SDD3U3U4333C43333C43333333333333SE43CD33333333DD33333CDDDDDDDDDD3333333343333333B!233333333333#\"\"\"333333s3CD533333333333333333333333333CESEU3333333333333333333DDDD433333CD2333333333333333333333333\"\"\"\"23333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDD33333333333333333333333333333CDDD3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333SUDDDDUDT43333333333343333333333333333333333333333333333333333TEDDTTEETD333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CUDD3UUDE43333333333333D33333333333333333333333333333333333333333UEDDDTEE43333333333333333333333333333333333333333333333333333CEUDDDE33333333333333333333333333333333333333333333333333CDUDDEDD3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333D#\"2333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CSUUUUUUUUUUUUUUUUUUUUUUUUUUU333CD4333333333333333333333333333333333333333333333333333333\"\"\"\"\"\"33EDDCTSE3333333333D33333333333DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDCDDDDDDDD3DDD4DCDD3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDDD33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CD4333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDDDDD333333333333333333333333333333333333333333333333333333333333333333333333333333333333333s73333s33333333333\"\"\"\"\"\"\"\"3333333373s333333333333333333333333333333CTDDDTU5D4DD333C433333D33333333333333DU433333333333333333333DDDUDUD3333S3333333333333333334333333333333s733333s33333333333CD4DDDD4D4DD4333333333sww73333333w3333333333sw3333s33333337333333sw333333333s733333333333333333UTEUS433333333C433333333333333C433333333333334443SUE4333333333333CDDDDDDDD4333333DDDDDT533333£ªªªªªªªªªªªªªª3SDDDDUUT5DDD43333C43333333333333333C33333333333EEDDDCC3DDDDUUUDDDDD3T5333333333333333333333333333CSDDD433E533333333333333333333333333DDDDDDD4333333333333333333333333333CD53333333333333333333333UEDTE433333333333333333333333333333333D433333333333333333CDDEDDD43333333S5333333333333333333333C333333D533333333333333333333333SUDDDDT533CD433333333333333333333333333333333333333333333333UEDUTD33343333333333333333333333333333333333333333333333333333333333333333333333333333333CUEDDD43333333333DU333333333333333333333333333C4TTU5S5SU3333C33333U3DDD43DD4333333333333333333333333333333333333333333333333333333333333333333333DDDDDDD533333333333333333333333DDDTTU43333333333333333333333333333DDD733333s373ss33w7733333ww733333333333ss33333333333333333333333333333ww3333333333333333333333333333wwww33333www33333333333333333333wwww333333333333333wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww333333wwwwwwwwwwwwwwwwwwwwwww7wwwwwswwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww7333swwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww733333333333333333333333swwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww7333333333333333333333333333333333333333333333333333333333swwwww7333333333333333333333333333333333333333333wwwwwwwwwwwwwwwwwwwww7wwwwwwswwwwwwwwwwwwwwwwwwwww73333swwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww7333333w7333333333333333733333333333333333333333333333sww733333s7333333s3wwwww333333333wwwwwwwwwwwwwwwwwwwwwwwwwwwwgffffffffffff6wwwwwww73333s33333333337swwwwsw73333wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwDDDDDDDDDDDDDDDDDDDDDDDD33333333DDDDDDDD33333333DDDDDDDDDDDDDDDD43333333DC44333333333333333333333333333SUDDDDTD33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333UED4CTUE3S33333333333333DDDDD33333333333333333333DDDDD333343333DDDUD43333333333333333333IDDDDDDE4333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDDDDDDDDDDDDDDDDDDDDDDDDDDD33DDDDDDDDDDDDDDDDDDDDDDDDD33334333333C33333333333DD4DDDDDDD43333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333TD43EDD\"\"\"\"DDDD3DDD433333333333333CD43333333333333333333333333333333333333333333333333333333333333333333333333CD33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333C33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333433333333333333333333333333333333333333333333333333333333333333333333333333DD4333333333333333333333333333333333333333333333333333333333333333333EDDDCDDT43333333333333333333333333333333333333333CDDDDDDDDDD4EDDDETD3333333333333333333333333333333333333333333333333333333333333DDD3CC4DDD433333333333333333333333333333333SUUC4UT433333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333DU333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDDD333333333333333333333333333333333333333333333333333333CDDD3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDC433DD33333333333333333333D43C3333333333333333333333333333333333333333333333333333333333333333333333333333333333C4333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333334EDDDD3";
+    },
+    /*table._start*/get _start() {
+      return "฻᳛אါါါါါါါါါ 㢜ါါါါ䢜ါါါؠ㤫ద໺ါ෋؁㹾⊏౷ⓓ䂲ါᵑ཯⚁ژࡑൣ௦ൣᴪەປݱݜ⮘⏾✇ඡ⩒࣫ഓೣ✒ౢ䶝஗○⬡ٙ䋅ப໅ࢍါহ৙৹ਡါါါါါ䂮ါါါါါါါါါါါါါါୟ▱⏁ߵ࿢ါ⚞ါ๛ါါါ␧⛉❚ါ⭜ྭ଱މࢫါါ෻ါါါᵴါါါါါါါါ༯⍲ါ㣬एါ━ါါါါါ⒩ါ㗈हါါါ⎵ါါ⍅Ⱗ㑗⶝㒑⶝ॹ⯥┬ါါါါါ⌻ါါါါါါါ╦⎢ါါါါါ䂜ါ䊌ါ㶹ါါါါါါါါ⮬ါᛉါါါါါါါⰎါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါത䲕䲃ါါါါଌါ޻☉ృ♁ܟ⒃⑃ಱۡࠑါါါ▃੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱક૎ǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါ䊭ါါါါါါါါါါါ㢼ါါ᳛ါါ䲕ᳪ䃎ါ䧎Ὧ❒ᔆ㤿䒟ါါါါါ࿲ါါါါါါါါါါါါᄻᤚါါါါါါါါါါါါါါါါါါါᡩါါါါ㺉ါ㯙ါᶧါ䟏ါ㒡そⱖ⶝ါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါ ǰǰǰါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါ";
+    },
+    /*table._stateMachine*/get _stateMachine() {
+      return " 0000 @P`p`p± 0000 @P`p`p° 0000 @P`p`p° 1011 @P`p`p° 1111¡AQaqaq° 1011 @Qapaq° 1011 @Paq`p° 1011 @P`q`p° 01 @P`p`p° 1011 @P`p`p° 10111@P`p`p°!1111¡AQaqaq±";
+    },
+    /*table._backStateMachine*/get _backStateMachine() {
+      return "@0@@  0P`pPP±@0@@  0P`pPP°@0@@  0P`pPP°@0@@  1P`pPP°A1AA¡ 1QaqQQ°@0@@  1Q`pPP°@0@@  1QapQP°@0@@  1PaqQQ°à0@@  1P`pPP°±±±±±Á±±±±±±±±@0@@Ð 1P`pPP°A1AA¡!1QaqQQ±@0@@ 1P`pPP°";
     }
-    return -1;
-  };
-  breaks.isGraphemeClusterBoundary = function isGraphemeClusterBoundary(text, start, end, index) {
-    if (text == null) dart.nullFailed(I[0], 236, 39, "text");
-    if (start == null) dart.nullFailed(I[0], 236, 49, "start");
-    if (end == null) dart.nullFailed(I[0], 236, 60, "end");
-    if (index == null) dart.nullFailed(I[0], 236, 69, "index");
-    if (!(0 <= dart.notNull(start))) dart.assertFailed(null, I[0], 237, 10, "0 <= start");
-    if (!(dart.notNull(start) <= dart.notNull(index))) dart.assertFailed(null, I[0], 238, 10, "start <= index");
-    if (!(dart.notNull(index) <= dart.notNull(end))) dart.assertFailed(null, I[0], 239, 10, "index <= end");
-    if (!(dart.notNull(end) <= text.length)) dart.assertFailed(null, I[0], 240, 10, "end <= text.length");
-    if (dart.notNull(start) < dart.notNull(index) && dart.notNull(index) < dart.notNull(end)) {
-      let char = text[$codeUnitAt](index);
-      let prevChar = text[$codeUnitAt](dart.notNull(index) - 1);
-      let catAfter = 2;
-      if ((char & 63488) !== 55296) {
-        catAfter = table.low(char);
-      } else if ((char & 64512) === 55296) {
-        if (dart.notNull(index) + 1 >= dart.notNull(end)) return true;
-        let nextChar = text[$codeUnitAt](dart.notNull(index) + 1);
-        if ((nextChar & 64512) !== 56320) return true;
-        catAfter = table.high(char, nextChar);
-      } else {
-        return (prevChar & 64512) !== 55296;
-      }
-      let catBefore = 2;
-      if ((prevChar & 64512) !== 56320) {
-        catBefore = table.low(prevChar);
-        index = dart.notNull(index) - 1;
-      } else {
-        index = dart.notNull(index) - 2;
-        if (dart.notNull(start) <= dart.notNull(index)) {
-          let prevPrevChar = text[$codeUnitAt](index);
-          if ((prevPrevChar & 64512) !== 55296) {
-            return true;
-          }
-          catBefore = table.high(prevPrevChar, prevChar);
-        } else {
-          return true;
-        }
-      }
-      let state = table.moveBack(176, catAfter);
-      if (!(dart.notNull(state) < 208)) dart.assertFailed(null, I[0], 287, 12, "state < stateLookaheadMin");
-      state = table.moveBack(state, catBefore);
-      if (dart.notNull(state) >= 208) {
-        state = breaks.lookAhead(text, start, index, state);
-      }
-      return (dart.notNull(state) & 1) === 0;
-    }
-    return start != end;
-  };
-  breaks.previousBreak = function previousBreak(text, start, end, index) {
-    if (text == null) dart.nullFailed(I[0], 300, 26, "text");
-    if (start == null) dart.nullFailed(I[0], 300, 36, "start");
-    if (end == null) dart.nullFailed(I[0], 300, 47, "end");
-    if (index == null) dart.nullFailed(I[0], 300, 56, "index");
-    if (!(0 <= dart.notNull(start))) dart.assertFailed(null, I[0], 301, 10, "0 <= start");
-    if (!(dart.notNull(start) <= dart.notNull(index))) dart.assertFailed(null, I[0], 302, 10, "start <= index");
-    if (!(dart.notNull(index) <= dart.notNull(end))) dart.assertFailed(null, I[0], 303, 10, "index <= end");
-    if (!(dart.notNull(end) <= text.length)) dart.assertFailed(null, I[0], 304, 10, "end <= text.length");
-    if (index == start || index == end) return index;
-    let indexBefore = index;
-    let nextChar = text[$codeUnitAt](index);
-    let category = 2;
-    if ((nextChar & 63488) !== 55296) {
-      category = table.low(nextChar);
-    } else if ((nextChar & 64512) === 55296) {
-      let indexAfter = dart.notNull(index) + 1;
-      if (indexAfter < dart.notNull(end)) {
-        let secondChar = text[$codeUnitAt](indexAfter);
-        if ((secondChar & 64512) === 56320) {
-          category = table.high(nextChar, secondChar);
-        }
-      }
-    } else {
-      let prevChar = text[$codeUnitAt](dart.notNull(index) - 1);
-      if ((prevChar & 64512) === 55296) {
-        category = table.high(prevChar, nextChar);
-        indexBefore = dart.notNull(indexBefore) - 1;
-      }
-    }
-    return new breaks.BackBreaks.new(text, indexBefore, start, table.moveBack(176, category)).nextBreak();
-  };
-  breaks.nextBreak = function nextBreak(text, start, end, index) {
-    if (text == null) dart.nullFailed(I[0], 334, 22, "text");
-    if (start == null) dart.nullFailed(I[0], 334, 32, "start");
-    if (end == null) dart.nullFailed(I[0], 334, 43, "end");
-    if (index == null) dart.nullFailed(I[0], 334, 52, "index");
-    if (!(0 <= dart.notNull(start))) dart.assertFailed(null, I[0], 335, 10, "0 <= start");
-    if (!(dart.notNull(start) <= dart.notNull(index))) dart.assertFailed(null, I[0], 336, 10, "start <= index");
-    if (!(dart.notNull(index) <= dart.notNull(end))) dart.assertFailed(null, I[0], 337, 10, "index <= end");
-    if (!(dart.notNull(end) <= text.length)) dart.assertFailed(null, I[0], 338, 10, "end <= text.length");
-    if (index == start || index == end) return index;
-    let indexBefore = dart.notNull(index) - 1;
-    let prevChar = text[$codeUnitAt](indexBefore);
-    let prevCategory = 2;
-    if ((prevChar & 63488) !== 55296) {
-      prevCategory = table.low(prevChar);
-    } else if ((prevChar & 64512) === 55296) {
-      let nextChar = text[$codeUnitAt](index);
-      if ((nextChar & 64512) === 56320) {
-        index = dart.notNull(index) + 1;
-        if (index == end) return end;
-        prevCategory = table.high(prevChar, nextChar);
-      }
-    } else if (indexBefore > dart.notNull(start)) {
-      let secondCharIndex = indexBefore - 1;
-      let secondChar = text[$codeUnitAt](secondCharIndex);
-      if ((secondChar & 64512) === 55296) {
-        indexBefore = secondCharIndex;
-        prevCategory = table.high(secondChar, prevChar);
-      }
-    }
-    let state = 48;
-    if (prevCategory === 6) {
-      let prevState = breaks.lookAheadRegional(text, start, indexBefore);
-      if (prevState !== 144) {
-        state = 160;
-      }
-    } else if (prevCategory === 1 || prevCategory === 4) {
-      let prevPic = breaks.lookAheadPictorgraphicExtend(text, start, indexBefore);
-      if (dart.notNull(prevPic) >= 0) {
-        state = prevCategory === 1 ? 144 : 128;
-      }
-    } else {
-      state = table.move(176, prevCategory);
-    }
-    return new breaks.Breaks.new(text, index, text.length, state).nextBreak();
-  };
-  dart.trackLibraries("packages/characters/src/grapheme_clusters/breaks.dart", {
-    "package:characters/src/grapheme_clusters/breaks.dart": breaks
+  }, false);
+  dart.trackLibraries("packages/characters/src/grapheme_clusters/table.dart", {
+    "package:characters/src/grapheme_clusters/table.dart": table
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["breaks.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../D:/packages/characters/src/grapheme_clusters/breaks.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["table.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;QA8TY;AACN,qBAAa,AAAO,0BAAW,AAAS,QAAD,cAAI;AAC3C,gBAAQ,AAAW,UAAD,IAAa,aAAT,QAAQ,IAAG;AACjC,cAAM,AAAM,KAAD,GAAG;AACd,eAAO,AAAM,yBAAW,AAAM,KAAD,cAAI;AACrC,UAA0B,EAAlB,AAAK,AAAM,IAAP,cAAI,KAAK,CAAC,GAAG,GAAI,AAAK,AAAO,IAAR,GAAG,KAAQ,AAAI,GAAD,GAAG;EACpD;6BAEa,MAAU;QAAV;QAAU;AACjB,qBAAa,AAAO,0BAAW,AAAK,QAAG,AAAM,oBAAE,IAAI;AACnD,gBAAQ,AAAW,UAAD,IAAI,AAAM,oBAAE,IAAI;AAClC,cAAM,AAAM,KAAD,GAAG;AACd,eAAO,AAAM,yBAAW,AAAM,KAAD,cAAI;AACrC,UAA0B,EAAlB,AAAK,AAAM,IAAP,cAAI,KAAK,CAAC,GAAG,GAAI,AAAK,AAAO,IAAR,GAAG,KAAQ,AAAI,GAAD,GAAG;EACpD;6BAOa,OAAW;QAAX;QAAW;AACpB,UAAA,AAAc,kCAA0B,CAAR,aAAN,KAAK,IAAG,mBAAQ,aAAa;EAAC;qCAQ3C,OAAW;QAAX;QAAW;AACxB,UAAA,AAAkB,sCAA0B,CAAR,aAAN,KAAK,IAAG,mBAAQ,aAAa;EAAC;;MAlVnD,WAAK;;;MAwIL,YAAM;;;MA2Lb,mBAAa;;;MAQb,uBAAiB","file":"../../../../../../../../../../D:/packages/characters/src/grapheme_clusters/table.dart.lib.js"}');
   // Exports:
   return {
-    src__grapheme_clusters__breaks: breaks
+    src__grapheme_clusters__table: table
   };
 }));
 
-//# sourceMappingURL=breaks.dart.lib.js.map
+//# sourceMappingURL=table.dart.lib.js.map

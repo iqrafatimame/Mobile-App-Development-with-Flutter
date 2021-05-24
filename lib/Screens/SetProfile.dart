@@ -21,7 +21,7 @@ class _SetProfileState extends State<SetProfile> {
         body: Container(
           width: MediaQuery.of(context).size.width,
           color: Colors.orange[100],
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.symmetric(vertical: 100, horizontal: 50),
           child: Card(
               elevation: 8,
               child: Column(

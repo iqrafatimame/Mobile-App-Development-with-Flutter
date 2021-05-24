@@ -1,37 +1,34 @@
-define(['dart_sdk', 'packages/typed_data/src/typed_buffer.dart'], (function load__packages__flutter__src__foundation__serialization_dart(dart_sdk, packages__typed_data__src__typed_buffer$46dart) {
+define(['dart_sdk', 'packages/image_picker_platform_interface/src/types/camera_device.dart', 'packages/image_picker_platform_interface/src/types/picked_file/html.dart', 'packages/image_picker_platform_interface/src/types/picked_file/lost_data.dart', 'packages/image_picker_platform_interface/src/types/retrieve_type.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/plugin_platform_interface/plugin_platform_interface.dart', 'packages/image_picker_platform_interface/src/types/image_source.dart'], (function load__packages__image_picker_platform_interface__src__method_channel__method_channel_image_picker_dart(dart_sdk, packages__image_picker_platform_interface__src__types__camera_device$46dart, packages__image_picker_platform_interface__src__types__picked_file__html$46dart, packages__image_picker_platform_interface__src__types__picked_file__lost_data$46dart, packages__image_picker_platform_interface__src__types__retrieve_type$46dart, packages__flutter__src__services__system_channels$46dart, packages__plugin_platform_interface__plugin_platform_interface$46dart, packages__image_picker_platform_interface__src__types__image_source$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _native_typed_data = dart_sdk._native_typed_data;
-  const _internal = dart_sdk._internal;
-  const typed_data = dart_sdk.typed_data;
+  const async = dart_sdk.async;
+  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const typed_buffer = packages__typed_data__src__typed_buffer$46dart.src__typed_buffer;
-  var serialization = Object.create(dart.library);
-  var $buffer = dartx.buffer;
-  var $asUint8List = dartx.asUint8List;
-  var $setUint16 = dartx.setUint16;
-  var $setUint32 = dartx.setUint32;
-  var $setInt32 = dartx.setInt32;
-  var $setInt64 = dartx.setInt64;
-  var $setFloat64 = dartx.setFloat64;
-  var $offsetInBytes = dartx.offsetInBytes;
-  var $length = dartx.length;
-  var $modulo = dartx['%'];
-  var $asByteData = dartx.asByteData;
-  var $lengthInBytes = dartx.lengthInBytes;
-  var $getUint8 = dartx.getUint8;
-  var $getUint16 = dartx.getUint16;
-  var $getUint32 = dartx.getUint32;
-  var $getInt32 = dartx.getInt32;
-  var $getInt64 = dartx.getInt64;
-  var $getFloat64 = dartx.getFloat64;
-  var $asInt32List = dartx.asInt32List;
-  var $asInt64List = dartx.asInt64List;
-  var $asFloat64List = dartx.asFloat64List;
+  const camera_device = packages__image_picker_platform_interface__src__types__camera_device$46dart.src__types__camera_device;
+  const html = packages__image_picker_platform_interface__src__types__picked_file__html$46dart.src__types__picked_file__html;
+  const lost_data = packages__image_picker_platform_interface__src__types__picked_file__lost_data$46dart.src__types__picked_file__lost_data;
+  const retrieve_type = packages__image_picker_platform_interface__src__types__retrieve_type$46dart.src__types__retrieve_type;
+  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
+  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
+  const plugin_platform_interface = packages__plugin_platform_interface__plugin_platform_interface$46dart.plugin_platform_interface;
+  const image_source = packages__image_picker_platform_interface__src__types__image_source$46dart.src__types__image_source;
+  var method_channel_image_picker = Object.create(dart.library);
+  var image_picker_platform = Object.create(dart.library);
+  var image_picker_platform_interface = Object.create(dart.library);
+  var $add = dartx.add;
+  var $containsKey = dartx.containsKey;
+  var $_get = dartx._get;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    _: () => T
+    PickedFileN: () => (T.PickedFileN = dart.constFn(dart.nullable(html.PickedFile)))(),
+    JSArrayOfPickedFile: () => (T.JSArrayOfPickedFile = dart.constFn(_interceptors.JSArray$(html.PickedFile)))(),
+    ListOfPickedFile: () => (T.ListOfPickedFile = dart.constFn(core.List$(html.PickedFile)))(),
+    ListNOfPickedFile: () => (T.ListNOfPickedFile = dart.constFn(dart.nullable(T.ListOfPickedFile())))(),
+    ListN: () => (T.ListN = dart.constFn(dart.nullable(core.List)))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -45,266 +42,229 @@ define(['dart_sdk', 'packages/typed_data/src/typed_buffer.dart'], (function load
   const CT = Object.create({
     _: () => (C, CT)
   });
-  var C = [];
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: camera_device.CameraDevice.prototype,
+        [_name]: "CameraDevice.rear",
+        index: 0
+      });
+    }
+  }, false);
+  var C = [void 0];
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/foundation/serialization.dart",
-    "package:flutter/src/foundation/serialization.dart"
+    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.1.0/lib/src/method_channel/method_channel_image_picker.dart",
+    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.1.0/lib/src/platform_interface/image_picker_platform.dart",
+    "package:image_picker_platform_interface/src/platform_interface/image_picker_platform.dart",
+    "package:image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart"
   ];
-  var __WriteBuffer__eightBytesAsList = dart.privateName(serialization, "_#WriteBuffer#_eightBytesAsList");
-  var __WriteBuffer__eightBytesAsList_isSet = dart.privateName(serialization, "_#WriteBuffer#_eightBytesAsList#isSet");
-  var _buffer = dart.privateName(serialization, "_buffer");
-  var _eightBytes = dart.privateName(serialization, "_eightBytes");
-  var _eightBytesAsList = dart.privateName(serialization, "_eightBytesAsList");
-  var _alignTo = dart.privateName(serialization, "_alignTo");
-  serialization.WriteBuffer = class WriteBuffer extends core.Object {
-    get [_eightBytesAsList]() {
-      let t0;
-      return dart.test(this[__WriteBuffer__eightBytesAsList_isSet]) ? (t0 = this[__WriteBuffer__eightBytesAsList], t0) : dart.throw(new _internal.LateError.fieldNI("_eightBytesAsList"));
+  var _name = dart.privateName(camera_device, "_name");
+  var _pickImagePath = dart.privateName(method_channel_image_picker, "_pickImagePath");
+  var _pickMultiImagePath = dart.privateName(method_channel_image_picker, "_pickMultiImagePath");
+  var _pickVideoPath = dart.privateName(method_channel_image_picker, "_pickVideoPath");
+  image_picker_platform.ImagePickerPlatform = class ImagePickerPlatform extends plugin_platform_interface.PlatformInterface {
+    static get instance() {
+      return image_picker_platform.ImagePickerPlatform._instance;
     }
-    set [_eightBytesAsList](t0) {
-      if (t0 == null) dart.nullFailed(I[0], 25, 18, "null");
-      this[__WriteBuffer__eightBytesAsList_isSet] = true;
-      this[__WriteBuffer__eightBytesAsList] = t0;
+    static set instance(instance) {
+      if (instance == null) dart.nullFailed(I[1], 36, 43, "instance");
+      plugin_platform_interface.PlatformInterface.verifyToken(instance, image_picker_platform.ImagePickerPlatform._token);
+      image_picker_platform.ImagePickerPlatform._instance = instance;
     }
-    putUint8(byte) {
-      if (byte == null) dart.nullFailed(I[0], 28, 21, "byte");
-      dart.nullCheck(this[_buffer]).add(byte);
+    pickImage(opts) {
+      let source = opts && 'source' in opts ? opts.source : null;
+      if (source == null) dart.nullFailed(I[1], 72, 26, "source");
+      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
+      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
+      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
+      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
+      if (preferredCameraDevice == null) dart.nullFailed(I[1], 76, 18, "preferredCameraDevice");
+      dart.throw(new core.UnimplementedError.new("pickImage() has not been implemented."));
     }
-    putUint16(value, opts) {
-      let t1;
-      if (value == null) dart.nullFailed(I[0], 33, 22, "value");
-      let endian = opts && 'endian' in opts ? opts.endian : null;
-      this[_eightBytes][$setUint16](0, value, (t1 = endian, t1 == null ? typed_data.Endian.host : t1));
-      dart.nullCheck(this[_buffer]).addAll(this[_eightBytesAsList], 0, 2);
+    pickMultiImage(opts) {
+      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
+      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
+      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
+      dart.throw(new core.UnimplementedError.new("pickMultiImage() has not been implemented."));
     }
-    putUint32(value, opts) {
-      let t1;
-      if (value == null) dart.nullFailed(I[0], 39, 22, "value");
-      let endian = opts && 'endian' in opts ? opts.endian : null;
-      this[_eightBytes][$setUint32](0, value, (t1 = endian, t1 == null ? typed_data.Endian.host : t1));
-      dart.nullCheck(this[_buffer]).addAll(this[_eightBytesAsList], 0, 4);
+    pickVideo(opts) {
+      let source = opts && 'source' in opts ? opts.source : null;
+      if (source == null) dart.nullFailed(I[1], 124, 26, "source");
+      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
+      if (preferredCameraDevice == null) dart.nullFailed(I[1], 125, 18, "preferredCameraDevice");
+      let maxDuration = opts && 'maxDuration' in opts ? opts.maxDuration : null;
+      dart.throw(new core.UnimplementedError.new("pickVideo() has not been implemented."));
     }
-    putInt32(value, opts) {
-      let t1;
-      if (value == null) dart.nullFailed(I[0], 45, 21, "value");
-      let endian = opts && 'endian' in opts ? opts.endian : null;
-      this[_eightBytes][$setInt32](0, value, (t1 = endian, t1 == null ? typed_data.Endian.host : t1));
-      dart.nullCheck(this[_buffer]).addAll(this[_eightBytesAsList], 0, 4);
-    }
-    putInt64(value, opts) {
-      let t1;
-      if (value == null) dart.nullFailed(I[0], 51, 21, "value");
-      let endian = opts && 'endian' in opts ? opts.endian : null;
-      this[_eightBytes][$setInt64](0, value, (t1 = endian, t1 == null ? typed_data.Endian.host : t1));
-      dart.nullCheck(this[_buffer]).addAll(this[_eightBytesAsList], 0, 8);
-    }
-    putFloat64(value, opts) {
-      let t1;
-      if (value == null) dart.nullFailed(I[0], 57, 26, "value");
-      let endian = opts && 'endian' in opts ? opts.endian : null;
-      this[_alignTo](8);
-      this[_eightBytes][$setFloat64](0, value, (t1 = endian, t1 == null ? typed_data.Endian.host : t1));
-      dart.nullCheck(this[_buffer]).addAll(this[_eightBytesAsList]);
-    }
-    putUint8List(list) {
-      if (list == null) dart.nullFailed(I[0], 64, 31, "list");
-      dart.nullCheck(this[_buffer]).addAll(list);
-    }
-    putInt32List(list) {
-      if (list == null) dart.nullFailed(I[0], 69, 31, "list");
-      this[_alignTo](4);
-      dart.nullCheck(this[_buffer]).addAll(list[$buffer][$asUint8List](list[$offsetInBytes], 4 * dart.notNull(list[$length])));
-    }
-    putInt64List(list) {
-      if (list == null) dart.nullFailed(I[0], 75, 31, "list");
-      this[_alignTo](8);
-      dart.nullCheck(this[_buffer]).addAll(list[$buffer][$asUint8List](list[$offsetInBytes], 8 * dart.notNull(list[$length])));
-    }
-    putFloat64List(list) {
-      if (list == null) dart.nullFailed(I[0], 81, 35, "list");
-      this[_alignTo](8);
-      dart.nullCheck(this[_buffer]).addAll(list[$buffer][$asUint8List](list[$offsetInBytes], 8 * dart.notNull(list[$length])));
-    }
-    [_alignTo](alignment) {
-      if (alignment == null) dart.nullFailed(I[0], 86, 21, "alignment");
-      let mod = dart.nullCheck(this[_buffer]).length[$modulo](alignment);
-      if (mod !== 0) {
-        for (let i = 0; i < dart.notNull(alignment) - mod; i = i + 1)
-          dart.nullCheck(this[_buffer]).add(0);
-      }
-    }
-    done() {
-      let result = dart.nullCheck(this[_buffer]).buffer[$asByteData](0, dart.nullCheck(this[_buffer]).lengthInBytes);
-      this[_buffer] = null;
-      return result;
+    retrieveLostData() {
+      dart.throw(new core.UnimplementedError.new("retrieveLostData() has not been implemented."));
     }
   };
-  (serialization.WriteBuffer.new = function() {
-    this[__WriteBuffer__eightBytesAsList] = null;
-    this[__WriteBuffer__eightBytesAsList_isSet] = false;
-    this[_buffer] = new typed_buffer.Uint8Buffer.new();
-    this[_eightBytes] = _native_typed_data.NativeByteData.new(8);
-    this[_eightBytesAsList] = this[_eightBytes][$buffer][$asUint8List]();
-  }).prototype = serialization.WriteBuffer.prototype;
-  dart.addTypeTests(serialization.WriteBuffer);
-  dart.addTypeCaches(serialization.WriteBuffer);
-  dart.setMethodSignature(serialization.WriteBuffer, () => ({
-    __proto__: dart.getMethods(serialization.WriteBuffer.__proto__),
-    putUint8: dart.fnType(dart.void, [core.int]),
-    putUint16: dart.fnType(dart.void, [core.int], {endian: dart.nullable(typed_data.Endian)}, {}),
-    putUint32: dart.fnType(dart.void, [core.int], {endian: dart.nullable(typed_data.Endian)}, {}),
-    putInt32: dart.fnType(dart.void, [core.int], {endian: dart.nullable(typed_data.Endian)}, {}),
-    putInt64: dart.fnType(dart.void, [core.int], {endian: dart.nullable(typed_data.Endian)}, {}),
-    putFloat64: dart.fnType(dart.void, [core.double], {endian: dart.nullable(typed_data.Endian)}, {}),
-    putUint8List: dart.fnType(dart.void, [typed_data.Uint8List]),
-    putInt32List: dart.fnType(dart.void, [typed_data.Int32List]),
-    putInt64List: dart.fnType(dart.void, [typed_data.Int64List]),
-    putFloat64List: dart.fnType(dart.void, [typed_data.Float64List]),
-    [_alignTo]: dart.fnType(dart.void, [core.int]),
-    done: dart.fnType(typed_data.ByteData, [])
-  }));
-  dart.setGetterSignature(serialization.WriteBuffer, () => ({
-    __proto__: dart.getGetters(serialization.WriteBuffer.__proto__),
-    [_eightBytesAsList]: typed_data.Uint8List
-  }));
-  dart.setSetterSignature(serialization.WriteBuffer, () => ({
-    __proto__: dart.getSetters(serialization.WriteBuffer.__proto__),
-    [_eightBytesAsList]: typed_data.Uint8List
-  }));
-  dart.setLibraryUri(serialization.WriteBuffer, I[1]);
-  dart.setFieldSignature(serialization.WriteBuffer, () => ({
-    __proto__: dart.getFields(serialization.WriteBuffer.__proto__),
-    [_buffer]: dart.fieldType(dart.nullable(typed_buffer.Uint8Buffer)),
-    [_eightBytes]: dart.finalFieldType(typed_data.ByteData),
-    [__WriteBuffer__eightBytesAsList]: dart.fieldType(dart.nullable(typed_data.Uint8List)),
-    [__WriteBuffer__eightBytesAsList_isSet]: dart.fieldType(core.bool)
-  }));
-  var data$ = dart.privateName(serialization, "ReadBuffer.data");
-  var _position = dart.privateName(serialization, "_position");
-  serialization.ReadBuffer = class ReadBuffer extends core.Object {
-    get data() {
-      return this[data$];
-    }
-    set data(value) {
-      super.data = value;
-    }
-    get hasRemaining() {
-      return dart.notNull(this[_position]) < dart.notNull(this.data[$lengthInBytes]);
-    }
-    getUint8() {
-      let t1;
-      return this.data[$getUint8]((t1 = this[_position], this[_position] = dart.notNull(t1) + 1, t1));
-    }
-    getUint16(opts) {
-      let t1;
-      let endian = opts && 'endian' in opts ? opts.endian : null;
-      let value = this.data[$getUint16](this[_position], (t1 = endian, t1 == null ? typed_data.Endian.host : t1));
-      this[_position] = dart.notNull(this[_position]) + 2;
-      return value;
-    }
-    getUint32(opts) {
-      let t1;
-      let endian = opts && 'endian' in opts ? opts.endian : null;
-      let value = this.data[$getUint32](this[_position], (t1 = endian, t1 == null ? typed_data.Endian.host : t1));
-      this[_position] = dart.notNull(this[_position]) + 4;
-      return value;
-    }
-    getInt32(opts) {
-      let t1;
-      let endian = opts && 'endian' in opts ? opts.endian : null;
-      let value = this.data[$getInt32](this[_position], (t1 = endian, t1 == null ? typed_data.Endian.host : t1));
-      this[_position] = dart.notNull(this[_position]) + 4;
-      return value;
-    }
-    getInt64(opts) {
-      let t1;
-      let endian = opts && 'endian' in opts ? opts.endian : null;
-      let value = this.data[$getInt64](this[_position], (t1 = endian, t1 == null ? typed_data.Endian.host : t1));
-      this[_position] = dart.notNull(this[_position]) + 8;
-      return value;
-    }
-    getFloat64(opts) {
-      let t1;
-      let endian = opts && 'endian' in opts ? opts.endian : null;
-      this[_alignTo](8);
-      let value = this.data[$getFloat64](this[_position], (t1 = endian, t1 == null ? typed_data.Endian.host : t1));
-      this[_position] = dart.notNull(this[_position]) + 8;
-      return value;
-    }
-    getUint8List(length) {
-      if (length == null) dart.nullFailed(I[0], 161, 30, "length");
-      let list = this.data[$buffer][$asUint8List](dart.notNull(this.data[$offsetInBytes]) + dart.notNull(this[_position]), length);
-      this[_position] = dart.notNull(this[_position]) + dart.notNull(length);
-      return list;
-    }
-    getInt32List(length) {
-      if (length == null) dart.nullFailed(I[0], 168, 30, "length");
-      this[_alignTo](4);
-      let list = this.data[$buffer][$asInt32List](dart.notNull(this.data[$offsetInBytes]) + dart.notNull(this[_position]), length);
-      this[_position] = dart.notNull(this[_position]) + 4 * dart.notNull(length);
-      return list;
-    }
-    getInt64List(length) {
-      if (length == null) dart.nullFailed(I[0], 176, 30, "length");
-      this[_alignTo](8);
-      let list = this.data[$buffer][$asInt64List](dart.notNull(this.data[$offsetInBytes]) + dart.notNull(this[_position]), length);
-      this[_position] = dart.notNull(this[_position]) + 8 * dart.notNull(length);
-      return list;
-    }
-    getFloat64List(length) {
-      if (length == null) dart.nullFailed(I[0], 184, 34, "length");
-      this[_alignTo](8);
-      let list = this.data[$buffer][$asFloat64List](dart.notNull(this.data[$offsetInBytes]) + dart.notNull(this[_position]), length);
-      this[_position] = dart.notNull(this[_position]) + 8 * dart.notNull(length);
-      return list;
-    }
-    [_alignTo](alignment) {
-      if (alignment == null) dart.nullFailed(I[0], 191, 21, "alignment");
-      let mod = this[_position][$modulo](alignment);
-      if (mod !== 0) this[_position] = dart.notNull(this[_position]) + (dart.notNull(alignment) - mod);
-    }
-  };
-  (serialization.ReadBuffer.new = function(data) {
-    if (data == null) dart.nullFailed(I[0], 107, 19, "data");
-    this[_position] = 0;
-    this[data$] = data;
-    if (!(data != null)) dart.assertFailed(null, I[0], 108, 14, "data != null");
+  (image_picker_platform.ImagePickerPlatform.new = function() {
+    image_picker_platform.ImagePickerPlatform.__proto__.new.call(this, {token: image_picker_platform.ImagePickerPlatform._token});
     ;
-  }).prototype = serialization.ReadBuffer.prototype;
-  dart.addTypeTests(serialization.ReadBuffer);
-  dart.addTypeCaches(serialization.ReadBuffer);
-  dart.setMethodSignature(serialization.ReadBuffer, () => ({
-    __proto__: dart.getMethods(serialization.ReadBuffer.__proto__),
-    getUint8: dart.fnType(core.int, []),
-    getUint16: dart.fnType(core.int, [], {endian: dart.nullable(typed_data.Endian)}, {}),
-    getUint32: dart.fnType(core.int, [], {endian: dart.nullable(typed_data.Endian)}, {}),
-    getInt32: dart.fnType(core.int, [], {endian: dart.nullable(typed_data.Endian)}, {}),
-    getInt64: dart.fnType(core.int, [], {endian: dart.nullable(typed_data.Endian)}, {}),
-    getFloat64: dart.fnType(core.double, [], {endian: dart.nullable(typed_data.Endian)}, {}),
-    getUint8List: dart.fnType(typed_data.Uint8List, [core.int]),
-    getInt32List: dart.fnType(typed_data.Int32List, [core.int]),
-    getInt64List: dart.fnType(typed_data.Int64List, [core.int]),
-    getFloat64List: dart.fnType(typed_data.Float64List, [core.int]),
-    [_alignTo]: dart.fnType(dart.void, [core.int])
+  }).prototype = image_picker_platform.ImagePickerPlatform.prototype;
+  dart.addTypeTests(image_picker_platform.ImagePickerPlatform);
+  dart.addTypeCaches(image_picker_platform.ImagePickerPlatform);
+  dart.setMethodSignature(image_picker_platform.ImagePickerPlatform, () => ({
+    __proto__: dart.getMethods(image_picker_platform.ImagePickerPlatform.__proto__),
+    pickImage: dart.fnType(async.Future$(dart.nullable(html.PickedFile)), [], {imageQuality: dart.nullable(core.int), maxHeight: dart.nullable(core.double), maxWidth: dart.nullable(core.double), preferredCameraDevice: camera_device.CameraDevice}, {source: image_source.ImageSource}),
+    pickMultiImage: dart.fnType(async.Future$(dart.nullable(core.List$(html.PickedFile))), [], {imageQuality: dart.nullable(core.int), maxHeight: dart.nullable(core.double), maxWidth: dart.nullable(core.double)}, {}),
+    pickVideo: dart.fnType(async.Future$(dart.nullable(html.PickedFile)), [], {maxDuration: dart.nullable(core.Duration), preferredCameraDevice: camera_device.CameraDevice}, {source: image_source.ImageSource}),
+    retrieveLostData: dart.fnType(async.Future$(lost_data.LostData), [])
   }));
-  dart.setGetterSignature(serialization.ReadBuffer, () => ({
-    __proto__: dart.getGetters(serialization.ReadBuffer.__proto__),
-    hasRemaining: core.bool
+  dart.setLibraryUri(image_picker_platform.ImagePickerPlatform, I[2]);
+  dart.defineLazy(image_picker_platform.ImagePickerPlatform, {
+    /*image_picker_platform.ImagePickerPlatform._token*/get _token() {
+      return new core.Object.new();
+    },
+    /*image_picker_platform.ImagePickerPlatform._instance*/get _instance() {
+      return new method_channel_image_picker.MethodChannelImagePicker.new();
+    },
+    set _instance(_) {}
+  }, false);
+  method_channel_image_picker.MethodChannelImagePicker = class MethodChannelImagePicker extends image_picker_platform.ImagePickerPlatform {
+    get channel() {
+      return method_channel_image_picker._channel;
+    }
+    pickImage(opts) {
+      let source = opts && 'source' in opts ? opts.source : null;
+      if (source == null) dart.nullFailed(I[0], 23, 26, "source");
+      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
+      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
+      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
+      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
+      if (preferredCameraDevice == null) dart.nullFailed(I[0], 27, 18, "preferredCameraDevice");
+      return async.async(T.PickedFileN(), (function* pickImage() {
+        let path = (yield this[_pickImagePath]({source: source, maxWidth: maxWidth, maxHeight: maxHeight, imageQuality: imageQuality, preferredCameraDevice: preferredCameraDevice}));
+        return path != null ? new html.PickedFile.new(path) : null;
+      }).bind(this));
+    }
+    pickMultiImage(opts) {
+      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
+      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
+      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
+      return async.async(T.ListNOfPickedFile(), (function* pickMultiImage() {
+        let paths = (yield this[_pickMultiImagePath]({maxWidth: maxWidth, maxHeight: maxHeight, imageQuality: imageQuality}));
+        if (paths == null) return null;
+        let files = T.JSArrayOfPickedFile().of([]);
+        for (let path of paths) {
+          files[$add](new html.PickedFile.new(core.String.as(path)));
+        }
+        return files;
+      }).bind(this));
+    }
+    [_pickMultiImagePath](opts) {
+      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
+      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
+      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
+      if (imageQuality != null && (dart.notNull(imageQuality) < 0 || dart.notNull(imageQuality) > 100)) {
+        dart.throw(new core.ArgumentError.value(imageQuality, "imageQuality", "must be between 0 and 100"));
+      }
+      if (maxWidth != null && dart.notNull(maxWidth) < 0) {
+        dart.throw(new core.ArgumentError.value(maxWidth, "maxWidth", "cannot be negative"));
+      }
+      if (maxHeight != null && dart.notNull(maxHeight) < 0) {
+        dart.throw(new core.ArgumentError.value(maxHeight, "maxHeight", "cannot be negative"));
+      }
+      return method_channel_image_picker._channel.invokeMethod(T.ListN(), "pickMultiImage", new (T.IdentityMapOfString$dynamic()).from(["maxWidth", maxWidth, "maxHeight", maxHeight, "imageQuality", imageQuality]));
+    }
+    [_pickImagePath](opts) {
+      let source = opts && 'source' in opts ? opts.source : null;
+      if (source == null) dart.nullFailed(I[0], 88, 26, "source");
+      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
+      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
+      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
+      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
+      if (preferredCameraDevice == null) dart.nullFailed(I[0], 92, 18, "preferredCameraDevice");
+      if (imageQuality != null && (dart.notNull(imageQuality) < 0 || dart.notNull(imageQuality) > 100)) {
+        dart.throw(new core.ArgumentError.value(imageQuality, "imageQuality", "must be between 0 and 100"));
+      }
+      if (maxWidth != null && dart.notNull(maxWidth) < 0) {
+        dart.throw(new core.ArgumentError.value(maxWidth, "maxWidth", "cannot be negative"));
+      }
+      if (maxHeight != null && dart.notNull(maxHeight) < 0) {
+        dart.throw(new core.ArgumentError.value(maxHeight, "maxHeight", "cannot be negative"));
+      }
+      return method_channel_image_picker._channel.invokeMethod(core.String, "pickImage", new (T.IdentityMapOfString$dynamic()).from(["source", source.index, "maxWidth", maxWidth, "maxHeight", maxHeight, "imageQuality", imageQuality, "cameraDevice", preferredCameraDevice.index]));
+    }
+    pickVideo(opts) {
+      let source = opts && 'source' in opts ? opts.source : null;
+      if (source == null) dart.nullFailed(I[0], 121, 26, "source");
+      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
+      if (preferredCameraDevice == null) dart.nullFailed(I[0], 122, 18, "preferredCameraDevice");
+      let maxDuration = opts && 'maxDuration' in opts ? opts.maxDuration : null;
+      return async.async(T.PickedFileN(), (function* pickVideo() {
+        let path = (yield this[_pickVideoPath]({source: source, maxDuration: maxDuration, preferredCameraDevice: preferredCameraDevice}));
+        return path != null ? new html.PickedFile.new(path) : null;
+      }).bind(this));
+    }
+    [_pickVideoPath](opts) {
+      let t0;
+      let source = opts && 'source' in opts ? opts.source : null;
+      if (source == null) dart.nullFailed(I[0], 134, 26, "source");
+      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
+      if (preferredCameraDevice == null) dart.nullFailed(I[0], 135, 18, "preferredCameraDevice");
+      let maxDuration = opts && 'maxDuration' in opts ? opts.maxDuration : null;
+      return method_channel_image_picker._channel.invokeMethod(core.String, "pickVideo", new (T.IdentityMapOfString$dynamic()).from(["source", source.index, "maxDuration", (t0 = maxDuration, t0 == null ? null : t0.inSeconds), "cameraDevice", preferredCameraDevice.index]));
+    }
+    retrieveLostData() {
+      return async.async(lost_data.LostData, function* retrieveLostData() {
+        let result = (yield method_channel_image_picker._channel.invokeMapMethod(core.String, dart.dynamic, "retrieve"));
+        if (result == null) {
+          return new lost_data.LostData.empty();
+        }
+        if (!(dart.notNull(result[$containsKey]("path")) !== dart.test(result[$containsKey]("errorCode")))) dart.assertFailed(null, I[0], 157, 12, "result.containsKey('path') ^ result.containsKey('errorCode')");
+        let type = T.StringN().as(result[$_get]("type"));
+        if (!(type === "image" || type === "video")) dart.assertFailed(null, I[0], 160, 12, "type == kTypeImage || type == kTypeVideo");
+        let retrieveType = null;
+        if (type === "image") {
+          retrieveType = retrieve_type.RetrieveType.image;
+        } else if (type === "video") {
+          retrieveType = retrieve_type.RetrieveType.video;
+        }
+        let exception = null;
+        if (dart.test(result[$containsKey]("errorCode"))) {
+          exception = new message_codec.PlatformException.new({code: core.String.as(result[$_get]("errorCode")), message: T.StringN().as(result[$_get]("errorMessage"))});
+        }
+        let path = T.StringN().as(result[$_get]("path"));
+        return new lost_data.LostData.new({file: path != null ? new html.PickedFile.new(path) : null, exception: exception, type: retrieveType});
+      });
+    }
+  };
+  (method_channel_image_picker.MethodChannelImagePicker.new = function() {
+    method_channel_image_picker.MethodChannelImagePicker.__proto__.new.call(this);
+    ;
+  }).prototype = method_channel_image_picker.MethodChannelImagePicker.prototype;
+  dart.addTypeTests(method_channel_image_picker.MethodChannelImagePicker);
+  dart.addTypeCaches(method_channel_image_picker.MethodChannelImagePicker);
+  dart.setMethodSignature(method_channel_image_picker.MethodChannelImagePicker, () => ({
+    __proto__: dart.getMethods(method_channel_image_picker.MethodChannelImagePicker.__proto__),
+    [_pickMultiImagePath]: dart.fnType(async.Future$(dart.nullable(core.List)), [], {imageQuality: dart.nullable(core.int), maxHeight: dart.nullable(core.double), maxWidth: dart.nullable(core.double)}, {}),
+    [_pickImagePath]: dart.fnType(async.Future$(dart.nullable(core.String)), [], {imageQuality: dart.nullable(core.int), maxHeight: dart.nullable(core.double), maxWidth: dart.nullable(core.double), preferredCameraDevice: camera_device.CameraDevice}, {source: image_source.ImageSource}),
+    [_pickVideoPath]: dart.fnType(async.Future$(dart.nullable(core.String)), [], {maxDuration: dart.nullable(core.Duration), preferredCameraDevice: camera_device.CameraDevice}, {source: image_source.ImageSource})
   }));
-  dart.setLibraryUri(serialization.ReadBuffer, I[1]);
-  dart.setFieldSignature(serialization.ReadBuffer, () => ({
-    __proto__: dart.getFields(serialization.ReadBuffer.__proto__),
-    data: dart.finalFieldType(typed_data.ByteData),
-    [_position]: dart.fieldType(core.int)
+  dart.setGetterSignature(method_channel_image_picker.MethodChannelImagePicker, () => ({
+    __proto__: dart.getGetters(method_channel_image_picker.MethodChannelImagePicker.__proto__),
+    channel: platform_channel.MethodChannel
   }));
-  dart.trackLibraries("packages/flutter/src/foundation/serialization.dart", {
-    "package:flutter/src/foundation/serialization.dart": serialization
+  dart.setLibraryUri(method_channel_image_picker.MethodChannelImagePicker, I[3]);
+  dart.defineLazy(method_channel_image_picker, {
+    /*method_channel_image_picker._channel*/get _channel() {
+      return new platform_channel.MethodChannel.new("plugins.flutter.io/image_picker");
+    }
+  }, false);
+  dart.trackLibraries("packages/image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart", {
+    "package:image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart": method_channel_image_picker,
+    "package:image_picker_platform_interface/src/platform_interface/image_picker_platform.dart": image_picker_platform,
+    "package:image_picker_platform_interface/image_picker_platform_interface.dart": image_picker_platform_interface
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["serialization.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/foundation/serialization.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["../platform_interface/image_picker_platform.dart","method_channel_image_picker.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../D:/packages/image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart.lib.js"}');
   // Exports:
   return {
-    src__foundation__serialization: serialization
+    src__method_channel__method_channel_image_picker: method_channel_image_picker,
+    src__platform_interface__image_picker_platform: image_picker_platform,
+    image_picker_platform_interface: image_picker_platform_interface
   };
 }));
 
-//# sourceMappingURL=serialization.dart.lib.js.map
+//# sourceMappingURL=method_channel_image_picker.dart.lib.js.map
