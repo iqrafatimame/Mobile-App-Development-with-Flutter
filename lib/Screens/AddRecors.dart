@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -29,65 +30,134 @@ class _AddRecordsState extends State<AddRecords> {
           backgroundColor: Colors.brown,
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
-            child: Container(
-              height: MediaQuery.of(context).size.height,
-            color: Colors.orange[100],
-            alignment: Alignment.center,
-            padding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
-            child: Container(
-              height: MediaQuery.of(context).size.height/2,
-              child: Card(
-                  elevation: 8,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        TextField(
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          decoration: new BoxDecoration(
+          shape: BoxShape.rectangle,
+          image: new DecorationImage(
+            fit: BoxFit.fill,
+            image: NetworkImage(
+                'https://images.unsplash.com/photo-1569154107747-fb00e3b3430d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80'),
+          )),
+        alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+        child: Container(
+          //height: MediaQuery.of(context).size.height/2,
+          child: frostedContainer(
+            Stack(
+          children:<Widget>[
+              Container(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 12),
+                child: SingleChildScrollView(
+                     child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
                           controller: _controllerFirstName,
-                          decoration: InputDecoration(hintText: 'Enter First Name'),
+                          decoration: InputDecoration(
+                            hintText: 'Enter First Name',
+                            hintStyle: TextStyle(color: Colors.white),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue[300], width: 32.0),
+                             ),
+                          ),
                         ),
-                        TextField(
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
                           controller: _controllerLastName,
-                          decoration: InputDecoration(hintText: 'Enter Last Name'),
+                          decoration: InputDecoration(hintText: 'Enter Last Name',
+                            hintStyle: TextStyle(color: Colors.white),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue[300], width: 32.0),
+                             ),
+                          ),
                         ),
-                        TextField(
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
                           controller: _controllerGender,
-                          decoration: InputDecoration(hintText: 'Enter Gender'),
+                          decoration: InputDecoration(hintText: 'Enter Gender', 
+                            hintStyle: TextStyle(color: Colors.white),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue[300], width: 32.0),
+                             ),
+                          ),
                         ),
-                        TextField(
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
                           controller: _controllerEmail,
-                          decoration: InputDecoration(hintText: 'Enter Email'),
+                          decoration: InputDecoration(hintText: 'Enter Email', 
+                            hintStyle: TextStyle(color: Colors.white),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue[300], width: 32.0),
+                             ),
+                          ),
                         ),
-                        TextField(
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
                           controller: _controllerPhone,
                           decoration:
-                              InputDecoration(hintText: 'Enter Phone Number'),
+                              InputDecoration(hintText: 'Enter Phone Number', 
+                            hintStyle: TextStyle(color: Colors.white),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue[300], width: 32.0),
+                             ),
+                          ),
                         ),
-                        SizedBox(height: 40),
-                        ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.brown, // background
-                              onPrimary: Colors.white, // foreground
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 15, horizontal: 30),
-                              child: Text('Add Provider'),
-                            ),
-                            onPressed: () {
-                              providerRegistrations(context);
-                            }),
-                      ],
-                    ),
-                  )),
+                      ),
+                      SizedBox(height: 40),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.brown, // background
+                            onPrimary: Colors.white, // foreground
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 30),
+                            child: Text('Add Provider'),
+                          ),
+                          onPressed: () {
+                            providerRegistrations(context);
+                          }),
+                    ],
+                  ),
+                ),
+              ),
             ),
+          ],
+          ),
           ),
         ),
+          ),
       );
   }
-
+Widget frostedContainer(Widget child) {
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(15),
+    child: BackdropFilter( 
+      filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+      child: Container( 
+        color: Colors.orange.withOpacity(0.1),
+        child: child,
+      ),
+    ),
+  );
+}
  
 }
 

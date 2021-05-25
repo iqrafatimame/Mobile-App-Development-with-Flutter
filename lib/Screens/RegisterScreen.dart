@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer/Screens/SuccessfullyRegistered.dart';
 
@@ -66,34 +65,32 @@ class _RegisterFormState extends State<RegisterForm> {
                          ),
                         SizedBox(height: 25),
                         SignUp(),
-                ],
-              ),
+                            ],
+                          ),
+                       ),
                       ),
-                    ),
                     ],
                   ),
                 ),
             ),
           ),
-        ),
-                    
+        ),            
       ),
     );
   }
-  
+//---------------- Glass Container widget-----------------------
 Widget frostedContainer(Widget child) {
   return ClipRRect(
     borderRadius: BorderRadius.circular(15),
     child: BackdropFilter( 
       filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
       child: Container( 
-        color: Colors.brown.withOpacity(0.1),
+        color: Colors.orange.withOpacity(0.1),
         child: child,
       ),
     ),
   );
 }
-
 }
 
 
@@ -128,6 +125,7 @@ class _SignUpState extends State<SignUp> {
     return nameRegExp.hasMatch(value);
   }
 
+  // To check if the value is empty or not
   bool isNotNull(String value) {
     if (value.isEmpty) {
       return false;
@@ -138,6 +136,7 @@ class _SignUpState extends State<SignUp> {
 
   final _formKey = GlobalKey<FormState>();
   bool checkboxValue = false;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -170,7 +169,7 @@ class _SignUpState extends State<SignUp> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
-                style: TextStyle(fontSize: 14.0),
+                style: TextStyle(fontSize: 14.0,  color: Colors.white),
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black26)),
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -193,7 +192,7 @@ class _SignUpState extends State<SignUp> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
-                style: TextStyle(fontSize: 14.0),
+                style: TextStyle(fontSize: 14.0, color: Colors.white),
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black26)),
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -216,7 +215,7 @@ class _SignUpState extends State<SignUp> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
-                style: TextStyle(fontSize: 14.0),
+                style: TextStyle(fontSize: 14.0, color: Colors.white),
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black26)),
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -241,7 +240,7 @@ class _SignUpState extends State<SignUp> {
               return Column(
                 children: <Widget>[
                   Row(
-                    children: <Widget>[
+                    children: <Widget >[
                       Checkbox(
                         
                         activeColor: Colors.white,
@@ -292,8 +291,8 @@ class _SignUpState extends State<SignUp> {
                         new MaterialPageRoute(
                             builder: (context) =>
                                 new SuccessfullyRegistered()));
-                  }
-                },
+                            }
+                          },
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Padding(
