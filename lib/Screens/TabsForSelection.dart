@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer/Custom%20Widgets/CheckBoxListWidget.dart';
+import 'package:flutter_drawer/Custom%20Widgets/DateAndTimePickerWidget.dart';
+import 'package:flutter_drawer/Custom%20Widgets/SwitchWidget.dart';
+import 'package:flutter_drawer/Custom%20Widgets/TextFieldForForm.dart';
 
 const List<Tab> tabs = <Tab>[
   Tab(text: 'Check Box'),
@@ -68,11 +71,11 @@ class _TabsForSelectionState extends State<TabsForSelection> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Icon Button",
+                    "Date & Time Picker",
                     style: TextStyle(fontSize: 20),
                   ),
                   SizedBox(height: 25,),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.thumb_up)),
+                  DateAndTimePickerWidget(),
                 ],
               ),
             ),
@@ -145,48 +148,17 @@ class _TabsForSelectionState extends State<TabsForSelection> {
                 ],
               ),
             ),
+            SwitchWidget(),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Text Button",
+                    "Text Field",
                     style: TextStyle(fontSize: 20),
                   ),
                   SizedBox(height: 25,),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Colors.brown
-                    ),
-                    onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Text("Text Button"),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Center(
-              // ignore: deprecated_member_use
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Outlined Button",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  SizedBox(height: 25,),
-                  OutlineButton(
-                    textColor: Colors.brown,
-                    highlightColor: Colors.brown,
-                    onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Text("Elevated Button"),
-                    ),
-                  ),
+                  TextFieldWidget(),
                 ],
               ),
             ),
