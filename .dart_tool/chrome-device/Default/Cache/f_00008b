@@ -1,42 +1,64 @@
-define(['dart_sdk', 'packages/characters/src/grapheme_clusters/breaks.dart', 'packages/characters/src/grapheme_clusters/table.dart'], (function load__packages__characters__src__characters_impl_dart(dart_sdk, packages__characters__src__grapheme_clusters__breaks$46dart, packages__characters__src__grapheme_clusters__table$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/_network_image_web.dart', 'packages/flutter/src/material/material_state.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/semantics/semantics_event.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/cupertino/switch.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/flutter/src/gestures/monodrag.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/material/shadows.dart', 'packages/flutter/src/material/toggleable.dart', 'packages/flutter/src/gestures/drag_details.dart', 'packages/flutter/src/painting/decoration.dart'], (function load__packages__flutter__src__material__switch_dart(dart_sdk, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting___network_image_web$46dart, packages__flutter__src__material__material_state$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__semantics__semantics_event$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__cupertino__switch$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__flutter__src__gestures__monodrag$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__material__shadows$46dart, packages__flutter__src__material__toggleable$46dart, packages__flutter__src__gestures__drag_details$46dart, packages__flutter__src__painting__decoration$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
   const _internal = dart_sdk._internal;
   const _js_helper = dart_sdk._js_helper;
+  const collection = dart_sdk.collection;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const breaks$ = packages__characters__src__grapheme_clusters__breaks$46dart.src__grapheme_clusters__breaks;
-  const table = packages__characters__src__grapheme_clusters__table$46dart.src__grapheme_clusters__table;
-  var characters_impl = Object.create(dart.library);
-  var characters = Object.create(dart.library);
-  var $isEmpty = dartx.isEmpty;
-  var $substring = dartx.substring;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $map = dartx.map;
-  var $startsWith = dartx.startsWith;
-  var $where = dartx.where;
-  var $join = dartx.join;
-  var $toLowerCase = dartx.toLowerCase;
-  var $toUpperCase = dartx.toUpperCase;
-  var $hashCode = dartx.hashCode;
-  var $iterator = dartx.iterator;
-  var $whereType = dartx.whereType;
-  var $skip = dartx.skip;
-  var $take = dartx.take;
-  var $skipWhile = dartx.skipWhile;
-  var $takeWhile = dartx.takeWhile;
-  var $codeUnitAt = dartx.codeUnitAt;
-  var $codeUnits = dartx.codeUnits;
-  var $getRange = dartx.getRange;
-  var $replaceRange = dartx.replaceRange;
-  var $indexOf = dartx.indexOf;
-  var $lastIndexOf = dartx.lastIndexOf;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const focus_manager = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_manager;
+  const actions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__actions;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const focus_scope = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_scope;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const image_provider = packages__flutter__src__painting___network_image_web$46dart.src__painting__image_provider;
+  const material_state = packages__flutter__src__material__material_state$46dart.src__material__material_state;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const debug = packages__flutter__src__material__icon_button$46dart.src__material__debug;
+  const mouse_cursor = packages__flutter__src__rendering__layer$46dart.src__rendering__mouse_cursor;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const semantics_event = packages__flutter__src__semantics__semantics_event$46dart.src__semantics__semantics_event;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const $switch = packages__flutter__src__cupertino__switch$46dart.src__cupertino__switch;
+  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
+  const monodrag = packages__flutter__src__gestures__monodrag$46dart.src__gestures__monodrag;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const shadows = packages__flutter__src__material__shadows$46dart.src__material__shadows;
+  const toggleable = packages__flutter__src__material__toggleable$46dart.src__material__toggleable;
+  const drag_details = packages__flutter__src__gestures__drag_details$46dart.src__gestures__drag_details;
+  const decoration = packages__flutter__src__painting__decoration$46dart.src__painting__decoration;
+  var $switch$ = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $abs = dartx.abs;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    VoidToString: () => (T.VoidToString = dart.constFn(dart.fnType(core.String, [])))(),
-    VoidToNString: () => (T.VoidToNString = dart.constFn(dart.nullable(T.VoidToString())))(),
-    SyncIterableOfCharacters: () => (T.SyncIterableOfCharacters = dart.constFn(_js_helper.SyncIterable$(characters.Characters)))(),
-    SyncIterableOfCharacterRange: () => (T.SyncIterableOfCharacterRange = dart.constFn(_js_helper.SyncIterable$(characters.CharacterRange)))()
+    _SwitchTypeL: () => (T._SwitchTypeL = dart.constFn(dart.legacy($switch$._SwitchType)))(),
+    boolTovoid: () => (T.boolTovoid = dart.constFn(dart.fnType(dart.void, [core.bool])))(),
+    ObjectFlagPropertyOfboolTovoid: () => (T.ObjectFlagPropertyOfboolTovoid = dart.constFn(diagnostics.ObjectFlagProperty$(T.boolTovoid())))(),
+    CallbackActionOfActivateIntent: () => (T.CallbackActionOfActivateIntent = dart.constFn(actions.CallbackAction$(actions.ActivateIntent)))(),
+    ActionOfIntent: () => (T.ActionOfIntent = dart.constFn(actions.Action$(actions.Intent)))(),
+    LinkedMapOfType$ActionOfIntent: () => (T.LinkedMapOfType$ActionOfIntent = dart.constFn(_js_helper.LinkedMap$(core.Type, T.ActionOfIntent())))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    LinkedHashSetOfMaterialState: () => (T.LinkedHashSetOfMaterialState = dart.constFn(collection.LinkedHashSet$(material_state.MaterialState)))(),
+    ColorN: () => (T.ColorN = dart.constFn(dart.nullable(ui.Color)))(),
+    SetOfMaterialState: () => (T.SetOfMaterialState = dart.constFn(core.Set$(material_state.MaterialState)))(),
+    SetOfMaterialStateToColorN: () => (T.SetOfMaterialStateToColorN = dart.constFn(dart.fnType(T.ColorN(), [T.SetOfMaterialState()])))(),
+    SetOfMaterialStateToColor: () => (T.SetOfMaterialStateToColor = dart.constFn(dart.fnType(ui.Color, [T.SetOfMaterialState()])))(),
+    MouseCursorN: () => (T.MouseCursorN = dart.constFn(dart.nullable(mouse_cursor.MouseCursor)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    BuildContextTo_SwitchRenderObjectWidget: () => (T.BuildContextTo_SwitchRenderObjectWidget = dart.constFn(dart.fnType($switch$._SwitchRenderObjectWidget, [framework.BuildContext])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -53,1253 +75,2009 @@ define(['dart_sdk', 'packages/characters/src/grapheme_clusters/breaks.dart', 'pa
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: characters_impl.StringCharacters.prototype,
-        [string$]: ""
+        __proto__: $switch$._SwitchType.prototype,
+        [_name$]: "_SwitchType.material",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: $switch$._SwitchType.prototype,
+        [_name$]: "_SwitchType.adaptive",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], T._SwitchTypeL());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: recognizer.DragStartBehavior.prototype,
+        [_name]: "DragStartBehavior.start",
+        index: 1
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: semantics_event.TapSemanticEvent.prototype,
+        [SemanticsEvent_type]: "tap"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 48,
+        [OffsetBase__dx]: 59
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: theme_data.MaterialTapTargetSize.prototype,
+        [_name$0]: "MaterialTapTargetSize.padded",
+        index: 0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 40,
+        [OffsetBase__dx]: 59
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: theme_data.MaterialTapTargetSize.prototype,
+        [_name$0]: "MaterialTapTargetSize.shrinkWrap",
+        index: 1
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 1375731712
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dragStartBehavior",
+        [_Location_column]: 13,
+        [_Location_line]: 554,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 13,
+        [_Location_line]: 555,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "activeColor",
+        [_Location_column]: 13,
+        [_Location_line]: 556,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inactiveColor",
+        [_Location_column]: 13,
+        [_Location_line]: 557,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "surfaceColor",
+        [_Location_column]: 13,
+        [_Location_line]: 558,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "focusColor",
+        [_Location_column]: 13,
+        [_Location_line]: 559,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "hoverColor",
+        [_Location_column]: 13,
+        [_Location_line]: 560,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "reactionColor",
+        [_Location_column]: 13,
+        [_Location_line]: 561,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inactiveReactionColor",
+        [_Location_column]: 13,
+        [_Location_line]: 562,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "splashRadius",
+        [_Location_column]: 13,
+        [_Location_line]: 563,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "activeThumbImage",
+        [_Location_column]: 13,
+        [_Location_line]: 564,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onActiveThumbImageError",
+        [_Location_column]: 13,
+        [_Location_line]: 565,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inactiveThumbImage",
+        [_Location_column]: 13,
+        [_Location_line]: 566,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onInactiveThumbImageError",
+        [_Location_column]: 13,
+        [_Location_line]: 567,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "activeTrackColor",
+        [_Location_column]: 13,
+        [_Location_line]: 568,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inactiveTrackColor",
+        [_Location_column]: 13,
+        [_Location_line]: 569,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "configuration",
+        [_Location_column]: 13,
+        [_Location_line]: 570,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onChanged",
+        [_Location_column]: 13,
+        [_Location_line]: 571,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "additionalConstraints",
+        [_Location_column]: 13,
+        [_Location_line]: 572,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "hasFocus",
+        [_Location_column]: 13,
+        [_Location_line]: 573,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "hovering",
+        [_Location_column]: 13,
+        [_Location_line]: 574,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "state",
+        [_Location_column]: 13,
+        [_Location_line]: 575,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33], T._LocationL());
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 553,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 552,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.constList([C[36] || CT.C36], T._LocationL());
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[35] || CT.C35,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 551,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "actions",
+        [_Location_column]: 7,
+        [_Location_line]: 544,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "focusNode",
+        [_Location_column]: 7,
+        [_Location_line]: 545,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "autofocus",
+        [_Location_column]: 7,
+        [_Location_line]: 546,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "enabled",
+        [_Location_column]: 7,
+        [_Location_line]: 547,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onShowFocusHighlight",
+        [_Location_column]: 7,
+        [_Location_line]: 548,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onShowHoverHighlight",
+        [_Location_column]: 7,
+        [_Location_line]: 549,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mouseCursor",
+        [_Location_column]: 7,
+        [_Location_line]: 550,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 551,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43, C[44] || CT.C44, C[45] || CT.C45, C[46] || CT.C46], T._LocationL());
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 543,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dragStartBehavior",
+        [_Location_column]: 11,
+        [_Location_line]: 592,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 11,
+        [_Location_line]: 593,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onChanged",
+        [_Location_column]: 11,
+        [_Location_line]: 594,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "activeColor",
+        [_Location_column]: 11,
+        [_Location_line]: 595,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "trackColor",
+        [_Location_column]: 11,
+        [_Location_line]: 596,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.constList([C[49] || CT.C49, C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52, C[53] || CT.C53], T._LocationL());
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[48] || CT.C48,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 591,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 9,
+        [_Location_line]: 588,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 9,
+        [_Location_line]: 589,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 9,
+        [_Location_line]: 590,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 591,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.constList([C[56] || CT.C56, C[57] || CT.C57, C[58] || CT.C58, C[59] || CT.C59], T._LocationL());
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[55] || CT.C55,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 587,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "focusNode",
+        [_Location_column]: 7,
+        [_Location_line]: 585,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "autofocus",
+        [_Location_column]: 7,
+        [_Location_line]: 586,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 587,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.constList([C[62] || CT.C62, C[63] || CT.C63, C[64] || CT.C64], T._LocationL());
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[61] || CT.C61,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 584,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/switch.dart"
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.android",
+        index: 0
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.fuchsia",
+        index: 1
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.linux",
+        index: 3
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.windows",
+        index: 5
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.iOS",
+        index: 2
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$1]: "TargetPlatform.macOS",
+        index: 4
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name$2]: "TextDirection.rtl",
+        index: 0
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name$2]: "TextDirection.ltr",
+        index: 1
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 7,
+        [Radius_x]: 7
       });
     }
   }, false);
-  var C = [void 0];
+  var C = Array(74).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0/lib/src/characters_impl.dart",
-    "package:characters/src/characters_impl.dart",
-    "package:characters/src/characters.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/material/switch.dart",
+    "package:flutter/src/material/switch.dart"
   ];
-  var string$ = dart.privateName(characters_impl, "StringCharacters.string");
-  var _rangeAll = dart.privateName(characters_impl, "_rangeAll");
-  var _skipIndices = dart.privateName(characters_impl, "_skipIndices");
-  var _skip = dart.privateName(characters_impl, "_skip");
-  var _take = dart.privateName(characters_impl, "_take");
-  characters_impl.StringCharacters = class StringCharacters extends core.Iterable$(core.String) {
-    get string() {
-      return this[string$];
-    }
-    set string(value) {
-      super.string = value;
-    }
-    get iterator() {
-      return new characters_impl.StringCharacterRange.__(this.string, 0, 0);
-    }
-    get iteratorAtEnd() {
-      return new characters_impl.StringCharacterRange.__(this.string, this.string.length, this.string.length);
-    }
-    get [_rangeAll]() {
-      return new characters_impl.StringCharacterRange.__(this.string, 0, this.string.length);
-    }
-    get first() {
-      return this.string[$isEmpty] ? dart.throw(new core.StateError.new("No element")) : this.string[$substring](0, new breaks$.Breaks.new(this.string, 0, this.string.length, 176).nextBreak());
-    }
-    get last() {
-      return this.string[$isEmpty] ? dart.throw(new core.StateError.new("No element")) : this.string[$substring](new breaks$.BackBreaks.new(this.string, this.string.length, 0, 176).nextBreak());
-    }
-    get single() {
-      if (this.string[$isEmpty]) dart.throw(new core.StateError.new("No element"));
-      let firstEnd = new breaks$.Breaks.new(this.string, 0, this.string.length, 176).nextBreak();
-      if (firstEnd === this.string.length) return this.string;
-      dart.throw(new core.StateError.new("Too many elements"));
-    }
-    get isEmpty() {
-      return this.string[$isEmpty];
-    }
-    get isNotEmpty() {
-      return this.string[$isNotEmpty];
-    }
-    get length() {
-      if (this.string[$isEmpty]) return 0;
-      let brk = new breaks$.Breaks.new(this.string, 0, this.string.length, 176);
-      let length = 0;
-      while (dart.notNull(brk.nextBreak()) >= 0) {
-        length = length + 1;
-      }
-      return length;
-    }
-    whereType(T) {
-      let self = this;
-      if (core.Iterable$(T).is(self)) {
-        return self[$map](T, dart.fn(x => x, dart.fnType(T, [T])));
-      }
-      return new (_internal.EmptyIterable$(T)).new();
-    }
-    join(separator = "") {
-      if (separator == null) dart.nullFailed(I[0], 81, 23, "separator");
-      if (separator === "") return this.string;
-      return characters_impl._explodeReplace(this.string, 0, this.string.length, separator, "");
-    }
-    lastWhere(test, opts) {
-      if (test == null) dart.nullFailed(I[0], 87, 50, "test");
-      let orElse = opts && 'orElse' in opts ? opts.orElse : null;
-      T.VoidToNString().as(orElse);
-      let cursor = this.string.length;
-      let brk = new breaks$.BackBreaks.new(this.string, cursor, 0, 176);
-      let next = 0;
-      while (dart.notNull(next = brk.nextBreak()) >= 0) {
-        let current = this.string[$substring](next, cursor);
-        if (dart.test(test(current))) return current;
-        cursor = next;
-      }
-      if (orElse != null) return orElse();
-      dart.throw(new core.StateError.new("No element"));
-    }
-    elementAt(index) {
-      if (index == null) dart.nullFailed(I[0], 102, 24, "index");
-      core.RangeError.checkNotNegative(index, "index");
-      let count = 0;
-      if (this.string[$isNotEmpty]) {
-        let breaks = new breaks$.Breaks.new(this.string, 0, this.string.length, 176);
-        let start = 0;
-        let end = 0;
-        while (dart.notNull(end = breaks.nextBreak()) >= 0) {
-          if (count === index) return this.string[$substring](start, end);
-          count = count + 1;
-          start = end;
-        }
-      }
-      dart.throw(new core.IndexError.new(index, this, "index", null, count));
-    }
-    contains(other) {
-      if (typeof other == 'string') {
-        if (other[$isEmpty]) return false;
-        let next = new breaks$.Breaks.new(other, 0, other.length, 176).nextBreak();
-        if (next !== other.length) return false;
-        return dart.notNull(characters_impl._indexOf(this.string, other, 0, this.string.length)) >= 0;
-      }
-      return false;
-    }
-    startsWith(characters) {
-      if (characters == null) dart.nullFailed(I[0], 131, 30, "characters");
-      let length = this.string.length;
-      let otherString = characters.string;
-      if (otherString[$isEmpty]) return true;
-      return this.string[$startsWith](otherString) && dart.test(breaks$.isGraphemeClusterBoundary(this.string, 0, length, otherString.length));
-    }
-    endsWith(characters) {
-      if (characters == null) dart.nullFailed(I[0], 140, 28, "characters");
-      let length = this.string.length;
-      let otherString = characters.string;
-      if (otherString[$isEmpty]) return true;
-      let otherLength = otherString.length;
-      let start = this.string.length - otherLength;
-      return start >= 0 && this.string[$startsWith](otherString, start) && dart.test(breaks$.isGraphemeClusterBoundary(this.string, 0, length, start));
-    }
-    replaceAll(pattern, replacement) {
-      let t0, t0$;
-      if (pattern == null) dart.nullFailed(I[0], 152, 36, "pattern");
-      if (replacement == null) dart.nullFailed(I[0], 152, 56, "replacement");
-      t0$ = (t0 = this[_rangeAll].replaceAll(pattern, replacement), t0 == null ? null : t0.source);
-      return t0$ == null ? this : t0$;
-    }
-    replaceFirst(pattern, replacement) {
-      let t0, t0$;
-      if (pattern == null) dart.nullFailed(I[0], 156, 38, "pattern");
-      if (replacement == null) dart.nullFailed(I[0], 156, 58, "replacement");
-      t0$ = (t0 = this[_rangeAll].replaceFirst(pattern, replacement), t0 == null ? null : t0.source);
-      return t0$ == null ? this : t0$;
-    }
-    split(pattern, maxParts = 0) {
-      if (pattern == null) dart.nullFailed(I[0], 160, 41, "pattern");
-      if (maxParts == null) dart.nullFailed(I[0], 160, 55, "maxParts");
-      return new (T.SyncIterableOfCharacters()).new(() => (function* split(maxParts) {
-        if (maxParts === 1 || this.string[$isEmpty]) {
-          yield this;
-          return;
-        }
-        let patternString = pattern.string;
-        let start = 0;
-        if (patternString[$isNotEmpty]) {
-          do {
-            let match = characters_impl._indexOf(this.string, patternString, start, this.string.length);
-            if (dart.notNull(match) < 0) break;
-            yield new characters_impl.StringCharacters.new(this.string[$substring](start, match));
-            start = dart.notNull(match) + patternString.length;
-            maxParts = dart.notNull(maxParts) - 1;
-          } while (maxParts !== 1);
-        } else {
-          let breaks = new breaks$.Breaks.new(this.string, 0, this.string.length, 176);
-          do {
-            let match = breaks.nextBreak();
-            if (dart.notNull(match) < 0) return;
-            yield new characters_impl.StringCharacters.new(this.string[$substring](start, match));
-            start = match;
-            maxParts = dart.notNull(maxParts) - 1;
-          } while (maxParts !== 1);
-          if (start === this.string.length) return;
-        }
-        yield new characters_impl.StringCharacters.new(this.string[$substring](start));
-      }).bind(this)(maxParts));
-    }
-    containsAll(characters) {
-      if (characters == null) dart.nullFailed(I[0], 191, 31, "characters");
-      return dart.notNull(characters_impl._indexOf(this.string, characters.string, 0, this.string.length)) >= 0;
-    }
-    [_skipIndices](count, cursor, breaks) {
-      if (count == null) dart.nullFailed(I[0], 202, 24, "count");
-      if (cursor == null) dart.nullFailed(I[0], 202, 35, "cursor");
-      if (count === 0 || cursor === this.string.length) return cursor;
-      breaks == null ? breaks = new breaks$.Breaks.new(this.string, cursor, this.string.length, 176) : null;
-      do {
-        let nextBreak = breaks.nextBreak();
-        if (dart.notNull(nextBreak) < 0) break;
-        cursor = nextBreak;
-      } while ((count = dart.notNull(count) - 1) > 0);
-      return cursor;
-    }
-    skip(count) {
-      if (count == null) dart.nullFailed(I[0], 214, 23, "count");
-      core.RangeError.checkNotNegative(count, "count");
-      return this[_skip](count);
-    }
-    [_skip](count) {
-      if (count == null) dart.nullFailed(I[0], 219, 24, "count");
-      let start = this[_skipIndices](count, 0, null);
-      if (start === this.string.length) return characters_impl.StringCharacters._empty;
-      return new characters_impl.StringCharacters.new(this.string[$substring](start));
-    }
-    take(count) {
-      if (count == null) dart.nullFailed(I[0], 226, 23, "count");
-      core.RangeError.checkNotNegative(count, "count");
-      return this[_take](count);
-    }
-    [_take](count) {
-      if (count == null) dart.nullFailed(I[0], 231, 24, "count");
-      let end = this[_skipIndices](count, 0, null);
-      if (end === this.string.length) return this;
-      return new characters_impl.StringCharacters.new(this.string[$substring](0, end));
-    }
-    getRange(start, end = null) {
-      if (start == null) dart.nullFailed(I[0], 238, 27, "start");
-      core.RangeError.checkNotNegative(start, "start");
-      if (end == null) return this[_skip](start);
-      if (dart.notNull(end) < dart.notNull(start)) dart.throw(new core.RangeError.range(end, start, null, "end"));
-      if (end == start) return characters_impl.StringCharacters._empty;
-      if (start === 0) return this[_take](end);
-      if (this.string[$isEmpty]) return this;
-      let breaks = new breaks$.Breaks.new(this.string, 0, this.string.length, 176);
-      let startIndex = this[_skipIndices](start, 0, breaks);
-      if (startIndex === this.string.length) return characters_impl.StringCharacters._empty;
-      let endIndex = this[_skipIndices](dart.notNull(end) - dart.notNull(start), start, breaks);
-      return new characters_impl.StringCharacters.new(this.string[$substring](startIndex, endIndex));
-    }
-    characterAt(position) {
-      if (position == null) dart.nullFailed(I[0], 253, 30, "position");
-      let breaks = new breaks$.Breaks.new(this.string, 0, this.string.length, 176);
-      let start = 0;
-      while (dart.notNull(position) > 0) {
-        position = dart.notNull(position) - 1;
-        start = breaks.nextBreak();
-        if (dart.notNull(start) < 0) dart.throw(new core.StateError.new("No element"));
-      }
-      let end = breaks.nextBreak();
-      if (dart.notNull(end) < 0) dart.throw(new core.StateError.new("No element"));
-      if (start === 0 && end === this.string.length) return this;
-      return new characters_impl.StringCharacters.new(this.string[$substring](start, end));
-    }
-    skipWhile(test) {
-      if (test == null) dart.nullFailed(I[0], 269, 46, "test");
-      if (this.string[$isNotEmpty]) {
-        let stringLength = this.string.length;
-        let breaks = new breaks$.Breaks.new(this.string, 0, stringLength, 176);
-        let index = 0;
-        let startIndex = 0;
-        while (dart.notNull(index = breaks.nextBreak()) >= 0) {
-          if (!dart.test(test(this.string[$substring](startIndex, index)))) {
-            if (startIndex === 0) return this;
-            if (startIndex === stringLength) return characters_impl.StringCharacters._empty;
-            return new characters_impl.StringCharacters.new(this.string[$substring](startIndex));
-          }
-          startIndex = index;
-        }
-      }
-      return characters_impl.StringCharacters._empty;
-    }
-    takeWhile(test) {
-      if (test == null) dart.nullFailed(I[0], 288, 46, "test");
-      if (this.string[$isNotEmpty]) {
-        let breaks = new breaks$.Breaks.new(this.string, 0, this.string.length, 176);
-        let index = 0;
-        let endIndex = 0;
-        while (dart.notNull(index = breaks.nextBreak()) >= 0) {
-          if (!dart.test(test(this.string[$substring](endIndex, index)))) {
-            if (endIndex === 0) return characters_impl.StringCharacters._empty;
-            return new characters_impl.StringCharacters.new(this.string[$substring](0, endIndex));
-          }
-          endIndex = index;
-        }
-      }
-      return this;
-    }
-    where(test) {
-      if (test == null) dart.nullFailed(I[0], 305, 42, "test");
-      let string = super[$where](test)[$join]();
-      if (string[$isEmpty]) return characters_impl.StringCharacters._empty;
-      return new characters_impl.StringCharacters.new(super[$where](test)[$join]());
-    }
-    ['+'](characters) {
-      if (characters == null) dart.nullFailed(I[0], 312, 36, "characters");
-      return new characters_impl.StringCharacters.new(dart.notNull(this.string) + dart.notNull(characters.string));
-    }
-    skipLast(count) {
-      if (count == null) dart.nullFailed(I[0], 316, 27, "count");
-      core.RangeError.checkNotNegative(count, "count");
-      if (count === 0) return this;
-      if (this.string[$isNotEmpty]) {
-        let breaks = new breaks$.BackBreaks.new(this.string, this.string.length, 0, 176);
-        let endIndex = this.string.length;
-        while (dart.notNull(count) > 0) {
-          let index = breaks.nextBreak();
-          if (dart.notNull(index) >= 0) {
-            endIndex = index;
-            count = dart.notNull(count) - 1;
-          } else {
-            return characters_impl.StringCharacters._empty;
-          }
-        }
-        if (dart.notNull(endIndex) > 0) return new characters_impl.StringCharacters.new(this.string[$substring](0, endIndex));
-      }
-      return characters_impl.StringCharacters._empty;
-    }
-    skipLastWhile(test) {
-      if (test == null) dart.nullFailed(I[0], 337, 50, "test");
-      if (this.string[$isNotEmpty]) {
-        let breaks = new breaks$.BackBreaks.new(this.string, this.string.length, 0, 176);
-        let index = 0;
-        let end = this.string.length;
-        while (dart.notNull(index = breaks.nextBreak()) >= 0) {
-          if (!dart.test(test(this.string[$substring](index, end)))) {
-            if (end === this.string.length) return this;
-            return end === 0 ? characters_impl.StringCharacters._empty : new characters_impl.StringCharacters.new(this.string[$substring](0, end));
-          }
-          end = index;
-        }
-      }
-      return characters_impl.StringCharacters._empty;
-    }
-    takeLast(count) {
-      if (count == null) dart.nullFailed(I[0], 354, 27, "count");
-      core.RangeError.checkNotNegative(count, "count");
-      if (count === 0) return characters_impl.StringCharacters._empty;
-      if (this.string[$isNotEmpty]) {
-        let breaks = new breaks$.BackBreaks.new(this.string, this.string.length, 0, 176);
-        let startIndex = this.string.length;
-        while (dart.notNull(count) > 0) {
-          let index = breaks.nextBreak();
-          if (dart.notNull(index) >= 0) {
-            startIndex = index;
-            count = dart.notNull(count) - 1;
-          } else {
-            return this;
-          }
-        }
-        if (dart.notNull(startIndex) > 0) {
-          return new characters_impl.StringCharacters.new(this.string[$substring](startIndex));
-        }
-      }
-      return this;
-    }
-    takeLastWhile(test) {
-      if (test == null) dart.nullFailed(I[0], 377, 50, "test");
-      if (this.string[$isNotEmpty]) {
-        let breaks = new breaks$.BackBreaks.new(this.string, this.string.length, 0, 176);
-        let index = 0;
-        let start = this.string.length;
-        while (dart.notNull(index = breaks.nextBreak()) >= 0) {
-          if (!dart.test(test(this.string[$substring](index, start)))) {
-            if (start === this.string.length) return characters_impl.StringCharacters._empty;
-            return new characters_impl.StringCharacters.new(this.string[$substring](start));
-          }
-          start = index;
-        }
-      }
-      return this;
-    }
-    toLowerCase() {
-      return new characters_impl.StringCharacters.new(this.string[$toLowerCase]());
-    }
-    toUpperCase() {
-      return new characters_impl.StringCharacters.new(this.string[$toUpperCase]());
-    }
-    _equals(other) {
-      if (other == null) return false;
-      return characters.Characters.is(other) && this.string == other.string;
-    }
-    get hashCode() {
-      return dart.hashCode(this.string);
-    }
+  var _name$ = dart.privateName($switch$, "_name");
+  $switch$._SwitchType = class _SwitchType extends core.Object {
     toString() {
-      return this.string;
-    }
-    findFirst(characters) {
-      if (characters == null) dart.nullFailed(I[0], 410, 40, "characters");
-      let range = this[_rangeAll];
-      if (dart.test(range.collapseToFirst(characters))) return range;
-      return null;
-    }
-    findLast(characters) {
-      if (characters == null) dart.nullFailed(I[0], 417, 39, "characters");
-      let range = this[_rangeAll];
-      if (dart.test(range.collapseToLast(characters))) return range;
-      return null;
+      return this[_name$];
     }
   };
-  (characters_impl.StringCharacters.new = function(string) {
-    if (string == null) dart.nullFailed(I[0], 21, 31, "string");
-    this[string$] = string;
-    characters_impl.StringCharacters.__proto__.new.call(this);
+  ($switch$._SwitchType.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 29, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 29, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
     ;
-  }).prototype = characters_impl.StringCharacters.prototype;
-  dart.addTypeTests(characters_impl.StringCharacters);
-  dart.addTypeCaches(characters_impl.StringCharacters);
-  characters_impl.StringCharacters[dart.implements] = () => [characters.Characters];
-  dart.setMethodSignature(characters_impl.StringCharacters, () => ({
-    __proto__: dart.getMethods(characters_impl.StringCharacters.__proto__),
-    whereType: dart.gFnType(T => [core.Iterable$(T), []], T => [dart.nullable(core.Object)]),
-    [$whereType]: dart.gFnType(T => [core.Iterable$(T), []], T => [dart.nullable(core.Object)]),
-    startsWith: dart.fnType(core.bool, [characters.Characters]),
-    endsWith: dart.fnType(core.bool, [characters.Characters]),
-    replaceAll: dart.fnType(characters.Characters, [characters.Characters, characters.Characters]),
-    replaceFirst: dart.fnType(characters.Characters, [characters.Characters, characters.Characters]),
-    split: dart.fnType(core.Iterable$(characters.Characters), [characters.Characters], [core.int]),
-    containsAll: dart.fnType(core.bool, [characters.Characters]),
-    [_skipIndices]: dart.fnType(core.int, [core.int, core.int, dart.nullable(breaks$.Breaks)]),
-    skip: dart.fnType(characters.Characters, [core.int]),
-    [$skip]: dart.fnType(characters.Characters, [core.int]),
-    [_skip]: dart.fnType(characters.Characters, [core.int]),
-    take: dart.fnType(characters.Characters, [core.int]),
-    [$take]: dart.fnType(characters.Characters, [core.int]),
-    [_take]: dart.fnType(characters.Characters, [core.int]),
-    getRange: dart.fnType(characters.Characters, [core.int], [dart.nullable(core.int)]),
-    characterAt: dart.fnType(characters.Characters, [core.int]),
-    skipWhile: dart.fnType(characters.Characters, [dart.fnType(core.bool, [core.String])]),
-    [$skipWhile]: dart.fnType(characters.Characters, [dart.fnType(core.bool, [core.String])]),
-    takeWhile: dart.fnType(characters.Characters, [dart.fnType(core.bool, [core.String])]),
-    [$takeWhile]: dart.fnType(characters.Characters, [dart.fnType(core.bool, [core.String])]),
-    where: dart.fnType(characters.Characters, [dart.fnType(core.bool, [core.String])]),
-    [$where]: dart.fnType(characters.Characters, [dart.fnType(core.bool, [core.String])]),
-    '+': dart.fnType(characters.Characters, [characters.Characters]),
-    skipLast: dart.fnType(characters.Characters, [core.int]),
-    skipLastWhile: dart.fnType(characters.Characters, [dart.fnType(core.bool, [core.String])]),
-    takeLast: dart.fnType(characters.Characters, [core.int]),
-    takeLastWhile: dart.fnType(characters.Characters, [dart.fnType(core.bool, [core.String])]),
-    toLowerCase: dart.fnType(characters.Characters, []),
-    toUpperCase: dart.fnType(characters.Characters, []),
-    findFirst: dart.fnType(dart.nullable(characters.CharacterRange), [characters.Characters]),
-    findLast: dart.fnType(dart.nullable(characters.CharacterRange), [characters.Characters])
+  }).prototype = $switch$._SwitchType.prototype;
+  dart.addTypeTests($switch$._SwitchType);
+  dart.addTypeCaches($switch$._SwitchType);
+  dart.setLibraryUri($switch$._SwitchType, I[1]);
+  dart.setFieldSignature($switch$._SwitchType, () => ({
+    __proto__: dart.getFields($switch$._SwitchType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.setGetterSignature(characters_impl.StringCharacters, () => ({
-    __proto__: dart.getGetters(characters_impl.StringCharacters.__proto__),
-    iterator: characters.CharacterRange,
-    [$iterator]: characters.CharacterRange,
-    iteratorAtEnd: characters.CharacterRange,
-    [_rangeAll]: characters_impl.StringCharacterRange
-  }));
-  dart.setLibraryUri(characters_impl.StringCharacters, I[1]);
-  dart.setFieldSignature(characters_impl.StringCharacters, () => ({
-    __proto__: dart.getFields(characters_impl.StringCharacters.__proto__),
-    string: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(characters_impl.StringCharacters, [
-    'whereType',
-    'join',
-    'lastWhere',
-    'elementAt',
-    'contains',
-    'skip',
-    'take',
-    'skipWhile',
-    'takeWhile',
-    'where',
-    '_equals',
-    'toString'
-  ]);
-  dart.defineExtensionAccessors(characters_impl.StringCharacters, [
-    'iterator',
-    'first',
-    'last',
-    'single',
-    'isEmpty',
-    'isNotEmpty',
-    'length',
-    'hashCode'
-  ]);
-  dart.defineLazy(characters_impl.StringCharacters, {
-    /*characters_impl.StringCharacters._empty*/get _empty() {
-      return C[0] || CT.C0;
+  dart.defineExtensionMethods($switch$._SwitchType, ['toString']);
+  $switch$._SwitchType.material = C[0] || CT.C0;
+  $switch$._SwitchType.adaptive = C[1] || CT.C1;
+  $switch$._SwitchType.values = C[2] || CT.C2;
+  var value$ = dart.privateName($switch$, "Switch.value");
+  var onChanged$ = dart.privateName($switch$, "Switch.onChanged");
+  var activeColor$ = dart.privateName($switch$, "Switch.activeColor");
+  var activeTrackColor$ = dart.privateName($switch$, "Switch.activeTrackColor");
+  var inactiveThumbColor$ = dart.privateName($switch$, "Switch.inactiveThumbColor");
+  var inactiveTrackColor$ = dart.privateName($switch$, "Switch.inactiveTrackColor");
+  var activeThumbImage$ = dart.privateName($switch$, "Switch.activeThumbImage");
+  var onActiveThumbImageError$ = dart.privateName($switch$, "Switch.onActiveThumbImageError");
+  var inactiveThumbImage$ = dart.privateName($switch$, "Switch.inactiveThumbImage");
+  var onInactiveThumbImageError$ = dart.privateName($switch$, "Switch.onInactiveThumbImageError");
+  var thumbColor$ = dart.privateName($switch$, "Switch.thumbColor");
+  var trackColor$ = dart.privateName($switch$, "Switch.trackColor");
+  var materialTapTargetSize$ = dart.privateName($switch$, "Switch.materialTapTargetSize");
+  var _switchType = dart.privateName($switch$, "Switch._switchType");
+  var dragStartBehavior$ = dart.privateName($switch$, "Switch.dragStartBehavior");
+  var mouseCursor$ = dart.privateName($switch$, "Switch.mouseCursor");
+  var focusColor$ = dart.privateName($switch$, "Switch.focusColor");
+  var hoverColor$ = dart.privateName($switch$, "Switch.hoverColor");
+  var overlayColor$ = dart.privateName($switch$, "Switch.overlayColor");
+  var splashRadius$ = dart.privateName($switch$, "Switch.splashRadius");
+  var focusNode$ = dart.privateName($switch$, "Switch.focusNode");
+  var autofocus$ = dart.privateName($switch$, "Switch.autofocus");
+  var _name = dart.privateName(recognizer, "_name");
+  var _switchType$ = dart.privateName($switch$, "_switchType");
+  $switch$.Switch = class Switch extends framework.StatefulWidget {
+    get value() {
+      return this[value$];
     }
-  }, false);
-  var _currentCache = dart.privateName(characters_impl, "_currentCache");
-  var _string$ = dart.privateName(characters_impl, "_string");
-  var _start$ = dart.privateName(characters_impl, "_start");
-  var _end$ = dart.privateName(characters_impl, "_end");
-  var _move = dart.privateName(characters_impl, "_move");
-  var _breaksFromEnd = dart.privateName(characters_impl, "_breaksFromEnd");
-  var _backBreaksFromStart = dart.privateName(characters_impl, "_backBreaksFromStart");
-  var _advanceEnd = dart.privateName(characters_impl, "_advanceEnd");
-  var _moveNextPattern = dart.privateName(characters_impl, "_moveNextPattern");
-  var _retractStart = dart.privateName(characters_impl, "_retractStart");
-  var _movePreviousPattern = dart.privateName(characters_impl, "_movePreviousPattern");
-  var _retractStartUntil = dart.privateName(characters_impl, "_retractStartUntil");
-  var _advanceEndUntil = dart.privateName(characters_impl, "_advanceEndUntil");
-  var _startsWith = dart.privateName(characters_impl, "_startsWith");
-  var _endsWith = dart.privateName(characters_impl, "_endsWith");
-  characters_impl.StringCharacterRange = class StringCharacterRange extends core.Object {
-    static at(string, startIndex, endIndex = null) {
+    set value(value) {
+      super.value = value;
+    }
+    get onChanged() {
+      return this[onChanged$];
+    }
+    set onChanged(value) {
+      super.onChanged = value;
+    }
+    get activeColor() {
+      return this[activeColor$];
+    }
+    set activeColor(value) {
+      super.activeColor = value;
+    }
+    get activeTrackColor() {
+      return this[activeTrackColor$];
+    }
+    set activeTrackColor(value) {
+      super.activeTrackColor = value;
+    }
+    get inactiveThumbColor() {
+      return this[inactiveThumbColor$];
+    }
+    set inactiveThumbColor(value) {
+      super.inactiveThumbColor = value;
+    }
+    get inactiveTrackColor() {
+      return this[inactiveTrackColor$];
+    }
+    set inactiveTrackColor(value) {
+      super.inactiveTrackColor = value;
+    }
+    get activeThumbImage() {
+      return this[activeThumbImage$];
+    }
+    set activeThumbImage(value) {
+      super.activeThumbImage = value;
+    }
+    get onActiveThumbImageError() {
+      return this[onActiveThumbImageError$];
+    }
+    set onActiveThumbImageError(value) {
+      super.onActiveThumbImageError = value;
+    }
+    get inactiveThumbImage() {
+      return this[inactiveThumbImage$];
+    }
+    set inactiveThumbImage(value) {
+      super.inactiveThumbImage = value;
+    }
+    get onInactiveThumbImageError() {
+      return this[onInactiveThumbImageError$];
+    }
+    set onInactiveThumbImageError(value) {
+      super.onInactiveThumbImageError = value;
+    }
+    get thumbColor() {
+      return this[thumbColor$];
+    }
+    set thumbColor(value) {
+      super.thumbColor = value;
+    }
+    get trackColor() {
+      return this[trackColor$];
+    }
+    set trackColor(value) {
+      super.trackColor = value;
+    }
+    get materialTapTargetSize() {
+      return this[materialTapTargetSize$];
+    }
+    set materialTapTargetSize(value) {
+      super.materialTapTargetSize = value;
+    }
+    get [_switchType$]() {
+      return this[_switchType];
+    }
+    set [_switchType$](value) {
+      super[_switchType$] = value;
+    }
+    get dragStartBehavior() {
+      return this[dragStartBehavior$];
+    }
+    set dragStartBehavior(value) {
+      super.dragStartBehavior = value;
+    }
+    get mouseCursor() {
+      return this[mouseCursor$];
+    }
+    set mouseCursor(value) {
+      super.mouseCursor = value;
+    }
+    get focusColor() {
+      return this[focusColor$];
+    }
+    set focusColor(value) {
+      super.focusColor = value;
+    }
+    get hoverColor() {
+      return this[hoverColor$];
+    }
+    set hoverColor(value) {
+      super.hoverColor = value;
+    }
+    get overlayColor() {
+      return this[overlayColor$];
+    }
+    set overlayColor(value) {
+      super.overlayColor = value;
+    }
+    get splashRadius() {
+      return this[splashRadius$];
+    }
+    set splashRadius(value) {
+      super.splashRadius = value;
+    }
+    get focusNode() {
+      return this[focusNode$];
+    }
+    set focusNode(value) {
+      super.focusNode = value;
+    }
+    get autofocus() {
+      return this[autofocus$];
+    }
+    set autofocus(value) {
+      super.autofocus = value;
+    }
+    createState() {
+      return new $switch$._SwitchState.new();
+    }
+    debugFillProperties(properties) {
+      if (properties == null) dart.nullFailed(I[0], 367, 56, "properties");
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.FlagProperty.new("value", {value: this.value, ifTrue: "on", ifFalse: "off", showName: true}));
+      properties.add(new (T.ObjectFlagPropertyOfboolTovoid()).new("onChanged", this.onChanged, {ifNull: "disabled"}));
+    }
+  };
+  ($switch$.Switch.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    if (value == null) dart.nullFailed(I[0], 69, 19, "value");
+    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let activeTrackColor = opts && 'activeTrackColor' in opts ? opts.activeTrackColor : null;
+    let inactiveThumbColor = opts && 'inactiveThumbColor' in opts ? opts.inactiveThumbColor : null;
+    let inactiveTrackColor = opts && 'inactiveTrackColor' in opts ? opts.inactiveTrackColor : null;
+    let activeThumbImage = opts && 'activeThumbImage' in opts ? opts.activeThumbImage : null;
+    let onActiveThumbImageError = opts && 'onActiveThumbImageError' in opts ? opts.onActiveThumbImageError : null;
+    let inactiveThumbImage = opts && 'inactiveThumbImage' in opts ? opts.inactiveThumbImage : null;
+    let onInactiveThumbImageError = opts && 'onInactiveThumbImageError' in opts ? opts.onInactiveThumbImageError : null;
+    let thumbColor = opts && 'thumbColor' in opts ? opts.thumbColor : null;
+    let trackColor = opts && 'trackColor' in opts ? opts.trackColor : null;
+    let materialTapTargetSize = opts && 'materialTapTargetSize' in opts ? opts.materialTapTargetSize : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[3] || CT.C3;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 82, 10, "dragStartBehavior");
+    let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : null;
+    let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+    let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+    let overlayColor = opts && 'overlayColor' in opts ? opts.overlayColor : null;
+    let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
+    let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
+    let autofocus = opts && 'autofocus' in opts ? opts.autofocus : false;
+    if (autofocus == null) dart.nullFailed(I[0], 89, 10, "autofocus");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[value$] = value;
+    this[onChanged$] = onChanged;
+    this[activeColor$] = activeColor;
+    this[activeTrackColor$] = activeTrackColor;
+    this[inactiveThumbColor$] = inactiveThumbColor;
+    this[inactiveTrackColor$] = inactiveTrackColor;
+    this[activeThumbImage$] = activeThumbImage;
+    this[onActiveThumbImageError$] = onActiveThumbImageError;
+    this[inactiveThumbImage$] = inactiveThumbImage;
+    this[onInactiveThumbImageError$] = onInactiveThumbImageError;
+    this[thumbColor$] = thumbColor;
+    this[trackColor$] = trackColor;
+    this[materialTapTargetSize$] = materialTapTargetSize;
+    this[dragStartBehavior$] = dragStartBehavior;
+    this[mouseCursor$] = mouseCursor;
+    this[focusColor$] = focusColor;
+    this[hoverColor$] = hoverColor;
+    this[overlayColor$] = overlayColor;
+    this[splashRadius$] = splashRadius;
+    this[focusNode$] = focusNode;
+    this[autofocus$] = autofocus;
+    this[_switchType] = $switch$._SwitchType.material;
+    if (!(dragStartBehavior != null)) dart.assertFailed(null, I[0], 91, 16, "dragStartBehavior != null");
+    if (!(activeThumbImage != null || onActiveThumbImageError == null)) dart.assertFailed(null, I[0], 92, 16, "activeThumbImage != null || onActiveThumbImageError == null");
+    if (!(inactiveThumbImage != null || onInactiveThumbImageError == null)) dart.assertFailed(null, I[0], 93, 16, "inactiveThumbImage != null || onInactiveThumbImageError == null");
+    $switch$.Switch.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = $switch$.Switch.prototype;
+  ($switch$.Switch.adaptive = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    if (value == null) dart.nullFailed(I[0], 113, 19, "value");
+    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let activeTrackColor = opts && 'activeTrackColor' in opts ? opts.activeTrackColor : null;
+    let inactiveThumbColor = opts && 'inactiveThumbColor' in opts ? opts.inactiveThumbColor : null;
+    let inactiveTrackColor = opts && 'inactiveTrackColor' in opts ? opts.inactiveTrackColor : null;
+    let activeThumbImage = opts && 'activeThumbImage' in opts ? opts.activeThumbImage : null;
+    let onActiveThumbImageError = opts && 'onActiveThumbImageError' in opts ? opts.onActiveThumbImageError : null;
+    let inactiveThumbImage = opts && 'inactiveThumbImage' in opts ? opts.inactiveThumbImage : null;
+    let onInactiveThumbImageError = opts && 'onInactiveThumbImageError' in opts ? opts.onInactiveThumbImageError : null;
+    let materialTapTargetSize = opts && 'materialTapTargetSize' in opts ? opts.materialTapTargetSize : null;
+    let thumbColor = opts && 'thumbColor' in opts ? opts.thumbColor : null;
+    let trackColor = opts && 'trackColor' in opts ? opts.trackColor : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[3] || CT.C3;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 126, 10, "dragStartBehavior");
+    let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : null;
+    let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+    let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+    let overlayColor = opts && 'overlayColor' in opts ? opts.overlayColor : null;
+    let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
+    let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
+    let autofocus = opts && 'autofocus' in opts ? opts.autofocus : false;
+    if (autofocus == null) dart.nullFailed(I[0], 133, 10, "autofocus");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[value$] = value;
+    this[onChanged$] = onChanged;
+    this[activeColor$] = activeColor;
+    this[activeTrackColor$] = activeTrackColor;
+    this[inactiveThumbColor$] = inactiveThumbColor;
+    this[inactiveTrackColor$] = inactiveTrackColor;
+    this[activeThumbImage$] = activeThumbImage;
+    this[onActiveThumbImageError$] = onActiveThumbImageError;
+    this[inactiveThumbImage$] = inactiveThumbImage;
+    this[onInactiveThumbImageError$] = onInactiveThumbImageError;
+    this[materialTapTargetSize$] = materialTapTargetSize;
+    this[thumbColor$] = thumbColor;
+    this[trackColor$] = trackColor;
+    this[dragStartBehavior$] = dragStartBehavior;
+    this[mouseCursor$] = mouseCursor;
+    this[focusColor$] = focusColor;
+    this[hoverColor$] = hoverColor;
+    this[overlayColor$] = overlayColor;
+    this[splashRadius$] = splashRadius;
+    this[focusNode$] = focusNode;
+    this[autofocus$] = autofocus;
+    if (!(autofocus != null)) dart.assertFailed(null, I[0], 134, 16, "autofocus != null");
+    if (!(activeThumbImage != null || onActiveThumbImageError == null)) dart.assertFailed(null, I[0], 135, 16, "activeThumbImage != null || onActiveThumbImageError == null");
+    if (!(inactiveThumbImage != null || onInactiveThumbImageError == null)) dart.assertFailed(null, I[0], 136, 16, "inactiveThumbImage != null || onInactiveThumbImageError == null");
+    this[_switchType] = $switch$._SwitchType.adaptive;
+    $switch$.Switch.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = $switch$.Switch.prototype;
+  dart.addTypeTests($switch$.Switch);
+  dart.addTypeCaches($switch$.Switch);
+  dart.setMethodSignature($switch$.Switch, () => ({
+    __proto__: dart.getMethods($switch$.Switch.__proto__),
+    createState: dart.fnType($switch$._SwitchState, [])
+  }));
+  dart.setLibraryUri($switch$.Switch, I[1]);
+  dart.setFieldSignature($switch$.Switch, () => ({
+    __proto__: dart.getFields($switch$.Switch.__proto__),
+    value: dart.finalFieldType(core.bool),
+    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.bool]))),
+    activeColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    activeTrackColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    inactiveThumbColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    inactiveTrackColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    activeThumbImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    onActiveThumbImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    inactiveThumbImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    onInactiveThumbImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    thumbColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    trackColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    materialTapTargetSize: dart.finalFieldType(dart.nullable(theme_data.MaterialTapTargetSize)),
+    [_switchType$]: dart.finalFieldType($switch$._SwitchType),
+    dragStartBehavior: dart.finalFieldType(recognizer.DragStartBehavior),
+    mouseCursor: dart.finalFieldType(dart.nullable(mouse_cursor.MouseCursor)),
+    focusColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    hoverColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    overlayColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    splashRadius: dart.finalFieldType(dart.nullable(core.double)),
+    focusNode: dart.finalFieldType(dart.nullable(focus_manager.FocusNode)),
+    autofocus: dart.finalFieldType(core.bool)
+  }));
+  var ___SwitchState__actionMap = dart.privateName($switch$, "_#_SwitchState#_actionMap");
+  var ___SwitchState__actionMap_isSet = dart.privateName($switch$, "_#_SwitchState#_actionMap#isSet");
+  var _focused = dart.privateName($switch$, "_focused");
+  var _hovering = dart.privateName($switch$, "_hovering");
+  var _actionMap = dart.privateName($switch$, "_actionMap");
+  var _actionHandler = dart.privateName($switch$, "_actionHandler");
+  var SemanticsEvent_type = dart.privateName(semantics_event, "SemanticsEvent.type");
+  var _handleFocusHighlightChanged = dart.privateName($switch$, "_handleFocusHighlightChanged");
+  var _handleHoverChanged = dart.privateName($switch$, "_handleHoverChanged");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var _name$0 = dart.privateName(theme_data, "_name");
+  var _didFinishDragging = dart.privateName($switch$, "_didFinishDragging");
+  var _states = dart.privateName($switch$, "_states");
+  var _widgetThumbColor = dart.privateName($switch$, "_widgetThumbColor");
+  var _defaultThumbColor = dart.privateName($switch$, "_defaultThumbColor");
+  var _widgetTrackColor = dart.privateName($switch$, "_widgetTrackColor");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var _defaultTrackColor = dart.privateName($switch$, "_defaultTrackColor");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var _name$1 = dart.privateName(platform, "_name");
+  const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$($switch$.Switch) {};
+  (State_TickerProviderStateMixin$36.new = function() {
+    ticker_provider.TickerProviderStateMixin$($switch$.Switch)[dart.mixinNew].call(this);
+    State_TickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_TickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$($switch$.Switch));
+  $switch$._SwitchState = class _SwitchState extends State_TickerProviderStateMixin$36 {
+    get [_actionMap]() {
       let t0;
-      if (string == null) dart.nullFailed(I[0], 447, 42, "string");
-      if (startIndex == null) dart.nullFailed(I[0], 447, 54, "startIndex");
-      core.RangeError.checkValidRange(startIndex, endIndex, string.length, "startIndex", "endIndex");
-      return characters_impl.StringCharacterRange._expandRange(string, startIndex, (t0 = endIndex, t0 == null ? startIndex : t0));
+      return dart.test(this[___SwitchState__actionMap_isSet]) ? (t0 = this[___SwitchState__actionMap], t0) : dart.throw(new _internal.LateError.fieldNI("_actionMap"));
     }
-    [_move](start, end) {
-      if (start == null) dart.nullFailed(I[0], 459, 18, "start");
-      if (end == null) dart.nullFailed(I[0], 459, 29, "end");
-      this[_start$] = start;
-      this[_end$] = end;
-      this[_currentCache] = null;
+    set [_actionMap](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 375, 34, "null");
+      this[___SwitchState__actionMap_isSet] = true;
+      this[___SwitchState__actionMap] = t0;
     }
-    [_breaksFromEnd]() {
-      return new breaks$.Breaks.new(this[_string$], this[_end$], this[_string$].length, 176);
+    initState() {
+      super.initState();
+      this[_actionMap] = new (T.LinkedMapOfType$ActionOfIntent()).from([dart.wrapType(actions.ActivateIntent), new (T.CallbackActionOfActivateIntent()).new({onInvoke: dart.bind(this, _actionHandler)})]);
     }
-    [_backBreaksFromStart]() {
-      return new breaks$.BackBreaks.new(this[_string$], this[_start$], 0, 176);
+    [_actionHandler](intent) {
+      if (intent == null) dart.nullFailed(I[0], 385, 38, "intent");
+      if (this.widget.onChanged != null) {
+        dart.nullCheck(this.widget.onChanged)(!dart.test(this.widget.value));
+      }
+      let renderObject = dart.nullCheck(this.context.findRenderObject());
+      renderObject.sendSemanticsEvent(C[4] || CT.C4);
     }
-    get current() {
-      let t0;
-      t0 = this[_currentCache];
-      return t0 == null ? this[_currentCache] = this[_string$][$substring](this[_start$], this[_end$]) : t0;
+    [_handleFocusHighlightChanged](focused) {
+      if (focused == null) dart.nullFailed(I[0], 394, 42, "focused");
+      if (focused != this[_focused]) {
+        this.setState(dart.fn(() => {
+          this[_focused] = focused;
+        }, T.VoidTovoid()));
+      }
     }
-    moveNext(count = 1) {
-      if (count == null) dart.nullFailed(I[0], 485, 22, "count");
-      return this[_advanceEnd](count, this[_end$]);
+    [_handleHoverChanged](hovering) {
+      if (hovering == null) dart.nullFailed(I[0], 401, 33, "hovering");
+      if (hovering != this[_hovering]) {
+        this.setState(dart.fn(() => {
+          this[_hovering] = hovering;
+        }, T.VoidTovoid()));
+      }
     }
-    [_advanceEnd](count, newStart) {
-      if (count == null) dart.nullFailed(I[0], 487, 24, "count");
-      if (newStart == null) dart.nullFailed(I[0], 487, 35, "newStart");
-      if (dart.notNull(count) > 0) {
-        let state = 176;
-        let index = this[_end$];
-        while (dart.notNull(index) < this[_string$].length) {
-          let char = this[_string$][$codeUnitAt](index);
-          let category = 2;
-          let nextIndex = dart.notNull(index) + 1;
-          if ((char & 64512) !== 55296) {
-            category = table.low(char);
-          } else if (nextIndex < this[_string$].length) {
-            let nextChar = this[_string$][$codeUnitAt](nextIndex);
-            if ((nextChar & 64512) === 56320) {
-              nextIndex = nextIndex + 1;
-              category = table.high(char, nextChar);
+    getSwitchSize(theme) {
+      let t1, t1$;
+      if (theme == null) dart.nullFailed(I[0], 407, 32, "theme");
+      let effectiveMaterialTapTargetSize = (t1$ = (t1 = this.widget.materialTapTargetSize, t1 == null ? theme.switchTheme.materialTapTargetSize : t1), t1$ == null ? theme.materialTapTargetSize : t1$);
+      switch (effectiveMaterialTapTargetSize) {
+        case C[6] || CT.C6:
+        {
+          return C[5] || CT.C5;
+        }
+        case C[8] || CT.C8:
+        {
+          return C[7] || CT.C7;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    get enabled() {
+      return this.widget.onChanged != null;
+    }
+    [_didFinishDragging]() {
+      this.setState(dart.fn(() => {
+      }, T.VoidTovoid()));
+    }
+    get [_states]() {
+      return (() => {
+        let t1 = T.LinkedHashSetOfMaterialState().new();
+        if (!dart.test(this.enabled)) t1.add(material_state.MaterialState.disabled);
+        if (dart.test(this[_hovering])) t1.add(material_state.MaterialState.hovered);
+        if (dart.test(this[_focused])) t1.add(material_state.MaterialState.focused);
+        if (dart.test(this.widget.value)) t1.add(material_state.MaterialState.selected);
+        return t1;
+      })();
+    }
+    get [_widgetThumbColor]() {
+      return material_state.MaterialStateProperty.resolveWith(T.ColorN(), dart.fn(states => {
+        if (states == null) dart.nullFailed(I[0], 435, 66, "states");
+        if (dart.test(states.contains(material_state.MaterialState.disabled))) {
+          return this.widget.inactiveThumbColor;
+        }
+        if (dart.test(states.contains(material_state.MaterialState.selected))) {
+          return this.widget.activeColor;
+        }
+        return this.widget.inactiveThumbColor;
+      }, T.SetOfMaterialStateToColorN()));
+    }
+    get [_defaultThumbColor]() {
+      let theme = theme$.Theme.of(this.context);
+      let isDark = theme.brightness == ui.Brightness.dark;
+      return material_state.MaterialStateProperty.resolveWith(ui.Color, dart.fn(states => {
+        if (states == null) dart.nullFailed(I[0], 450, 66, "states");
+        if (dart.test(states.contains(material_state.MaterialState.disabled))) {
+          return isDark ? colors.Colors.grey.shade800 : colors.Colors.grey.shade400;
+        }
+        if (dart.test(states.contains(material_state.MaterialState.selected))) {
+          return theme.toggleableActiveColor;
+        }
+        return isDark ? colors.Colors.grey.shade400 : colors.Colors.grey.shade50;
+      }, T.SetOfMaterialStateToColor()));
+    }
+    get [_widgetTrackColor]() {
+      return material_state.MaterialStateProperty.resolveWith(T.ColorN(), dart.fn(states => {
+        if (states == null) dart.nullFailed(I[0], 462, 66, "states");
+        if (dart.test(states.contains(material_state.MaterialState.disabled))) {
+          return this.widget.inactiveTrackColor;
+        }
+        if (dart.test(states.contains(material_state.MaterialState.selected))) {
+          return this.widget.activeTrackColor;
+        }
+        return this.widget.inactiveTrackColor;
+      }, T.SetOfMaterialStateToColorN()));
+    }
+    get [_defaultTrackColor]() {
+      let theme = theme$.Theme.of(this.context);
+      let isDark = theme.brightness == ui.Brightness.dark;
+      let black32 = C[9] || CT.C9;
+      return material_state.MaterialStateProperty.resolveWith(ui.Color, dart.fn(states => {
+        let t2, t2$;
+        if (states == null) dart.nullFailed(I[0], 478, 66, "states");
+        if (dart.test(states.contains(material_state.MaterialState.disabled))) {
+          return isDark ? colors.Colors.white10 : colors.Colors.black12;
+        }
+        if (dart.test(states.contains(material_state.MaterialState.selected))) {
+          let activeState = (t2 = states, (() => {
+            t2.add(material_state.MaterialState.selected);
+            return t2;
+          })());
+          let activeColor = (t2$ = this[_widgetThumbColor].resolve(activeState), t2$ == null ? this[_defaultThumbColor].resolve(activeState) : t2$);
+          return activeColor.withAlpha(128);
+        }
+        return isDark ? colors.Colors.white30 : black32;
+      }, T.SetOfMaterialStateToColor()));
+    }
+    buildMaterialSwitch(context) {
+      let t2, t2$, t2$0, t2$1, t3, t2$2, t2$3, t2$4, t2$5, t3$, t2$6, t2$7, t2$8, t2$9, t3$0, t2$10, t2$11, t2$12, t2$13, t3$1, t2$14, t2$15, t2$16, t2$17, t2$18, t3$2, t2$19, t2$20, t2$21, t2$22, t2$23, t3$3, t2$24, t2$25, t2$26, t2$27, t3$4, t2$28, t2$29, t2$30, t2$31, t3$5, t2$32, t2$33, t3$6, t2$34, t2$35;
+      if (context == null) dart.nullFailed(I[0], 491, 43, "context");
+      if (!dart.test(debug.debugCheckHasMaterial(context))) dart.assertFailed(null, I[0], 492, 12, "debugCheckHasMaterial(context)");
+      let theme = theme$.Theme.of(context);
+      let activeStates = (t2 = this[_states], (() => {
+        t2.add(material_state.MaterialState.selected);
+        return t2;
+      })());
+      let inactiveStates = (t2$ = this[_states], (() => {
+        t2$.remove(material_state.MaterialState.selected);
+        return t2$;
+      })());
+      let effectiveActiveThumbColor = (t2$3 = (t2$2 = (t2$1 = (t2$0 = this.widget.thumbColor, t2$0 == null ? null : t2$0.resolve(activeStates)), t2$1 == null ? this[_widgetThumbColor].resolve(activeStates) : t2$1), t2$2 == null ? (t3 = theme.switchTheme.thumbColor, t3 == null ? null : t3.resolve(activeStates)) : t2$2), t2$3 == null ? this[_defaultThumbColor].resolve(activeStates) : t2$3);
+      let effectiveInactiveThumbColor = (t2$7 = (t2$6 = (t2$5 = (t2$4 = this.widget.thumbColor, t2$4 == null ? null : t2$4.resolve(inactiveStates)), t2$5 == null ? this[_widgetThumbColor].resolve(inactiveStates) : t2$5), t2$6 == null ? (t3$ = theme.switchTheme.thumbColor, t3$ == null ? null : t3$.resolve(inactiveStates)) : t2$6), t2$7 == null ? this[_defaultThumbColor].resolve(inactiveStates) : t2$7);
+      let effectiveActiveTrackColor = (t2$11 = (t2$10 = (t2$9 = (t2$8 = this.widget.trackColor, t2$8 == null ? null : t2$8.resolve(activeStates)), t2$9 == null ? this[_widgetTrackColor].resolve(activeStates) : t2$9), t2$10 == null ? (t3$0 = theme.switchTheme.trackColor, t3$0 == null ? null : t3$0.resolve(activeStates)) : t2$10), t2$11 == null ? this[_defaultTrackColor].resolve(activeStates) : t2$11);
+      let effectiveInactiveTrackColor = (t2$15 = (t2$14 = (t2$13 = (t2$12 = this.widget.trackColor, t2$12 == null ? null : t2$12.resolve(inactiveStates)), t2$13 == null ? this[_widgetTrackColor].resolve(inactiveStates) : t2$13), t2$14 == null ? (t3$1 = theme.switchTheme.trackColor, t3$1 == null ? null : t3$1.resolve(inactiveStates)) : t2$14), t2$15 == null ? this[_defaultTrackColor].resolve(inactiveStates) : t2$15);
+      let focusedStates = (t2$16 = this[_states], (() => {
+        t2$16.add(material_state.MaterialState.focused);
+        return t2$16;
+      })());
+      let effectiveFocusOverlayColor = (t2$20 = (t2$19 = (t2$18 = (t2$17 = this.widget.overlayColor, t2$17 == null ? null : t2$17.resolve(focusedStates)), t2$18 == null ? this.widget.focusColor : t2$18), t2$19 == null ? (t3$2 = theme.switchTheme.overlayColor, t3$2 == null ? null : t3$2.resolve(focusedStates)) : t2$19), t2$20 == null ? theme.focusColor : t2$20);
+      let hoveredStates = (t2$21 = this[_states], (() => {
+        t2$21.add(material_state.MaterialState.hovered);
+        return t2$21;
+      })());
+      let effectiveHoverOverlayColor = (t2$25 = (t2$24 = (t2$23 = (t2$22 = this.widget.overlayColor, t2$22 == null ? null : t2$22.resolve(hoveredStates)), t2$23 == null ? this.widget.hoverColor : t2$23), t2$24 == null ? (t3$3 = theme.switchTheme.overlayColor, t3$3 == null ? null : t3$3.resolve(hoveredStates)) : t2$24), t2$25 == null ? theme.hoverColor : t2$25);
+      let activePressedStates = (t2$26 = activeStates, (() => {
+        t2$26.add(material_state.MaterialState.pressed);
+        return t2$26;
+      })());
+      let effectiveActivePressedOverlayColor = (t2$29 = (t2$28 = (t2$27 = this.widget.overlayColor, t2$27 == null ? null : t2$27.resolve(activePressedStates)), t2$28 == null ? (t3$4 = theme.switchTheme.overlayColor, t3$4 == null ? null : t3$4.resolve(activePressedStates)) : t2$28), t2$29 == null ? effectiveActiveThumbColor.withAlpha(31) : t2$29);
+      let inactivePressedStates = (t2$30 = inactiveStates, (() => {
+        t2$30.add(material_state.MaterialState.pressed);
+        return t2$30;
+      })());
+      let effectiveInactivePressedOverlayColor = (t2$33 = (t2$32 = (t2$31 = this.widget.overlayColor, t2$31 == null ? null : t2$31.resolve(inactivePressedStates)), t2$32 == null ? (t3$5 = theme.switchTheme.overlayColor, t3$5 == null ? null : t3$5.resolve(inactivePressedStates)) : t2$32), t2$33 == null ? effectiveActiveThumbColor.withAlpha(31) : t2$33);
+      let effectiveMouseCursor = (t2$35 = (t2$34 = material_state.MaterialStateProperty.resolveAs(T.MouseCursorN(), this.widget.mouseCursor, this[_states]), t2$34 == null ? (t3$6 = theme.switchTheme.mouseCursor, t3$6 == null ? null : t3$6.resolve(this[_states])) : t2$34), t2$35 == null ? material_state.MaterialStateProperty.resolveAs(mouse_cursor.MouseCursor, material_state.MaterialStateMouseCursor.clickable, this[_states]) : t2$35);
+      return new actions.FocusableActionDetector.new({actions: this[_actionMap], focusNode: this.widget.focusNode, autofocus: this.widget.autofocus, enabled: this.enabled, onShowFocusHighlight: dart.bind(this, _handleFocusHighlightChanged), onShowHoverHighlight: dart.bind(this, _handleHoverChanged), mouseCursor: effectiveMouseCursor, child: new basic.Builder.new({builder: dart.fn(context => {
+            let t2, t2$;
+            if (context == null) dart.nullFailed(I[0], 552, 32, "context");
+            return new $switch$._SwitchRenderObjectWidget.new({dragStartBehavior: this.widget.dragStartBehavior, value: this.widget.value, activeColor: effectiveActiveThumbColor, inactiveColor: effectiveInactiveThumbColor, surfaceColor: theme.colorScheme.surface, focusColor: effectiveFocusOverlayColor, hoverColor: effectiveHoverOverlayColor, reactionColor: effectiveActivePressedOverlayColor, inactiveReactionColor: effectiveInactivePressedOverlayColor, splashRadius: (t2$ = (t2 = this.widget.splashRadius, t2 == null ? theme.switchTheme.splashRadius : t2), t2$ == null ? 20 : t2$), activeThumbImage: this.widget.activeThumbImage, onActiveThumbImageError: this.widget.onActiveThumbImageError, inactiveThumbImage: this.widget.inactiveThumbImage, onInactiveThumbImageError: this.widget.onInactiveThumbImageError, activeTrackColor: effectiveActiveTrackColor, inactiveTrackColor: effectiveInactiveTrackColor, configuration: image.createLocalImageConfiguration(context), onChanged: this.widget.onChanged, additionalConstraints: new box.BoxConstraints.tight(this.getSwitchSize(theme)), hasFocus: this[_focused], hovering: this[_hovering], state: this, $creationLocationd_0dea112b090073317d4: C[10] || CT.C10});
+          }, T.BuildContextTo_SwitchRenderObjectWidget()), $creationLocationd_0dea112b090073317d4: C[34] || CT.C34}), $creationLocationd_0dea112b090073317d4: C[37] || CT.C37});
+    }
+    buildCupertinoSwitch(context) {
+      if (context == null) dart.nullFailed(I[0], 582, 44, "context");
+      let size = this.getSwitchSize(theme$.Theme.of(context));
+      return new focus_scope.Focus.new({focusNode: this.widget.focusNode, autofocus: this.widget.autofocus, child: new container.Container.new({width: size.width, height: size.height, alignment: alignment.Alignment.center, child: new $switch.CupertinoSwitch.new({dragStartBehavior: this.widget.dragStartBehavior, value: this.widget.value, onChanged: this.widget.onChanged, activeColor: this.widget.activeColor, trackColor: this.widget.inactiveTrackColor, $creationLocationd_0dea112b090073317d4: C[47] || CT.C47}), $creationLocationd_0dea112b090073317d4: C[54] || CT.C54}), $creationLocationd_0dea112b090073317d4: C[60] || CT.C60});
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 603, 29, "context");
+      switch (this.widget[_switchType$]) {
+        case C[0] || CT.C0:
+        {
+          return this.buildMaterialSwitch(context);
+        }
+        case C[1] || CT.C1:
+        {
+          {
+            let theme = theme$.Theme.of(context);
+            if (!(theme.platform != null)) dart.assertFailed(null, I[0], 610, 16, "theme.platform != null");
+            switch (theme.platform) {
+              case C[65] || CT.C65:
+              case C[66] || CT.C66:
+              case C[67] || CT.C67:
+              case C[68] || CT.C68:
+              {
+                return this.buildMaterialSwitch(context);
+              }
+              case C[69] || CT.C69:
+              case C[70] || CT.C70:
+              {
+                return this.buildCupertinoSwitch(context);
+              }
+              default:
+              {
+                dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+              }
             }
           }
-          state = table.move(state, category);
-          if ((dart.notNull(state) & 1) === 0 && (count = dart.notNull(count) - 1) === 0) {
-            this[_move](newStart, index);
-            return true;
-          }
-          index = nextIndex;
         }
-        this[_move](newStart, this[_string$].length);
-        return count === 1 && state !== 176;
-      } else if (count === 0) {
-        this[_move](newStart, this[_end$]);
-        return true;
-      } else {
-        dart.throw(new core.RangeError.range(count, 0, null, "count"));
-      }
-    }
-    [_moveNextPattern](patternString, start, end) {
-      if (patternString == null) dart.nullFailed(I[0], 521, 32, "patternString");
-      if (start == null) dart.nullFailed(I[0], 521, 51, "start");
-      if (end == null) dart.nullFailed(I[0], 521, 62, "end");
-      let offset = characters_impl._indexOf(this[_string$], patternString, start, end);
-      if (dart.notNull(offset) >= 0) {
-        this[_move](offset, dart.notNull(offset) + patternString.length);
-        return true;
-      }
-      return false;
-    }
-    moveBack(count = 1) {
-      if (count == null) dart.nullFailed(I[0], 531, 22, "count");
-      return this[_retractStart](count, this[_start$]);
-    }
-    [_retractStart](count, newEnd) {
-      if (count == null) dart.nullFailed(I[0], 533, 26, "count");
-      if (newEnd == null) dart.nullFailed(I[0], 533, 37, "newEnd");
-      core.RangeError.checkNotNegative(count, "count");
-      let breaks = this[_backBreaksFromStart]();
-      let start = this[_start$];
-      while (dart.notNull(count) > 0) {
-        let nextBreak = breaks.nextBreak();
-        if (dart.notNull(nextBreak) >= 0) {
-          start = nextBreak;
-        } else {
-          break;
-        }
-        count = dart.notNull(count) - 1;
-      }
-      this[_move](start, newEnd);
-      return count === 0;
-    }
-    [_movePreviousPattern](patternString, start, end) {
-      if (patternString == null) dart.nullFailed(I[0], 550, 36, "patternString");
-      if (start == null) dart.nullFailed(I[0], 550, 55, "start");
-      if (end == null) dart.nullFailed(I[0], 550, 66, "end");
-      let offset = characters_impl._lastIndexOf(this[_string$], patternString, start, end);
-      if (dart.notNull(offset) >= 0) {
-        this[_move](offset, dart.notNull(offset) + patternString.length);
-        return true;
-      }
-      return false;
-    }
-    get utf16CodeUnits() {
-      return this[_string$][$codeUnits][$getRange](this[_start$], this[_end$]);
-    }
-    get runes() {
-      return new core.Runes.new(this.current);
-    }
-    copy() {
-      return new characters_impl.StringCharacterRange.__(this[_string$], this[_start$], this[_end$]);
-    }
-    collapseToEnd() {
-      this[_move](this[_end$], this[_end$]);
-    }
-    collapseToStart() {
-      this[_move](this[_start$], this[_start$]);
-    }
-    dropFirst(count = 1) {
-      if (count == null) dart.nullFailed(I[0], 581, 23, "count");
-      core.RangeError.checkNotNegative(count, "count");
-      if (this[_start$] == this[_end$]) return count === 0;
-      let breaks = new breaks$.Breaks.new(this[_string$], this[_start$], this[_end$], 176);
-      while (dart.notNull(count) > 0) {
-        let nextBreak = breaks.nextBreak();
-        if (dart.notNull(nextBreak) >= 0) {
-          this[_start$] = nextBreak;
-          this[_currentCache] = null;
-          count = dart.notNull(count) - 1;
-        } else {
-          return false;
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
         }
       }
-      return true;
-    }
-    dropTo(target) {
-      if (target == null) dart.nullFailed(I[0], 599, 26, "target");
-      if (this[_start$] == this[_end$]) return target[$isEmpty];
-      let targetString = target.string;
-      let index = characters_impl._indexOf(this[_string$], targetString, this[_start$], this[_end$]);
-      if (dart.notNull(index) >= 0) {
-        this[_move](dart.notNull(index) + targetString.length, this[_end$]);
-        return true;
-      }
-      return false;
-    }
-    dropUntil(target) {
-      if (target == null) dart.nullFailed(I[0], 611, 29, "target");
-      if (this[_start$] == this[_end$]) return target[$isEmpty];
-      let targetString = target.string;
-      let index = characters_impl._indexOf(this[_string$], targetString, this[_start$], this[_end$]);
-      if (dart.notNull(index) >= 0) {
-        this[_move](index, this[_end$]);
-        return true;
-      }
-      this[_move](this[_end$], this[_end$]);
-      return false;
-    }
-    dropWhile(test) {
-      if (test == null) dart.nullFailed(I[0], 624, 40, "test");
-      if (this[_start$] == this[_end$]) return;
-      let breaks = new breaks$.Breaks.new(this[_string$], this[_start$], this[_end$], 176);
-      let cursor = this[_start$];
-      let next = 0;
-      while (dart.notNull(next = breaks.nextBreak()) >= 0) {
-        if (!dart.test(test(this[_string$][$substring](cursor, next)))) {
-          break;
-        }
-        cursor = next;
-      }
-      this[_move](cursor, this[_end$]);
-    }
-    dropLast(count = 1) {
-      if (count == null) dart.nullFailed(I[0], 639, 22, "count");
-      core.RangeError.checkNotNegative(count, "count");
-      let breaks = new breaks$.BackBreaks.new(this[_string$], this[_end$], this[_start$], 176);
-      while (dart.notNull(count) > 0) {
-        let nextBreak = breaks.nextBreak();
-        if (dart.notNull(nextBreak) >= 0) {
-          this[_end$] = nextBreak;
-          this[_currentCache] = null;
-          count = dart.notNull(count) - 1;
-        } else {
-          return false;
-        }
-      }
-      return true;
-    }
-    dropBackTo(target) {
-      if (target == null) dart.nullFailed(I[0], 656, 30, "target");
-      if (this[_start$] == this[_end$]) return target[$isEmpty];
-      let targetString = target.string;
-      let index = characters_impl._lastIndexOf(this[_string$], targetString, this[_start$], this[_end$]);
-      if (dart.notNull(index) >= 0) {
-        this[_move](this[_start$], index);
-        return true;
-      }
-      return false;
-    }
-    dropBackUntil(target) {
-      if (target == null) dart.nullFailed(I[0], 668, 33, "target");
-      if (this[_start$] == this[_end$]) return target[$isEmpty];
-      let targetString = target.string;
-      let index = characters_impl._lastIndexOf(this[_string$], targetString, this[_start$], this[_end$]);
-      if (dart.notNull(index) >= 0) {
-        this[_move](this[_start$], dart.notNull(index) + targetString.length);
-        return true;
-      }
-      this[_move](this[_start$], this[_start$]);
-      return false;
-    }
-    dropBackWhile(test) {
-      if (test == null) dart.nullFailed(I[0], 681, 44, "test");
-      if (this[_start$] == this[_end$]) return;
-      let breaks = new breaks$.BackBreaks.new(this[_string$], this[_end$], this[_start$], 176);
-      let cursor = this[_end$];
-      let next = 0;
-      while (dart.notNull(next = breaks.nextBreak()) >= 0) {
-        if (!dart.test(test(this[_string$][$substring](next, cursor)))) {
-          break;
-        }
-        cursor = next;
-      }
-      this[_move](this[_start$], cursor);
-    }
-    expandNext(count = 1) {
-      if (count == null) dart.nullFailed(I[0], 696, 24, "count");
-      return this[_advanceEnd](count, this[_start$]);
-    }
-    expandTo(target) {
-      if (target == null) dart.nullFailed(I[0], 699, 28, "target");
-      let targetString = target.string;
-      let index = characters_impl._indexOf(this[_string$], targetString, this[_end$], this[_string$].length);
-      if (dart.notNull(index) >= 0) {
-        this[_move](this[_start$], dart.notNull(index) + targetString.length);
-        return true;
-      }
-      return false;
-    }
-    expandWhile(test) {
-      if (test == null) dart.nullFailed(I[0], 710, 52, "test");
-      let breaks = this[_breaksFromEnd]();
-      let cursor = this[_end$];
-      let next = 0;
-      while (dart.notNull(next = breaks.nextBreak()) >= 0) {
-        if (!dart.test(test(this[_string$][$substring](cursor, next)))) {
-          break;
-        }
-        cursor = next;
-      }
-      this[_move](this[_start$], cursor);
-    }
-    expandAll() {
-      this[_move](this[_start$], this[_string$].length);
-    }
-    expandBack(count = 1) {
-      if (count == null) dart.nullFailed(I[0], 729, 24, "count");
-      return this[_retractStart](count, this[_end$]);
-    }
-    expandBackTo(target) {
-      if (target == null) dart.nullFailed(I[0], 732, 32, "target");
-      let targetString = target.string;
-      let index = characters_impl._lastIndexOf(this[_string$], targetString, 0, this[_start$]);
-      if (dart.notNull(index) >= 0) {
-        this[_move](index, this[_end$]);
-        return true;
-      }
-      return false;
-    }
-    expandBackWhile(test) {
-      if (test == null) dart.nullFailed(I[0], 743, 56, "test");
-      let breaks = this[_backBreaksFromStart]();
-      let cursor = this[_start$];
-      let next = 0;
-      while (dart.notNull(next = breaks.nextBreak()) >= 0) {
-        if (!dart.test(test(this[_string$][$substring](next, cursor)))) {
-          this[_move](cursor, this[_end$]);
-          return;
-        }
-        cursor = next;
-      }
-      this[_move](0, this[_end$]);
-    }
-    expandBackUntil(target) {
-      if (target == null) dart.nullFailed(I[0], 758, 35, "target");
-      return this[_retractStartUntil](target.string, this[_end$]);
-    }
-    expandBackAll() {
-      this[_move](0, this[_end$]);
-    }
-    expandUntil(target) {
-      if (target == null) dart.nullFailed(I[0], 768, 31, "target");
-      return this[_advanceEndUntil](target.string, this[_start$]);
-    }
-    get isEmpty() {
-      return this[_start$] == this[_end$];
-    }
-    get isNotEmpty() {
-      return this[_start$] != this[_end$];
-    }
-    moveBackUntil(target) {
-      if (target == null) dart.nullFailed(I[0], 779, 33, "target");
-      let targetString = target.string;
-      return this[_retractStartUntil](targetString, this[_start$]);
-    }
-    [_retractStartUntil](targetString, newEnd) {
-      if (targetString == null) dart.nullFailed(I[0], 784, 34, "targetString");
-      if (newEnd == null) dart.nullFailed(I[0], 784, 52, "newEnd");
-      let index = characters_impl._lastIndexOf(this[_string$], targetString, 0, this[_start$]);
-      if (dart.notNull(index) >= 0) {
-        this[_move](dart.notNull(index) + targetString.length, newEnd);
-        return true;
-      }
-      this[_move](0, newEnd);
-      return false;
-    }
-    collapseToFirst(target) {
-      if (target == null) dart.nullFailed(I[0], 795, 35, "target");
-      return this[_moveNextPattern](target.string, this[_start$], this[_end$]);
-    }
-    collapseToLast(target) {
-      if (target == null) dart.nullFailed(I[0], 800, 34, "target");
-      return this[_movePreviousPattern](target.string, this[_start$], this[_end$]);
-    }
-    moveUntil(target) {
-      if (target == null) dart.nullFailed(I[0], 805, 29, "target");
-      let targetString = target.string;
-      return this[_advanceEndUntil](targetString, this[_end$]);
-    }
-    [_advanceEndUntil](targetString, newStart) {
-      if (targetString == null) dart.nullFailed(I[0], 810, 32, "targetString");
-      if (newStart == null) dart.nullFailed(I[0], 810, 50, "newStart");
-      let index = characters_impl._indexOf(this[_string$], targetString, this[_end$], this[_string$].length);
-      if (dart.notNull(index) >= 0) {
-        this[_move](newStart, index);
-        return true;
-      }
-      this[_move](newStart, this[_string$].length);
-      return false;
-    }
-    replaceFirst(pattern, replacement) {
-      if (pattern == null) dart.nullFailed(I[0], 821, 43, "pattern");
-      if (replacement == null) dart.nullFailed(I[0], 821, 63, "replacement");
-      let patternString = pattern.string;
-      let replacementString = replacement.string;
-      let replaced = null;
-      if (patternString[$isEmpty]) {
-        replaced = this[_string$][$replaceRange](this[_start$], this[_start$], replacementString);
-      } else {
-        let index = characters_impl._indexOf(this[_string$], patternString, this[_start$], this[_end$]);
-        if (dart.notNull(index) >= 0) {
-          replaced = this[_string$][$replaceRange](index, dart.notNull(index) + patternString.length, replacementString);
-        } else {
-          return null;
-        }
-      }
-      let newEnd = replaced.length - this[_string$].length + dart.notNull(this[_end$]);
-      return characters_impl.StringCharacterRange._expandRange(replaced, this[_start$], newEnd);
-    }
-    replaceAll(pattern, replacement) {
-      let t0, t0$;
-      if (pattern == null) dart.nullFailed(I[0], 841, 41, "pattern");
-      if (replacement == null) dart.nullFailed(I[0], 841, 61, "replacement");
-      let patternString = pattern.string;
-      let replacementString = replacement.string;
-      if (patternString[$isEmpty]) {
-        let replaced = characters_impl._explodeReplace(this[_string$], this[_start$], this[_end$], replacementString, replacementString);
-        let newEnd = replaced.length - (this[_string$].length - dart.notNull(this[_end$]));
-        return characters_impl.StringCharacterRange._expandRange(replaced, this[_start$], newEnd);
-      }
-      if (this[_start$] == this[_end$]) return null;
-      let start = 0;
-      let cursor = this[_start$];
-      let buffer = null;
-      while (dart.notNull(cursor = characters_impl._indexOf(this[_string$], patternString, cursor, this[_end$])) >= 0) {
-        t0$ = (t0 = buffer, t0 == null ? buffer = new core.StringBuffer.new() : t0);
-        (() => {
-          t0$.write(this[_string$][$substring](start, cursor));
-          t0$.write(replacementString);
-          return t0$;
-        })();
-        cursor = dart.notNull(cursor) + patternString.length;
-        start = cursor;
-      }
-      if (buffer == null) return null;
-      buffer.write(this[_string$][$substring](start));
-      let replaced = dart.toString(buffer);
-      let newEnd = replaced.length - (this[_string$].length - dart.notNull(this[_end$]));
-      return characters_impl.StringCharacterRange._expandRange(replaced, this[_start$], newEnd);
-    }
-    replaceRange(replacement) {
-      if (replacement == null) dart.nullFailed(I[0], 869, 42, "replacement");
-      let replacementString = replacement.string;
-      let resultString = this[_string$][$replaceRange](this[_start$], this[_end$], replacementString);
-      return characters_impl.StringCharacterRange._expandRange(resultString, this[_start$], dart.notNull(this[_start$]) + replacementString.length);
-    }
-    static _expandRange(string, start, end) {
-      if (string == null) dart.nullFailed(I[0], 880, 51, "string");
-      if (start == null) dart.nullFailed(I[0], 880, 63, "start");
-      if (end == null) dart.nullFailed(I[0], 880, 74, "end");
-      start = breaks$.previousBreak(string, 0, string.length, start);
-      if (end != start) {
-        end = breaks$.nextBreak(string, 0, string.length, end);
-      }
-      return new characters_impl.StringCharacterRange.__(string, start, end);
-    }
-    get source() {
-      return new characters_impl.StringCharacters.new(this[_string$]);
-    }
-    startsWith(characters) {
-      if (characters == null) dart.nullFailed(I[0], 892, 30, "characters");
-      return this[_startsWith](this[_start$], this[_end$], characters.string);
-    }
-    endsWith(characters) {
-      if (characters == null) dart.nullFailed(I[0], 897, 28, "characters");
-      return this[_endsWith](this[_start$], this[_end$], characters.string);
-    }
-    isFollowedBy(characters) {
-      if (characters == null) dart.nullFailed(I[0], 902, 32, "characters");
-      return this[_startsWith](this[_end$], this[_string$].length, characters.string);
-    }
-    isPrecededBy(characters) {
-      if (characters == null) dart.nullFailed(I[0], 907, 32, "characters");
-      return this[_endsWith](0, this[_start$], characters.string);
-    }
-    [_endsWith](start, end, string) {
-      if (start == null) dart.nullFailed(I[0], 911, 22, "start");
-      if (end == null) dart.nullFailed(I[0], 911, 33, "end");
-      if (string == null) dart.nullFailed(I[0], 911, 45, "string");
-      let length = string.length;
-      let stringStart = dart.notNull(end) - length;
-      return stringStart >= dart.notNull(start) && this[_string$][$startsWith](string, stringStart) && dart.test(breaks$.isGraphemeClusterBoundary(this[_string$], start, end, stringStart));
-    }
-    [_startsWith](start, end, string) {
-      if (start == null) dart.nullFailed(I[0], 919, 24, "start");
-      if (end == null) dart.nullFailed(I[0], 919, 35, "end");
-      if (string == null) dart.nullFailed(I[0], 919, 47, "string");
-      let length = string.length;
-      let stringEnd = dart.notNull(start) + length;
-      return stringEnd <= dart.notNull(end) && this[_string$][$startsWith](string, start) && dart.test(breaks$.isGraphemeClusterBoundary(this[_string$], start, end, stringEnd));
-    }
-    moveBackTo(target) {
-      if (target == null) dart.nullFailed(I[0], 928, 30, "target");
-      let targetString = target.string;
-      let index = characters_impl._lastIndexOf(this[_string$], targetString, 0, this[_start$]);
-      if (dart.notNull(index) >= 0) {
-        this[_move](index, dart.notNull(index) + targetString.length);
-        return true;
-      }
-      return false;
-    }
-    moveTo(target) {
-      if (target == null) dart.nullFailed(I[0], 939, 26, "target");
-      let targetString = target.string;
-      let index = characters_impl._indexOf(this[_string$], targetString, this[_end$], this[_string$].length);
-      if (dart.notNull(index) >= 0) {
-        this[_move](index, dart.notNull(index) + targetString.length);
-        return true;
-      }
-      return false;
-    }
-    get charactersAfter() {
-      return new characters_impl.StringCharacters.new(this[_string$][$substring](this[_end$]));
-    }
-    get charactersBefore() {
-      return new characters_impl.StringCharacters.new(this[_string$][$substring](0, this[_start$]));
-    }
-    get currentCharacters() {
-      return new characters_impl.StringCharacters.new(this.current);
-    }
-    moveBackAll() {
-      this[_move](0, this[_start$]);
-    }
-    moveNextAll() {
-      this[_move](this[_end$], this[_string$].length);
-    }
-    get stringAfter() {
-      return this[_string$][$substring](this[_end$]);
-    }
-    get stringAfterLength() {
-      return this[_string$].length - dart.notNull(this[_end$]);
-    }
-    get stringBefore() {
-      return this[_string$][$substring](0, this[_start$]);
-    }
-    get stringBeforeLength() {
-      return this[_start$];
-    }
-    split(pattern, maxParts = 0) {
-      if (pattern == null) dart.nullFailed(I[0], 982, 45, "pattern");
-      if (maxParts == null) dart.nullFailed(I[0], 982, 59, "maxParts");
-      return new (T.SyncIterableOfCharacterRange()).new(() => (function* split(maxParts) {
-        if (maxParts === 1 || this[_start$] == this[_end$]) {
-          yield this;
-          return;
-        }
-        let patternString = pattern.string;
-        let start = this[_start$];
-        if (patternString[$isNotEmpty]) {
-          do {
-            let match = characters_impl._indexOf(this[_string$], patternString, start, this[_end$]);
-            if (dart.notNull(match) < 0) break;
-            yield new characters_impl.StringCharacterRange.__(this[_string$], start, match);
-            start = dart.notNull(match) + patternString.length;
-            maxParts = dart.notNull(maxParts) - 1;
-          } while (maxParts !== 1);
-          yield new characters_impl.StringCharacterRange.__(this[_string$], start, this[_end$]);
-        } else {
-          let breaks = new breaks$.Breaks.new(this[_string$], this[_start$], this[_end$], 176);
-          do {
-            let match = breaks.nextBreak();
-            if (dart.notNull(match) < 0) return;
-            yield new characters_impl.StringCharacterRange.__(this[_string$], start, match);
-            start = match;
-            maxParts = dart.notNull(maxParts) - 1;
-          } while (maxParts !== 1);
-          if (dart.notNull(start) < dart.notNull(this[_end$])) {
-            yield new characters_impl.StringCharacterRange.__(this[_string$], start, this[_end$]);
-          }
-        }
-      }).bind(this)(maxParts));
     }
   };
-  (characters_impl.StringCharacterRange.new = function(string) {
-    if (string == null) dart.nullFailed(I[0], 445, 31, "string");
-    characters_impl.StringCharacterRange.__.call(this, string, 0, 0);
-  }).prototype = characters_impl.StringCharacterRange.prototype;
-  (characters_impl.StringCharacterRange.__ = function(_string, _start, _end) {
-    if (_string == null) dart.nullFailed(I[0], 454, 31, "_string");
-    if (_start == null) dart.nullFailed(I[0], 454, 45, "_start");
-    if (_end == null) dart.nullFailed(I[0], 454, 58, "_end");
-    this[_currentCache] = null;
-    this[_string$] = _string;
-    this[_start$] = _start;
-    this[_end$] = _end;
+  ($switch$._SwitchState.new = function() {
+    this[___SwitchState__actionMap] = null;
+    this[___SwitchState__actionMap_isSet] = false;
+    this[_focused] = false;
+    this[_hovering] = false;
+    $switch$._SwitchState.__proto__.new.call(this);
     ;
-  }).prototype = characters_impl.StringCharacterRange.prototype;
-  dart.addTypeTests(characters_impl.StringCharacterRange);
-  dart.addTypeCaches(characters_impl.StringCharacterRange);
-  characters_impl.StringCharacterRange[dart.implements] = () => [characters.CharacterRange];
-  dart.setMethodSignature(characters_impl.StringCharacterRange, () => ({
-    __proto__: dart.getMethods(characters_impl.StringCharacterRange.__proto__),
-    [_move]: dart.fnType(dart.void, [core.int, core.int]),
-    [_breaksFromEnd]: dart.fnType(breaks$.Breaks, []),
-    [_backBreaksFromStart]: dart.fnType(breaks$.BackBreaks, []),
-    moveNext: dart.fnType(core.bool, [], [core.int]),
-    [_advanceEnd]: dart.fnType(core.bool, [core.int, core.int]),
-    [_moveNextPattern]: dart.fnType(core.bool, [core.String, core.int, core.int]),
-    moveBack: dart.fnType(core.bool, [], [core.int]),
-    [_retractStart]: dart.fnType(core.bool, [core.int, core.int]),
-    [_movePreviousPattern]: dart.fnType(core.bool, [core.String, core.int, core.int]),
-    copy: dart.fnType(characters.CharacterRange, []),
-    collapseToEnd: dart.fnType(dart.void, []),
-    collapseToStart: dart.fnType(dart.void, []),
-    dropFirst: dart.fnType(core.bool, [], [core.int]),
-    dropTo: dart.fnType(core.bool, [characters.Characters]),
-    dropUntil: dart.fnType(core.bool, [characters.Characters]),
-    dropWhile: dart.fnType(dart.void, [dart.fnType(core.bool, [core.String])]),
-    dropLast: dart.fnType(core.bool, [], [core.int]),
-    dropBackTo: dart.fnType(core.bool, [characters.Characters]),
-    dropBackUntil: dart.fnType(core.bool, [characters.Characters]),
-    dropBackWhile: dart.fnType(dart.void, [dart.fnType(core.bool, [core.String])]),
-    expandNext: dart.fnType(core.bool, [], [core.int]),
-    expandTo: dart.fnType(core.bool, [characters.Characters]),
-    expandWhile: dart.fnType(dart.void, [dart.fnType(core.bool, [core.String])]),
-    expandAll: dart.fnType(dart.void, []),
-    expandBack: dart.fnType(core.bool, [], [core.int]),
-    expandBackTo: dart.fnType(core.bool, [characters.Characters]),
-    expandBackWhile: dart.fnType(dart.void, [dart.fnType(core.bool, [core.String])]),
-    expandBackUntil: dart.fnType(core.bool, [characters.Characters]),
-    expandBackAll: dart.fnType(dart.void, []),
-    expandUntil: dart.fnType(core.bool, [characters.Characters]),
-    moveBackUntil: dart.fnType(core.bool, [characters.Characters]),
-    [_retractStartUntil]: dart.fnType(core.bool, [core.String, core.int]),
-    collapseToFirst: dart.fnType(core.bool, [characters.Characters]),
-    collapseToLast: dart.fnType(core.bool, [characters.Characters]),
-    moveUntil: dart.fnType(core.bool, [characters.Characters]),
-    [_advanceEndUntil]: dart.fnType(core.bool, [core.String, core.int]),
-    replaceFirst: dart.fnType(dart.nullable(characters.CharacterRange), [characters.Characters, characters.Characters]),
-    replaceAll: dart.fnType(dart.nullable(characters.CharacterRange), [characters.Characters, characters.Characters]),
-    replaceRange: dart.fnType(characters.CharacterRange, [characters.Characters]),
-    startsWith: dart.fnType(core.bool, [characters.Characters]),
-    endsWith: dart.fnType(core.bool, [characters.Characters]),
-    isFollowedBy: dart.fnType(core.bool, [characters.Characters]),
-    isPrecededBy: dart.fnType(core.bool, [characters.Characters]),
-    [_endsWith]: dart.fnType(core.bool, [core.int, core.int, core.String]),
-    [_startsWith]: dart.fnType(core.bool, [core.int, core.int, core.String]),
-    moveBackTo: dart.fnType(core.bool, [characters.Characters]),
-    moveTo: dart.fnType(core.bool, [characters.Characters]),
-    moveBackAll: dart.fnType(dart.void, []),
-    moveNextAll: dart.fnType(dart.void, []),
-    split: dart.fnType(core.Iterable$(characters.CharacterRange), [characters.Characters], [core.int])
+  }).prototype = $switch$._SwitchState.prototype;
+  dart.addTypeTests($switch$._SwitchState);
+  dart.addTypeCaches($switch$._SwitchState);
+  dart.setMethodSignature($switch$._SwitchState, () => ({
+    __proto__: dart.getMethods($switch$._SwitchState.__proto__),
+    [_actionHandler]: dart.fnType(dart.void, [actions.ActivateIntent]),
+    [_handleFocusHighlightChanged]: dart.fnType(dart.void, [core.bool]),
+    [_handleHoverChanged]: dart.fnType(dart.void, [core.bool]),
+    getSwitchSize: dart.fnType(ui.Size, [theme_data.ThemeData]),
+    [_didFinishDragging]: dart.fnType(dart.void, []),
+    buildMaterialSwitch: dart.fnType(framework.Widget, [framework.BuildContext]),
+    buildCupertinoSwitch: dart.fnType(framework.Widget, [framework.BuildContext]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setGetterSignature(characters_impl.StringCharacterRange, () => ({
-    __proto__: dart.getGetters(characters_impl.StringCharacterRange.__proto__),
-    current: core.String,
-    utf16CodeUnits: core.Iterable$(core.int),
-    runes: core.Runes,
-    isEmpty: core.bool,
-    isNotEmpty: core.bool,
-    source: characters.Characters,
-    charactersAfter: characters.Characters,
-    charactersBefore: characters.Characters,
-    currentCharacters: characters.Characters,
-    stringAfter: core.String,
-    stringAfterLength: core.int,
-    stringBefore: core.String,
-    stringBeforeLength: core.int
+  dart.setGetterSignature($switch$._SwitchState, () => ({
+    __proto__: dart.getGetters($switch$._SwitchState.__proto__),
+    [_actionMap]: core.Map$(core.Type, actions.Action$(actions.Intent)),
+    enabled: core.bool,
+    [_states]: core.Set$(material_state.MaterialState),
+    [_widgetThumbColor]: material_state.MaterialStateProperty$(dart.nullable(ui.Color)),
+    [_defaultThumbColor]: material_state.MaterialStateProperty$(ui.Color),
+    [_widgetTrackColor]: material_state.MaterialStateProperty$(dart.nullable(ui.Color)),
+    [_defaultTrackColor]: material_state.MaterialStateProperty$(ui.Color)
   }));
-  dart.setLibraryUri(characters_impl.StringCharacterRange, I[1]);
-  dart.setFieldSignature(characters_impl.StringCharacterRange, () => ({
-    __proto__: dart.getFields(characters_impl.StringCharacterRange.__proto__),
-    [_string$]: dart.finalFieldType(core.String),
-    [_start$]: dart.fieldType(core.int),
-    [_end$]: dart.fieldType(core.int),
-    [_currentCache]: dart.fieldType(dart.nullable(core.String))
+  dart.setSetterSignature($switch$._SwitchState, () => ({
+    __proto__: dart.getSetters($switch$._SwitchState.__proto__),
+    [_actionMap]: core.Map$(core.Type, actions.Action$(actions.Intent))
   }));
-  characters_impl._explodeReplace = function _explodeReplace(string, start, end, internalReplacement, outerReplacement) {
-    let t0, t0$;
-    if (string == null) dart.nullFailed(I[0], 1015, 31, "string");
-    if (start == null) dart.nullFailed(I[0], 1015, 43, "start");
-    if (end == null) dart.nullFailed(I[0], 1015, 54, "end");
-    if (internalReplacement == null) dart.nullFailed(I[0], 1016, 12, "internalReplacement");
-    if (outerReplacement == null) dart.nullFailed(I[0], 1016, 40, "outerReplacement");
-    if (start == end) {
-      return string[$replaceRange](start, start, outerReplacement);
+  dart.setLibraryUri($switch$._SwitchState, I[1]);
+  dart.setFieldSignature($switch$._SwitchState, () => ({
+    __proto__: dart.getFields($switch$._SwitchState.__proto__),
+    [___SwitchState__actionMap]: dart.fieldType(dart.nullable(core.Map$(core.Type, actions.Action$(actions.Intent)))),
+    [___SwitchState__actionMap_isSet]: dart.fieldType(core.bool),
+    [_focused]: dart.fieldType(core.bool),
+    [_hovering]: dart.fieldType(core.bool)
+  }));
+  var value$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.value");
+  var activeColor$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.activeColor");
+  var inactiveColor$ = dart.privateName($switch$, "_SwitchRenderObjectWidget.inactiveColor");
+  var hoverColor$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.hoverColor");
+  var focusColor$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.focusColor");
+  var reactionColor$ = dart.privateName($switch$, "_SwitchRenderObjectWidget.reactionColor");
+  var inactiveReactionColor$ = dart.privateName($switch$, "_SwitchRenderObjectWidget.inactiveReactionColor");
+  var splashRadius$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.splashRadius");
+  var activeThumbImage$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.activeThumbImage");
+  var onActiveThumbImageError$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.onActiveThumbImageError");
+  var inactiveThumbImage$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.inactiveThumbImage");
+  var onInactiveThumbImageError$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.onInactiveThumbImageError");
+  var activeTrackColor$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.activeTrackColor");
+  var inactiveTrackColor$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.inactiveTrackColor");
+  var configuration$ = dart.privateName($switch$, "_SwitchRenderObjectWidget.configuration");
+  var onChanged$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.onChanged");
+  var additionalConstraints$ = dart.privateName($switch$, "_SwitchRenderObjectWidget.additionalConstraints");
+  var dragStartBehavior$0 = dart.privateName($switch$, "_SwitchRenderObjectWidget.dragStartBehavior");
+  var hasFocus$ = dart.privateName($switch$, "_SwitchRenderObjectWidget.hasFocus");
+  var hovering$ = dart.privateName($switch$, "_SwitchRenderObjectWidget.hovering");
+  var state$ = dart.privateName($switch$, "_SwitchRenderObjectWidget.state");
+  var surfaceColor$ = dart.privateName($switch$, "_SwitchRenderObjectWidget.surfaceColor");
+  var _handleValueChanged = dart.privateName($switch$, "_handleValueChanged");
+  $switch$._SwitchRenderObjectWidget = class _SwitchRenderObjectWidget extends framework.LeafRenderObjectWidget {
+    get value() {
+      return this[value$0];
     }
-    let buffer = new core.StringBuffer.new(string[$substring](0, start));
-    let breaks = new breaks$.Breaks.new(string, start, end, 176);
-    let index = 0;
-    let replacement = outerReplacement;
-    while (dart.notNull(index = breaks.nextBreak()) >= 0) {
-      t0 = buffer;
+    set value(value) {
+      super.value = value;
+    }
+    get activeColor() {
+      return this[activeColor$0];
+    }
+    set activeColor(value) {
+      super.activeColor = value;
+    }
+    get inactiveColor() {
+      return this[inactiveColor$];
+    }
+    set inactiveColor(value) {
+      super.inactiveColor = value;
+    }
+    get hoverColor() {
+      return this[hoverColor$0];
+    }
+    set hoverColor(value) {
+      super.hoverColor = value;
+    }
+    get focusColor() {
+      return this[focusColor$0];
+    }
+    set focusColor(value) {
+      super.focusColor = value;
+    }
+    get reactionColor() {
+      return this[reactionColor$];
+    }
+    set reactionColor(value) {
+      super.reactionColor = value;
+    }
+    get inactiveReactionColor() {
+      return this[inactiveReactionColor$];
+    }
+    set inactiveReactionColor(value) {
+      super.inactiveReactionColor = value;
+    }
+    get splashRadius() {
+      return this[splashRadius$0];
+    }
+    set splashRadius(value) {
+      super.splashRadius = value;
+    }
+    get activeThumbImage() {
+      return this[activeThumbImage$0];
+    }
+    set activeThumbImage(value) {
+      super.activeThumbImage = value;
+    }
+    get onActiveThumbImageError() {
+      return this[onActiveThumbImageError$0];
+    }
+    set onActiveThumbImageError(value) {
+      super.onActiveThumbImageError = value;
+    }
+    get inactiveThumbImage() {
+      return this[inactiveThumbImage$0];
+    }
+    set inactiveThumbImage(value) {
+      super.inactiveThumbImage = value;
+    }
+    get onInactiveThumbImageError() {
+      return this[onInactiveThumbImageError$0];
+    }
+    set onInactiveThumbImageError(value) {
+      super.onInactiveThumbImageError = value;
+    }
+    get activeTrackColor() {
+      return this[activeTrackColor$0];
+    }
+    set activeTrackColor(value) {
+      super.activeTrackColor = value;
+    }
+    get inactiveTrackColor() {
+      return this[inactiveTrackColor$0];
+    }
+    set inactiveTrackColor(value) {
+      super.inactiveTrackColor = value;
+    }
+    get configuration() {
+      return this[configuration$];
+    }
+    set configuration(value) {
+      super.configuration = value;
+    }
+    get onChanged() {
+      return this[onChanged$0];
+    }
+    set onChanged(value) {
+      super.onChanged = value;
+    }
+    get additionalConstraints() {
+      return this[additionalConstraints$];
+    }
+    set additionalConstraints(value) {
+      super.additionalConstraints = value;
+    }
+    get dragStartBehavior() {
+      return this[dragStartBehavior$0];
+    }
+    set dragStartBehavior(value) {
+      super.dragStartBehavior = value;
+    }
+    get hasFocus() {
+      return this[hasFocus$];
+    }
+    set hasFocus(value) {
+      super.hasFocus = value;
+    }
+    get hovering() {
+      return this[hovering$];
+    }
+    set hovering(value) {
+      super.hovering = value;
+    }
+    get state() {
+      return this[state$];
+    }
+    set state(value) {
+      super.state = value;
+    }
+    get surfaceColor() {
+      return this[surfaceColor$];
+    }
+    set surfaceColor(value) {
+      super.surfaceColor = value;
+    }
+    createRenderObject(context) {
+      if (context == null) dart.nullFailed(I[0], 677, 49, "context");
+      return new $switch$._RenderSwitch.new({dragStartBehavior: this.dragStartBehavior, value: this.value, activeColor: this.activeColor, inactiveColor: this.inactiveColor, hoverColor: this.hoverColor, focusColor: this.focusColor, reactionColor: this.reactionColor, inactiveReactionColor: this.inactiveReactionColor, splashRadius: this.splashRadius, activeThumbImage: this.activeThumbImage, onActiveThumbImageError: this.onActiveThumbImageError, inactiveThumbImage: this.inactiveThumbImage, onInactiveThumbImageError: this.onInactiveThumbImageError, activeTrackColor: this.activeTrackColor, inactiveTrackColor: this.inactiveTrackColor, configuration: this.configuration, onChanged: this.onChanged != null ? dart.bind(this, _handleValueChanged) : null, textDirection: basic.Directionality.of(context), additionalConstraints: this.additionalConstraints, hasFocus: this.hasFocus, hovering: this.hovering, state: this.state, surfaceColor: this.surfaceColor});
+    }
+    updateRenderObject(context, renderObject) {
+      let t2;
+      if (context == null) dart.nullFailed(I[0], 706, 40, "context");
+      $switch$._RenderSwitch.as(renderObject);
+      if (renderObject == null) dart.nullFailed(I[0], 706, 63, "renderObject");
+      t2 = renderObject;
       (() => {
-        t0.write(replacement);
-        t0.write(string[$substring](start, index));
-        return t0;
+        t2.value = this.value;
+        t2.activeColor = this.activeColor;
+        t2.inactiveColor = this.inactiveColor;
+        t2.hoverColor = this.hoverColor;
+        t2.focusColor = this.focusColor;
+        t2.reactionColor = this.reactionColor;
+        t2.inactiveReactionColor = this.inactiveReactionColor;
+        t2.splashRadius = this.splashRadius;
+        t2.activeThumbImage = this.activeThumbImage;
+        t2.onActiveThumbImageError = this.onActiveThumbImageError;
+        t2.inactiveThumbImage = this.inactiveThumbImage;
+        t2.onInactiveThumbImageError = this.onInactiveThumbImageError;
+        t2.activeTrackColor = this.activeTrackColor;
+        t2.inactiveTrackColor = this.inactiveTrackColor;
+        t2.configuration = this.configuration;
+        t2.onChanged = this.onChanged != null ? dart.bind(this, _handleValueChanged) : null;
+        t2.textDirection = basic.Directionality.of(context);
+        t2.additionalConstraints = this.additionalConstraints;
+        t2.dragStartBehavior = this.dragStartBehavior;
+        t2.hasFocus = this.hasFocus;
+        t2.hovering = this.hovering;
+        t2.vsync = this.state;
+        t2.surfaceColor = this.surfaceColor;
+        return t2;
       })();
-      start = index;
-      replacement = internalReplacement;
     }
-    t0$ = buffer;
-    (() => {
-      t0$.write(outerReplacement);
-      t0$.write(string[$substring](end));
-      return t0$;
-    })();
-    return buffer.toString();
+    [_handleValueChanged](value) {
+      if (!(value != null)) dart.assertFailed(null, I[0], 738, 12, "value != null");
+      if (this.onChanged != null) {
+        dart.nullCheck(this.onChanged)(dart.nullCheck(value));
+      }
+    }
   };
-  characters_impl._indexOf = function _indexOf(source, pattern, start, end) {
-    if (source == null) dart.nullFailed(I[0], 1037, 21, "source");
-    if (pattern == null) dart.nullFailed(I[0], 1037, 36, "pattern");
-    if (start == null) dart.nullFailed(I[0], 1037, 49, "start");
-    if (end == null) dart.nullFailed(I[0], 1037, 60, "end");
-    let patternLength = pattern.length;
-    if (patternLength === 0) return start;
-    let realEnd = dart.notNull(end) - patternLength;
-    if (realEnd < dart.notNull(start)) return -1;
-    let rest = source.length - realEnd;
-    if (rest <= (realEnd - dart.notNull(start)) * 2) {
-      let index = 0;
-      while (dart.notNull(start) < realEnd && (index = source[$indexOf](pattern, start)) >= 0) {
-        if (index > realEnd) return -1;
-        if (dart.test(breaks$.isGraphemeClusterBoundary(source, start, end, index)) && dart.test(breaks$.isGraphemeClusterBoundary(source, start, end, index + patternLength))) {
-          return index;
+  ($switch$._SwitchRenderObjectWidget.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    if (value == null) dart.nullFailed(I[0], 629, 19, "value");
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    if (activeColor == null) dart.nullFailed(I[0], 630, 19, "activeColor");
+    let inactiveColor = opts && 'inactiveColor' in opts ? opts.inactiveColor : null;
+    if (inactiveColor == null) dart.nullFailed(I[0], 631, 19, "inactiveColor");
+    let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+    if (hoverColor == null) dart.nullFailed(I[0], 632, 19, "hoverColor");
+    let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+    if (focusColor == null) dart.nullFailed(I[0], 633, 19, "focusColor");
+    let reactionColor = opts && 'reactionColor' in opts ? opts.reactionColor : null;
+    if (reactionColor == null) dart.nullFailed(I[0], 634, 19, "reactionColor");
+    let inactiveReactionColor = opts && 'inactiveReactionColor' in opts ? opts.inactiveReactionColor : null;
+    if (inactiveReactionColor == null) dart.nullFailed(I[0], 635, 19, "inactiveReactionColor");
+    let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
+    if (splashRadius == null) dart.nullFailed(I[0], 636, 19, "splashRadius");
+    let activeThumbImage = opts && 'activeThumbImage' in opts ? opts.activeThumbImage : null;
+    let onActiveThumbImageError = opts && 'onActiveThumbImageError' in opts ? opts.onActiveThumbImageError : null;
+    let inactiveThumbImage = opts && 'inactiveThumbImage' in opts ? opts.inactiveThumbImage : null;
+    let onInactiveThumbImageError = opts && 'onInactiveThumbImageError' in opts ? opts.onInactiveThumbImageError : null;
+    let activeTrackColor = opts && 'activeTrackColor' in opts ? opts.activeTrackColor : null;
+    if (activeTrackColor == null) dart.nullFailed(I[0], 641, 19, "activeTrackColor");
+    let inactiveTrackColor = opts && 'inactiveTrackColor' in opts ? opts.inactiveTrackColor : null;
+    if (inactiveTrackColor == null) dart.nullFailed(I[0], 642, 19, "inactiveTrackColor");
+    let configuration = opts && 'configuration' in opts ? opts.configuration : null;
+    if (configuration == null) dart.nullFailed(I[0], 643, 19, "configuration");
+    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+    let additionalConstraints = opts && 'additionalConstraints' in opts ? opts.additionalConstraints : null;
+    if (additionalConstraints == null) dart.nullFailed(I[0], 645, 19, "additionalConstraints");
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : null;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 646, 19, "dragStartBehavior");
+    let hasFocus = opts && 'hasFocus' in opts ? opts.hasFocus : null;
+    if (hasFocus == null) dart.nullFailed(I[0], 647, 19, "hasFocus");
+    let hovering = opts && 'hovering' in opts ? opts.hovering : null;
+    if (hovering == null) dart.nullFailed(I[0], 648, 19, "hovering");
+    let state = opts && 'state' in opts ? opts.state : null;
+    if (state == null) dart.nullFailed(I[0], 649, 19, "state");
+    let surfaceColor = opts && 'surfaceColor' in opts ? opts.surfaceColor : null;
+    if (surfaceColor == null) dart.nullFailed(I[0], 650, 19, "surfaceColor");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[value$0] = value;
+    this[activeColor$0] = activeColor;
+    this[inactiveColor$] = inactiveColor;
+    this[hoverColor$0] = hoverColor;
+    this[focusColor$0] = focusColor;
+    this[reactionColor$] = reactionColor;
+    this[inactiveReactionColor$] = inactiveReactionColor;
+    this[splashRadius$0] = splashRadius;
+    this[activeThumbImage$0] = activeThumbImage;
+    this[onActiveThumbImageError$0] = onActiveThumbImageError;
+    this[inactiveThumbImage$0] = inactiveThumbImage;
+    this[onInactiveThumbImageError$0] = onInactiveThumbImageError;
+    this[activeTrackColor$0] = activeTrackColor;
+    this[inactiveTrackColor$0] = inactiveTrackColor;
+    this[configuration$] = configuration;
+    this[onChanged$0] = onChanged;
+    this[additionalConstraints$] = additionalConstraints;
+    this[dragStartBehavior$0] = dragStartBehavior;
+    this[hasFocus$] = hasFocus;
+    this[hovering$] = hovering;
+    this[state$] = state;
+    this[surfaceColor$] = surfaceColor;
+    $switch$._SwitchRenderObjectWidget.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = $switch$._SwitchRenderObjectWidget.prototype;
+  dart.addTypeTests($switch$._SwitchRenderObjectWidget);
+  dart.addTypeCaches($switch$._SwitchRenderObjectWidget);
+  dart.setMethodSignature($switch$._SwitchRenderObjectWidget, () => ({
+    __proto__: dart.getMethods($switch$._SwitchRenderObjectWidget.__proto__),
+    createRenderObject: dart.fnType($switch$._RenderSwitch, [framework.BuildContext]),
+    [_handleValueChanged]: dart.fnType(dart.void, [dart.nullable(core.bool)])
+  }));
+  dart.setLibraryUri($switch$._SwitchRenderObjectWidget, I[1]);
+  dart.setFieldSignature($switch$._SwitchRenderObjectWidget, () => ({
+    __proto__: dart.getFields($switch$._SwitchRenderObjectWidget.__proto__),
+    value: dart.finalFieldType(core.bool),
+    activeColor: dart.finalFieldType(ui.Color),
+    inactiveColor: dart.finalFieldType(ui.Color),
+    hoverColor: dart.finalFieldType(ui.Color),
+    focusColor: dart.finalFieldType(ui.Color),
+    reactionColor: dart.finalFieldType(ui.Color),
+    inactiveReactionColor: dart.finalFieldType(ui.Color),
+    splashRadius: dart.finalFieldType(core.double),
+    activeThumbImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    onActiveThumbImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    inactiveThumbImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    onInactiveThumbImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    activeTrackColor: dart.finalFieldType(ui.Color),
+    inactiveTrackColor: dart.finalFieldType(ui.Color),
+    configuration: dart.finalFieldType(image_provider.ImageConfiguration),
+    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.bool]))),
+    additionalConstraints: dart.finalFieldType(box.BoxConstraints),
+    dragStartBehavior: dart.finalFieldType(recognizer.DragStartBehavior),
+    hasFocus: dart.finalFieldType(core.bool),
+    hovering: dart.finalFieldType(core.bool),
+    state: dart.finalFieldType($switch$._SwitchState),
+    surfaceColor: dart.finalFieldType(ui.Color)
+  }));
+  var ___RenderSwitch__drag = dart.privateName($switch$, "_#_RenderSwitch#_drag");
+  var ___RenderSwitch__drag_isSet = dart.privateName($switch$, "_#_RenderSwitch#_drag#isSet");
+  var _needsPositionAnimation = dart.privateName($switch$, "_needsPositionAnimation");
+  var _cachedThumbColor = dart.privateName($switch$, "_cachedThumbColor");
+  var _cachedThumbImage = dart.privateName($switch$, "_cachedThumbImage");
+  var _cachedThumbErrorListener = dart.privateName($switch$, "_cachedThumbErrorListener");
+  var _cachedThumbPainter = dart.privateName($switch$, "_cachedThumbPainter");
+  var _isPainting = dart.privateName($switch$, "_isPainting");
+  var _activeThumbImage = dart.privateName($switch$, "_activeThumbImage");
+  var _onActiveThumbImageError = dart.privateName($switch$, "_onActiveThumbImageError");
+  var _inactiveThumbImage = dart.privateName($switch$, "_inactiveThumbImage");
+  var _onInactiveThumbImageError = dart.privateName($switch$, "_onInactiveThumbImageError");
+  var _activeTrackColor = dart.privateName($switch$, "_activeTrackColor");
+  var _inactiveTrackColor = dart.privateName($switch$, "_inactiveTrackColor");
+  var _configuration = dart.privateName($switch$, "_configuration");
+  var _textDirection = dart.privateName($switch$, "_textDirection");
+  var _surfaceColor = dart.privateName($switch$, "_surfaceColor");
+  var _drag = dart.privateName($switch$, "_drag");
+  var _handleDragStart = dart.privateName($switch$, "_handleDragStart");
+  var _handleDragUpdate = dart.privateName($switch$, "_handleDragUpdate");
+  var _handleDragEnd = dart.privateName($switch$, "_handleDragEnd");
+  var _trackInnerLength = dart.privateName($switch$, "_trackInnerLength");
+  var _name$2 = dart.privateName(ui, "_name");
+  var _createDefaultThumbDecoration = dart.privateName($switch$, "_createDefaultThumbDecoration");
+  var _handleDecorationChanged = dart.privateName($switch$, "_handleDecorationChanged");
+  var Radius_y = dart.privateName(ui, "Radius.y");
+  var Radius_x = dart.privateName(ui, "Radius.x");
+  $switch$._RenderSwitch = class _RenderSwitch extends toggleable.RenderToggleable {
+    get activeThumbImage() {
+      return this[_activeThumbImage];
+    }
+    set activeThumbImage(value) {
+      if (dart.equals(value, this[_activeThumbImage])) return;
+      this[_activeThumbImage] = value;
+      this.markNeedsPaint();
+    }
+    get onActiveThumbImageError() {
+      return this[_onActiveThumbImageError];
+    }
+    set onActiveThumbImageError(value) {
+      if (dart.equals(value, this[_onActiveThumbImageError])) {
+        return;
+      }
+      this[_onActiveThumbImageError] = value;
+      this.markNeedsPaint();
+    }
+    get inactiveThumbImage() {
+      return this[_inactiveThumbImage];
+    }
+    set inactiveThumbImage(value) {
+      if (dart.equals(value, this[_inactiveThumbImage])) return;
+      this[_inactiveThumbImage] = value;
+      this.markNeedsPaint();
+    }
+    get onInactiveThumbImageError() {
+      return this[_onInactiveThumbImageError];
+    }
+    set onInactiveThumbImageError(value) {
+      if (dart.equals(value, this[_onInactiveThumbImageError])) {
+        return;
+      }
+      this[_onInactiveThumbImageError] = value;
+      this.markNeedsPaint();
+    }
+    get activeTrackColor() {
+      return this[_activeTrackColor];
+    }
+    set activeTrackColor(value) {
+      if (value == null) dart.nullFailed(I[0], 843, 30, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 844, 12, "value != null");
+      if (dart.equals(value, this[_activeTrackColor])) return;
+      this[_activeTrackColor] = value;
+      this.markNeedsPaint();
+    }
+    get inactiveTrackColor() {
+      return this[_inactiveTrackColor];
+    }
+    set inactiveTrackColor(value) {
+      if (value == null) dart.nullFailed(I[0], 853, 32, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 854, 12, "value != null");
+      if (dart.equals(value, this[_inactiveTrackColor])) return;
+      this[_inactiveTrackColor] = value;
+      this.markNeedsPaint();
+    }
+    get configuration() {
+      return this[_configuration];
+    }
+    set configuration(value) {
+      if (value == null) dart.nullFailed(I[0], 863, 40, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 864, 12, "value != null");
+      if (dart.equals(value, this[_configuration])) return;
+      this[_configuration] = value;
+      this.markNeedsPaint();
+    }
+    get textDirection() {
+      return this[_textDirection];
+    }
+    set textDirection(value) {
+      if (value == null) dart.nullFailed(I[0], 873, 35, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 874, 12, "value != null");
+      if (this[_textDirection] == value) return;
+      this[_textDirection] = value;
+      this.markNeedsPaint();
+    }
+    get dragStartBehavior() {
+      return this[_drag].dragStartBehavior;
+    }
+    set dragStartBehavior(value) {
+      if (value == null) dart.nullFailed(I[0], 882, 43, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 883, 12, "value != null");
+      if (this[_drag].dragStartBehavior == value) return;
+      this[_drag].dragStartBehavior = value;
+    }
+    get surfaceColor() {
+      return this[_surfaceColor];
+    }
+    set surfaceColor(value) {
+      if (value == null) dart.nullFailed(I[0], 891, 26, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 892, 12, "value != null");
+      if (dart.equals(value, this[_surfaceColor])) return;
+      this[_surfaceColor] = value;
+      this.markNeedsPaint();
+    }
+    set value(newValue) {
+      if (!(this.value != null)) dart.assertFailed(null, I[0], 903, 12, "value != null");
+      super.value = newValue;
+      if (dart.test(this[_needsPositionAnimation])) {
+        this[_needsPositionAnimation] = false;
+        this.position.reverseCurve = null;
+        if (dart.nullCheck(newValue))
+          this.positionController.forward();
+        else
+          this.positionController.reverse();
+      }
+    }
+    get value() {
+      return super.value;
+    }
+    detach() {
+      let t2;
+      t2 = this[_cachedThumbPainter];
+      t2 == null ? null : t2.dispose();
+      this[_cachedThumbPainter] = null;
+      super.detach();
+    }
+    get [_trackInnerLength]() {
+      return dart.notNull(this.size.width) - 40;
+    }
+    get [_drag]() {
+      let t2;
+      return dart.test(this[___RenderSwitch__drag_isSet]) ? (t2 = this[___RenderSwitch__drag], t2) : dart.throw(new _internal.LateError.fieldNI("_drag"));
+    }
+    set [_drag](t2) {
+      if (t2 == null) dart.nullFailed(I[0], 925, 40, "null");
+      this[___RenderSwitch__drag_isSet] = true;
+      this[___RenderSwitch__drag] = t2;
+    }
+    [_handleDragStart](details) {
+      if (details == null) dart.nullFailed(I[0], 929, 42, "details");
+      if (dart.test(this.isInteractive)) this.reactionController.forward();
+    }
+    [_handleDragUpdate](details) {
+      let t3, t3$;
+      if (details == null) dart.nullFailed(I[0], 934, 44, "details");
+      if (dart.test(this.isInteractive)) {
+        this.position.reverseCurve = null;
+        let delta = dart.nullCheck(details.primaryDelta) / dart.notNull(this[_trackInnerLength]);
+        switch (this.textDirection) {
+          case C[71] || CT.C71:
+          {
+            t3 = this.positionController;
+            t3.value = dart.notNull(t3.value) - delta;
+            break;
+          }
+          case C[72] || CT.C72:
+          {
+            t3$ = this.positionController;
+            t3$.value = dart.notNull(t3$.value) + delta;
+            break;
+          }
+          default:
+          {
+            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+          }
         }
-        start = index + 1;
-      }
-      return -1;
-    }
-    return characters_impl._gcIndexOf(source, pattern, start, end);
-  };
-  characters_impl._gcIndexOf = function _gcIndexOf(source, pattern, start, end) {
-    if (source == null) dart.nullFailed(I[0], 1062, 23, "source");
-    if (pattern == null) dart.nullFailed(I[0], 1062, 38, "pattern");
-    if (start == null) dart.nullFailed(I[0], 1062, 51, "start");
-    if (end == null) dart.nullFailed(I[0], 1062, 62, "end");
-    let breaks = new breaks$.Breaks.new(source, start, end, 0);
-    let index = 0;
-    while (dart.notNull(index = breaks.nextBreak()) >= 0) {
-      let endIndex = dart.notNull(index) + pattern.length;
-      if (endIndex > dart.notNull(end)) break;
-      if (source[$startsWith](pattern, index) && dart.test(breaks$.isGraphemeClusterBoundary(source, start, end, endIndex))) {
-        return index;
       }
     }
-    return -1;
-  };
-  characters_impl._lastIndexOf = function _lastIndexOf(source, pattern, start, end) {
-    if (source == null) dart.nullFailed(I[0], 1079, 25, "source");
-    if (pattern == null) dart.nullFailed(I[0], 1079, 40, "pattern");
-    if (start == null) dart.nullFailed(I[0], 1079, 53, "start");
-    if (end == null) dart.nullFailed(I[0], 1079, 64, "end");
-    let patternLength = pattern.length;
-    if (patternLength === 0) return end;
-    let realEnd = dart.notNull(end) - patternLength;
-    if (realEnd < dart.notNull(start)) return -1;
-    if (realEnd * 2 > dart.notNull(start)) {
-      let index = 0;
-      while (realEnd >= dart.notNull(start) && (index = source[$lastIndexOf](pattern, realEnd)) >= 0) {
-        if (index < dart.notNull(start)) return -1;
-        if (dart.test(breaks$.isGraphemeClusterBoundary(source, start, end, index)) && dart.test(breaks$.isGraphemeClusterBoundary(source, start, end, index + patternLength))) {
-          return index;
+    [_handleDragEnd](details) {
+      if (details == null) dart.nullFailed(I[0], 949, 38, "details");
+      this[_needsPositionAnimation] = true;
+      if (dart.notNull(this.position.value) >= 0.5 !== this.value) dart.nullCheck(this.onChanged)(!dart.nullCheck(this.value));
+      this.reactionController.reverse();
+      this.state[_didFinishDragging]();
+    }
+    handleEvent(event, entry) {
+      if (event == null) dart.nullFailed(I[0], 959, 33, "event");
+      box.BoxHitTestEntry.as(entry);
+      if (entry == null) dart.nullFailed(I[0], 959, 56, "entry");
+      if (!dart.test(this.debugHandleEvent(event, entry))) dart.assertFailed(null, I[0], 960, 12, "debugHandleEvent(event, entry)");
+      if (events.PointerDownEvent.is(event) && this.onChanged != null) this[_drag].addPointer(event);
+      super.handleEvent(event, entry);
+    }
+    [_createDefaultThumbDecoration](color, image, errorListener) {
+      if (color == null) dart.nullFailed(I[0], 971, 53, "color");
+      return new box_decoration.BoxDecoration.new({color: color, image: image == null ? null : new decoration_image.DecorationImage.new({image: image, onError: errorListener}), shape: box_border.BoxShape.circle, boxShadow: shadows.kElevationToShadow[$_get](1)});
+    }
+    [_handleDecorationChanged]() {
+      if (!dart.test(this[_isPainting])) this.markNeedsPaint();
+    }
+    describeSemanticsConfiguration(config) {
+      if (config == null) dart.nullFailed(I[0], 992, 62, "config");
+      super.describeSemanticsConfiguration(config);
+      config.isToggled = this.value === true;
+    }
+    paint(context, offset) {
+      let t3;
+      if (context == null) dart.nullFailed(I[0], 998, 30, "context");
+      if (offset == null) dart.nullFailed(I[0], 998, 46, "offset");
+      let canvas = context.canvas;
+      let isEnabled = this.onChanged != null;
+      let currentValue = this.position.value;
+      let visualPosition = null;
+      switch (this.textDirection) {
+        case C[71] || CT.C71:
+        {
+          visualPosition = 1.0 - dart.notNull(currentValue);
+          break;
         }
-        realEnd = index - 1;
+        case C[72] || CT.C72:
+        {
+          visualPosition = currentValue;
+          break;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
       }
-      return -1;
-    }
-    return characters_impl._gcLastIndexOf(source, pattern, start, end);
-  };
-  characters_impl._gcLastIndexOf = function _gcLastIndexOf(source, pattern, start, end) {
-    if (source == null) dart.nullFailed(I[0], 1104, 27, "source");
-    if (pattern == null) dart.nullFailed(I[0], 1104, 42, "pattern");
-    if (start == null) dart.nullFailed(I[0], 1104, 55, "start");
-    if (end == null) dart.nullFailed(I[0], 1104, 66, "end");
-    let breaks = new breaks$.BackBreaks.new(source, end, start, 0);
-    let index = 0;
-    while (dart.notNull(index = breaks.nextBreak()) >= 0) {
-      let startIndex = dart.notNull(index) - pattern.length;
-      if (startIndex < dart.notNull(start)) break;
-      if (source[$startsWith](pattern, startIndex) && dart.test(breaks$.isGraphemeClusterBoundary(source, start, end, startIndex))) {
-        return startIndex;
+      let trackColor = dart.nullCheck(ui.Color.lerp(this.inactiveTrackColor, this.activeTrackColor, currentValue));
+      let lerpedThumbColor = dart.nullCheck(ui.Color.lerp(this.inactiveColor, this.activeColor, currentValue));
+      let thumbColor = ui.Color.alphaBlend(lerpedThumbColor, this.surfaceColor);
+      let thumbImage = isEnabled ? dart.notNull(currentValue) < 0.5 ? this.inactiveThumbImage : this.activeThumbImage : this.inactiveThumbImage;
+      let thumbErrorListener = isEnabled ? dart.notNull(currentValue) < 0.5 ? this.onInactiveThumbImageError : this.onActiveThumbImageError : this.onInactiveThumbImageError;
+      let paint = (t3 = ui.Paint.new(), (() => {
+        t3.color = trackColor;
+        return t3;
+      })());
+      let trackRect = new ui.Rect.fromLTWH(dart.notNull(offset.dx) + 13, dart.notNull(offset.dy) + (dart.notNull(this.size.height) - 14) / 2.0, dart.notNull(this.size.width) - 2.0 * 13, 14);
+      let trackRRect = new ui.RRect.fromRectAndRadius(trackRect, C[73] || CT.C73);
+      canvas.drawRRect(trackRRect, paint);
+      let thumbPosition = new ui.Offset.new(20 + dart.notNull(visualPosition) * dart.notNull(this[_trackInnerLength]), dart.notNull(this.size.height) / 2.0);
+      this.paintRadialReaction(canvas, offset, thumbPosition);
+      try {
+        this[_isPainting] = true;
+        if (this[_cachedThumbPainter] == null || !dart.equals(thumbColor, this[_cachedThumbColor]) || !dart.equals(thumbImage, this[_cachedThumbImage]) || !dart.equals(thumbErrorListener, this[_cachedThumbErrorListener])) {
+          this[_cachedThumbColor] = thumbColor;
+          this[_cachedThumbImage] = thumbImage;
+          this[_cachedThumbErrorListener] = thumbErrorListener;
+          this[_cachedThumbPainter] = this[_createDefaultThumbDecoration](thumbColor, thumbImage, thumbErrorListener).createBoxPainter(dart.bind(this, _handleDecorationChanged));
+        }
+        let thumbPainter = dart.nullCheck(this[_cachedThumbPainter]);
+        let inset = 1.0 - (dart.notNull(currentValue) - 0.5)[$abs]() * 2.0;
+        let radius = 10 - inset;
+        thumbPainter.paint(canvas, thumbPosition['+'](offset)['-'](new ui.Offset.new(radius, radius)), this.configuration.copyWith({size: new ui.Size.fromRadius(radius)}));
+      } finally {
+        this[_isPainting] = false;
       }
     }
-    return -1;
   };
-  characters.Characters = class Characters extends core.Object {
-    [Symbol.iterator]() {
-      return new dart.JsIterator(this[$iterator]);
+  ($switch$._RenderSwitch.new = function(opts) {
+    let t2;
+    let value = opts && 'value' in opts ? opts.value : null;
+    if (value == null) dart.nullFailed(I[0], 747, 19, "value");
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    if (activeColor == null) dart.nullFailed(I[0], 748, 20, "activeColor");
+    let inactiveColor = opts && 'inactiveColor' in opts ? opts.inactiveColor : null;
+    if (inactiveColor == null) dart.nullFailed(I[0], 749, 20, "inactiveColor");
+    let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+    if (hoverColor == null) dart.nullFailed(I[0], 750, 20, "hoverColor");
+    let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+    if (focusColor == null) dart.nullFailed(I[0], 751, 20, "focusColor");
+    let reactionColor = opts && 'reactionColor' in opts ? opts.reactionColor : null;
+    if (reactionColor == null) dart.nullFailed(I[0], 752, 20, "reactionColor");
+    let inactiveReactionColor = opts && 'inactiveReactionColor' in opts ? opts.inactiveReactionColor : null;
+    if (inactiveReactionColor == null) dart.nullFailed(I[0], 753, 20, "inactiveReactionColor");
+    let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
+    if (splashRadius == null) dart.nullFailed(I[0], 754, 21, "splashRadius");
+    let activeThumbImage = opts && 'activeThumbImage' in opts ? opts.activeThumbImage : null;
+    let onActiveThumbImageError = opts && 'onActiveThumbImageError' in opts ? opts.onActiveThumbImageError : null;
+    let inactiveThumbImage = opts && 'inactiveThumbImage' in opts ? opts.inactiveThumbImage : null;
+    let onInactiveThumbImageError = opts && 'onInactiveThumbImageError' in opts ? opts.onInactiveThumbImageError : null;
+    let activeTrackColor = opts && 'activeTrackColor' in opts ? opts.activeTrackColor : null;
+    if (activeTrackColor == null) dart.nullFailed(I[0], 759, 20, "activeTrackColor");
+    let inactiveTrackColor = opts && 'inactiveTrackColor' in opts ? opts.inactiveTrackColor : null;
+    if (inactiveTrackColor == null) dart.nullFailed(I[0], 760, 20, "inactiveTrackColor");
+    let configuration = opts && 'configuration' in opts ? opts.configuration : null;
+    if (configuration == null) dart.nullFailed(I[0], 761, 33, "configuration");
+    let additionalConstraints = opts && 'additionalConstraints' in opts ? opts.additionalConstraints : null;
+    if (additionalConstraints == null) dart.nullFailed(I[0], 762, 29, "additionalConstraints");
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    if (textDirection == null) dart.nullFailed(I[0], 763, 28, "textDirection");
+    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : null;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 765, 32, "dragStartBehavior");
+    let hasFocus = opts && 'hasFocus' in opts ? opts.hasFocus : null;
+    if (hasFocus == null) dart.nullFailed(I[0], 766, 19, "hasFocus");
+    let hovering = opts && 'hovering' in opts ? opts.hovering : null;
+    if (hovering == null) dart.nullFailed(I[0], 767, 19, "hovering");
+    let state = opts && 'state' in opts ? opts.state : null;
+    if (state == null) dart.nullFailed(I[0], 768, 19, "state");
+    let surfaceColor = opts && 'surfaceColor' in opts ? opts.surfaceColor : null;
+    if (surfaceColor == null) dart.nullFailed(I[0], 769, 20, "surfaceColor");
+    this[___RenderSwitch__drag] = null;
+    this[___RenderSwitch__drag_isSet] = false;
+    this[_needsPositionAnimation] = false;
+    this[_cachedThumbColor] = null;
+    this[_cachedThumbImage] = null;
+    this[_cachedThumbErrorListener] = null;
+    this[_cachedThumbPainter] = null;
+    this[_isPainting] = false;
+    this.state = state;
+    if (!(textDirection != null)) dart.assertFailed(null, I[0], 770, 15, "textDirection != null");
+    this[_activeThumbImage] = activeThumbImage;
+    this[_onActiveThumbImageError] = onActiveThumbImageError;
+    this[_inactiveThumbImage] = inactiveThumbImage;
+    this[_onInactiveThumbImageError] = onInactiveThumbImageError;
+    this[_activeTrackColor] = activeTrackColor;
+    this[_inactiveTrackColor] = inactiveTrackColor;
+    this[_configuration] = configuration;
+    this[_textDirection] = textDirection;
+    this[_surfaceColor] = surfaceColor;
+    $switch$._RenderSwitch.__proto__.new.call(this, {value: value, tristate: false, activeColor: activeColor, inactiveColor: inactiveColor, hoverColor: hoverColor, focusColor: focusColor, reactionColor: reactionColor, inactiveReactionColor: inactiveReactionColor, splashRadius: splashRadius, onChanged: onChanged, additionalConstraints: additionalConstraints, hasFocus: hasFocus, hovering: hovering, vsync: state});
+    this[_drag] = (t2 = new monodrag.HorizontalDragGestureRecognizer.new(), (() => {
+      t2.onStart = dart.bind(this, _handleDragStart);
+      t2.onUpdate = dart.bind(this, _handleDragUpdate);
+      t2.onEnd = dart.bind(this, _handleDragEnd);
+      t2.dragStartBehavior = dragStartBehavior;
+      return t2;
+    })());
+  }).prototype = $switch$._RenderSwitch.prototype;
+  dart.addTypeTests($switch$._RenderSwitch);
+  dart.addTypeCaches($switch$._RenderSwitch);
+  dart.setMethodSignature($switch$._RenderSwitch, () => ({
+    __proto__: dart.getMethods($switch$._RenderSwitch.__proto__),
+    [_handleDragStart]: dart.fnType(dart.void, [drag_details.DragStartDetails]),
+    [_handleDragUpdate]: dart.fnType(dart.void, [drag_details.DragUpdateDetails]),
+    [_handleDragEnd]: dart.fnType(dart.void, [drag_details.DragEndDetails]),
+    [_createDefaultThumbDecoration]: dart.fnType(box_decoration.BoxDecoration, [ui.Color, dart.nullable(image_provider.ImageProvider$(core.Object)), dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))]),
+    [_handleDecorationChanged]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature($switch$._RenderSwitch, () => ({
+    __proto__: dart.getGetters($switch$._RenderSwitch.__proto__),
+    activeThumbImage: dart.nullable(image_provider.ImageProvider$(core.Object)),
+    onActiveThumbImageError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)])),
+    inactiveThumbImage: dart.nullable(image_provider.ImageProvider$(core.Object)),
+    onInactiveThumbImageError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)])),
+    activeTrackColor: ui.Color,
+    inactiveTrackColor: ui.Color,
+    configuration: image_provider.ImageConfiguration,
+    textDirection: ui.TextDirection,
+    dragStartBehavior: recognizer.DragStartBehavior,
+    surfaceColor: ui.Color,
+    [_trackInnerLength]: core.double,
+    [_drag]: monodrag.HorizontalDragGestureRecognizer
+  }));
+  dart.setSetterSignature($switch$._RenderSwitch, () => ({
+    __proto__: dart.getSetters($switch$._RenderSwitch.__proto__),
+    activeThumbImage: dart.nullable(image_provider.ImageProvider$(core.Object)),
+    onActiveThumbImageError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)])),
+    inactiveThumbImage: dart.nullable(image_provider.ImageProvider$(core.Object)),
+    onInactiveThumbImageError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)])),
+    activeTrackColor: ui.Color,
+    inactiveTrackColor: ui.Color,
+    configuration: image_provider.ImageConfiguration,
+    textDirection: ui.TextDirection,
+    dragStartBehavior: recognizer.DragStartBehavior,
+    surfaceColor: ui.Color,
+    [_drag]: monodrag.HorizontalDragGestureRecognizer
+  }));
+  dart.setLibraryUri($switch$._RenderSwitch, I[1]);
+  dart.setFieldSignature($switch$._RenderSwitch, () => ({
+    __proto__: dart.getFields($switch$._RenderSwitch.__proto__),
+    [_activeThumbImage]: dart.fieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    [_onActiveThumbImageError]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    [_inactiveThumbImage]: dart.fieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    [_onInactiveThumbImageError]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    [_activeTrackColor]: dart.fieldType(ui.Color),
+    [_inactiveTrackColor]: dart.fieldType(ui.Color),
+    [_configuration]: dart.fieldType(image_provider.ImageConfiguration),
+    [_textDirection]: dart.fieldType(ui.TextDirection),
+    [_surfaceColor]: dart.fieldType(ui.Color),
+    state: dart.fieldType($switch$._SwitchState),
+    [___RenderSwitch__drag]: dart.fieldType(dart.nullable(monodrag.HorizontalDragGestureRecognizer)),
+    [___RenderSwitch__drag_isSet]: dart.fieldType(core.bool),
+    [_needsPositionAnimation]: dart.fieldType(core.bool),
+    [_cachedThumbColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_cachedThumbImage]: dart.fieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    [_cachedThumbErrorListener]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    [_cachedThumbPainter]: dart.fieldType(dart.nullable(decoration.BoxPainter)),
+    [_isPainting]: dart.fieldType(core.bool)
+  }));
+  dart.defineLazy($switch$, {
+    /*$switch$._kTrackHeight*/get _kTrackHeight() {
+      return 14;
+    },
+    /*$switch$._kTrackWidth*/get _kTrackWidth() {
+      return 33;
+    },
+    /*$switch$._kTrackRadius*/get _kTrackRadius() {
+      return 7;
+    },
+    /*$switch$._kThumbRadius*/get _kThumbRadius() {
+      return 10;
+    },
+    /*$switch$._kSwitchMinSize*/get _kSwitchMinSize() {
+      return 40;
+    },
+    /*$switch$._kSwitchWidth*/get _kSwitchWidth() {
+      return 59;
+    },
+    /*$switch$._kSwitchHeight*/get _kSwitchHeight() {
+      return 48;
+    },
+    /*$switch$._kSwitchHeightCollapsed*/get _kSwitchHeightCollapsed() {
+      return 40;
     }
-  };
-  (characters.Characters[dart.mixinNew] = function() {
-  }).prototype = characters.Characters.prototype;
-  characters.Characters.prototype[dart.isIterable] = true;
-  dart.addTypeTests(characters.Characters);
-  dart.addTypeCaches(characters.Characters);
-  characters.Characters[dart.implements] = () => [core.Iterable$(core.String)];
-  dart.setLibraryUri(characters.Characters, I[2]);
-  characters.CharacterRange = class CharacterRange extends core.Object {};
-  (characters.CharacterRange[dart.mixinNew] = function() {
-  }).prototype = characters.CharacterRange.prototype;
-  dart.addTypeTests(characters.CharacterRange);
-  dart.addTypeCaches(characters.CharacterRange);
-  characters.CharacterRange[dart.implements] = () => [core.Iterator$(core.String)];
-  dart.setLibraryUri(characters.CharacterRange, I[2]);
-  dart.trackLibraries("packages/characters/src/characters_impl.dart", {
-    "package:characters/src/characters_impl.dart": characters_impl,
-    "package:characters/src/characters.dart": characters
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/switch.dart", {
+    "package:flutter/src/material/switch.dart": $switch$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["characters_impl.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAkBe;;;;;;;AAKkB,YAAqB,6CAAE,aAAQ,GAAG;IAAE;;AAI/D,YAAqB,6CAAE,aAAQ,AAAO,oBAAQ,AAAO;IAAO;;AAG5D,YAAqB,6CAAE,aAAQ,GAAG,AAAO;IAAO;;AAGhC,YAAA,AAAO,yBACrB,WAAM,wBAAW,iBACjB,AAAO,wBACL,GAAG,AAAkD,uBAA3C,aAAQ,GAAG,AAAO;IAAqC;;AAGtD,YAAA,AAAO,yBACpB,WAAM,wBAAW,iBACjB,AAAO,wBACL,AAAsD,2BAA3C,aAAQ,AAAO,oBAAQ;IAAgC;;AAIxE,UAAI,AAAO,uBAAS,AAA8B,WAAxB,wBAAW;AACjC,qBACA,AAAkD,uBAA3C,aAAQ,GAAG,AAAO;AAC7B,UAAI,AAAS,QAAD,KAAI,AAAO,oBAAQ,MAAO;AACD,MAArC,WAAM,wBAAW;IACnB;;AAGoB,YAAA,AAAO;IAAO;;AAGX,YAAA,AAAO;IAAU;;AAItC,UAAI,AAAO,uBAAS,MAAO;AACvB,gBAAM,uBAAO,aAAQ,GAAG,AAAO;AAC/B,mBAAS;AACb,aAAuB,aAAhB,AAAI,GAAD,iBAAgB;AAChB,QAAR,SAAA,AAAM,MAAA;;AAER,YAAO,OAAM;IACf;;AAIoB,iBAAO;AACzB,UAAS,qBAAL,IAAI;AACN,cAAO,AAAK,KAAD,UAAQ,QAAC,KAAM,CAAC;;AAE7B,YAAO;IACT;;UAGoB;AAClB,UAAI,AAAU,SAAD,KAAI,IAAI,MAAO;AAC5B,YAAO,iCAAgB,aAAQ,GAAG,AAAO,oBAAQ,SAAS,EAAE;IAC9D;;UAG+C;UACvB;;AAClB,mBAAS,AAAO;AAChB,gBAAM,2BAAW,aAAQ,MAAM,EAAE;AACjC,iBAAO;AACX,aAAgC,aAAxB,OAAO,AAAI,GAAD,iBAAiB;AAC7B,sBAAU,AAAO,wBAAU,IAAI,EAAE,MAAM;AAC3C,sBAAI,AAAI,IAAA,CAAC,OAAO,IAAG,MAAO,QAAO;AACpB,QAAb,SAAS,IAAI;;AAEf,UAAI,AAAO,MAAD,UAAU,MAAO,AAAM,OAAA;AACH,MAA9B,WAAM,wBAAW;IACnB;;UAGqB;AACwB,MAAhC,iCAAiB,KAAK,EAAE;AAC/B,kBAAQ;AACZ,UAAI,AAAO;AACL,qBAAS,uBAAO,aAAQ,GAAG,AAAO;AAClC,oBAAQ;AACR,kBAAM;AACV,eAAkC,aAA1B,MAAM,AAAO,MAAD,iBAAiB;AACnC,cAAI,AAAM,KAAD,KAAI,KAAK,EAAE,MAAO,AAAO,yBAAU,KAAK,EAAE,GAAG;AAC/C,UAAP,QAAA,AAAK,KAAA;AACM,UAAX,QAAQ,GAAG;;;AAG0C,MAAzD,WAAiB,wBAAM,KAAK,EAAE,MAAM,SAAS,MAAM,KAAK;IAC1D;aAGsB;AACpB,UAAU,OAAN,KAAK;AACP,YAAI,AAAM,KAAD,YAAU,MAAO;AACtB,mBAAO,AAAgD,uBAAzC,KAAK,EAAE,GAAG,AAAM,KAAD;AACjC,YAAI,AAAK,IAAD,KAAI,AAAM,KAAD,SAAS,MAAO;AAEjC,cAAiD,cAA1C,yBAAS,aAAQ,KAAK,EAAE,GAAG,AAAO,wBAAW;;AAEtD,YAAO;IACT;;UAG2B;AACrB,mBAAS,AAAO;AAChB,wBAAc,AAAW,UAAD;AAC5B,UAAI,AAAY,WAAD,YAAU,MAAO;AAChC,YAAO,AAAO,AAAwB,0BAAb,WAAW,eAChC,kCAA0B,aAAQ,GAAG,MAAM,EAAE,AAAY,WAAD;IAC9D;;UAGyB;AACnB,mBAAS,AAAO;AAChB,wBAAc,AAAW,UAAD;AAC5B,UAAI,AAAY,WAAD,YAAU,MAAO;AAC5B,wBAAc,AAAY,WAAD;AACzB,kBAAQ,AAAO,AAAO,qBAAE,WAAW;AACvC,YAAO,AAAM,AAC6B,MAD9B,IAAI,KACZ,AAAO,yBAAW,WAAW,EAAE,KAAK,eACpC,kCAA0B,aAAQ,GAAG,MAAM,EAAE,KAAK;IACxD;eAGiC,SAAoB;;UAApB;UAAoB;AACjD,kBAAA,AAAU,2BAAW,OAAO,EAAE,WAAW,gBAA/B,OAAkC;YAAlC,eAA4C;IAAI;iBAG3B,SAAoB;;UAApB;UAAoB;AACnD,kBAAA,AAAU,6BAAa,OAAO,EAAE,WAAW,gBAAjC,OAAoC;YAApC,eAA8C;IAAI;UAG1B,SAAc;UAAd;UAAc;AAA1B,2EAA0B;AAClD,YAAI,AAAS,QAAD,KAAI,KAAK,AAAO;AAC1B,gBAAM;AACN;;AAEE,4BAAgB,AAAQ,OAAD;AACvB,oBAAQ;AACZ,YAAI,AAAc,aAAD;AACf;AACM,wBAAQ,yBAAS,aAAQ,aAAa,EAAE,KAAK,EAAE,AAAO;AAC1D,gBAAU,aAAN,KAAK,IAAG,GAAG;AACf,kBAAM,yCAAiB,AAAO,wBAAU,KAAK,EAAE,KAAK;AAChB,YAApC,QAAc,aAAN,KAAK,IAAG,AAAc,aAAD;AACnB,YAAV,WAAQ,aAAR,QAAQ;mBACD,AAAS,QAAD,KAAI;;AAGjB,uBAAS,uBAAO,aAAQ,GAAG,AAAO;AACtC;AACM,wBAAQ,AAAO,MAAD;AAClB,gBAAU,aAAN,KAAK,IAAG,GAAG;AACf,kBAAM,yCAAiB,AAAO,wBAAU,KAAK,EAAE,KAAK;AACvC,YAAb,QAAQ,KAAK;AACH,YAAV,WAAQ,aAAR,QAAQ;mBACD,AAAS,QAAD,KAAI;AACrB,cAAI,AAAM,KAAD,KAAI,AAAO,oBAAQ;;AAE9B,cAAM,yCAAiB,AAAO,wBAAU,KAAK;MAC/C,cA5BoD;IA4BpD;;UAG4B;AACxB,YAAsD,cAAtD,yBAAS,aAAQ,AAAW,UAAD,SAAS,GAAG,AAAO,wBAAW;IAAC;mBAUzC,OAAW,QAAgB;UAA3B;UAAW;AAC9B,UAAI,AAAM,KAAD,KAAI,KAAK,AAAO,MAAD,KAAI,AAAO,oBAAQ,MAAO,OAAM;AACS,MAAjE,AAAO,MAAD,WAAN,SAAW,uBAAO,aAAQ,MAAM,EAAE,AAAO,2BAAlC;AACP;AACM,wBAAY,AAAO,MAAD;AACtB,YAAc,aAAV,SAAS,IAAG,GAAG;AACD,QAAlB,SAAS,SAAS;eACH,CAAN,QAAF,aAAE,KAAK,IAAP,KAAU;AACnB,YAAO,OAAM;IACf;;UAGoB;AACyB,MAAhC,iCAAiB,KAAK,EAAE;AACnC,YAAO,aAAM,KAAK;IACpB;;UAEqB;AACf,kBAAQ,mBAAa,KAAK,EAAE,GAAG;AACnC,UAAI,AAAM,KAAD,KAAI,AAAO,oBAAQ,MAAO;AACnC,YAAO,0CAAiB,AAAO,wBAAU,KAAK;IAChD;;UAGoB;AACyB,MAAhC,iCAAiB,KAAK,EAAE;AACnC,YAAO,aAAM,KAAK;IACpB;;UAEqB;AACf,gBAAM,mBAAa,KAAK,EAAE,GAAG;AACjC,UAAI,AAAI,GAAD,KAAI,AAAO,oBAAQ,MAAO;AACjC,YAAO,0CAAiB,AAAO,wBAAU,GAAG,GAAG;IACjD;aAGwB,OAAa;UAAb;AACqB,MAAhC,iCAAiB,KAAK,EAAE;AACnC,UAAI,AAAI,GAAD,UAAU,MAAO,aAAM,KAAK;AACnC,UAAQ,aAAJ,GAAG,iBAAG,KAAK,GAAE,AAA+C,WAA9B,0BAAM,GAAG,EAAE,KAAK,EAAE,MAAM;AAC1D,UAAI,AAAI,GAAD,IAAI,KAAK,EAAE,MAAO;AACzB,UAAI,AAAM,KAAD,KAAI,GAAG,MAAO,aAAM,GAAG;AAChC,UAAI,AAAO,uBAAS,MAAO;AACvB,mBAAS,uBAAO,aAAQ,GAAG,AAAO;AAClC,uBAAa,mBAAa,KAAK,EAAE,GAAG,MAAM;AAC9C,UAAI,AAAW,UAAD,KAAI,AAAO,oBAAQ,MAAO;AACpC,qBAAW,mBAAiB,aAAJ,GAAG,iBAAG,KAAK,GAAE,KAAK,EAAE,MAAM;AACtD,YAAO,0CAAiB,AAAO,wBAAU,UAAU,EAAE,QAAQ;IAC/D;;UAG2B;AACrB,mBAAS,uBAAO,aAAQ,GAAG,AAAO;AAClC,kBAAQ;AAEZ,aAAgB,aAAT,QAAQ,IAAG;AACN,QAAV,WAAQ,aAAR,QAAQ;AACkB,QAA1B,QAAQ,AAAO,MAAD;AACd,YAAU,aAAN,KAAK,IAAG,GAAG,AAA8B,WAAxB,wBAAW;;AAE9B,gBAAM,AAAO,MAAD;AAChB,UAAQ,aAAJ,GAAG,IAAG,GAAG,AAA8B,WAAxB,wBAAW;AAC9B,UAAI,AAAM,KAAD,KAAI,KAAK,AAAI,GAAD,KAAI,AAAO,oBAAQ,MAAO;AAC/C,YAAO,0CAAiB,AAAO,wBAAU,KAAK,EAAE,GAAG;IACrD;;UAG2C;AACzC,UAAI,AAAO;AACL,2BAAe,AAAO;AACtB,qBAAS,uBAAO,aAAQ,GAAG,YAAY;AACvC,oBAAQ;AACR,yBAAa;AACjB,eAAoC,aAA5B,QAAQ,AAAO,MAAD,iBAAiB;AACrC,yBAAK,AAAI,IAAA,CAAC,AAAO,wBAAU,UAAU,EAAE,KAAK;AAC1C,gBAAI,AAAW,UAAD,KAAI,GAAG,MAAO;AAC5B,gBAAI,AAAW,UAAD,KAAI,YAAY,EAAE,MAAO;AACvC,kBAAO,0CAAiB,AAAO,wBAAU,UAAU;;AAEnC,UAAlB,aAAa,KAAK;;;AAGtB,YAAO;IACT;;UAG2C;AACzC,UAAI,AAAO;AACL,qBAAS,uBAAO,aAAQ,GAAG,AAAO;AAClC,oBAAQ;AACR,uBAAW;AACf,eAAoC,aAA5B,QAAQ,AAAO,MAAD,iBAAiB;AACrC,yBAAK,AAAI,IAAA,CAAC,AAAO,wBAAU,QAAQ,EAAE,KAAK;AACxC,gBAAI,AAAS,QAAD,KAAI,GAAG,MAAO;AAC1B,kBAAO,0CAAiB,AAAO,wBAAU,GAAG,QAAQ;;AAEtC,UAAhB,WAAW,KAAK;;;AAGpB,YAAO;IACT;;UAGuC;AACjC,mBAAe,AAAY,cAAN,IAAI;AAC7B,UAAI,AAAO,MAAD,YAAU,MAAO;AAC3B,YAAO,0CAAuB,AAAY,cAAN,IAAI;IAC1C;;UAGiC;AAC7B,sDAAwB,aAAP,4BAAS,AAAW,UAAD;IAAQ;;UAGxB;AACqB,MAAhC,iCAAiB,KAAK,EAAE;AACnC,UAAI,AAAM,KAAD,KAAI,GAAG,MAAO;AACvB,UAAI,AAAO;AACL,qBAAS,2BAAW,aAAQ,AAAO,oBAAQ;AAC3C,uBAAW,AAAO;AACtB,eAAa,aAAN,KAAK,IAAG;AACT,sBAAQ,AAAO,MAAD;AAClB,cAAU,aAAN,KAAK,KAAI;AACK,YAAhB,WAAW,KAAK;AACT,YAAP,QAAK,aAAL,KAAK;;AAEL,kBAAO;;;AAGX,YAAa,aAAT,QAAQ,IAAG,GAAG,MAAO,0CAAiB,AAAO,wBAAU,GAAG,QAAQ;;AAExE,YAAO;IACT;;UAG+C;AAC7C,UAAI,AAAO;AACL,qBAAS,2BAAW,aAAQ,AAAO,oBAAQ;AAC3C,oBAAQ;AACR,kBAAM,AAAO;AACjB,eAAoC,aAA5B,QAAQ,AAAO,MAAD,iBAAiB;AACrC,yBAAK,AAAI,IAAA,CAAC,AAAO,wBAAU,KAAK,EAAE,GAAG;AACnC,gBAAI,AAAI,GAAD,KAAI,AAAO,oBAAQ,MAAO;AACjC,kBAAO,AAAI,IAAD,KAAI,IAAI,0CAAS,yCAAiB,AAAO,wBAAU,GAAG,GAAG;;AAE1D,UAAX,MAAM,KAAK;;;AAGf,YAAO;IACT;;UAGwB;AACqB,MAAhC,iCAAiB,KAAK,EAAE;AACnC,UAAI,AAAM,KAAD,KAAI,GAAG,MAAO;AACvB,UAAI,AAAO;AACL,qBAAS,2BAAW,aAAQ,AAAO,oBAAQ;AAC3C,yBAAa,AAAO;AACxB,eAAa,aAAN,KAAK,IAAG;AACT,sBAAQ,AAAO,MAAD;AAClB,cAAU,aAAN,KAAK,KAAI;AACO,YAAlB,aAAa,KAAK;AACX,YAAP,QAAK,aAAL,KAAK;;AAEL,kBAAO;;;AAGX,YAAe,aAAX,UAAU,IAAG;AACf,gBAAO,0CAAiB,AAAO,wBAAU,UAAU;;;AAGvD,YAAO;IACT;;UAG+C;AAC7C,UAAI,AAAO;AACL,qBAAS,2BAAW,aAAQ,AAAO,oBAAQ;AAC3C,oBAAQ;AACR,oBAAQ,AAAO;AACnB,eAAoC,aAA5B,QAAQ,AAAO,MAAD,iBAAiB;AACrC,yBAAK,AAAI,IAAA,CAAC,AAAO,wBAAU,KAAK,EAAE,KAAK;AACrC,gBAAI,AAAM,KAAD,KAAI,AAAO,oBAAQ,MAAO;AACnC,kBAAO,0CAAiB,AAAO,wBAAU,KAAK;;AAEnC,UAAb,QAAQ,KAAK;;;AAGjB,YAAO;IACT;;AAG4B,sDAAiB,AAAO;IAAc;;AAGtC,sDAAiB,AAAO;IAAc;;UAG1C;AACpB,YAAM,AAAc,0BAApB,KAAK,KAAkB,AAAO,eAAG,AAAM,KAAD;IAAO;;AAG7B,YAAO,eAAP;IAAe;;AAGd;IAAM;;UAGU;AAC/B,kBAAQ;AACZ,oBAAI,AAAM,KAAD,iBAAiB,UAAU,IAAG,MAAO,MAAK;AACnD,YAAO;IACT;;UAGoC;AAC9B,kBAAQ;AACZ,oBAAI,AAAM,KAAD,gBAAgB,UAAU,IAAG,MAAO,MAAK;AAClD,YAAO;IACT;;;QAhZ4B;;AAAtB;;EAA6B;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MALL,uCAAM;;;;;;;;;;;;;;;;;;;;cA+aG,QAAY,YACzC;;UAD6B;UAAY;AAGiB,MADvD,gCACP,UAAU,EAAE,QAAQ,EAAE,AAAO,MAAD,SAAS,cAAc;AACvD,YAAO,mDAAa,MAAM,EAAE,UAAU,GAAW,KAAT,QAAQ,EAAR,aAAY,UAAU;IAChE;YAOe,OAAW;UAAX;UAAW;AACV,MAAd,gBAAS,KAAK;AACJ,MAAV,cAAO,GAAG;AACU,MAApB,sBAAgB;IAClB;;AAOE,YAAO,wBAAO,gBAAS,aAAM,AAAQ;IACvC;;AAOE,YAAO,4BAAW,gBAAS,eAAQ;IACrC;;;AAGsB;YAAc,cAAd,sBAAkB,AAAQ,2BAAU,eAAQ;IAAK;;UAGpD;AAAe,+BAAY,KAAK,EAAE;IAAK;kBAErC,OAAW;UAAX;UAAW;AAC9B,UAAU,aAAN,KAAK,IAAG;AACN;AACA,oBAAQ;AACZ,eAAa,aAAN,KAAK,IAAG,AAAQ;AACjB,qBAAO,AAAQ,4BAAW,KAAK;AAC/B;AACA,0BAAkB,aAAN,KAAK,IAAG;AACxB,cAAkB,CAAd,AAAK,IAAD,GAAG,WAAU;AACC,YAApB,WAAW,UAAI,IAAI;gBACd,KAAI,AAAU,SAAD,GAAG,AAAQ;AACzB,2BAAW,AAAQ,4BAAW,SAAS;AAC3C,gBAAsB,CAAlB,AAAS,QAAD,GAAG,WAAU;AACT,cAAd,YAAA,AAAU,SAAD,GAAI;AACkB,cAA/B,WAAW,WAAK,IAAI,EAAE,QAAQ;;;AAGL,UAA7B,QAAQ,WAAK,KAAK,EAAE,QAAQ;AAC5B,cAAyB,CAAf,aAAN,KAAK,WAAmB,KAAa,CAAN,QAAF,aAAE,KAAK,IAAP,OAAW;AACpB,YAAtB,YAAM,QAAQ,EAAE,KAAK;AACrB,kBAAO;;AAEQ,UAAjB,QAAQ,SAAS;;AAEY,QAA/B,YAAM,QAAQ,EAAE,AAAQ;AACxB,cAAO,AAAM,AAAK,MAAN,KAAI,KAAK,AAAM,KAAD;YACrB,KAAI,AAAM,KAAD,KAAI;AACG,QAArB,YAAM,QAAQ,EAAE;AAChB,cAAO;;AAEwC,QAA/C,WAAiB,0BAAM,KAAK,EAAE,GAAG,MAAM;;IAE3C;uBAE6B,eAAmB,OAAW;UAA9B;UAAmB;UAAW;AACrD,mBAAS,yBAAS,gBAAS,aAAa,EAAE,KAAK,EAAE,GAAG;AACxD,UAAW,aAAP,MAAM,KAAI;AACgC,QAA5C,YAAM,MAAM,EAAS,aAAP,MAAM,IAAG,AAAc,aAAD;AACpC,cAAO;;AAET,YAAO;IACT;;UAGmB;AAAe,iCAAc,KAAK,EAAE;IAAO;oBAEvC,OAAW;UAAX;UAAW;AACW,MAAhC,iCAAiB,KAAK,EAAE;AAC/B,mBAAS;AACT,kBAAQ;AACZ,aAAa,aAAN,KAAK,IAAG;AACT,wBAAY,AAAO,MAAD;AACtB,YAAc,aAAV,SAAS,KAAI;AACE,UAAjB,QAAQ,SAAS;;AAEjB;;AAEK,QAAP,QAAK,aAAL,KAAK;;AAEa,MAApB,YAAM,KAAK,EAAE,MAAM;AACnB,YAAO,AAAM,MAAD,KAAI;IAClB;2BAEiC,eAAmB,OAAW;UAA9B;UAAmB;UAAW;AACzD,mBAAS,6BAAa,gBAAS,aAAa,EAAE,KAAK,EAAE,GAAG;AAC5D,UAAW,aAAP,MAAM,KAAI;AACgC,QAA5C,YAAM,MAAM,EAAS,aAAP,MAAM,IAAG,AAAc,aAAD;AACpC,cAAO;;AAET,YAAO;IACT;;AAGoC,YAAA,AAAQ,AAAU,uCAAS,eAAQ;IAAK;;AAGzD,gCAAM;IAAQ;;AAI/B,YAA4B,6CAAE,gBAAS,eAAQ;IACjD;;AAImB,MAAjB,YAAM,aAAM;IACd;;AAIuB,MAArB,YAAM,eAAQ;IAChB;;UAGoB;AACyB,MAAhC,iCAAiB,KAAK,EAAE;AACnC,UAAI,AAAO,iBAAG,aAAM,MAAO,AAAM,MAAD,KAAI;AAChC,mBAAS,uBAAO,gBAAS,eAAQ;AACrC,aAAa,aAAN,KAAK,IAAG;AACT,wBAAY,AAAO,MAAD;AACtB,YAAc,aAAV,SAAS,KAAI;AACG,UAAlB,gBAAS,SAAS;AACE,UAApB,sBAAgB;AACT,UAAP,QAAK,aAAL,KAAK;;AAEL,gBAAO;;;AAGX,YAAO;IACT;;UAGuB;AACrB,UAAI,AAAO,iBAAG,aAAM,MAAO,AAAO,OAAD;AAC7B,yBAAe,AAAO,MAAD;AACrB,kBAAQ,yBAAS,gBAAS,YAAY,EAAE,eAAQ;AACpD,UAAU,aAAN,KAAK,KAAI;AAC6B,QAAxC,YAAY,aAAN,KAAK,IAAG,AAAa,YAAD,SAAS;AACnC,cAAO;;AAET,YAAO;IACT;;UAG0B;AACxB,UAAI,AAAO,iBAAG,aAAM,MAAO,AAAO,OAAD;AAC7B,yBAAe,AAAO,MAAD;AACrB,kBAAQ,yBAAS,gBAAS,YAAY,EAAE,eAAQ;AACpD,UAAU,aAAN,KAAK,KAAI;AACO,QAAlB,YAAM,KAAK,EAAE;AACb,cAAO;;AAEQ,MAAjB,YAAM,aAAM;AACZ,YAAO;IACT;;UAGqC;AACnC,UAAI,AAAO,iBAAG,aAAM;AAChB,mBAAS,uBAAO,gBAAS,eAAQ;AACjC,mBAAS;AACT,iBAAO;AACX,aAAmC,aAA3B,OAAO,AAAO,MAAD,iBAAiB;AACpC,uBAAK,AAAI,IAAA,CAAC,AAAQ,2BAAU,MAAM,EAAE,IAAI;AACtC;;AAEW,QAAb,SAAS,IAAI;;AAEI,MAAnB,YAAM,MAAM,EAAE;IAChB;;UAGmB;AAC0B,MAAhC,iCAAiB,KAAK,EAAE;AAC/B,mBAAS,2BAAW,gBAAS,aAAM;AACvC,aAAa,aAAN,KAAK,IAAG;AACT,wBAAY,AAAO,MAAD;AACtB,YAAc,aAAV,SAAS,KAAI;AACC,UAAhB,cAAO,SAAS;AACI,UAApB,sBAAgB;AACT,UAAP,QAAK,aAAL,KAAK;;AAEL,gBAAO;;;AAGX,YAAO;IACT;;UAG2B;AACzB,UAAI,AAAO,iBAAG,aAAM,MAAO,AAAO,OAAD;AAC7B,yBAAe,AAAO,MAAD;AACrB,kBAAQ,6BAAa,gBAAS,YAAY,EAAE,eAAQ;AACxD,UAAU,aAAN,KAAK,KAAI;AACS,QAApB,YAAM,eAAQ,KAAK;AACnB,cAAO;;AAET,YAAO;IACT;;UAG8B;AAC5B,UAAI,AAAO,iBAAG,aAAM,MAAO,AAAO,OAAD;AAC7B,yBAAe,AAAO,MAAD;AACrB,kBAAQ,6BAAa,gBAAS,YAAY,EAAE,eAAQ;AACxD,UAAU,aAAN,KAAK,KAAI;AAC+B,QAA1C,YAAM,eAAc,aAAN,KAAK,IAAG,AAAa,YAAD;AAClC,cAAO;;AAEY,MAArB,YAAM,eAAQ;AACd,YAAO;IACT;;UAGyC;AACvC,UAAI,AAAO,iBAAG,aAAM;AAChB,mBAAS,2BAAW,gBAAS,aAAM;AACnC,mBAAS;AACT,iBAAO;AACX,aAAmC,aAA3B,OAAO,AAAO,MAAD,iBAAiB;AACpC,uBAAK,AAAI,IAAA,CAAC,AAAQ,2BAAU,IAAI,EAAE,MAAM;AACtC;;AAEW,QAAb,SAAS,IAAI;;AAEM,MAArB,YAAM,eAAQ,MAAM;IACtB;;UAGqB;AAAe,+BAAY,KAAK,EAAE;IAAO;;UAGrC;AACnB,yBAAe,AAAO,MAAD;AACrB,kBAAQ,yBAAS,gBAAS,YAAY,EAAE,aAAM,AAAQ;AAC1D,UAAU,aAAN,KAAK,KAAI;AAC+B,QAA1C,YAAM,eAAc,aAAN,KAAK,IAAG,AAAa,YAAD;AAClC,cAAO;;AAET,YAAO;IACT;;UAGiD;AAC3C,mBAAS;AACT,mBAAS;AACT,iBAAO;AACX,aAAmC,aAA3B,OAAO,AAAO,MAAD,iBAAiB;AACpC,uBAAK,AAAI,IAAA,CAAC,AAAQ,2BAAU,MAAM,EAAE,IAAI;AACtC;;AAEW,QAAb,SAAS,IAAI;;AAEM,MAArB,YAAM,eAAQ,MAAM;IACtB;;AAI+B,MAA7B,YAAM,eAAQ,AAAQ;IACxB;;UAGqB;AAAe,iCAAc,KAAK,EAAE;IAAK;;UAGjC;AACvB,yBAAe,AAAO,MAAD;AACrB,kBAAQ,6BAAa,gBAAS,YAAY,EAAE,GAAG;AACnD,UAAU,aAAN,KAAK,KAAI;AACO,QAAlB,YAAM,KAAK,EAAE;AACb,cAAO;;AAET,YAAO;IACT;;UAGqD;AAC/C,mBAAS;AACT,mBAAS;AACT,iBAAO;AACX,aAAmC,aAA3B,OAAO,AAAO,MAAD,iBAAiB;AACpC,uBAAK,AAAI,IAAA,CAAC,AAAQ,2BAAU,IAAI,EAAE,MAAM;AACnB,UAAnB,YAAM,MAAM,EAAE;AACd;;AAEW,QAAb,SAAS,IAAI;;AAED,MAAd,YAAM,GAAG;IACX;;UAGgC;AAC9B,YAAO,0BAAmB,AAAO,MAAD,SAAS;IAC3C;;AAIgB,MAAd,YAAM,GAAG;IACX;;UAG4B;AAC1B,YAAO,wBAAiB,AAAO,MAAD,SAAS;IACzC;;AAGoB,YAAA,AAAO,kBAAG;IAAI;;AAGX,YAAA,AAAO,kBAAG;IAAI;;UAGP;AACxB,yBAAe,AAAO,MAAD;AACzB,YAAO,0BAAmB,YAAY,EAAE;IAC1C;yBAE+B,cAAkB;UAAlB;UAAkB;AAC3C,kBAAQ,6BAAa,gBAAS,YAAY,EAAE,GAAG;AACnD,UAAU,aAAN,KAAK,KAAI;AAC+B,QAA1C,YAAY,aAAN,KAAK,IAAG,AAAa,YAAD,SAAS,MAAM;AACzC,cAAO;;AAEO,MAAhB,YAAM,GAAG,MAAM;AACf,YAAO;IACT;;UAGgC;AAC9B,YAAO,wBAAiB,AAAO,MAAD,SAAS,eAAQ;IACjD;;UAG+B;AAC7B,YAAO,4BAAqB,AAAO,MAAD,SAAS,eAAQ;IACrD;;UAG0B;AACpB,yBAAe,AAAO,MAAD;AACzB,YAAO,wBAAiB,YAAY,EAAE;IACxC;uBAE6B,cAAkB;UAAlB;UAAkB;AACzC,kBAAQ,yBAAS,gBAAS,YAAY,EAAE,aAAM,AAAQ;AAC1D,UAAU,aAAN,KAAK,KAAI;AACW,QAAtB,YAAM,QAAQ,EAAE,KAAK;AACrB,cAAO;;AAEsB,MAA/B,YAAM,QAAQ,EAAE,AAAQ;AACxB,YAAO;IACT;iBAGwC,SAAoB;UAApB;UAAoB;AACtD,0BAAgB,AAAQ,OAAD;AACvB,8BAAoB,AAAY,WAAD;AAC5B;AACP,UAAI,AAAc,aAAD;AACmD,QAAlE,WAAW,AAAQ,8BAAa,eAAQ,eAAQ,iBAAiB;;AAE7D,oBAAQ,yBAAS,gBAAS,aAAa,EAAE,eAAQ;AACrD,YAAU,aAAN,KAAK,KAAI;AAEgD,UAD3D,WAAW,AAAQ,8BACf,KAAK,EAAQ,aAAN,KAAK,IAAG,AAAc,aAAD,SAAS,iBAAiB;;AAE1D,gBAAO;;;AAGP,mBAAS,AAAS,AAAO,AAAiB,QAAzB,UAAU,AAAQ,qCAAS;AAChD,YAAO,mDAAa,QAAQ,EAAE,eAAQ,MAAM;IAC9C;eAGsC,SAAoB;;UAApB;UAAoB;AACpD,0BAAgB,AAAQ,OAAD;AACvB,8BAAoB,AAAY,WAAD;AACnC,UAAI,AAAc,aAAD;AACX,uBAAW,gCACX,gBAAS,eAAQ,aAAM,iBAAiB,EAAE,iBAAiB;AAC3D,qBAAS,AAAS,AAAO,QAAR,WAAW,AAAQ,AAAO,qCAAE;AACjD,cAAO,mDAAa,QAAQ,EAAE,eAAQ,MAAM;;AAE9C,UAAI,AAAO,iBAAG,aAAM,MAAO;AACvB,kBAAQ;AACR,mBAAS;AACC;AACd,aAAiE,aAAzD,SAAS,yBAAS,gBAAS,aAAa,EAAE,MAAM,EAAE,iBAAU;AAGtC,eAFpB,KAAP,MAAM,EAAC,aAAP,SAAW;QAAJ;AACJ,oBAAM,AAAQ,2BAAU,KAAK,EAAE,MAAM;AACrC,oBAAM,iBAAiB;;;AACG,QAA9B,SAAO,aAAP,MAAM,IAAI,AAAc,aAAD;AACT,QAAd,QAAQ,MAAM;;AAEhB,UAAI,AAAO,MAAD,UAAU,MAAO;AACW,MAAtC,AAAO,MAAD,OAAO,AAAQ,2BAAU,KAAK;AAChC,qBAAkB,cAAP,MAAM;AACjB,mBAAS,AAAS,AAAO,QAAR,WAAW,AAAQ,AAAO,qCAAE;AACjD,YAAO,mDAAa,QAAQ,EAAE,eAAQ,MAAM;IAC9C;;UAGuC;AACjC,8BAAoB,AAAY,WAAD;AAC/B,yBAAe,AAAQ,8BAAa,eAAQ,aAAM,iBAAiB;AACvE,YAAO,mDACH,YAAY,EAAE,eAAe,aAAP,iBAAS,AAAkB,iBAAD;IACtD;wBAMgD,QAAY,OAAW;UAAvB;UAAY;UAAW;AACf,MAAtD,QAAQ,sBAAc,MAAM,EAAE,GAAG,AAAO,MAAD,SAAS,KAAK;AACrD,UAAI,AAAI,GAAD,IAAI,KAAK;AACgC,QAA9C,MAAM,kBAAU,MAAM,EAAE,GAAG,AAAO,MAAD,SAAS,GAAG;;AAE/C,YAA4B,6CAAE,MAAM,EAAE,KAAK,EAAE,GAAG;IAClD;;AAGyB,sDAAW;IAAQ;;UAGjB;AACzB,YAAO,mBAAY,eAAQ,aAAM,AAAW,UAAD;IAC7C;;UAGyB;AACvB,YAAO,iBAAU,eAAQ,aAAM,AAAW,UAAD;IAC3C;;UAG6B;AAC3B,YAAO,mBAAY,aAAM,AAAQ,uBAAQ,AAAW,UAAD;IACrD;;UAG6B;AAC3B,YAAO,iBAAU,GAAG,eAAQ,AAAW,UAAD;IACxC;gBAEmB,OAAW,KAAY;UAAvB;UAAW;UAAY;AACpC,mBAAS,AAAO,MAAD;AACf,wBAAkB,aAAJ,GAAG,IAAG,MAAM;AAC9B,YAAO,AAAY,AACyB,YAD1B,iBAAI,KAAK,KACvB,AAAQ,4BAAW,MAAM,EAAE,WAAW,eACtC,kCAA0B,gBAAS,KAAK,EAAE,GAAG,EAAE,WAAW;IAChE;kBAEqB,OAAW,KAAY;UAAvB;UAAW;UAAY;AACtC,mBAAS,AAAO,MAAD;AACf,sBAAkB,aAAN,KAAK,IAAG,MAAM;AAC9B,YAAO,AAAU,AACqB,UADtB,iBAAI,GAAG,KACnB,AAAQ,4BAAW,MAAM,EAAE,KAAK,eAChC,kCAA0B,gBAAS,KAAK,EAAE,GAAG,EAAE,SAAS;IAC9D;;UAG2B;AACrB,yBAAe,AAAO,MAAD;AACrB,kBAAQ,6BAAa,gBAAS,YAAY,EAAE,GAAG;AACnD,UAAU,aAAN,KAAK,KAAI;AAC8B,QAAzC,YAAM,KAAK,EAAQ,aAAN,KAAK,IAAG,AAAa,YAAD;AACjC,cAAO;;AAET,YAAO;IACT;;UAGuB;AACjB,yBAAe,AAAO,MAAD;AACrB,kBAAQ,yBAAS,gBAAS,YAAY,EAAE,aAAM,AAAQ;AAC1D,UAAU,aAAN,KAAK,KAAI;AAC8B,QAAzC,YAAM,KAAK,EAAQ,aAAN,KAAK,IAAG,AAAa,YAAD;AACjC,cAAO;;AAET,YAAO;IACT;;AAGkC,sDAAiB,AAAQ,2BAAU;IAAM;;AAIvE,sDAAiB,AAAQ,2BAAU,GAAG;IAAQ;;AAGd,sDAAiB;IAAQ;;AAI3C,MAAhB,YAAM,GAAG;IACX;;AAI6B,MAA3B,YAAM,aAAM,AAAQ;IACtB;;AAG0B,YAAA,AAAQ,4BAAU;IAAK;;AAGpB,YAAA,AAAQ,AAAO,sCAAE;IAAI;;AAGvB,YAAA,AAAQ,4BAAU,GAAG;IAAO;;AAGzB;IAAM;UAGM,SAAc;UAAd;UAAc;AAA1B,+EAA0B;AACtD,YAAI,AAAS,QAAD,KAAI,KAAK,AAAO,iBAAG;AAC7B,gBAAM;AACN;;AAEE,4BAAgB,AAAQ,OAAD;AACvB,oBAAQ;AACZ,YAAI,AAAc,aAAD;AACf;AACM,wBAAQ,yBAAS,gBAAS,aAAa,EAAE,KAAK,EAAE;AACpD,gBAAU,aAAN,KAAK,IAAG,GAAG;AACf,kBAA2B,4CAAE,gBAAS,KAAK,EAAE,KAAK;AACd,YAApC,QAAc,aAAN,KAAK,IAAG,AAAc,aAAD;AACnB,YAAV,WAAQ,aAAR,QAAQ;mBACD,AAAS,QAAD,KAAI;AACrB,gBAA2B,4CAAE,gBAAS,KAAK,EAAE;;AAGzC,uBAAS,uBAAO,gBAAS,eAAQ;AACrC;AACM,wBAAQ,AAAO,MAAD;AAClB,gBAAU,aAAN,KAAK,IAAG,GAAG;AACf,kBAA2B,4CAAE,gBAAS,KAAK,EAAE,KAAK;AACrC,YAAb,QAAQ,KAAK;AACH,YAAV,WAAQ,aAAR,QAAQ;mBACD,AAAS,QAAD,KAAI;AACrB,cAAU,aAAN,KAAK,iBAAG;AACV,kBAA2B,4CAAE,gBAAS,KAAK,EAAE;;;MAGnD,cA9BwD;IA8BxD;;;QAvjB4B;uDAAiB,MAAM,EAAE,GAAG;EAAE;sDAS9B,SAAc,QAAa;QAA3B;QAAc;QAAa;IAX/C;IAWoB;IAAc;IAAa;;EAAK;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6DAijBhC,QAAY,OAAW,KAC1C,qBAA4B;;QADT;QAAY;QAAW;QAC1C;QAA4B;AACrC,QAAI,AAAM,KAAD,IAAI,GAAG;AACd,YAAO,AAAO,OAAD,gBAAc,KAAK,EAAE,KAAK,EAAE,gBAAgB;;AAEvD,iBAAS,0BAAa,AAAO,MAAD,aAAW,GAAG,KAAK;AAC/C,iBAAS,uBAAO,MAAM,EAAE,KAAK,EAAE,GAAG;AAClC,gBAAQ;AACR,sBAAc,gBAAgB;AAClC,WAAoC,aAA5B,QAAQ,AAAO,MAAD,iBAAiB;AAC4B,WAAjE,MAAM;MAAN;AAAQ,iBAAM,WAAW;AAAG,iBAAM,AAAO,MAAD,aAAW,KAAK,EAAE,KAAK;;;AAClD,MAAb,QAAQ,KAAK;AACoB,MAAjC,cAAc,mBAAmB;;AAE0B,UAA7D,MAAM;IAAN;AAAQ,gBAAM,gBAAgB;AAAG,gBAAM,AAAO,MAAD,aAAW,GAAG;;;AAC3D,UAAO,AAAO,OAAD;EACf;+CAMoB,QAAe,SAAa,OAAW;QAAvC;QAAe;QAAa;QAAW;AACrD,wBAAgB,AAAQ,OAAD;AAC3B,QAAI,AAAc,aAAD,KAAI,GAAG,MAAO,MAAK;AAEhC,kBAAc,aAAJ,GAAG,IAAG,aAAa;AACjC,QAAI,AAAQ,OAAD,gBAAG,KAAK,GAAE,MAAO,EAAC;AAGzB,eAAO,AAAO,AAAO,MAAR,UAAU,OAAO;AAClC,QAAI,AAAK,IAAD,IAAsB,CAAjB,AAAQ,OAAD,gBAAG,KAAK,KAAI;AAC1B,kBAAQ;AACZ,aAAa,aAAN,KAAK,IAAG,OAAO,IAA6C,CAAxC,QAAQ,AAAO,MAAD,WAAS,OAAO,EAAE,KAAK,MAAM;AACpE,YAAI,AAAM,KAAD,GAAG,OAAO,EAAE,MAAO,EAAC;AAC7B,sBAAI,kCAA0B,MAAM,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,gBACnD,kCACI,MAAM,EAAE,KAAK,EAAE,GAAG,EAAE,AAAM,KAAD,GAAG,aAAa;AAC/C,gBAAO,MAAK;;AAEG,QAAjB,QAAQ,AAAM,KAAD,GAAG;;AAElB,YAAO,EAAC;;AAEV,UAAO,4BAAW,MAAM,EAAE,OAAO,EAAE,KAAK,EAAE,GAAG;EAC/C;mDAEsB,QAAe,SAAa,OAAW;QAAvC;QAAe;QAAa;QAAW;AACvD,iBAAS,uBAAO,MAAM,EAAE,KAAK,EAAE,GAAG;AAClC,gBAAQ;AACZ,WAAoC,aAA5B,QAAQ,AAAO,MAAD,iBAAiB;AACjC,qBAAiB,aAAN,KAAK,IAAG,AAAQ,OAAD;AAC9B,UAAI,AAAS,QAAD,gBAAG,GAAG,GAAE;AACpB,UAAI,AAAO,MAAD,cAAY,OAAO,EAAE,KAAK,eAChC,kCAA0B,MAAM,EAAE,KAAK,EAAE,GAAG,EAAE,QAAQ;AACxD,cAAO,MAAK;;;AAGhB,UAAO,EAAC;EACV;uDAKwB,QAAe,SAAa,OAAW;QAAvC;QAAe;QAAa;QAAW;AACzD,wBAAgB,AAAQ,OAAD;AAC3B,QAAI,AAAc,aAAD,KAAI,GAAG,MAAO,IAAG;AAE9B,kBAAc,aAAJ,GAAG,IAAG,aAAa;AACjC,QAAI,AAAQ,OAAD,gBAAG,KAAK,GAAE,MAAO,EAAC;AAG7B,QAAI,AAAQ,AAAI,OAAL,GAAG,iBAAI,KAAK;AACjB,kBAAQ;AACZ,aAAO,AAAQ,OAAD,iBAAI,KAAK,KAC4B,CAA9C,QAAQ,AAAO,MAAD,eAAa,OAAO,EAAE,OAAO,MAAM;AACpD,YAAI,AAAM,KAAD,gBAAG,KAAK,GAAE,MAAO,EAAC;AAC3B,sBAAI,kCAA0B,MAAM,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,gBACnD,kCACI,MAAM,EAAE,KAAK,EAAE,GAAG,EAAE,AAAM,KAAD,GAAG,aAAa;AAC/C,gBAAO,MAAK;;AAEK,QAAnB,UAAU,AAAM,KAAD,GAAG;;AAEpB,YAAO,EAAC;;AAEV,UAAO,gCAAe,MAAM,EAAE,OAAO,EAAE,KAAK,EAAE,GAAG;EACnD;2DAE0B,QAAe,SAAa,OAAW;QAAvC;QAAe;QAAa;QAAW;AAC3D,iBAAS,2BAAW,MAAM,EAAE,GAAG,EAAE,KAAK;AACtC,gBAAQ;AACZ,WAAoC,aAA5B,QAAQ,AAAO,MAAD,iBAAiB;AACjC,uBAAmB,aAAN,KAAK,IAAG,AAAQ,OAAD;AAChC,UAAI,AAAW,UAAD,gBAAG,KAAK,GAAE;AACxB,UAAI,AAAO,MAAD,cAAY,OAAO,EAAE,UAAU,eACrC,kCAA0B,MAAM,EAAE,KAAK,EAAE,GAAG,EAAE,UAAU;AAC1D,cAAO,WAAU;;;AAGrB,UAAO,EAAC;EACV","file":"../../../../../../../../../D:/packages/characters/src/characters_impl.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["switch.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/material/switch.dart.lib.js"}');
   // Exports:
   return {
-    src__characters_impl: characters_impl,
-    src__characters: characters
+    src__material__switch: $switch$
   };
 }));
 
-//# sourceMappingURL=characters_impl.dart.lib.js.map
+//# sourceMappingURL=switch.dart.lib.js.map

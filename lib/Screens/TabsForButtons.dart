@@ -21,12 +21,6 @@ class _TabsForButtonsState extends State<TabsForButtons> {
     return DefaultTabController(
       length: tabs.length,
       child: Builder(builder: (BuildContext context) {
-        final TabController tabController = DefaultTabController.of(context);
-        tabController.addListener(() {
-          if (!tabController.indexIsChanging) {
-            return null;
-          }
-        });
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.brown,
@@ -109,7 +103,6 @@ class _TabsForButtonsState extends State<TabsForButtons> {
               ),
             ),
             Center(
-              // ignore: deprecated_member_use
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

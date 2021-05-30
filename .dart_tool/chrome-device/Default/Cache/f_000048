@@ -1,20 +1,24 @@
-define(['dart_sdk', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__widgets__safe_area_dart(dart_sdk, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__widgets__layout_builder_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
+  const _js_helper = dart_sdk._js_helper;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
-  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
   const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
   const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var safe_area = Object.create(dart.library);
+  var layout_builder = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+    SyncIterableOfDiagnosticsNode: () => (T.SyncIterableOfDiagnosticsNode = dart.constFn(_js_helper.SyncIterable$(diagnostics.DiagnosticsNode)))(),
+    IterableOfDiagnosticsNode: () => (T.IterableOfDiagnosticsNode = dart.constFn(core.Iterable$(diagnostics.DiagnosticsNode)))(),
+    VoidToIterableOfDiagnosticsNode: () => (T.VoidToIterableOfDiagnosticsNode = dart.constFn(dart.fnType(T.IterableOfDiagnosticsNode(), [])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -28,468 +32,388 @@ define(['dart_sdk', 'packages/flutter/src/painting/edge_insets.dart', 'packages/
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 0,
-        [EdgeInsets_right]: 0,
-        [EdgeInsets_top]: 0,
-        [EdgeInsets_left]: 0
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "context",
-        [_Location_column]: 9,
-        [_Location_line]: 112,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "removeLeft",
-        [_Location_column]: 9,
-        [_Location_line]: 113,
-        [_Location_file]: null
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "removeTop",
-        [_Location_column]: 9,
-        [_Location_line]: 114,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "removeRight",
-        [_Location_column]: 9,
-        [_Location_line]: 115,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "removeBottom",
-        [_Location_column]: 9,
-        [_Location_line]: 116,
-        [_Location_file]: null
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 117,
-        [_Location_file]: null
-      });
-    },
-    get C2() {
-      return C[2] = dart.constList([C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8], T._LocationL());
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[2] || CT.C2,
-        [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 111,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/safe_area.dart"
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 7,
-        [_Location_line]: 105,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 111,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[10] || CT.C10,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 104,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/safe_area.dart"
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "context",
-        [_Location_column]: 9,
-        [_Location_line]: 206,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "removeLeft",
-        [_Location_column]: 9,
-        [_Location_line]: 207,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "removeTop",
-        [_Location_column]: 9,
-        [_Location_line]: 208,
-        [_Location_file]: null
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "removeRight",
-        [_Location_column]: 9,
-        [_Location_line]: 209,
-        [_Location_file]: null
-      });
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "removeBottom",
-        [_Location_column]: 9,
-        [_Location_line]: 210,
-        [_Location_file]: null
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 211,
-        [_Location_file]: null
-      });
-    },
-    get C14() {
-      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20], T._LocationL());
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[14] || CT.C14,
-        [_Location_name]: null,
-        [_Location_column]: 26,
-        [_Location_line]: 205,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/safe_area.dart"
-      });
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 7,
-        [_Location_line]: 199,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "sliver",
-        [_Location_column]: 7,
-        [_Location_line]: 205,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24], T._LocationL());
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[22] || CT.C22,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 198,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/safe_area.dart"
-      });
-    }
-  }, false);
-  var C = Array(25).fill(void 0);
+  var C = [];
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/widgets/safe_area.dart",
-    "package:flutter/src/widgets/safe_area.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/widgets/layout_builder.dart",
+    "package:flutter/src/widgets/layout_builder.dart"
   ];
-  var left$ = dart.privateName(safe_area, "SafeArea.left");
-  var top$ = dart.privateName(safe_area, "SafeArea.top");
-  var right$ = dart.privateName(safe_area, "SafeArea.right");
-  var bottom$ = dart.privateName(safe_area, "SafeArea.bottom");
-  var minimum$ = dart.privateName(safe_area, "SafeArea.minimum");
-  var maintainBottomViewPadding$ = dart.privateName(safe_area, "SafeArea.maintainBottomViewPadding");
-  var child$ = dart.privateName(safe_area, "SafeArea.child");
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  safe_area.SafeArea = class SafeArea extends framework.StatelessWidget {
-    get left() {
-      return this[left$];
+  var builder$ = dart.privateName(layout_builder, "ConstrainedLayoutBuilder.builder");
+  const _is_ConstrainedLayoutBuilder_default = Symbol('_is_ConstrainedLayoutBuilder_default');
+  layout_builder.ConstrainedLayoutBuilder$ = dart.generic(ConstraintType => {
+    var _LayoutBuilderElementOfConstraintType = () => (_LayoutBuilderElementOfConstraintType = dart.constFn(layout_builder._LayoutBuilderElement$(ConstraintType)))();
+    class ConstrainedLayoutBuilder extends framework.RenderObjectWidget {
+      get builder() {
+        return this[builder$];
+      }
+      set builder(value) {
+        super.builder = value;
+      }
+      createElement() {
+        return new (_LayoutBuilderElementOfConstraintType()).new(this);
+      }
     }
-    set left(value) {
-      super.left = value;
+    (ConstrainedLayoutBuilder.new = function(opts) {
+      let key = opts && 'key' in opts ? opts.key : null;
+      let builder = opts && 'builder' in opts ? opts.builder : null;
+      if (builder == null) dart.nullFailed(I[0], 42, 19, "builder");
+      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+      this[builder$] = builder;
+      if (!(builder != null)) dart.assertFailed(null, I[0], 43, 15, "builder != null");
+      ConstrainedLayoutBuilder.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+      ;
+    }).prototype = ConstrainedLayoutBuilder.prototype;
+    dart.addTypeTests(ConstrainedLayoutBuilder);
+    ConstrainedLayoutBuilder.prototype[_is_ConstrainedLayoutBuilder_default] = true;
+    dart.addTypeCaches(ConstrainedLayoutBuilder);
+    dart.setMethodSignature(ConstrainedLayoutBuilder, () => ({
+      __proto__: dart.getMethods(ConstrainedLayoutBuilder.__proto__),
+      createElement: dart.fnType(layout_builder._LayoutBuilderElement$(ConstraintType), [])
+    }));
+    dart.setLibraryUri(ConstrainedLayoutBuilder, I[1]);
+    dart.setFieldSignature(ConstrainedLayoutBuilder, () => ({
+      __proto__: dart.getFields(ConstrainedLayoutBuilder.__proto__),
+      builder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, ConstraintType]))
+    }));
+    return ConstrainedLayoutBuilder;
+  });
+  layout_builder.ConstrainedLayoutBuilder = layout_builder.ConstrainedLayoutBuilder$();
+  dart.addTypeTests(layout_builder.ConstrainedLayoutBuilder, _is_ConstrainedLayoutBuilder_default);
+  var _child = dart.privateName(layout_builder, "_child");
+  var _layout = dart.privateName(layout_builder, "_layout");
+  const _is__LayoutBuilderElement_default = Symbol('_is__LayoutBuilderElement_default');
+  layout_builder._LayoutBuilderElement$ = dart.generic(ConstraintType => {
+    var ConstrainedLayoutBuilderOfConstraintType = () => (ConstrainedLayoutBuilderOfConstraintType = dart.constFn(layout_builder.ConstrainedLayoutBuilder$(ConstraintType)))();
+    var RenderConstrainedLayoutBuilderOfConstraintType$RenderObject = () => (RenderConstrainedLayoutBuilderOfConstraintType$RenderObject = dart.constFn(layout_builder.RenderConstrainedLayoutBuilder$(ConstraintType, object.RenderObject)))();
+    var BuildContextAndConstraintTypeToWidget = () => (BuildContextAndConstraintTypeToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, ConstraintType])))();
+    class _LayoutBuilderElement extends framework.RenderObjectElement {
+      get widget() {
+        return ConstrainedLayoutBuilderOfConstraintType().as(super.widget);
+      }
+      get renderObject() {
+        return RenderConstrainedLayoutBuilderOfConstraintType$RenderObject().as(super.renderObject);
+      }
+      visitChildren(visitor) {
+        if (visitor == null) dart.nullFailed(I[0], 69, 37, "visitor");
+        if (this[_child] != null) visitor(dart.nullCheck(this[_child]));
+      }
+      forgetChild(child) {
+        if (child == null) dart.nullFailed(I[0], 75, 28, "child");
+        if (!dart.equals(child, this[_child])) dart.assertFailed(null, I[0], 76, 12, "child == _child");
+        this[_child] = null;
+        super.forgetChild(child);
+      }
+      mount(parent, newSlot) {
+        super.mount(parent, newSlot);
+        this.renderObject.updateCallback(dart.bind(this, _layout));
+      }
+      update(newWidget) {
+        ConstrainedLayoutBuilderOfConstraintType().as(newWidget);
+        if (newWidget == null) dart.nullFailed(I[0], 88, 56, "newWidget");
+        if (!!dart.equals(this.widget, newWidget)) dart.assertFailed(null, I[0], 89, 12, "widget != newWidget");
+        super.update(newWidget);
+        if (!dart.equals(this.widget, newWidget)) dart.assertFailed(null, I[0], 91, 12, "widget == newWidget");
+        this.renderObject.updateCallback(dart.bind(this, _layout));
+        this.renderObject.markNeedsBuild();
+      }
+      performRebuild() {
+        this.renderObject.markNeedsBuild();
+        super.performRebuild();
+      }
+      unmount() {
+        this.renderObject.updateCallback(null);
+        super.unmount();
+      }
+      [_layout](constraints) {
+        ConstraintType.as(constraints);
+        if (constraints == null) dart.nullFailed(I[0], 117, 31, "constraints");
+        dart.nullCheck(this.owner).buildScope(this, dart.fn(() => {
+          let t1, t0;
+          let built = null;
+          try {
+            built = (t0 = this.widget, t1 = constraints, BuildContextAndConstraintTypeToWidget().as(t0.builder)(this, t1));
+            debug.debugWidgetBuilderValue(this.widget, built);
+          } catch (e$) {
+            let e = dart.getThrown(e$);
+            let stack = dart.stackTrace(e$);
+            if (core.Object.is(e)) {
+              built = framework.ErrorWidget.builder(layout_builder._debugReportException(new assertions.ErrorDescription.new("building " + dart.str(this.widget)), e, stack, {informationCollector: dart.fn(() => new (T.SyncIterableOfDiagnosticsNode()).new((function*() {
+                  yield new object.DiagnosticsDebugCreator.new(new framework.DebugCreator.new(this));
+                }).bind(this)), T.VoidToIterableOfDiagnosticsNode())}));
+            } else
+              throw e$;
+          }
+          try {
+            this[_child] = this.updateChild(this[_child], built, null);
+            if (!(this[_child] != null)) dart.assertFailed(null, I[0], 137, 16, "_child != null");
+          } catch (e$0) {
+            let e = dart.getThrown(e$0);
+            let stack = dart.stackTrace(e$0);
+            if (core.Object.is(e)) {
+              built = framework.ErrorWidget.builder(layout_builder._debugReportException(new assertions.ErrorDescription.new("building " + dart.str(this.widget)), e, stack, {informationCollector: dart.fn(() => new (T.SyncIterableOfDiagnosticsNode()).new((function*() {
+                  yield new object.DiagnosticsDebugCreator.new(new framework.DebugCreator.new(this));
+                }).bind(this)), T.VoidToIterableOfDiagnosticsNode())}));
+              this[_child] = this.updateChild(null, built, this.slot);
+            } else
+              throw e$0;
+          }
+        }, T.VoidTovoid()));
+      }
+      insertRenderObjectChild(child, slot) {
+        object.RenderObject.as(child);
+        if (child == null) dart.nullFailed(I[0], 155, 45, "child");
+        let renderObject = this.renderObject;
+        if (!(slot == null)) dart.assertFailed(null, I[0], 157, 12, "slot == null");
+        if (!dart.test(renderObject.debugValidateChild(child))) dart.assertFailed(null, I[0], 158, 12, "renderObject.debugValidateChild(child)");
+        renderObject.child = child;
+        if (!dart.equals(renderObject, this.renderObject)) dart.assertFailed(null, I[0], 160, 12, "renderObject == this.renderObject");
+      }
+      moveRenderObjectChild(child, oldSlot, newSlot) {
+        object.RenderObject.as(child);
+        if (child == null) dart.nullFailed(I[0], 164, 43, "child");
+        if (!false) dart.assertFailed(null, I[0], 165, 12, "false");
+      }
+      removeRenderObjectChild(child, slot) {
+        object.RenderObject.as(child);
+        if (child == null) dart.nullFailed(I[0], 169, 45, "child");
+        let renderObject = this.renderObject;
+        if (!dart.equals(renderObject.child, child)) dart.assertFailed(null, I[0], 171, 12, "renderObject.child == child");
+        renderObject.child = null;
+        if (!dart.equals(renderObject, this.renderObject)) dart.assertFailed(null, I[0], 173, 12, "renderObject == this.renderObject");
+      }
     }
-    get top() {
-      return this[top$];
+    (_LayoutBuilderElement.new = function(widget) {
+      if (widget == null) dart.nullFailed(I[0], 58, 66, "widget");
+      this[_child] = null;
+      _LayoutBuilderElement.__proto__.new.call(this, widget);
+      ;
+    }).prototype = _LayoutBuilderElement.prototype;
+    dart.addTypeTests(_LayoutBuilderElement);
+    _LayoutBuilderElement.prototype[_is__LayoutBuilderElement_default] = true;
+    dart.addTypeCaches(_LayoutBuilderElement);
+    dart.setMethodSignature(_LayoutBuilderElement, () => ({
+      __proto__: dart.getMethods(_LayoutBuilderElement.__proto__),
+      [_layout]: dart.fnType(dart.void, [dart.nullable(core.Object)])
+    }));
+    dart.setGetterSignature(_LayoutBuilderElement, () => ({
+      __proto__: dart.getGetters(_LayoutBuilderElement.__proto__),
+      widget: layout_builder.ConstrainedLayoutBuilder$(ConstraintType),
+      renderObject: layout_builder.RenderConstrainedLayoutBuilder$(ConstraintType, object.RenderObject)
+    }));
+    dart.setLibraryUri(_LayoutBuilderElement, I[1]);
+    dart.setFieldSignature(_LayoutBuilderElement, () => ({
+      __proto__: dart.getFields(_LayoutBuilderElement.__proto__),
+      [_child]: dart.fieldType(dart.nullable(framework.Element))
+    }));
+    return _LayoutBuilderElement;
+  });
+  layout_builder._LayoutBuilderElement = layout_builder._LayoutBuilderElement$();
+  dart.addTypeTests(layout_builder._LayoutBuilderElement, _is__LayoutBuilderElement_default);
+  var _callback = dart.privateName(layout_builder, "RenderConstrainedLayoutBuilder._callback");
+  var _needsBuild = dart.privateName(layout_builder, "RenderConstrainedLayoutBuilder._needsBuild");
+  var _previousConstraints = dart.privateName(layout_builder, "RenderConstrainedLayoutBuilder._previousConstraints");
+  var _callback$ = dart.privateName(layout_builder, "_callback");
+  var _needsBuild$ = dart.privateName(layout_builder, "_needsBuild");
+  var _previousConstraints$ = dart.privateName(layout_builder, "_previousConstraints");
+  const _is_RenderConstrainedLayoutBuilder_default = Symbol('_is_RenderConstrainedLayoutBuilder_default');
+  layout_builder.RenderConstrainedLayoutBuilder$ = dart.generic((ConstraintType, ChildType) => {
+    class RenderConstrainedLayoutBuilder extends object.RenderObjectWithChildMixin$(ChildType) {}
+    RenderConstrainedLayoutBuilder[dart.mixinOn] = RenderObjectWithChildMixin => class RenderConstrainedLayoutBuilder extends RenderObjectWithChildMixin {
+      get [_callback$]() {
+        return this[_callback];
+      }
+      set [_callback$](value) {
+        this[_callback] = value;
+      }
+      get [_needsBuild$]() {
+        return this[_needsBuild];
+      }
+      set [_needsBuild$](value) {
+        this[_needsBuild] = value;
+      }
+      get [_previousConstraints$]() {
+        return this[_previousConstraints];
+      }
+      set [_previousConstraints$](value) {
+        this[_previousConstraints] = value;
+      }
+      updateCallback(value) {
+        if (dart.equals(value, this[_callback$])) return;
+        this[_callback$] = value;
+        this.markNeedsLayout();
+      }
+      markNeedsBuild() {
+        this[_needsBuild$] = true;
+        this.markNeedsLayout();
+      }
+      rebuildIfNecessary() {
+        if (!(this[_callback$] != null)) dart.assertFailed(null, I[0], 221, 12, "_callback != null");
+        if (dart.test(this[_needsBuild$]) || !dart.equals(this.constraints, this[_previousConstraints$])) {
+          this[_previousConstraints$] = this.constraints;
+          this[_needsBuild$] = false;
+          this.invokeLayoutCallback(ConstraintType, dart.nullCheck(this[_callback$]));
+        }
+      }
+    };
+    (RenderConstrainedLayoutBuilder[dart.mixinNew] = function() {
+      this[_callback] = null;
+      this[_needsBuild] = true;
+      this[_previousConstraints] = null;
+    }).prototype = RenderConstrainedLayoutBuilder.prototype;
+    dart.addTypeTests(RenderConstrainedLayoutBuilder);
+    RenderConstrainedLayoutBuilder.prototype[_is_RenderConstrainedLayoutBuilder_default] = true;
+    dart.addTypeCaches(RenderConstrainedLayoutBuilder);
+    RenderConstrainedLayoutBuilder[dart.implements] = () => [object.RenderObjectWithChildMixin$(ChildType)];
+    dart.setMethodSignature(RenderConstrainedLayoutBuilder, () => ({
+      __proto__: dart.getMethods(RenderConstrainedLayoutBuilder.__proto__),
+      updateCallback: dart.fnType(dart.void, [dart.nullable(dart.fnType(dart.void, [ConstraintType]))]),
+      markNeedsBuild: dart.fnType(dart.void, []),
+      rebuildIfNecessary: dart.fnType(dart.void, [])
+    }));
+    dart.setLibraryUri(RenderConstrainedLayoutBuilder, I[1]);
+    dart.setFieldSignature(RenderConstrainedLayoutBuilder, () => ({
+      __proto__: dart.getFields(RenderConstrainedLayoutBuilder.__proto__),
+      [_callback$]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [ConstraintType]))),
+      [_needsBuild$]: dart.fieldType(core.bool),
+      [_previousConstraints$]: dart.fieldType(dart.nullable(object.Constraints))
+    }));
+    return RenderConstrainedLayoutBuilder;
+  });
+  layout_builder.RenderConstrainedLayoutBuilder = layout_builder.RenderConstrainedLayoutBuilder$();
+  dart.addTypeTests(layout_builder.RenderConstrainedLayoutBuilder, _is_RenderConstrainedLayoutBuilder_default);
+  layout_builder.LayoutBuilder = class LayoutBuilder extends layout_builder.ConstrainedLayoutBuilder$(box.BoxConstraints) {
+    get builder() {
+      return super.builder;
     }
-    set top(value) {
-      super.top = value;
-    }
-    get right() {
-      return this[right$];
-    }
-    set right(value) {
-      super.right = value;
-    }
-    get bottom() {
-      return this[bottom$];
-    }
-    set bottom(value) {
-      super.bottom = value;
-    }
-    get minimum() {
-      return this[minimum$];
-    }
-    set minimum(value) {
-      super.minimum = value;
-    }
-    get maintainBottomViewPadding() {
-      return this[maintainBottomViewPadding$];
-    }
-    set maintainBottomViewPadding(value) {
-      super.maintainBottomViewPadding = value;
-    }
-    get child() {
-      return this[child$];
-    }
-    set child(value) {
-      super.child = value;
-    }
-    build(context) {
-      if (context == null) dart.nullFailed(I[0], 96, 29, "context");
-      if (!dart.test(debug.debugCheckHasMediaQuery(context))) dart.assertFailed(null, I[0], 97, 12, "debugCheckHasMediaQuery(context)");
-      let data = media_query.MediaQuery.of(context);
-      let padding = data.padding;
-      if (data.padding.bottom === 0.0 && data.viewInsets.bottom !== 0.0 && dart.test(this.maintainBottomViewPadding)) padding = padding.copyWith({bottom: data.viewPadding.bottom});
-      return new basic.Padding.new({padding: new edge_insets.EdgeInsets.only({left: math.max(core.double, dart.test(this.left) ? padding.left : 0.0, this.minimum.left), top: math.max(core.double, dart.test(this.top) ? padding.top : 0.0, this.minimum.top), right: math.max(core.double, dart.test(this.right) ? padding.right : 0.0, this.minimum.right), bottom: math.max(core.double, dart.test(this.bottom) ? padding.bottom : 0.0, this.minimum.bottom)}), child: media_query.MediaQuery.removePadding({context: context, removeLeft: this.left, removeTop: this.top, removeRight: this.right, removeBottom: this.bottom, child: this.child, $creationLocationd_0dea112b090073317d4: C[1] || CT.C1}), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9});
-    }
-    debugFillProperties(properties) {
-      if (properties == null) dart.nullFailed(I[0], 123, 56, "properties");
-      super.debugFillProperties(properties);
-      properties.add(new diagnostics.FlagProperty.new("left", {value: this.left, ifTrue: "avoid left padding"}));
-      properties.add(new diagnostics.FlagProperty.new("top", {value: this.top, ifTrue: "avoid top padding"}));
-      properties.add(new diagnostics.FlagProperty.new("right", {value: this.right, ifTrue: "avoid right padding"}));
-      properties.add(new diagnostics.FlagProperty.new("bottom", {value: this.bottom, ifTrue: "avoid bottom padding"}));
+    createRenderObject(context) {
+      if (context == null) dart.nullFailed(I[0], 320, 56, "context");
+      return new layout_builder._RenderLayoutBuilder.new();
     }
   };
-  (safe_area.SafeArea.new = function(opts) {
+  (layout_builder.LayoutBuilder.new = function(opts) {
     let key = opts && 'key' in opts ? opts.key : null;
-    let left = opts && 'left' in opts ? opts.left : true;
-    if (left == null) dart.nullFailed(I[0], 43, 10, "left");
-    let top = opts && 'top' in opts ? opts.top : true;
-    if (top == null) dart.nullFailed(I[0], 44, 10, "top");
-    let right = opts && 'right' in opts ? opts.right : true;
-    if (right == null) dart.nullFailed(I[0], 45, 10, "right");
-    let bottom = opts && 'bottom' in opts ? opts.bottom : true;
-    if (bottom == null) dart.nullFailed(I[0], 46, 10, "bottom");
-    let minimum = opts && 'minimum' in opts ? opts.minimum : C[0] || CT.C0;
-    if (minimum == null) dart.nullFailed(I[0], 47, 10, "minimum");
-    let maintainBottomViewPadding = opts && 'maintainBottomViewPadding' in opts ? opts.maintainBottomViewPadding : false;
-    if (maintainBottomViewPadding == null) dart.nullFailed(I[0], 48, 10, "maintainBottomViewPadding");
-    let child = opts && 'child' in opts ? opts.child : null;
-    if (child == null) dart.nullFailed(I[0], 49, 19, "child");
+    let builder = opts && 'builder' in opts ? opts.builder : null;
+    if (builder == null) dart.nullFailed(I[0], 312, 34, "builder");
     let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[left$] = left;
-    this[top$] = top;
-    this[right$] = right;
-    this[bottom$] = bottom;
-    this[minimum$] = minimum;
-    this[maintainBottomViewPadding$] = maintainBottomViewPadding;
-    this[child$] = child;
-    if (!(left != null)) dart.assertFailed(null, I[0], 50, 15, "left != null");
-    if (!(top != null)) dart.assertFailed(null, I[0], 51, 15, "top != null");
-    if (!(right != null)) dart.assertFailed(null, I[0], 52, 15, "right != null");
-    if (!(bottom != null)) dart.assertFailed(null, I[0], 53, 15, "bottom != null");
-    safe_area.SafeArea.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    if (!(builder != null)) dart.assertFailed(null, I[0], 313, 15, "builder != null");
+    layout_builder.LayoutBuilder.__proto__.new.call(this, {key: key, builder: builder, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = safe_area.SafeArea.prototype;
-  dart.addTypeTests(safe_area.SafeArea);
-  dart.addTypeCaches(safe_area.SafeArea);
-  dart.setMethodSignature(safe_area.SafeArea, () => ({
-    __proto__: dart.getMethods(safe_area.SafeArea.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = layout_builder.LayoutBuilder.prototype;
+  dart.addTypeTests(layout_builder.LayoutBuilder);
+  dart.addTypeCaches(layout_builder.LayoutBuilder);
+  dart.setMethodSignature(layout_builder.LayoutBuilder, () => ({
+    __proto__: dart.getMethods(layout_builder.LayoutBuilder.__proto__),
+    createRenderObject: dart.fnType(layout_builder._RenderLayoutBuilder, [framework.BuildContext])
   }));
-  dart.setLibraryUri(safe_area.SafeArea, I[1]);
-  dart.setFieldSignature(safe_area.SafeArea, () => ({
-    __proto__: dart.getFields(safe_area.SafeArea.__proto__),
-    left: dart.finalFieldType(core.bool),
-    top: dart.finalFieldType(core.bool),
-    right: dart.finalFieldType(core.bool),
-    bottom: dart.finalFieldType(core.bool),
-    minimum: dart.finalFieldType(edge_insets.EdgeInsets),
-    maintainBottomViewPadding: dart.finalFieldType(core.bool),
-    child: dart.finalFieldType(framework.Widget)
+  dart.setGetterSignature(layout_builder.LayoutBuilder, () => ({
+    __proto__: dart.getGetters(layout_builder.LayoutBuilder.__proto__),
+    builder: dart.fnType(framework.Widget, [framework.BuildContext, box.BoxConstraints])
   }));
-  var left$0 = dart.privateName(safe_area, "SliverSafeArea.left");
-  var top$0 = dart.privateName(safe_area, "SliverSafeArea.top");
-  var right$0 = dart.privateName(safe_area, "SliverSafeArea.right");
-  var bottom$0 = dart.privateName(safe_area, "SliverSafeArea.bottom");
-  var minimum$0 = dart.privateName(safe_area, "SliverSafeArea.minimum");
-  var sliver$ = dart.privateName(safe_area, "SliverSafeArea.sliver");
-  safe_area.SliverSafeArea = class SliverSafeArea extends framework.StatelessWidget {
-    get left() {
-      return this[left$0];
+  dart.setLibraryUri(layout_builder.LayoutBuilder, I[1]);
+  var _debugThrowIfNotCheckingIntrinsics = dart.privateName(layout_builder, "_debugThrowIfNotCheckingIntrinsics");
+  const RenderBox_RenderObjectWithChildMixin$36 = class RenderBox_RenderObjectWithChildMixin extends box.RenderBox {};
+  (RenderBox_RenderObjectWithChildMixin$36.new = function() {
+    object.RenderObjectWithChildMixin$(box.RenderBox)[dart.mixinNew].call(this);
+    RenderBox_RenderObjectWithChildMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_RenderObjectWithChildMixin$36.prototype;
+  dart.applyMixin(RenderBox_RenderObjectWithChildMixin$36, object.RenderObjectWithChildMixin$(box.RenderBox));
+  const RenderBox_RenderConstrainedLayoutBuilder$36 = class RenderBox_RenderConstrainedLayoutBuilder extends RenderBox_RenderObjectWithChildMixin$36 {};
+  (RenderBox_RenderConstrainedLayoutBuilder$36.new = function() {
+    layout_builder.RenderConstrainedLayoutBuilder$(box.BoxConstraints, box.RenderBox)[dart.mixinNew].call(this);
+    RenderBox_RenderConstrainedLayoutBuilder$36.__proto__.new.call(this);
+  }).prototype = RenderBox_RenderConstrainedLayoutBuilder$36.prototype;
+  dart.applyMixin(RenderBox_RenderConstrainedLayoutBuilder$36, layout_builder.RenderConstrainedLayoutBuilder$(box.BoxConstraints, box.RenderBox));
+  layout_builder._RenderLayoutBuilder = class _RenderLayoutBuilder extends RenderBox_RenderConstrainedLayoutBuilder$36 {
+    computeMinIntrinsicWidth(height) {
+      if (height == null) dart.nullFailed(I[0], 325, 42, "height");
+      if (!dart.test(this[_debugThrowIfNotCheckingIntrinsics]())) dart.assertFailed(null, I[0], 326, 12, "_debugThrowIfNotCheckingIntrinsics()");
+      return 0.0;
     }
-    set left(value) {
-      super.left = value;
+    computeMaxIntrinsicWidth(height) {
+      if (height == null) dart.nullFailed(I[0], 331, 42, "height");
+      if (!dart.test(this[_debugThrowIfNotCheckingIntrinsics]())) dart.assertFailed(null, I[0], 332, 12, "_debugThrowIfNotCheckingIntrinsics()");
+      return 0.0;
     }
-    get top() {
-      return this[top$0];
+    computeMinIntrinsicHeight(width) {
+      if (width == null) dart.nullFailed(I[0], 337, 43, "width");
+      if (!dart.test(this[_debugThrowIfNotCheckingIntrinsics]())) dart.assertFailed(null, I[0], 338, 12, "_debugThrowIfNotCheckingIntrinsics()");
+      return 0.0;
     }
-    set top(value) {
-      super.top = value;
+    computeMaxIntrinsicHeight(width) {
+      if (width == null) dart.nullFailed(I[0], 343, 43, "width");
+      if (!dart.test(this[_debugThrowIfNotCheckingIntrinsics]())) dart.assertFailed(null, I[0], 344, 12, "_debugThrowIfNotCheckingIntrinsics()");
+      return 0.0;
     }
-    get right() {
-      return this[right$0];
+    computeDryLayout(constraints) {
+      if (constraints == null) dart.nullFailed(I[0], 349, 40, "constraints");
+      if (!dart.test(this.debugCannotComputeDryLayout({reason: "Calculating the dry layout would require running the layout callback " + "speculatively, which might mutate the live render object tree."}))) dart.assertFailed(null, I[0], 350, 12, "debugCannotComputeDryLayout(reason:\r\n      'Calculating the dry layout would require running the layout callback '\r\n      'speculatively, which might mutate the live render object tree.',\r\n    )");
+      return ui.Size.zero;
     }
-    set right(value) {
-      super.right = value;
+    performLayout() {
+      let constraints = this.constraints;
+      this.rebuildIfNecessary();
+      if (this.child != null) {
+        dart.nullCheck(this.child).layout(constraints, {parentUsesSize: true});
+        this.size = constraints.constrain(dart.nullCheck(this.child).size);
+      } else {
+        this.size = constraints.biggest;
+      }
     }
-    get bottom() {
-      return this[bottom$0];
+    computeDistanceToActualBaseline(baseline) {
+      if (baseline == null) dart.nullFailed(I[0], 370, 56, "baseline");
+      if (this.child != null) return dart.nullCheck(this.child).getDistanceToActualBaseline(baseline);
+      return super.computeDistanceToActualBaseline(baseline);
     }
-    set bottom(value) {
-      super.bottom = value;
+    hitTestChildren(result, opts) {
+      let t2, t2$;
+      if (result == null) dart.nullFailed(I[0], 377, 41, "result");
+      let position = opts && 'position' in opts ? opts.position : null;
+      if (position == null) dart.nullFailed(I[0], 377, 67, "position");
+      t2$ = (t2 = this.child, t2 == null ? null : t2.hitTest(result, {position: position}));
+      return t2$ == null ? false : t2$;
     }
-    get minimum() {
-      return this[minimum$0];
+    paint(context, offset) {
+      if (context == null) dart.nullFailed(I[0], 382, 30, "context");
+      if (offset == null) dart.nullFailed(I[0], 382, 46, "offset");
+      if (this.child != null) context.paintChild(dart.nullCheck(this.child), offset);
     }
-    set minimum(value) {
-      super.minimum = value;
-    }
-    get sliver() {
-      return this[sliver$];
-    }
-    set sliver(value) {
-      super.sliver = value;
-    }
-    build(context) {
-      if (context == null) dart.nullFailed(I[0], 195, 29, "context");
-      if (!dart.test(debug.debugCheckHasMediaQuery(context))) dart.assertFailed(null, I[0], 196, 12, "debugCheckHasMediaQuery(context)");
-      let padding = media_query.MediaQuery.of(context).padding;
-      return new basic.SliverPadding.new({padding: new edge_insets.EdgeInsets.only({left: math.max(core.double, dart.test(this.left) ? padding.left : 0.0, this.minimum.left), top: math.max(core.double, dart.test(this.top) ? padding.top : 0.0, this.minimum.top), right: math.max(core.double, dart.test(this.right) ? padding.right : 0.0, this.minimum.right), bottom: math.max(core.double, dart.test(this.bottom) ? padding.bottom : 0.0, this.minimum.bottom)}), sliver: media_query.MediaQuery.removePadding({context: context, removeLeft: this.left, removeTop: this.top, removeRight: this.right, removeBottom: this.bottom, child: this.sliver, $creationLocationd_0dea112b090073317d4: C[13] || CT.C13}), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21});
-    }
-    debugFillProperties(properties) {
-      if (properties == null) dart.nullFailed(I[0], 217, 56, "properties");
-      super.debugFillProperties(properties);
-      properties.add(new diagnostics.FlagProperty.new("left", {value: this.left, ifTrue: "avoid left padding"}));
-      properties.add(new diagnostics.FlagProperty.new("top", {value: this.top, ifTrue: "avoid top padding"}));
-      properties.add(new diagnostics.FlagProperty.new("right", {value: this.right, ifTrue: "avoid right padding"}));
-      properties.add(new diagnostics.FlagProperty.new("bottom", {value: this.bottom, ifTrue: "avoid bottom padding"}));
+    [_debugThrowIfNotCheckingIntrinsics]() {
+      if (!dart.test(dart.fn(() => {
+        if (!dart.test(object.RenderObject.debugCheckingIntrinsics)) {
+          dart.throw(assertions.FlutterError.new("LayoutBuilder does not support returning intrinsic dimensions.\n" + "Calculating the intrinsic dimensions would require running the layout " + "callback speculatively, which might mutate the live render object tree."));
+        }
+        return true;
+      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 388, 12, "() {\r\n      if (!RenderObject.debugCheckingIntrinsics) {\r\n        throw FlutterError(\r\n          'LayoutBuilder does not support returning intrinsic dimensions.\\n'\r\n          'Calculating the intrinsic dimensions would require running the layout '\r\n          'callback speculatively, which might mutate the live render object tree.'\r\n        );\r\n      }\r\n      return true;\r\n    }()");
+      return true;
     }
   };
-  (safe_area.SliverSafeArea.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let left = opts && 'left' in opts ? opts.left : true;
-    if (left == null) dart.nullFailed(I[0], 158, 10, "left");
-    let top = opts && 'top' in opts ? opts.top : true;
-    if (top == null) dart.nullFailed(I[0], 159, 10, "top");
-    let right = opts && 'right' in opts ? opts.right : true;
-    if (right == null) dart.nullFailed(I[0], 160, 10, "right");
-    let bottom = opts && 'bottom' in opts ? opts.bottom : true;
-    if (bottom == null) dart.nullFailed(I[0], 161, 10, "bottom");
-    let minimum = opts && 'minimum' in opts ? opts.minimum : C[0] || CT.C0;
-    if (minimum == null) dart.nullFailed(I[0], 162, 10, "minimum");
-    let sliver = opts && 'sliver' in opts ? opts.sliver : null;
-    if (sliver == null) dart.nullFailed(I[0], 163, 19, "sliver");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[left$0] = left;
-    this[top$0] = top;
-    this[right$0] = right;
-    this[bottom$0] = bottom;
-    this[minimum$0] = minimum;
-    this[sliver$] = sliver;
-    if (!(left != null)) dart.assertFailed(null, I[0], 164, 15, "left != null");
-    if (!(top != null)) dart.assertFailed(null, I[0], 165, 15, "top != null");
-    if (!(right != null)) dart.assertFailed(null, I[0], 166, 15, "right != null");
-    if (!(bottom != null)) dart.assertFailed(null, I[0], 167, 15, "bottom != null");
-    safe_area.SliverSafeArea.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (layout_builder._RenderLayoutBuilder.new = function() {
+    layout_builder._RenderLayoutBuilder.__proto__.new.call(this);
     ;
-  }).prototype = safe_area.SliverSafeArea.prototype;
-  dart.addTypeTests(safe_area.SliverSafeArea);
-  dart.addTypeCaches(safe_area.SliverSafeArea);
-  dart.setMethodSignature(safe_area.SliverSafeArea, () => ({
-    __proto__: dart.getMethods(safe_area.SliverSafeArea.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = layout_builder._RenderLayoutBuilder.prototype;
+  dart.addTypeTests(layout_builder._RenderLayoutBuilder);
+  dart.addTypeCaches(layout_builder._RenderLayoutBuilder);
+  dart.setMethodSignature(layout_builder._RenderLayoutBuilder, () => ({
+    __proto__: dart.getMethods(layout_builder._RenderLayoutBuilder.__proto__),
+    [_debugThrowIfNotCheckingIntrinsics]: dart.fnType(core.bool, [])
   }));
-  dart.setLibraryUri(safe_area.SliverSafeArea, I[1]);
-  dart.setFieldSignature(safe_area.SliverSafeArea, () => ({
-    __proto__: dart.getFields(safe_area.SliverSafeArea.__proto__),
-    left: dart.finalFieldType(core.bool),
-    top: dart.finalFieldType(core.bool),
-    right: dart.finalFieldType(core.bool),
-    bottom: dart.finalFieldType(core.bool),
-    minimum: dart.finalFieldType(edge_insets.EdgeInsets),
-    sliver: dart.finalFieldType(framework.Widget)
-  }));
-  dart.trackLibraries("packages/flutter/src/widgets/safe_area.dart", {
-    "package:flutter/src/widgets/safe_area.dart": safe_area
+  dart.setLibraryUri(layout_builder._RenderLayoutBuilder, I[1]);
+  layout_builder._debugReportException = function _debugReportException(context, exception, stack, opts) {
+    if (context == null) dart.nullFailed(I[0], 404, 19, "context");
+    if (exception == null) dart.nullFailed(I[0], 405, 10, "exception");
+    if (stack == null) dart.nullFailed(I[0], 406, 14, "stack");
+    let informationCollector = opts && 'informationCollector' in opts ? opts.informationCollector : null;
+    let details = new assertions.FlutterErrorDetails.new({exception: exception, stack: stack, library: "widgets library", context: context, informationCollector: informationCollector});
+    assertions.FlutterError.reportError(details);
+    return details;
+  };
+  dart.trackLibraries("packages/flutter/src/widgets/layout_builder.dart", {
+    "package:flutter/src/widgets/layout_builder.dart": layout_builder
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["safe_area.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAwDa;;;;;;IAIA;;;;;;IAGA;;;;;;IAGA;;;;;;IAKM;;;;;;IAaN;;;;;;IAQE;;;;;;;UAGa;AACxB,qBAAO,8BAAwB,OAAO;AACjB,iBAAkB,0BAAG,OAAO;AACtC,oBAAU,AAAK,IAAD;AAEzB,UAAI,AAAK,AAAQ,AAAO,IAAhB,oBAAmB,OAAO,AAAK,AAAW,AAAO,IAAnB,uBAAsB,iBAAO,iCACjE,AAA2D,UAAjD,AAAQ,OAAD,mBAAkB,AAAK,AAAY,IAAb;AAEzC,YAAO,iCACe,uCACZ,gCAAS,aAAO,AAAQ,OAAD,QAAQ,KAAK,AAAQ,yBAC7C,gCAAS,YAAM,AAAQ,OAAD,OAAO,KAAK,AAAQ,0BACxC,gCAAS,cAAQ,AAAQ,OAAD,SAAS,KAAK,AAAQ,6BAC7C,gCAAS,eAAS,AAAQ,OAAD,UAAU,KAAK,AAAQ,+BAExC,+CACP,OAAO,cACJ,sBACD,uBACE,0BACC,oBACP;IAGb;;UAGqD;AACd,MAA/B,0BAAoB,UAAU;AAC2C,MAA/E,AAAW,UAAD,KAAK,iCAAa,gBAAe,mBAAc;AACmB,MAA5E,AAAW,UAAD,KAAK,iCAAa,eAAc,kBAAa;AAC2B,MAAlF,AAAW,UAAD,KAAK,iCAAa,iBAAgB,oBAAe;AAC0B,MAArF,AAAW,UAAD,KAAK,iCAAa,kBAAiB,qBAAgB;IAC/D;;;QAvFO;QACA;;QACA;;QACA;;QACA;;QACA;;QACA;;QACS;;;IANT;IACA;IACA;IACA;IACA;IACA;IACS;UACJ,AAAK,IAAD;UACJ,AAAI,GAAD;UACH,AAAM,KAAD;UACL,AAAO,MAAD;AACb,sDAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;IAqHT;;;;;;IAIA;;;;;;IAGA;;;;;;IAGA;;;;;;IAKM;;;;;;IAMJ;;;;;;;UAGa;AACxB,qBAAO,8BAAwB,OAAO;AACrB,oBAAqB,AAAY,0BAAT,OAAO;AAChD,YAAO,uCACe,uCACZ,gCAAS,aAAO,AAAQ,OAAD,QAAQ,KAAK,AAAQ,yBAC7C,gCAAS,YAAM,AAAQ,OAAD,OAAO,KAAK,AAAQ,0BACxC,gCAAS,cAAQ,AAAQ,OAAD,SAAS,KAAK,AAAQ,6BAC7C,gCAAS,eAAS,AAAQ,OAAD,UAAU,KAAK,AAAQ,gCAEvC,+CACR,OAAO,cACJ,sBACD,uBACE,0BACC,oBACP;IAGb;;UAGqD;AACd,MAA/B,0BAAoB,UAAU;AAC2C,MAA/E,AAAW,UAAD,KAAK,iCAAa,gBAAe,mBAAc;AACmB,MAA5E,AAAW,UAAD,KAAK,iCAAa,eAAc,kBAAa;AAC2B,MAAlF,AAAW,UAAD,KAAK,iCAAa,iBAAgB,oBAAe;AAC0B,MAArF,AAAW,UAAD,KAAK,iCAAa,kBAAiB,qBAAgB;IAC/D;;;QAlEO;QACA;;QACA;;QACA;;QACA;;QACA;;QACS;;;IALT;IACA;IACA;IACA;IACA;IACS;UACJ,AAAK,IAAD;UACJ,AAAI,GAAD;UACH,AAAM,KAAD;UACL,AAAO,MAAD;AACb,4DAAW,GAAG;;EAAC","file":"../../../../../../../../D:/packages/flutter/src/widgets/safe_area.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["layout_builder.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/widgets/layout_builder.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__safe_area: safe_area
+    src__widgets__layout_builder: layout_builder
   };
 }));
 
-//# sourceMappingURL=safe_area.dart.lib.js.map
+//# sourceMappingURL=layout_builder.dart.lib.js.map

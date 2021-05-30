@@ -1,56 +1,20 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/image_picker/image_picker.dart', 'packages/http/src/multipart_request.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/elevated_button.dart', 'packages/flutter/src/material/circle_avatar.dart', 'packages/flutter/src/painting/_network_image_web.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/image_picker_platform_interface/src/types/image_source.dart', 'packages/image_picker_platform_interface/src/types/picked_file/html.dart'], (function load__packages__flutter_drawer__Custom$3720Widgets__ImageProfile_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__image_picker__image_picker$46dart, packages__http__src__multipart_request$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__elevated_button$46dart, packages__flutter__src__material__circle_avatar$46dart, packages__flutter__src__painting___network_image_web$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__rendering__flex$46dart, packages__image_picker_platform_interface__src__types__image_source$46dart, packages__image_picker_platform_interface__src__types__picked_file__html$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart'], (function load__packages__flutter__src__painting__edge_insets_dart(dart_sdk, packages__flutter__src__painting__basic_types$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const io = dart_sdk.io;
-  const convert = dart_sdk.convert;
-  const async = dart_sdk.async;
-  const _js_helper = dart_sdk._js_helper;
-  const _interceptors = dart_sdk._interceptors;
+  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const image_picker = packages__image_picker__image_picker$46dart.image_picker;
-  const http = packages__http__src__multipart_request$46dart.http;
-  const dialog = packages__flutter__src__material__icon_button$46dart.src__material__dialog;
-  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
-  const bottom_sheet = packages__flutter__src__material__icon_button$46dart.src__material__bottom_sheet;
-  const flat_button = packages__flutter__src__material__icon_button$46dart.src__material__flat_button;
-  const elevated_button = packages__flutter__src__material__elevated_button$46dart.src__material__elevated_button;
-  const circle_avatar = packages__flutter__src__material__circle_avatar$46dart.src__material__circle_avatar;
-  const _network_image_web = packages__flutter__src__painting___network_image_web$46dart.src__painting___network_image_web;
-  const image_provider = packages__flutter__src__painting___network_image_web$46dart.src__painting__image_provider;
-  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
-  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const image_source = packages__image_picker_platform_interface__src__types__image_source$46dart.src__types__image_source;
-  const html = packages__image_picker_platform_interface__src__types__picked_file__html$46dart.src__types__picked_file__html;
-  var ImageProfile = Object.create(dart.library);
-  var $last = dartx.last;
-  var $split = dartx.split;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  var edge_insets = Object.create(dart.library);
+  var $clamp = dartx.clamp;
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $truncate = dartx.truncate;
+  var $toDouble = dartx.toDouble;
+  var $modulo = dartx['%'];
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
-    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
-    IdentityMapOfStringL$StringL: () => (T.IdentityMapOfStringL$StringL = dart.constFn(_js_helper.IdentityMap$(T.StringL(), T.StringL())))(),
-    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
-    ObjectL: () => (T.ObjectL = dart.constFn(dart.legacy(core.Object)))(),
-    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
-    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
-    AlertDialogL: () => (T.AlertDialogL = dart.constFn(dart.legacy(dialog.AlertDialog)))(),
-    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
-    BuildContextLToAlertDialogL: () => (T.BuildContextLToAlertDialogL = dart.constFn(dart.fnType(T.AlertDialogL(), [T.BuildContextL()])))(),
-    ImageProviderOfObject: () => (T.ImageProviderOfObject = dart.constFn(image_provider.ImageProvider$(core.Object)))(),
-    ImageProviderNOfObject: () => (T.ImageProviderNOfObject = dart.constFn(dart.nullable(T.ImageProviderOfObject())))(),
-    BuildContextLToWidgetL: () => (T.BuildContextLToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [T.BuildContextL()])))()
+    _: () => T
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -65,975 +29,739 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/i
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 25,
-        [_Location_line]: 64,
-        [_Location_file]: null
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.horizontal",
+        index: 0
       });
     },
     get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
+      return C[1] = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.vertical",
+        index: 1
+      });
     },
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 64,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: edge_insets._MixedEdgeInsets.prototype,
+        [_MixedEdgeInsets__bottom]: 1 / 0,
+        [_MixedEdgeInsets__top]: 1 / 0,
+        [_MixedEdgeInsets__end]: 1 / 0,
+        [_MixedEdgeInsets__start]: 1 / 0,
+        [_MixedEdgeInsets__right]: 1 / 0,
+        [_MixedEdgeInsets__left]: 1 / 0
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [bottom$]: 0,
+        [right$]: 0,
+        [top$]: 0,
+        [left$]: 0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name$]: "TextDirection.rtl",
+        index: 0
       });
     },
     get C5() {
       return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 34,
-        [_Location_line]: 65,
-        [_Location_file]: null
+        __proto__: ui.TextDirection.prototype,
+        [_name$]: "TextDirection.ltr",
+        index: 1
       });
-    },
-    get C4() {
-      return C[4] = dart.constList([C[5] || CT.C5], T._LocationL());
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[4] || CT.C4,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 65,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 35,
-        [_Location_line]: 71,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.constList([C[8] || CT.C8], T._LocationL());
     },
     get C6() {
       return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[7] || CT.C7,
-        [_Location_name]: null,
-        [_Location_column]: 30,
-        [_Location_line]: 71,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 19,
-        [_Location_line]: 68,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 19,
-        [_Location_line]: 71,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[10] || CT.C10,
-        [_Location_name]: null,
-        [_Location_column]: 15,
-        [_Location_line]: 67,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 13,
-        [_Location_line]: 64,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "content",
-        [_Location_column]: 13,
-        [_Location_line]: 65,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "actions",
-        [_Location_column]: 13,
-        [_Location_line]: 66,
-        [_Location_file]: null
-      });
-    },
-    get C14() {
-      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17], T._LocationL());
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[14] || CT.C14,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 63,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "radius",
-        [_Location_column]: 15,
-        [_Location_line]: 83,
-        [_Location_file]: null
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "backgroundImage",
-        [_Location_column]: 15,
-        [_Location_line]: 84,
-        [_Location_file]: null
-      });
-    },
-    get C19() {
-      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21], T._LocationL());
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[19] || CT.C19,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 82,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 35,
-        [_Location_line]: 99,
-        [_Location_file]: null
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 47,
-        [_Location_line]: 99,
-        [_Location_file]: null
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "size",
-        [_Location_column]: 68,
-        [_Location_line]: 99,
-        [_Location_file]: null
-      });
-    },
-    get C23() {
-      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26], T._LocationL());
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[23] || CT.C23,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 99,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onTap",
-        [_Location_column]: 17,
-        [_Location_line]: 93,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 99,
-        [_Location_file]: null
-      });
-    },
-    get C28() {
-      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30], T._LocationL());
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[28] || CT.C28,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 92,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "bottom",
-        [_Location_column]: 15,
-        [_Location_line]: 90,
-        [_Location_file]: null
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "right",
-        [_Location_column]: 15,
-        [_Location_line]: 91,
-        [_Location_file]: null
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 92,
-        [_Location_file]: null
-      });
-    },
-    get C32() {
-      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], T._LocationL());
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[32] || CT.C32,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 89,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 11,
-        [_Location_line]: 81,
-        [_Location_file]: null
-      });
-    },
-    get C37() {
-      return C[37] = dart.constList([C[38] || CT.C38], T._LocationL());
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[37] || CT.C37,
-        [_Location_name]: null,
-        [_Location_column]: 9,
-        [_Location_line]: 80,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C41() {
-      return C[41] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 11,
-        [_Location_line]: 105,
-        [_Location_file]: null
-      });
-    },
-    get C40() {
-      return C[40] = dart.constList([C[41] || CT.C41], T._LocationL());
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[40] || CT.C40,
-        [_Location_name]: null,
-        [_Location_column]: 9,
-        [_Location_line]: 104,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 15,
-        [EdgeInsets_right]: 30,
-        [EdgeInsets_top]: 15,
-        [EdgeInsets_left]: 30
-      });
-    },
-    get C45() {
-      return C[45] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 27,
-        [_Location_line]: 114,
-        [_Location_file]: null
-      });
-    },
-    get C44() {
-      return C[44] = dart.constList([C[45] || CT.C45], T._LocationL());
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[44] || CT.C44,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 114,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 15,
-        [_Location_line]: 113,
-        [_Location_file]: null
-      });
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 114,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.constList([C[48] || CT.C48, C[49] || CT.C49], T._LocationL());
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[47] || CT.C47,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 112,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 13,
-        [_Location_line]: 108,
-        [_Location_file]: null
-      });
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 112,
-        [_Location_file]: null
-      });
-    },
-    get C54() {
-      return C[54] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 13,
-        [_Location_line]: 116,
-        [_Location_file]: null
-      });
-    },
-    get C51() {
-      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53, C[54] || CT.C54], T._LocationL());
-    },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[51] || CT.C51,
-        [_Location_name]: null,
-        [_Location_column]: 9,
-        [_Location_line]: 107,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C57() {
-      return C[57] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 7,
-        [_Location_line]: 79,
-        [_Location_file]: null
-      });
-    },
-    get C56() {
-      return C[56] = dart.constList([C[57] || CT.C57], T._LocationL());
-    },
-    get C55() {
-      return C[55] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[56] || CT.C56,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 78,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C60() {
-      return C[60] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 15,
-        [_Location_line]: 133,
-        [_Location_file]: null
-      });
-    },
-    get C61() {
-      return C[61] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 15,
-        [_Location_line]: 134,
-        [_Location_file]: null
-      });
-    },
-    get C59() {
-      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61], T._LocationL());
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[59] || CT.C59,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 132,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C64() {
-      return C[64] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 15,
-        [_Location_line]: 139,
-        [_Location_file]: null
-      });
-    },
-    get C63() {
-      return C[63] = dart.constList([C[64] || CT.C64], T._LocationL());
-    },
-    get C62() {
-      return C[62] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[63] || CT.C63,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 138,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C67() {
-      return C[67] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 36,
-        [_Location_line]: 148,
-        [_Location_file]: null
-      });
-    },
-    get C66() {
-      return C[66] = dart.constList([C[67] || CT.C67], T._LocationL());
-    },
-    get C65() {
-      return C[65] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[66] || CT.C66,
-        [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 148,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C70() {
-      return C[70] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 31,
-        [_Location_line]: 149,
-        [_Location_file]: null
-      });
-    },
-    get C69() {
-      return C[69] = dart.constList([C[70] || CT.C70], T._LocationL());
-    },
-    get C68() {
-      return C[68] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[69] || CT.C69,
-        [_Location_name]: null,
-        [_Location_column]: 26,
-        [_Location_line]: 149,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C73() {
-      return C[73] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 19,
-        [_Location_line]: 145,
-        [_Location_file]: null
-      });
-    },
-    get C74() {
-      return C[74] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 19,
-        [_Location_line]: 148,
-        [_Location_file]: null
-      });
-    },
-    get C75() {
-      return C[75] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "label",
-        [_Location_column]: 19,
-        [_Location_line]: 149,
-        [_Location_file]: null
-      });
-    },
-    get C72() {
-      return C[72] = dart.constList([C[73] || CT.C73, C[74] || CT.C74, C[75] || CT.C75], T._LocationL());
-    },
-    get C71() {
-      return C[71] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[72] || CT.C72,
-        [_Location_name]: null,
-        [_Location_column]: 28,
-        [_Location_line]: 144,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C78() {
-      return C[78] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 36,
-        [_Location_line]: 155,
-        [_Location_file]: null
-      });
-    },
-    get C77() {
-      return C[77] = dart.constList([C[78] || CT.C78], T._LocationL());
-    },
-    get C76() {
-      return C[76] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[77] || CT.C77,
-        [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 155,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C81() {
-      return C[81] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 31,
-        [_Location_line]: 156,
-        [_Location_file]: null
-      });
-    },
-    get C80() {
-      return C[80] = dart.constList([C[81] || CT.C81], T._LocationL());
-    },
-    get C79() {
-      return C[79] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[80] || CT.C80,
-        [_Location_name]: null,
-        [_Location_column]: 26,
-        [_Location_line]: 156,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C84() {
-      return C[84] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 19,
-        [_Location_line]: 152,
-        [_Location_file]: null
-      });
-    },
-    get C85() {
-      return C[85] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 19,
-        [_Location_line]: 155,
-        [_Location_file]: null
-      });
-    },
-    get C86() {
-      return C[86] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "label",
-        [_Location_column]: 19,
-        [_Location_line]: 156,
-        [_Location_file]: null
-      });
-    },
-    get C83() {
-      return C[83] = dart.constList([C[84] || CT.C84, C[85] || CT.C85, C[86] || CT.C86], T._LocationL());
-    },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[83] || CT.C83,
-        [_Location_name]: null,
-        [_Location_column]: 28,
-        [_Location_line]: 151,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C89() {
-      return C[89] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisAlignment",
-        [_Location_column]: 15,
-        [_Location_line]: 142,
-        [_Location_file]: null
-      });
-    },
-    get C90() {
-      return C[90] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 15,
-        [_Location_line]: 143,
-        [_Location_file]: null
-      });
-    },
-    get C88() {
-      return C[88] = dart.constList([C[89] || CT.C89, C[90] || CT.C90], T._LocationL());
-    },
-    get C87() {
-      return C[87] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[88] || CT.C88,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 141,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C93() {
-      return C[93] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 11,
-        [_Location_line]: 131,
-        [_Location_file]: null
-      });
-    },
-    get C92() {
-      return C[92] = dart.constList([C[93] || CT.C93], T._LocationL());
-    },
-    get C91() {
-      return C[91] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[92] || CT.C92,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 130,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 130,
-        [_Location_file]: null
-      });
-    },
-    get C95() {
-      return C[95] = dart.constList([C[96] || CT.C96], T._LocationL());
-    },
-    get C94() {
-      return C[94] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[95] || CT.C95,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 129,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
-      });
-    },
-    get C99() {
-      return C[99] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 7,
-        [_Location_line]: 126,
-        [_Location_file]: null
-      });
-    },
-    get C100() {
-      return C[100] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 7,
-        [_Location_line]: 127,
-        [_Location_file]: null
-      });
-    },
-    get C101() {
-      return C[101] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "margin",
-        [_Location_column]: 7,
-        [_Location_line]: 128,
-        [_Location_file]: null
-      });
-    },
-    get C102() {
-      return C[102] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 129,
-        [_Location_file]: null
-      });
-    },
-    get C98() {
-      return C[98] = dart.constList([C[99] || CT.C99, C[100] || CT.C100, C[101] || CT.C101, C[102] || CT.C102], T._LocationL());
-    },
-    get C97() {
-      return C[97] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[98] || CT.C98,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 125,
-        [_Location_file]: "file:///D:/Flutter/flutter_drawer/lib/Custom%20Widgets/ImageProfile.dart"
+        __proto__: edge_insets.EdgeInsetsDirectional.prototype,
+        [bottom$0]: 0,
+        [end$]: 0,
+        [top$0]: 0,
+        [start$]: 0
       });
     }
   }, false);
-  var C = Array(103).fill(void 0);
-  var I = ["package:flutter_drawer/Custom%20Widgets/ImageProfile.dart"];
-  ImageProfile.ImageProfile = class ImageProfile$ extends framework.StatefulWidget {
-    createState() {
-      return new ImageProfile._ImageProfileState.new();
+  var C = Array(7).fill(void 0);
+  var I = [
+    "file:///C:/src/flutter/packages/flutter/lib/src/painting/edge_insets.dart",
+    "package:flutter/src/painting/edge_insets.dart"
+  ];
+  var _left = dart.privateName(edge_insets, "_left");
+  var _right = dart.privateName(edge_insets, "_right");
+  var _start = dart.privateName(edge_insets, "_start");
+  var _end = dart.privateName(edge_insets, "_end");
+  var _top = dart.privateName(edge_insets, "_top");
+  var _bottom = dart.privateName(edge_insets, "_bottom");
+  var _name = dart.privateName(basic_types, "_name");
+  var _MixedEdgeInsets__bottom = dart.privateName(edge_insets, "_MixedEdgeInsets._bottom");
+  var _MixedEdgeInsets__top = dart.privateName(edge_insets, "_MixedEdgeInsets._top");
+  var _MixedEdgeInsets__end = dart.privateName(edge_insets, "_MixedEdgeInsets._end");
+  var _MixedEdgeInsets__start = dart.privateName(edge_insets, "_MixedEdgeInsets._start");
+  var _MixedEdgeInsets__right = dart.privateName(edge_insets, "_MixedEdgeInsets._right");
+  var _MixedEdgeInsets__left = dart.privateName(edge_insets, "_MixedEdgeInsets._left");
+  edge_insets.EdgeInsetsGeometry = class EdgeInsetsGeometry extends core.Object {
+    get isNonNegative() {
+      return dart.notNull(this[_left]) >= 0.0 && dart.notNull(this[_right]) >= 0.0 && dart.notNull(this[_start]) >= 0.0 && dart.notNull(this[_end]) >= 0.0 && dart.notNull(this[_top]) >= 0.0 && dart.notNull(this[_bottom]) >= 0.0;
+    }
+    get horizontal() {
+      return dart.notNull(this[_left]) + dart.notNull(this[_right]) + dart.notNull(this[_start]) + dart.notNull(this[_end]);
+    }
+    get vertical() {
+      return dart.notNull(this[_top]) + dart.notNull(this[_bottom]);
+    }
+    along(axis) {
+      if (axis == null) dart.nullFailed(I[0], 67, 21, "axis");
+      if (!(axis != null)) dart.assertFailed(null, I[0], 68, 12, "axis != null");
+      switch (axis) {
+        case C[0] || CT.C0:
+        {
+          return this.horizontal;
+        }
+        case C[1] || CT.C1:
+        {
+          return this.vertical;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    get collapsedSize() {
+      return new ui.Size.new(this.horizontal, this.vertical);
+    }
+    get flipped() {
+      return new edge_insets._MixedEdgeInsets.fromLRSETB(this[_right], this[_left], this[_end], this[_start], this[_bottom], this[_top]);
+    }
+    inflateSize(size) {
+      if (size == null) dart.nullFailed(I[0], 92, 25, "size");
+      return new ui.Size.new(dart.notNull(size.width) + dart.notNull(this.horizontal), dart.notNull(size.height) + dart.notNull(this.vertical));
+    }
+    deflateSize(size) {
+      if (size == null) dart.nullFailed(I[0], 108, 25, "size");
+      return new ui.Size.new(dart.notNull(size.width) - dart.notNull(this.horizontal), dart.notNull(size.height) - dart.notNull(this.vertical));
+    }
+    subtract(other) {
+      if (other == null) dart.nullFailed(I[0], 128, 50, "other");
+      return new edge_insets._MixedEdgeInsets.fromLRSETB(dart.notNull(this[_left]) - dart.notNull(other[_left]), dart.notNull(this[_right]) - dart.notNull(other[_right]), dart.notNull(this[_start]) - dart.notNull(other[_start]), dart.notNull(this[_end]) - dart.notNull(other[_end]), dart.notNull(this[_top]) - dart.notNull(other[_top]), dart.notNull(this[_bottom]) - dart.notNull(other[_bottom]));
+    }
+    add(other) {
+      if (other == null) dart.nullFailed(I[0], 150, 45, "other");
+      return new edge_insets._MixedEdgeInsets.fromLRSETB(dart.notNull(this[_left]) + dart.notNull(other[_left]), dart.notNull(this[_right]) + dart.notNull(other[_right]), dart.notNull(this[_start]) + dart.notNull(other[_start]), dart.notNull(this[_end]) + dart.notNull(other[_end]), dart.notNull(this[_top]) + dart.notNull(other[_top]), dart.notNull(this[_bottom]) + dart.notNull(other[_bottom]));
+    }
+    clamp(min, max) {
+      if (min == null) dart.nullFailed(I[0], 163, 47, "min");
+      if (max == null) dart.nullFailed(I[0], 163, 71, "max");
+      return new edge_insets._MixedEdgeInsets.fromLRSETB(this[_left][$clamp](min[_left], max[_left]), this[_right][$clamp](min[_right], max[_right]), this[_start][$clamp](min[_start], max[_start]), this[_end][$clamp](min[_end], max[_end]), this[_top][$clamp](min[_top], max[_top]), this[_bottom][$clamp](min[_bottom], max[_bottom]));
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(I[0], 219, 88, "t");
+      if (!(t != null)) dart.assertFailed(null, I[0], 220, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b)['*'](t);
+      if (b == null) return a['*'](1.0 - dart.notNull(t));
+      if (edge_insets.EdgeInsets.is(a) && edge_insets.EdgeInsets.is(b)) return edge_insets.EdgeInsets.lerp(a, b, t);
+      if (edge_insets.EdgeInsetsDirectional.is(a) && edge_insets.EdgeInsetsDirectional.is(b)) return edge_insets.EdgeInsetsDirectional.lerp(a, b, t);
+      return new edge_insets._MixedEdgeInsets.fromLRSETB(dart.nullCheck(ui.lerpDouble(a[_left], b[_left], t)), dart.nullCheck(ui.lerpDouble(a[_right], b[_right], t)), dart.nullCheck(ui.lerpDouble(a[_start], b[_start], t)), dart.nullCheck(ui.lerpDouble(a[_end], b[_end], t)), dart.nullCheck(ui.lerpDouble(a[_top], b[_top], t)), dart.nullCheck(ui.lerpDouble(a[_bottom], b[_bottom], t)));
+    }
+    toString() {
+      if (this[_start] === 0.0 && this[_end] === 0.0) {
+        if (this[_left] === 0.0 && this[_right] === 0.0 && this[_top] === 0.0 && this[_bottom] === 0.0) return "EdgeInsets.zero";
+        if (this[_left] == this[_right] && this[_right] == this[_top] && this[_top] == this[_bottom]) return "EdgeInsets.all(" + this[_left][$toStringAsFixed](1) + ")";
+        return "EdgeInsets(" + this[_left][$toStringAsFixed](1) + ", " + this[_top][$toStringAsFixed](1) + ", " + this[_right][$toStringAsFixed](1) + ", " + this[_bottom][$toStringAsFixed](1) + ")";
+      }
+      if (this[_left] === 0.0 && this[_right] === 0.0) {
+        return "EdgeInsetsDirectional(" + this[_start][$toStringAsFixed](1) + ", " + this[_top][$toStringAsFixed](1) + ", " + this[_end][$toStringAsFixed](1) + ", " + this[_bottom][$toStringAsFixed](1) + ")";
+      }
+      return "EdgeInsets(" + this[_left][$toStringAsFixed](1) + ", " + this[_top][$toStringAsFixed](1) + ", " + this[_right][$toStringAsFixed](1) + ", " + this[_bottom][$toStringAsFixed](1) + ")" + " + " + "EdgeInsetsDirectional(" + this[_start][$toStringAsFixed](1) + ", " + "0.0, " + this[_end][$toStringAsFixed](1) + ", " + "0.0)";
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return edge_insets.EdgeInsetsGeometry.is(other) && other[_left] == this[_left] && other[_right] == this[_right] && other[_start] == this[_start] && other[_end] == this[_end] && other[_top] == this[_top] && other[_bottom] == this[_bottom];
+    }
+    get hashCode() {
+      return ui.hashValues(this[_left], this[_right], this[_start], this[_end], this[_top], this[_bottom]);
     }
   };
-  (ImageProfile.ImageProfile.new = function(opts) {
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    ImageProfile.ImageProfile.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (edge_insets.EdgeInsetsGeometry.new = function() {
     ;
-  }).prototype = ImageProfile.ImageProfile.prototype;
-  dart.addTypeTests(ImageProfile.ImageProfile);
-  dart.addTypeCaches(ImageProfile.ImageProfile);
-  dart.setMethodSignature(ImageProfile.ImageProfile, () => ({
-    __proto__: dart.getMethods(ImageProfile.ImageProfile.__proto__),
-    createState: dart.fnType(dart.legacy(ImageProfile._ImageProfileState), [])
+  }).prototype = edge_insets.EdgeInsetsGeometry.prototype;
+  dart.addTypeTests(edge_insets.EdgeInsetsGeometry);
+  dart.addTypeCaches(edge_insets.EdgeInsetsGeometry);
+  dart.setMethodSignature(edge_insets.EdgeInsetsGeometry, () => ({
+    __proto__: dart.getMethods(edge_insets.EdgeInsetsGeometry.__proto__),
+    along: dart.fnType(core.double, [basic_types.Axis]),
+    inflateSize: dart.fnType(ui.Size, [ui.Size]),
+    deflateSize: dart.fnType(ui.Size, [ui.Size]),
+    subtract: dart.fnType(edge_insets.EdgeInsetsGeometry, [edge_insets.EdgeInsetsGeometry]),
+    add: dart.fnType(edge_insets.EdgeInsetsGeometry, [edge_insets.EdgeInsetsGeometry]),
+    clamp: dart.fnType(edge_insets.EdgeInsetsGeometry, [edge_insets.EdgeInsetsGeometry, edge_insets.EdgeInsetsGeometry])
   }));
-  dart.setLibraryUri(ImageProfile.ImageProfile, I[0]);
-  var _imageFile = dart.privateName(ImageProfile, "_imageFile");
-  var _picker = dart.privateName(ImageProfile, "_picker");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  ImageProfile._ImageProfileState = class _ImageProfileState extends framework.State$(dart.legacy(ImageProfile.ImageProfile)) {
-    setStatus(message) {
-      this.setState(dart.fn(() => {
-        this.status = message;
-      }, T.VoidToNull()));
+  dart.setGetterSignature(edge_insets.EdgeInsetsGeometry, () => ({
+    __proto__: dart.getGetters(edge_insets.EdgeInsetsGeometry.__proto__),
+    isNonNegative: core.bool,
+    horizontal: core.double,
+    vertical: core.double,
+    collapsedSize: ui.Size,
+    flipped: edge_insets.EdgeInsetsGeometry
+  }));
+  dart.setLibraryUri(edge_insets.EdgeInsetsGeometry, I[1]);
+  dart.defineExtensionMethods(edge_insets.EdgeInsetsGeometry, ['toString', '_equals']);
+  dart.defineExtensionAccessors(edge_insets.EdgeInsetsGeometry, ['hashCode']);
+  dart.defineLazy(edge_insets.EdgeInsetsGeometry, {
+    /*edge_insets.EdgeInsetsGeometry.infinity*/get infinity() {
+      return C[2] || CT.C2;
     }
-    startUpload() {
-      return async.async(dart.dynamic, (function* startUpload() {
-        let _storedImage = io.File.new(this[_imageFile].path);
-        this.base64Image = convert.base64Encode(_storedImage.readAsBytesSync());
-        this.setStatus("Uploading Image");
-        if (_storedImage == null) {
-          this.setStatus(this.errMessage);
-          core.print(this.errMessage);
-        }
-        let fileName = _storedImage.path[$split]("/")[$last];
-        this.upload(fileName);
-      }).bind(this));
+  }, false);
+  var left$ = dart.privateName(edge_insets, "EdgeInsets.left");
+  var top$ = dart.privateName(edge_insets, "EdgeInsets.top");
+  var right$ = dart.privateName(edge_insets, "EdgeInsets.right");
+  var bottom$ = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  edge_insets.EdgeInsets = class EdgeInsets extends edge_insets.EdgeInsetsGeometry {
+    get left() {
+      return this[left$];
     }
-    upload(fileName) {
-      return async.async(dart.dynamic, (function* upload() {
-        let response = (yield http.post(core.Uri.parse(ImageProfile._ImageProfileState.uploadEndPoint), {body: convert.jsonEncode(new (T.IdentityMapOfStringL$StringL()).from(["image", this.base64Image, "name", fileName]))}));
-        let message = convert.jsonDecode(response.body);
-        if (response.statusCode === 200) {
-          core.print(message);
-        } else {
-          core.print("not added");
-        }
-        dialog.showDialog(dart.dynamic, {context: this.context, builder: dart.fn(context => new dialog.AlertDialog.new({title: new text.Text.new("Response Message", {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), content: new text.Text.new(core.String.as(dart.dsend(message, '_get', ["message"])), {$creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), actions: T.JSArrayOfWidgetL().of([new elevated_button.ElevatedButton.new({onPressed: dart.fn(() => {
-                  navigator.Navigator.of(context).pop(T.ObjectL());
-                }, T.VoidToNull()), child: new text.Text.new("OK", {$creationLocationd_0dea112b090073317d4: C[6] || CT.C6}), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9})]), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13}), T.BuildContextLToAlertDialogL())});
-      }).bind(this));
+    set left(value) {
+      super.left = value;
     }
-    build(context) {
-      return new basic.Column.new({children: T.JSArrayOfWidgetL().of([new basic.Stack.new({children: T.JSArrayOfWidgetL().of([new circle_avatar.CircleAvatar.new({radius: 80.0, backgroundImage: T.ImageProviderNOfObject().as(this[_imageFile] == null ? new _network_image_web.NetworkImage.new("https://avatars.githubusercontent.com/u/46266421?v=4") : new image_provider.FileImage.new(io.File.new(this[_imageFile].path))), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18}), new basic.Positioned.new({bottom: 20.0, right: 25.0, child: new ink_well.InkWell.new({onTap: dart.fn(() => {
-                    bottom_sheet.showModalBottomSheet(dart.dynamic, {context: context, builder: dart.fn(builder => this.bottomSheet(context), T.BuildContextLToWidgetL())});
-                  }, T.VoidToNull()), child: new icon.Icon.new(icons.Icons.camera_alt, {color: colors.Colors.white, size: 28.0, $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31})]), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36}), new basic.SizedBox.new({height: 40.0, $creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), new elevated_button.ElevatedButton.new({style: elevated_button.ElevatedButton.styleFrom({primary: colors.Colors.brown, onPrimary: colors.Colors.white}), child: new basic.Padding.new({padding: C[42] || CT.C42, child: new text.Text.new("Upload Image", {$creationLocationd_0dea112b090073317d4: C[43] || CT.C43}), $creationLocationd_0dea112b090073317d4: C[46] || CT.C46}), onPressed: dart.fn(() => {
-              this.startUpload();
-            }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[50] || CT.C50})]), $creationLocationd_0dea112b090073317d4: C[55] || CT.C55});
+    get top() {
+      return this[top$];
     }
-    bottomSheet(context) {
-      return new container.Container.new({height: 100.0, width: media_query.MediaQuery.of(framework.BuildContext.as(context)).size.width, margin: new edge_insets.EdgeInsets.symmetric({horizontal: 20.0, vertical: 20.0}), child: new basic.Center.new({child: new basic.Column.new({children: T.JSArrayOfWidgetL().of([new text.Text.new("choose profile image", {style: new text_style.TextStyle.new({fontSize: 20.0}), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58}), new basic.SizedBox.new({height: 20.0, $creationLocationd_0dea112b090073317d4: C[62] || CT.C62}), new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidgetL().of([new flat_button._FlatButtonWithIcon.new({onPressed: dart.fn(() => {
-                      this.takePhoto(image_source.ImageSource.camera);
-                    }, T.VoidToNull()), icon: new icon.Icon.new(icons.Icons.camera_alt, {$creationLocationd_0dea112b090073317d4: C[65] || CT.C65}), label: new text.Text.new("Camera", {$creationLocationd_0dea112b090073317d4: C[68] || CT.C68}), $creationLocationd_0dea112b090073317d4: C[71] || CT.C71}), new flat_button._FlatButtonWithIcon.new({onPressed: dart.fn(() => {
-                      this.takePhoto(image_source.ImageSource.gallery);
-                    }, T.VoidToNull()), icon: new icon.Icon.new(icons.Icons.image, {$creationLocationd_0dea112b090073317d4: C[76] || CT.C76}), label: new text.Text.new("Gallary", {$creationLocationd_0dea112b090073317d4: C[79] || CT.C79}), $creationLocationd_0dea112b090073317d4: C[82] || CT.C82})]), $creationLocationd_0dea112b090073317d4: C[87] || CT.C87})]), $creationLocationd_0dea112b090073317d4: C[91] || CT.C91}), $creationLocationd_0dea112b090073317d4: C[94] || CT.C94}), $creationLocationd_0dea112b090073317d4: C[97] || CT.C97});
+    set top(value) {
+      super.top = value;
     }
-    takePhoto(_source) {
-      return async.async(dart.void, (function* takePhoto() {
-        let pickedFile = (yield this[_picker].getImage({source: _source}));
-        this.setState(dart.fn(() => {
-          this[_imageFile] = pickedFile;
-        }, T.VoidToNull()));
-      }).bind(this));
+    get right() {
+      return this[right$];
+    }
+    set right(value) {
+      super.right = value;
+    }
+    get bottom() {
+      return this[bottom$];
+    }
+    set bottom(value) {
+      super.bottom = value;
+    }
+    get [_left]() {
+      return this.left;
+    }
+    get [_top]() {
+      return this.top;
+    }
+    get [_right]() {
+      return this.right;
+    }
+    get [_bottom]() {
+      return this.bottom;
+    }
+    get [_start]() {
+      return 0.0;
+    }
+    get [_end]() {
+      return 0.0;
+    }
+    get topLeft() {
+      return new ui.Offset.new(this.left, this.top);
+    }
+    get topRight() {
+      return new ui.Offset.new(-dart.notNull(this.right), this.top);
+    }
+    get bottomLeft() {
+      return new ui.Offset.new(this.left, -dart.notNull(this.bottom));
+    }
+    get bottomRight() {
+      return new ui.Offset.new(-dart.notNull(this.right), -dart.notNull(this.bottom));
+    }
+    get flipped() {
+      return new edge_insets.EdgeInsets.fromLTRB(this.right, this.bottom, this.left, this.top);
+    }
+    inflateRect(rect) {
+      if (rect == null) dart.nullFailed(I[0], 471, 25, "rect");
+      return new ui.Rect.fromLTRB(dart.notNull(rect.left) - dart.notNull(this.left), dart.notNull(rect.top) - dart.notNull(this.top), dart.notNull(rect.right) + dart.notNull(this.right), dart.notNull(rect.bottom) + dart.notNull(this.bottom));
+    }
+    deflateRect(rect) {
+      if (rect == null) dart.nullFailed(I[0], 488, 25, "rect");
+      return new ui.Rect.fromLTRB(dart.notNull(rect.left) + dart.notNull(this.left), dart.notNull(rect.top) + dart.notNull(this.top), dart.notNull(rect.right) - dart.notNull(this.right), dart.notNull(rect.bottom) - dart.notNull(this.bottom));
+    }
+    subtract(other) {
+      if (other == null) dart.nullFailed(I[0], 493, 50, "other");
+      if (edge_insets.EdgeInsets.is(other)) return this['-'](other);
+      return super.subtract(other);
+    }
+    add(other) {
+      if (other == null) dart.nullFailed(I[0], 500, 45, "other");
+      if (edge_insets.EdgeInsets.is(other)) return this['+'](other);
+      return super.add(other);
+    }
+    clamp(min, max) {
+      if (min == null) dart.nullFailed(I[0], 507, 47, "min");
+      if (max == null) dart.nullFailed(I[0], 507, 71, "max");
+      return new edge_insets.EdgeInsets.fromLTRB(this[_left][$clamp](min[_left], max[_left]), this[_top][$clamp](min[_top], max[_top]), this[_right][$clamp](min[_right], max[_right]), this[_bottom][$clamp](min[_bottom], max[_bottom]));
+    }
+    ['-'](other) {
+      if (other == null) dart.nullFailed(I[0], 517, 36, "other");
+      return new edge_insets.EdgeInsets.fromLTRB(dart.notNull(this.left) - dart.notNull(other.left), dart.notNull(this.top) - dart.notNull(other.top), dart.notNull(this.right) - dart.notNull(other.right), dart.notNull(this.bottom) - dart.notNull(other.bottom));
+    }
+    ['+'](other) {
+      if (other == null) dart.nullFailed(I[0], 527, 36, "other");
+      return new edge_insets.EdgeInsets.fromLTRB(dart.notNull(this.left) + dart.notNull(other.left), dart.notNull(this.top) + dart.notNull(other.top), dart.notNull(this.right) + dart.notNull(other.right), dart.notNull(this.bottom) + dart.notNull(other.bottom));
+    }
+    _negate() {
+      return new edge_insets.EdgeInsets.fromLTRB(-dart.notNull(this.left), -dart.notNull(this.top), -dart.notNull(this.right), -dart.notNull(this.bottom));
+    }
+    ['*'](other) {
+      if (other == null) dart.nullFailed(I[0], 551, 32, "other");
+      return new edge_insets.EdgeInsets.fromLTRB(dart.notNull(this.left) * dart.notNull(other), dart.notNull(this.top) * dart.notNull(other), dart.notNull(this.right) * dart.notNull(other), dart.notNull(this.bottom) * dart.notNull(other));
+    }
+    ['/'](other) {
+      if (other == null) dart.nullFailed(I[0], 562, 32, "other");
+      return new edge_insets.EdgeInsets.fromLTRB(dart.notNull(this.left) / dart.notNull(other), dart.notNull(this.top) / dart.notNull(other), dart.notNull(this.right) / dart.notNull(other), dart.notNull(this.bottom) / dart.notNull(other));
+    }
+    ['~/'](other) {
+      if (other == null) dart.nullFailed(I[0], 573, 33, "other");
+      return new edge_insets.EdgeInsets.fromLTRB((dart.notNull(this.left) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this.top) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this.right) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this.bottom) / dart.notNull(other))[$truncate]()[$toDouble]());
+    }
+    ['%'](other) {
+      if (other == null) dart.nullFailed(I[0], 584, 32, "other");
+      return new edge_insets.EdgeInsets.fromLTRB(this.left[$modulo](other), this.top[$modulo](other), this.right[$modulo](other), this.bottom[$modulo](other));
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(I[0], 598, 64, "t");
+      if (!(t != null)) dart.assertFailed(null, I[0], 599, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b)['*'](t);
+      if (b == null) return a['*'](1.0 - dart.notNull(t));
+      return new edge_insets.EdgeInsets.fromLTRB(dart.nullCheck(ui.lerpDouble(a.left, b.left, t)), dart.nullCheck(ui.lerpDouble(a.top, b.top, t)), dart.nullCheck(ui.lerpDouble(a.right, b.right, t)), dart.nullCheck(ui.lerpDouble(a.bottom, b.bottom, t)));
+    }
+    resolve(direction) {
+      return this;
+    }
+    copyWith(opts) {
+      let t0, t0$, t0$0, t0$1;
+      let left = opts && 'left' in opts ? opts.left : null;
+      let top = opts && 'top' in opts ? opts.top : null;
+      let right = opts && 'right' in opts ? opts.right : null;
+      let bottom = opts && 'bottom' in opts ? opts.bottom : null;
+      return new edge_insets.EdgeInsets.only({left: (t0 = left, t0 == null ? this.left : t0), top: (t0$ = top, t0$ == null ? this.top : t0$), right: (t0$0 = right, t0$0 == null ? this.right : t0$0), bottom: (t0$1 = bottom, t0$1 == null ? this.bottom : t0$1)});
     }
   };
-  (ImageProfile._ImageProfileState.new = function() {
-    this[_imageFile] = null;
-    this.base64Image = null;
-    this.status = "";
-    this.errMessage = "Error Uploading Image";
-    this[_picker] = new image_picker.ImagePicker.new();
-    ImageProfile._ImageProfileState.__proto__.new.call(this);
+  (edge_insets.EdgeInsets.fromLTRB = function(left, top, right, bottom) {
+    if (left == null) dart.nullFailed(I[0], 343, 34, "left");
+    if (top == null) dart.nullFailed(I[0], 343, 45, "top");
+    if (right == null) dart.nullFailed(I[0], 343, 55, "right");
+    if (bottom == null) dart.nullFailed(I[0], 343, 67, "bottom");
+    this[left$] = left;
+    this[top$] = top;
+    this[right$] = right;
+    this[bottom$] = bottom;
+    edge_insets.EdgeInsets.__proto__.new.call(this);
     ;
-  }).prototype = ImageProfile._ImageProfileState.prototype;
-  dart.addTypeTests(ImageProfile._ImageProfileState);
-  dart.addTypeCaches(ImageProfile._ImageProfileState);
-  dart.setMethodSignature(ImageProfile._ImageProfileState, () => ({
-    __proto__: dart.getMethods(ImageProfile._ImageProfileState.__proto__),
-    setStatus: dart.fnType(dart.dynamic, [dart.legacy(core.String)]),
-    startUpload: dart.fnType(dart.dynamic, []),
-    upload: dart.fnType(dart.dynamic, [dart.legacy(core.String)]),
-    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
-    bottomSheet: dart.fnType(dart.legacy(framework.Widget), [dart.dynamic]),
-    takePhoto: dart.fnType(dart.void, [dart.legacy(image_source.ImageSource)])
+  }).prototype = edge_insets.EdgeInsets.prototype;
+  (edge_insets.EdgeInsets.all = function(value) {
+    if (value == null) dart.nullFailed(I[0], 355, 31, "value");
+    this[left$] = value;
+    this[top$] = value;
+    this[right$] = value;
+    this[bottom$] = value;
+    edge_insets.EdgeInsets.__proto__.new.call(this);
+    ;
+  }).prototype = edge_insets.EdgeInsets.prototype;
+  (edge_insets.EdgeInsets.only = function(opts) {
+    let left = opts && 'left' in opts ? opts.left : 0;
+    if (left == null) dart.nullFailed(I[0], 372, 10, "left");
+    let top = opts && 'top' in opts ? opts.top : 0;
+    if (top == null) dart.nullFailed(I[0], 373, 10, "top");
+    let right = opts && 'right' in opts ? opts.right : 0;
+    if (right == null) dart.nullFailed(I[0], 374, 10, "right");
+    let bottom = opts && 'bottom' in opts ? opts.bottom : 0;
+    if (bottom == null) dart.nullFailed(I[0], 375, 10, "bottom");
+    this[left$] = left;
+    this[top$] = top;
+    this[right$] = right;
+    this[bottom$] = bottom;
+    edge_insets.EdgeInsets.__proto__.new.call(this);
+    ;
+  }).prototype = edge_insets.EdgeInsets.prototype;
+  (edge_insets.EdgeInsets.symmetric = function(opts) {
+    let vertical = opts && 'vertical' in opts ? opts.vertical : 0;
+    if (vertical == null) dart.nullFailed(I[0], 389, 12, "vertical");
+    let horizontal = opts && 'horizontal' in opts ? opts.horizontal : 0;
+    if (horizontal == null) dart.nullFailed(I[0], 390, 12, "horizontal");
+    this[left$] = horizontal;
+    this[top$] = vertical;
+    this[right$] = horizontal;
+    this[bottom$] = vertical;
+    edge_insets.EdgeInsets.__proto__.new.call(this);
+    ;
+  }).prototype = edge_insets.EdgeInsets.prototype;
+  (edge_insets.EdgeInsets.fromWindowPadding = function(padding, devicePixelRatio) {
+    if (padding == null) dart.nullFailed(I[0], 402, 49, "padding");
+    if (devicePixelRatio == null) dart.nullFailed(I[0], 402, 65, "devicePixelRatio");
+    this[left$] = dart.notNull(padding.left) / dart.notNull(devicePixelRatio);
+    this[top$] = dart.notNull(padding.top) / dart.notNull(devicePixelRatio);
+    this[right$] = dart.notNull(padding.right) / dart.notNull(devicePixelRatio);
+    this[bottom$] = dart.notNull(padding.bottom) / dart.notNull(devicePixelRatio);
+    edge_insets.EdgeInsets.__proto__.new.call(this);
+    ;
+  }).prototype = edge_insets.EdgeInsets.prototype;
+  dart.addTypeTests(edge_insets.EdgeInsets);
+  dart.addTypeCaches(edge_insets.EdgeInsets);
+  dart.setMethodSignature(edge_insets.EdgeInsets, () => ({
+    __proto__: dart.getMethods(edge_insets.EdgeInsets.__proto__),
+    inflateRect: dart.fnType(ui.Rect, [ui.Rect]),
+    deflateRect: dart.fnType(ui.Rect, [ui.Rect]),
+    '-': dart.fnType(edge_insets.EdgeInsets, [edge_insets.EdgeInsets]),
+    '+': dart.fnType(edge_insets.EdgeInsets, [edge_insets.EdgeInsets]),
+    _negate: dart.fnType(edge_insets.EdgeInsets, []),
+    '*': dart.fnType(edge_insets.EdgeInsets, [core.double]),
+    '/': dart.fnType(edge_insets.EdgeInsets, [core.double]),
+    '~/': dart.fnType(edge_insets.EdgeInsets, [core.double]),
+    '%': dart.fnType(edge_insets.EdgeInsets, [core.double]),
+    resolve: dart.fnType(edge_insets.EdgeInsets, [dart.nullable(ui.TextDirection)]),
+    copyWith: dart.fnType(edge_insets.EdgeInsets, [], {bottom: dart.nullable(core.double), left: dart.nullable(core.double), right: dart.nullable(core.double), top: dart.nullable(core.double)}, {})
   }));
-  dart.setLibraryUri(ImageProfile._ImageProfileState, I[0]);
-  dart.setFieldSignature(ImageProfile._ImageProfileState, () => ({
-    __proto__: dart.getFields(ImageProfile._ImageProfileState.__proto__),
-    [_imageFile]: dart.fieldType(dart.legacy(html.PickedFile)),
-    base64Image: dart.fieldType(dart.legacy(core.String)),
-    status: dart.fieldType(dart.legacy(core.String)),
-    errMessage: dart.fieldType(dart.legacy(core.String)),
-    [_picker]: dart.finalFieldType(dart.legacy(image_picker.ImagePicker))
+  dart.setGetterSignature(edge_insets.EdgeInsets, () => ({
+    __proto__: dart.getGetters(edge_insets.EdgeInsets.__proto__),
+    [_left]: core.double,
+    [_top]: core.double,
+    [_right]: core.double,
+    [_bottom]: core.double,
+    [_start]: core.double,
+    [_end]: core.double,
+    topLeft: ui.Offset,
+    topRight: ui.Offset,
+    bottomLeft: ui.Offset,
+    bottomRight: ui.Offset,
+    flipped: edge_insets.EdgeInsets
   }));
-  dart.defineLazy(ImageProfile._ImageProfileState, {
-    /*ImageProfile._ImageProfileState.uploadEndPoint*/get uploadEndPoint() {
-      return "https://pcc.edu.pk/ws/file_upload.php";
+  dart.setLibraryUri(edge_insets.EdgeInsets, I[1]);
+  dart.setFieldSignature(edge_insets.EdgeInsets, () => ({
+    __proto__: dart.getFields(edge_insets.EdgeInsets.__proto__),
+    left: dart.finalFieldType(core.double),
+    top: dart.finalFieldType(core.double),
+    right: dart.finalFieldType(core.double),
+    bottom: dart.finalFieldType(core.double)
+  }));
+  dart.defineLazy(edge_insets.EdgeInsets, {
+    /*edge_insets.EdgeInsets.zero*/get zero() {
+      return C[3] || CT.C3;
     }
-  }, true);
-  dart.trackLibraries("packages/flutter_drawer/Custom%20Widgets/ImageProfile.dart", {
-    "package:flutter_drawer/Custom%20Widgets/ImageProfile.dart": ImageProfile
+  }, false);
+  var start$ = dart.privateName(edge_insets, "EdgeInsetsDirectional.start");
+  var top$0 = dart.privateName(edge_insets, "EdgeInsetsDirectional.top");
+  var end$ = dart.privateName(edge_insets, "EdgeInsetsDirectional.end");
+  var bottom$0 = dart.privateName(edge_insets, "EdgeInsetsDirectional.bottom");
+  var _name$ = dart.privateName(ui, "_name");
+  edge_insets.EdgeInsetsDirectional = class EdgeInsetsDirectional extends edge_insets.EdgeInsetsGeometry {
+    get start() {
+      return this[start$];
+    }
+    set start(value) {
+      super.start = value;
+    }
+    get top() {
+      return this[top$0];
+    }
+    set top(value) {
+      super.top = value;
+    }
+    get end() {
+      return this[end$];
+    }
+    set end(value) {
+      super.end = value;
+    }
+    get bottom() {
+      return this[bottom$0];
+    }
+    set bottom(value) {
+      super.bottom = value;
+    }
+    get [_start]() {
+      return this.start;
+    }
+    get [_top]() {
+      return this.top;
+    }
+    get [_end]() {
+      return this.end;
+    }
+    get [_bottom]() {
+      return this.bottom;
+    }
+    get [_left]() {
+      return 0.0;
+    }
+    get [_right]() {
+      return 0.0;
+    }
+    get isNonNegative() {
+      return dart.notNull(this.start) >= 0.0 && dart.notNull(this.top) >= 0.0 && dart.notNull(this.end) >= 0.0 && dart.notNull(this.bottom) >= 0.0;
+    }
+    get flipped() {
+      return new edge_insets.EdgeInsetsDirectional.fromSTEB(this.end, this.bottom, this.start, this.top);
+    }
+    subtract(other) {
+      if (other == null) dart.nullFailed(I[0], 724, 50, "other");
+      if (edge_insets.EdgeInsetsDirectional.is(other)) return this['-'](other);
+      return super.subtract(other);
+    }
+    add(other) {
+      if (other == null) dart.nullFailed(I[0], 731, 45, "other");
+      if (edge_insets.EdgeInsetsDirectional.is(other)) return this['+'](other);
+      return super.add(other);
+    }
+    ['-'](other) {
+      if (other == null) dart.nullFailed(I[0], 738, 58, "other");
+      return new edge_insets.EdgeInsetsDirectional.fromSTEB(dart.notNull(this.start) - dart.notNull(other.start), dart.notNull(this.top) - dart.notNull(other.top), dart.notNull(this.end) - dart.notNull(other.end), dart.notNull(this.bottom) - dart.notNull(other.bottom));
+    }
+    ['+'](other) {
+      if (other == null) dart.nullFailed(I[0], 748, 58, "other");
+      return new edge_insets.EdgeInsetsDirectional.fromSTEB(dart.notNull(this.start) + dart.notNull(other.start), dart.notNull(this.top) + dart.notNull(other.top), dart.notNull(this.end) + dart.notNull(other.end), dart.notNull(this.bottom) + dart.notNull(other.bottom));
+    }
+    _negate() {
+      return new edge_insets.EdgeInsetsDirectional.fromSTEB(-dart.notNull(this.start), -dart.notNull(this.top), -dart.notNull(this.end), -dart.notNull(this.bottom));
+    }
+    ['*'](other) {
+      if (other == null) dart.nullFailed(I[0], 772, 43, "other");
+      return new edge_insets.EdgeInsetsDirectional.fromSTEB(dart.notNull(this.start) * dart.notNull(other), dart.notNull(this.top) * dart.notNull(other), dart.notNull(this.end) * dart.notNull(other), dart.notNull(this.bottom) * dart.notNull(other));
+    }
+    ['/'](other) {
+      if (other == null) dart.nullFailed(I[0], 783, 43, "other");
+      return new edge_insets.EdgeInsetsDirectional.fromSTEB(dart.notNull(this.start) / dart.notNull(other), dart.notNull(this.top) / dart.notNull(other), dart.notNull(this.end) / dart.notNull(other), dart.notNull(this.bottom) / dart.notNull(other));
+    }
+    ['~/'](other) {
+      if (other == null) dart.nullFailed(I[0], 794, 44, "other");
+      return new edge_insets.EdgeInsetsDirectional.fromSTEB((dart.notNull(this.start) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this.top) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this.end) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this.bottom) / dart.notNull(other))[$truncate]()[$toDouble]());
+    }
+    ['%'](other) {
+      if (other == null) dart.nullFailed(I[0], 805, 43, "other");
+      return new edge_insets.EdgeInsetsDirectional.fromSTEB(this.start[$modulo](other), this.top[$modulo](other), this.end[$modulo](other), this.bottom[$modulo](other));
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(I[0], 823, 97, "t");
+      if (!(t != null)) dart.assertFailed(null, I[0], 824, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b)['*'](t);
+      if (b == null) return a['*'](1.0 - dart.notNull(t));
+      return new edge_insets.EdgeInsetsDirectional.fromSTEB(dart.nullCheck(ui.lerpDouble(a.start, b.start, t)), dart.nullCheck(ui.lerpDouble(a.top, b.top, t)), dart.nullCheck(ui.lerpDouble(a.end, b.end, t)), dart.nullCheck(ui.lerpDouble(a.bottom, b.bottom, t)));
+    }
+    resolve(direction) {
+      if (!(direction != null)) dart.assertFailed(null, I[0], 841, 12, "direction != null");
+      switch (dart.nullCheck(direction)) {
+        case C[4] || CT.C4:
+        {
+          return new edge_insets.EdgeInsets.fromLTRB(this.end, this.top, this.start, this.bottom);
+        }
+        case C[5] || CT.C5:
+        {
+          return new edge_insets.EdgeInsets.fromLTRB(this.start, this.top, this.end, this.bottom);
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+  };
+  (edge_insets.EdgeInsetsDirectional.fromSTEB = function(start, top, end, bottom) {
+    if (start == null) dart.nullFailed(I[0], 647, 45, "start");
+    if (top == null) dart.nullFailed(I[0], 647, 57, "top");
+    if (end == null) dart.nullFailed(I[0], 647, 67, "end");
+    if (bottom == null) dart.nullFailed(I[0], 647, 77, "bottom");
+    this[start$] = start;
+    this[top$0] = top;
+    this[end$] = end;
+    this[bottom$0] = bottom;
+    edge_insets.EdgeInsetsDirectional.__proto__.new.call(this);
+    ;
+  }).prototype = edge_insets.EdgeInsetsDirectional.prototype;
+  (edge_insets.EdgeInsetsDirectional.only = function(opts) {
+    let start = opts && 'start' in opts ? opts.start : 0;
+    if (start == null) dart.nullFailed(I[0], 660, 10, "start");
+    let top = opts && 'top' in opts ? opts.top : 0;
+    if (top == null) dart.nullFailed(I[0], 661, 10, "top");
+    let end = opts && 'end' in opts ? opts.end : 0;
+    if (end == null) dart.nullFailed(I[0], 662, 10, "end");
+    let bottom = opts && 'bottom' in opts ? opts.bottom : 0;
+    if (bottom == null) dart.nullFailed(I[0], 663, 10, "bottom");
+    this[start$] = start;
+    this[top$0] = top;
+    this[end$] = end;
+    this[bottom$0] = bottom;
+    edge_insets.EdgeInsetsDirectional.__proto__.new.call(this);
+    ;
+  }).prototype = edge_insets.EdgeInsetsDirectional.prototype;
+  dart.addTypeTests(edge_insets.EdgeInsetsDirectional);
+  dart.addTypeCaches(edge_insets.EdgeInsetsDirectional);
+  dart.setMethodSignature(edge_insets.EdgeInsetsDirectional, () => ({
+    __proto__: dart.getMethods(edge_insets.EdgeInsetsDirectional.__proto__),
+    '-': dart.fnType(edge_insets.EdgeInsetsDirectional, [edge_insets.EdgeInsetsDirectional]),
+    '+': dart.fnType(edge_insets.EdgeInsetsDirectional, [edge_insets.EdgeInsetsDirectional]),
+    _negate: dart.fnType(edge_insets.EdgeInsetsDirectional, []),
+    '*': dart.fnType(edge_insets.EdgeInsetsDirectional, [core.double]),
+    '/': dart.fnType(edge_insets.EdgeInsetsDirectional, [core.double]),
+    '~/': dart.fnType(edge_insets.EdgeInsetsDirectional, [core.double]),
+    '%': dart.fnType(edge_insets.EdgeInsetsDirectional, [core.double]),
+    resolve: dart.fnType(edge_insets.EdgeInsets, [dart.nullable(ui.TextDirection)])
+  }));
+  dart.setGetterSignature(edge_insets.EdgeInsetsDirectional, () => ({
+    __proto__: dart.getGetters(edge_insets.EdgeInsetsDirectional.__proto__),
+    [_start]: core.double,
+    [_top]: core.double,
+    [_end]: core.double,
+    [_bottom]: core.double,
+    [_left]: core.double,
+    [_right]: core.double,
+    flipped: edge_insets.EdgeInsetsDirectional
+  }));
+  dart.setLibraryUri(edge_insets.EdgeInsetsDirectional, I[1]);
+  dart.setFieldSignature(edge_insets.EdgeInsetsDirectional, () => ({
+    __proto__: dart.getFields(edge_insets.EdgeInsetsDirectional.__proto__),
+    start: dart.finalFieldType(core.double),
+    top: dart.finalFieldType(core.double),
+    end: dart.finalFieldType(core.double),
+    bottom: dart.finalFieldType(core.double)
+  }));
+  dart.defineLazy(edge_insets.EdgeInsetsDirectional, {
+    /*edge_insets.EdgeInsetsDirectional.zero*/get zero() {
+      return C[6] || CT.C6;
+    }
+  }, false);
+  const _left$ = _MixedEdgeInsets__left;
+  const _right$ = _MixedEdgeInsets__right;
+  const _start$ = _MixedEdgeInsets__start;
+  const _end$ = _MixedEdgeInsets__end;
+  const _top$ = _MixedEdgeInsets__top;
+  const _bottom$ = _MixedEdgeInsets__bottom;
+  edge_insets._MixedEdgeInsets = class _MixedEdgeInsets extends edge_insets.EdgeInsetsGeometry {
+    get [_left]() {
+      return this[_left$];
+    }
+    set [_left](value) {
+      super[_left] = value;
+    }
+    get [_right]() {
+      return this[_right$];
+    }
+    set [_right](value) {
+      super[_right] = value;
+    }
+    get [_start]() {
+      return this[_start$];
+    }
+    set [_start](value) {
+      super[_start] = value;
+    }
+    get [_end]() {
+      return this[_end$];
+    }
+    set [_end](value) {
+      super[_end] = value;
+    }
+    get [_top]() {
+      return this[_top$];
+    }
+    set [_top](value) {
+      super[_top] = value;
+    }
+    get [_bottom]() {
+      return this[_bottom$];
+    }
+    set [_bottom](value) {
+      super[_bottom] = value;
+    }
+    get isNonNegative() {
+      return dart.notNull(this[_left]) >= 0.0 && dart.notNull(this[_right]) >= 0.0 && dart.notNull(this[_start]) >= 0.0 && dart.notNull(this[_end]) >= 0.0 && dart.notNull(this[_top]) >= 0.0 && dart.notNull(this[_bottom]) >= 0.0;
+    }
+    _negate() {
+      return new edge_insets._MixedEdgeInsets.fromLRSETB(-dart.notNull(this[_left]), -dart.notNull(this[_right]), -dart.notNull(this[_start]), -dart.notNull(this[_end]), -dart.notNull(this[_top]), -dart.notNull(this[_bottom]));
+    }
+    ['*'](other) {
+      if (other == null) dart.nullFailed(I[0], 895, 38, "other");
+      return new edge_insets._MixedEdgeInsets.fromLRSETB(dart.notNull(this[_left]) * dart.notNull(other), dart.notNull(this[_right]) * dart.notNull(other), dart.notNull(this[_start]) * dart.notNull(other), dart.notNull(this[_end]) * dart.notNull(other), dart.notNull(this[_top]) * dart.notNull(other), dart.notNull(this[_bottom]) * dart.notNull(other));
+    }
+    ['/'](other) {
+      if (other == null) dart.nullFailed(I[0], 907, 38, "other");
+      return new edge_insets._MixedEdgeInsets.fromLRSETB(dart.notNull(this[_left]) / dart.notNull(other), dart.notNull(this[_right]) / dart.notNull(other), dart.notNull(this[_start]) / dart.notNull(other), dart.notNull(this[_end]) / dart.notNull(other), dart.notNull(this[_top]) / dart.notNull(other), dart.notNull(this[_bottom]) / dart.notNull(other));
+    }
+    ['~/'](other) {
+      if (other == null) dart.nullFailed(I[0], 919, 39, "other");
+      return new edge_insets._MixedEdgeInsets.fromLRSETB((dart.notNull(this[_left]) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this[_right]) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this[_start]) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this[_end]) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this[_top]) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this[_bottom]) / dart.notNull(other))[$truncate]()[$toDouble]());
+    }
+    ['%'](other) {
+      if (other == null) dart.nullFailed(I[0], 931, 38, "other");
+      return new edge_insets._MixedEdgeInsets.fromLRSETB(this[_left][$modulo](other), this[_right][$modulo](other), this[_start][$modulo](other), this[_end][$modulo](other), this[_top][$modulo](other), this[_bottom][$modulo](other));
+    }
+    resolve(direction) {
+      if (!(direction != null)) dart.assertFailed(null, I[0], 944, 12, "direction != null");
+      switch (dart.nullCheck(direction)) {
+        case C[4] || CT.C4:
+        {
+          return new edge_insets.EdgeInsets.fromLTRB(dart.notNull(this[_end]) + dart.notNull(this[_left]), this[_top], dart.notNull(this[_start]) + dart.notNull(this[_right]), this[_bottom]);
+        }
+        case C[5] || CT.C5:
+        {
+          return new edge_insets.EdgeInsets.fromLTRB(dart.notNull(this[_start]) + dart.notNull(this[_left]), this[_top], dart.notNull(this[_end]) + dart.notNull(this[_right]), this[_bottom]);
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+  };
+  (edge_insets._MixedEdgeInsets.fromLRSETB = function(_left, _right, _start, _end, _top, _bottom) {
+    if (_left == null) dart.nullFailed(I[0], 852, 42, "_left");
+    if (_right == null) dart.nullFailed(I[0], 852, 54, "_right");
+    if (_start == null) dart.nullFailed(I[0], 852, 67, "_start");
+    if (_end == null) dart.nullFailed(I[0], 852, 80, "_end");
+    if (_top == null) dart.nullFailed(I[0], 852, 91, "_top");
+    if (_bottom == null) dart.nullFailed(I[0], 852, 102, "_bottom");
+    this[_left$] = _left;
+    this[_right$] = _right;
+    this[_start$] = _start;
+    this[_end$] = _end;
+    this[_top$] = _top;
+    this[_bottom$] = _bottom;
+    edge_insets._MixedEdgeInsets.__proto__.new.call(this);
+    ;
+  }).prototype = edge_insets._MixedEdgeInsets.prototype;
+  dart.addTypeTests(edge_insets._MixedEdgeInsets);
+  dart.addTypeCaches(edge_insets._MixedEdgeInsets);
+  dart.setMethodSignature(edge_insets._MixedEdgeInsets, () => ({
+    __proto__: dart.getMethods(edge_insets._MixedEdgeInsets.__proto__),
+    _negate: dart.fnType(edge_insets._MixedEdgeInsets, []),
+    '*': dart.fnType(edge_insets._MixedEdgeInsets, [core.double]),
+    '/': dart.fnType(edge_insets._MixedEdgeInsets, [core.double]),
+    '~/': dart.fnType(edge_insets._MixedEdgeInsets, [core.double]),
+    '%': dart.fnType(edge_insets._MixedEdgeInsets, [core.double]),
+    resolve: dart.fnType(edge_insets.EdgeInsets, [dart.nullable(ui.TextDirection)])
+  }));
+  dart.setLibraryUri(edge_insets._MixedEdgeInsets, I[1]);
+  dart.setFieldSignature(edge_insets._MixedEdgeInsets, () => ({
+    __proto__: dart.getFields(edge_insets._MixedEdgeInsets.__proto__),
+    [_left]: dart.finalFieldType(core.double),
+    [_right]: dart.finalFieldType(core.double),
+    [_start]: dart.finalFieldType(core.double),
+    [_end]: dart.finalFieldType(core.double),
+    [_top]: dart.finalFieldType(core.double),
+    [_bottom]: dart.finalFieldType(core.double)
+  }));
+  dart.trackLibraries("packages/flutter/src/painting/edge_insets.dart", {
+    "package:flutter/src/painting/edge_insets.dart": edge_insets
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["ImageProfile.dart"],"names":[],"mappings":"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","file":"../../../../packages/flutter_drawer/Custom%2520Widgets/ImageProfile.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["edge_insets.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/painting/edge_insets.dart.lib.js"}');
   // Exports:
   return {
-    Custom$32Widgets__ImageProfile: ImageProfile
+    src__painting__edge_insets: edge_insets
   };
 }));
 
-//# sourceMappingURL=ImageProfile.dart.lib.js.map
+//# sourceMappingURL=edge_insets.dart.lib.js.map

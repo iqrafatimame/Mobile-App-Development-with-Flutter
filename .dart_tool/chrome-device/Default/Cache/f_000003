@@ -19,15 +19,15 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "WamZFbB5s9GTpCQgkORwhA==";
+    window.$dartAppId = "BsUmKeNxu9c8bolmC1CjbQ==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "7.1.1";
-window.$dwdsDevHandlerPath = "http://localhost:65198/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:64962/$dwdsSseHandler";
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:65200/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:64964/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -232,7 +232,8 @@ let modulePaths = {
  "packages/image_picker_platform_interface/src/types/camera_device.dart": "packages/image_picker_platform_interface/src/types/camera_device.dart.lib",
  "packages/plugin_platform_interface/plugin_platform_interface.dart": "packages/plugin_platform_interface/plugin_platform_interface.dart.lib",
  "packages/flutter_drawer/main.dart": "packages/flutter_drawer/main.dart.lib",
- "packages/flutter_drawer/Screens/TabsForButtons.dart": "packages/flutter_drawer/Screens/TabsForButtons.dart.lib",
+ "packages/flutter_drawer/Screens/TabsForSelection.dart": "packages/flutter_drawer/Screens/TabsForSelection.dart.lib",
+ "packages/flutter_drawer/Custom%20Widgets/TextFieldForForm.dart": "packages/flutter_drawer/Custom%20Widgets/TextFieldForForm.dart.lib",
  "packages/flutter/material.dart": "packages/flutter/material.dart.lib",
  "packages/flutter/widgets.dart": "packages/flutter/widgets.dart.lib",
  "packages/flutter/src/widgets/will_pop_scope.dart": "packages/flutter/src/widgets/will_pop_scope.dart.lib",
@@ -492,6 +493,10 @@ let modulePaths = {
  "packages/flutter/src/material/app.dart": "packages/flutter/src/material/app.dart.lib",
  "packages/flutter/src/material/animated_icons.dart": "packages/flutter/src/material/animated_icons.dart.lib",
  "packages/flutter/src/material/about.dart": "packages/flutter/src/material/about.dart.lib",
+ "packages/flutter_drawer/Custom%20Widgets/SwitchWidget.dart": "packages/flutter_drawer/Custom%20Widgets/SwitchWidget.dart.lib",
+ "packages/flutter_drawer/Custom%20Widgets/DateAndTimePickerWidget.dart": "packages/flutter_drawer/Custom%20Widgets/DateAndTimePickerWidget.dart.lib",
+ "packages/flutter_drawer/Custom%20Widgets/CheckBoxListWidget.dart": "packages/flutter_drawer/Custom%20Widgets/CheckBoxListWidget.dart.lib",
+ "packages/flutter_drawer/Screens/TabsForButtons.dart": "packages/flutter_drawer/Screens/TabsForButtons.dart.lib",
  "packages/flutter_drawer/Screens/SuccessfullyRegistered.dart": "packages/flutter_drawer/Screens/SuccessfullyRegistered.dart.lib",
  "packages/flutter_drawer/Custom%20Widgets/aesthetic.dart": "packages/flutter_drawer/Custom%20Widgets/aesthetic.dart.lib",
  "packages/flutter_drawer/Custom%20Widgets/CustomCard.dart": "packages/flutter_drawer/Custom%20Widgets/CustomCard.dart.lib",
@@ -657,7 +662,8 @@ let moduleNames = {
  "packages/image_picker_platform_interface/src/types/camera_device.dart.lib": "packages/image_picker_platform_interface/src/types/camera_device.dart",
  "packages/plugin_platform_interface/plugin_platform_interface.dart.lib": "packages/plugin_platform_interface/plugin_platform_interface.dart",
  "packages/flutter_drawer/main.dart.lib": "packages/flutter_drawer/main.dart",
- "packages/flutter_drawer/Screens/TabsForButtons.dart.lib": "packages/flutter_drawer/Screens/TabsForButtons.dart",
+ "packages/flutter_drawer/Screens/TabsForSelection.dart.lib": "packages/flutter_drawer/Screens/TabsForSelection.dart",
+ "packages/flutter_drawer/Custom%20Widgets/TextFieldForForm.dart.lib": "packages/flutter_drawer/Custom%20Widgets/TextFieldForForm.dart",
  "packages/flutter/material.dart.lib": "packages/flutter/material.dart",
  "packages/flutter/widgets.dart.lib": "packages/flutter/widgets.dart",
  "packages/flutter/src/widgets/will_pop_scope.dart.lib": "packages/flutter/src/widgets/will_pop_scope.dart",
@@ -917,6 +923,10 @@ let moduleNames = {
  "packages/flutter/src/material/app.dart.lib": "packages/flutter/src/material/app.dart",
  "packages/flutter/src/material/animated_icons.dart.lib": "packages/flutter/src/material/animated_icons.dart",
  "packages/flutter/src/material/about.dart.lib": "packages/flutter/src/material/about.dart",
+ "packages/flutter_drawer/Custom%20Widgets/SwitchWidget.dart.lib": "packages/flutter_drawer/Custom%20Widgets/SwitchWidget.dart",
+ "packages/flutter_drawer/Custom%20Widgets/DateAndTimePickerWidget.dart.lib": "packages/flutter_drawer/Custom%20Widgets/DateAndTimePickerWidget.dart",
+ "packages/flutter_drawer/Custom%20Widgets/CheckBoxListWidget.dart.lib": "packages/flutter_drawer/Custom%20Widgets/CheckBoxListWidget.dart",
+ "packages/flutter_drawer/Screens/TabsForButtons.dart.lib": "packages/flutter_drawer/Screens/TabsForButtons.dart",
  "packages/flutter_drawer/Screens/SuccessfullyRegistered.dart.lib": "packages/flutter_drawer/Screens/SuccessfullyRegistered.dart",
  "packages/flutter_drawer/Custom%20Widgets/aesthetic.dart.lib": "packages/flutter_drawer/Custom%20Widgets/aesthetic.dart",
  "packages/flutter_drawer/Custom%20Widgets/CustomCard.dart.lib": "packages/flutter_drawer/Custom%20Widgets/CustomCard.dart",

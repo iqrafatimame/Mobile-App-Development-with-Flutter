@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer/Custom%20Widgets/CheckBoxListWidget.dart';
 import 'package:flutter_drawer/Custom%20Widgets/DateAndTimePickerWidget.dart';
+import 'package:flutter_drawer/Custom%20Widgets/RadioWidget.dart';
 import 'package:flutter_drawer/Custom%20Widgets/SwitchWidget.dart';
 import 'package:flutter_drawer/Custom%20Widgets/TextFieldForForm.dart';
 
@@ -26,7 +27,7 @@ class TabsForSelection extends StatefulWidget {
 class _TabsForSelectionState extends State<TabsForSelection> {
   
   double _currentSliderValue = 20;
-   BestTutorSite _site = BestTutorSite.rubyGranger;  
+  BestTutorSite _site = BestTutorSite.rubyGranger;  
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -88,36 +89,8 @@ class _TabsForSelectionState extends State<TabsForSelection> {
                     style: TextStyle(fontSize: 20),
                   ),
                   SizedBox(height: 25,),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                    child: ListTile(  
-                        title: const Text('Holly Gabriel'),  
-                        leading: Radio(  
-                          value: BestTutorSite.hollyGabriel,  
-                          groupValue: _site,  
-                          onChanged: (BestTutorSite value) {  
-                            setState(() {  
-                              _site = value;  
-                            });  
-                          },  
-                        ),  
-                      ),
-                  ), 
-                  Padding(
-                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                      child: ListTile(  
-                        title: const Text('Ruby Granger '),  
-                        leading: Radio(  
-                          value: BestTutorSite.rubyGranger,  
-                          groupValue: _site,  
-                          onChanged: (BestTutorSite value) {  
-                            setState(() {  
-                              _site = value;  
-                            });  
-                          },  
-                        ),  
-                      ),
-                    ),   
+                  RadioWidget(),
+                  RadioWidget(),
                 ],
               ),
             ),

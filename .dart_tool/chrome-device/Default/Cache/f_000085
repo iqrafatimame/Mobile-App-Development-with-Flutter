@@ -1,37 +1,43 @@
-define(['dart_sdk', 'packages/flutter/src/gestures/debug.dart', 'packages/flutter/src/foundation/print.dart'], (function load__packages__flutter__src__gestures__arena_dart(dart_sdk, packages__flutter__src__gestures__debug$46dart, packages__flutter__src__foundation__print$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/rendering/editable.dart', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/material/text_selection_toolbar.dart', 'packages/flutter/src/material/text_selection_toolbar_text_button.dart', 'packages/flutter/src/rendering/custom_paint.dart'], (function load__packages__flutter__src__material__text_selection_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__rendering__editable$46dart, packages__flutter__src__services__text_input$46dart, packages__flutter__src__material__text_selection_toolbar$46dart, packages__flutter__src__material__text_selection_toolbar_text_button$46dart, packages__flutter__src__rendering__custom_paint$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const _interceptors = dart_sdk._interceptors;
-  const _js_helper = dart_sdk._js_helper;
-  const async = dart_sdk.async;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const debug = packages__flutter__src__gestures__debug$46dart.src__gestures__debug;
-  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
-  var arena = Object.create(dart.library);
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const text_selection = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text_selection;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const text_selection_theme = packages__flutter__src__material__icon_button$46dart.src__material__text_selection_theme;
+  const debug = packages__flutter__src__material__icon_button$46dart.src__material__debug;
+  const material_localizations = packages__flutter__src__material__icon_button$46dart.src__material__material_localizations;
+  const editable = packages__flutter__src__rendering__editable$46dart.src__rendering__editable;
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  const text_selection_toolbar = packages__flutter__src__material__text_selection_toolbar$46dart.src__material__text_selection_toolbar;
+  const text_selection_toolbar_text_button = packages__flutter__src__material__text_selection_toolbar_text_button$46dart.src__material__text_selection_toolbar_text_button;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  var text_selection$ = Object.create(dart.library);
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $_get = dartx._get;
+  var $length = dartx.length;
   var $add = dartx.add;
   var $isEmpty = dartx.isEmpty;
+  var $entries = dartx.entries;
+  var $asMap = dartx.asMap;
   var $map = dartx.map;
-  var $join = dartx.join;
-  var $putIfAbsent = dartx.putIfAbsent;
-  var $_get = dartx._get;
-  var $remove = dartx.remove;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $first = dartx.first;
-  var $length = dartx.length;
-  var $contains = dartx.contains;
-  var $containsKey = dartx.containsKey;
-  var $toString = dartx.toString;
-  var $padRight = dartx.padRight;
+  var $toList = dartx.toList;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    GestureDispositionL: () => (T.GestureDispositionL = dart.constFn(dart.legacy(arena.GestureDisposition)))(),
-    JSArrayOfGestureArenaMember: () => (T.JSArrayOfGestureArenaMember = dart.constFn(_interceptors.JSArray$(arena.GestureArenaMember)))(),
-    GestureArenaMemberToString: () => (T.GestureArenaMemberToString = dart.constFn(dart.fnType(core.String, [arena.GestureArenaMember])))(),
-    IdentityMapOfint$_GestureArena: () => (T.IdentityMapOfint$_GestureArena = dart.constFn(_js_helper.IdentityMap$(core.int, arena._GestureArena)))(),
-    VoidTo_GestureArena: () => (T.VoidTo_GestureArena = dart.constFn(dart.fnType(arena._GestureArena, [])))(),
     VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))()
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    JSArrayOf_TextSelectionToolbarItemData: () => (T.JSArrayOf_TextSelectionToolbarItemData = dart.constFn(_interceptors.JSArray$(text_selection$._TextSelectionToolbarItemData)))(),
+    MapEntryOfint$_TextSelectionToolbarItemData: () => (T.MapEntryOfint$_TextSelectionToolbarItemData = dart.constFn(core.MapEntry$(core.int, text_selection$._TextSelectionToolbarItemData)))(),
+    MapEntryOfint$_TextSelectionToolbarItemDataToTextSelectionToolbarTextButton: () => (T.MapEntryOfint$_TextSelectionToolbarItemDataToTextSelectionToolbarTextButton = dart.constFn(dart.fnType(text_selection_toolbar_text_button.TextSelectionToolbarTextButton, [T.MapEntryOfint$_TextSelectionToolbarItemData()])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -48,308 +54,886 @@ define(['dart_sdk', 'packages/flutter/src/gestures/debug.dart', 'packages/flutte
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: arena.GestureDisposition.prototype,
-        [_name$]: "GestureDisposition.accepted",
-        index: 0
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 22,
+        [OffsetBase__dx]: 22
       });
     },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: arena.GestureDisposition.prototype,
-        [_name$]: "GestureDisposition.rejected",
-        index: 1
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "globalEditableRegion",
+        [_Location_column]: 7,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textLineHeight",
+        [_Location_column]: 7,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "selectionMidpoint",
+        [_Location_column]: 7,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "endpoints",
+        [_Location_column]: 7,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "delegate",
+        [_Location_column]: 7,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipboardStatus",
+        [_Location_column]: 7,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handleCut",
+        [_Location_column]: 7,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handleCopy",
+        [_Location_column]: 7,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handlePaste",
+        [_Location_column]: 7,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handleSelectAll",
+        [_Location_column]: 7,
+        [_Location_line]: 53,
+        [_Location_file]: null
       });
     },
     get C2() {
-      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], T.GestureDispositionL());
+      return C[2] = dart.constList([C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 9,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15], T._LocationL());
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20], T._LocationL());
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 62,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "angle",
+        [_Location_column]: 11,
+        [_Location_line]: 78,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 79,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24], T._LocationL());
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 77,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: text_selection.TextSelectionHandleType.prototype,
+        [_name]: "TextSelectionHandleType.left",
+        index: 0
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: text_selection.TextSelectionHandleType.prototype,
+        [_name]: "TextSelectionHandleType.right",
+        index: 1
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "angle",
+        [_Location_column]: 11,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30], T._LocationL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 84,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: text_selection.TextSelectionHandleType.prototype,
+        [_name]: "TextSelectionHandleType.collapsed",
+        index: 2
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 22
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: -4,
+        [OffsetBase__dx]: 11
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 198,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: basic.SizedBox.prototype,
+        [Widget__location]: C[35] || CT.C35,
+        [Widget_key]: null,
+        [SingleChildRenderObjectWidget_child]: null,
+        [SizedBox_height]: 0,
+        [SizedBox_width]: 0
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 204,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: basic.SizedBox.prototype,
+        [Widget__location]: C[38] || CT.C38,
+        [Widget_key]: null,
+        [SingleChildRenderObjectWidget_child]: null,
+        [SizedBox_height]: 0,
+        [SizedBox_width]: 0
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 29,
+        [_Location_line]: 253,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 41,
+        [_Location_line]: 253,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43], T._LocationL());
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[41] || CT.C41,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 253,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: basic.SizedBox.prototype,
+        [Widget__location]: C[40] || CT.C40,
+        [Widget_key]: null,
+        [SingleChildRenderObjectWidget_child]: null,
+        [SizedBox_height]: 0,
+        [SizedBox_width]: 0
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 35,
+        [_Location_line]: 263,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.constList([C[46] || CT.C46], T._LocationL());
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[45] || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 263,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 11,
+        [_Location_line]: 261,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 11,
+        [_Location_line]: 262,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 263,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.constList([C[49] || CT.C49, C[50] || CT.C50, C[51] || CT.C51], T._LocationL());
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[48] || CT.C48,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 260,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "anchorAbove",
+        [_Location_column]: 7,
+        [_Location_line]: 257,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "anchorBelow",
+        [_Location_column]: 7,
+        [_Location_line]: 258,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 7,
+        [_Location_line]: 259,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.constList([C[54] || CT.C54, C[55] || CT.C55, C[56] || CT.C56], T._LocationL());
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 256,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart"
+      });
     }
   }, false);
-  var C = Array(3).fill(void 0);
+  var C = Array(57).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/gestures/arena.dart",
-    "package:flutter/src/gestures/arena.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/material/text_selection.dart",
+    "package:flutter/src/material/text_selection.dart"
   ];
-  var _name$ = dart.privateName(arena, "_name");
-  arena.GestureDisposition = class GestureDisposition extends core.Object {
-    toString() {
-      return this[_name$];
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var _name = dart.privateName(text_selection, "_name");
+  text_selection$.MaterialTextSelectionControls = class MaterialTextSelectionControls extends text_selection.TextSelectionControls {
+    getHandleSize(textLineHeight) {
+      if (textLineHeight == null) dart.nullFailed(I[0], 29, 29, "textLineHeight");
+      return C[0] || CT.C0;
     }
-  };
-  (arena.GestureDisposition.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 13, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 13, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = arena.GestureDisposition.prototype;
-  dart.addTypeTests(arena.GestureDisposition);
-  dart.addTypeCaches(arena.GestureDisposition);
-  dart.setLibraryUri(arena.GestureDisposition, I[1]);
-  dart.setFieldSignature(arena.GestureDisposition, () => ({
-    __proto__: dart.getFields(arena.GestureDisposition.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(arena.GestureDisposition, ['toString']);
-  arena.GestureDisposition.accepted = C[0] || CT.C0;
-  arena.GestureDisposition.rejected = C[1] || CT.C1;
-  arena.GestureDisposition.values = C[2] || CT.C2;
-  arena.GestureArenaMember = class GestureArenaMember extends core.Object {};
-  (arena.GestureArenaMember.new = function() {
-    ;
-  }).prototype = arena.GestureArenaMember.prototype;
-  dart.addTypeTests(arena.GestureArenaMember);
-  dart.addTypeCaches(arena.GestureArenaMember);
-  dart.setLibraryUri(arena.GestureArenaMember, I[1]);
-  var _arena$ = dart.privateName(arena, "_arena");
-  var _pointer$ = dart.privateName(arena, "_pointer");
-  var _member$ = dart.privateName(arena, "_member");
-  var _resolve = dart.privateName(arena, "_resolve");
-  arena.GestureArenaEntry = class GestureArenaEntry extends core.Object {
-    resolve(disposition) {
-      if (disposition == null) dart.nullFailed(I[0], 52, 35, "disposition");
-      this[_arena$][_resolve](this[_pointer$], this[_member$], disposition);
+    buildToolbar(context, globalEditableRegion, textLineHeight, selectionMidpoint, endpoints, delegate, clipboardStatus, lastSecondaryTapDownPosition) {
+      if (context == null) dart.nullFailed(I[0], 34, 18, "context");
+      if (globalEditableRegion == null) dart.nullFailed(I[0], 35, 10, "globalEditableRegion");
+      if (textLineHeight == null) dart.nullFailed(I[0], 36, 12, "textLineHeight");
+      if (selectionMidpoint == null) dart.nullFailed(I[0], 37, 12, "selectionMidpoint");
+      if (endpoints == null) dart.nullFailed(I[0], 38, 30, "endpoints");
+      if (delegate == null) dart.nullFailed(I[0], 39, 27, "delegate");
+      if (clipboardStatus == null) dart.nullFailed(I[0], 40, 29, "clipboardStatus");
+      return new text_selection$._TextSelectionControlsToolbar.new({globalEditableRegion: globalEditableRegion, textLineHeight: textLineHeight, selectionMidpoint: selectionMidpoint, endpoints: endpoints, delegate: delegate, clipboardStatus: clipboardStatus, handleCut: dart.test(this.canCut(delegate)) ? dart.fn(() => this.handleCut(delegate), T.VoidTovoid()) : null, handleCopy: dart.test(this.canCopy(delegate)) ? dart.fn(() => this.handleCopy(delegate, clipboardStatus), T.VoidTovoid()) : null, handlePaste: dart.test(this.canPaste(delegate)) ? dart.fn(() => this.handlePaste(delegate), T.VoidTovoid()) : null, handleSelectAll: dart.test(this.canSelectAll(delegate)) ? dart.fn(() => this.handleSelectAll(delegate), T.VoidTovoid()) : null, $creationLocationd_0dea112b090073317d4: C[1] || CT.C1});
     }
-  };
-  (arena.GestureArenaEntry.__ = function(_arena, _pointer, _member) {
-    if (_arena == null) dart.nullFailed(I[0], 42, 28, "_arena");
-    if (_pointer == null) dart.nullFailed(I[0], 42, 41, "_pointer");
-    if (_member == null) dart.nullFailed(I[0], 42, 56, "_member");
-    this[_arena$] = _arena;
-    this[_pointer$] = _pointer;
-    this[_member$] = _member;
-    ;
-  }).prototype = arena.GestureArenaEntry.prototype;
-  dart.addTypeTests(arena.GestureArenaEntry);
-  dart.addTypeCaches(arena.GestureArenaEntry);
-  dart.setMethodSignature(arena.GestureArenaEntry, () => ({
-    __proto__: dart.getMethods(arena.GestureArenaEntry.__proto__),
-    resolve: dart.fnType(dart.void, [arena.GestureDisposition])
-  }));
-  dart.setLibraryUri(arena.GestureArenaEntry, I[1]);
-  dart.setFieldSignature(arena.GestureArenaEntry, () => ({
-    __proto__: dart.getFields(arena.GestureArenaEntry.__proto__),
-    [_arena$]: dart.finalFieldType(arena.GestureArenaManager),
-    [_pointer$]: dart.finalFieldType(core.int),
-    [_member$]: dart.finalFieldType(arena.GestureArenaMember)
-  }));
-  arena._GestureArena = class _GestureArena extends core.Object {
-    add(member) {
-      if (member == null) dart.nullFailed(I[0], 69, 31, "member");
-      if (!dart.test(this.isOpen)) dart.assertFailed(null, I[0], 70, 12, "isOpen");
-      this.members[$add](member);
-    }
-    toString() {
-      let buffer = new core.StringBuffer.new();
-      if (dart.test(this.members[$isEmpty])) {
-        buffer.write("<empty>");
-      } else {
-        buffer.write(this.members[$map](core.String, dart.fn(member => {
-          if (member == null) dart.nullFailed(I[0], 80, 60, "member");
-          if (dart.equals(member, this.eagerWinner)) return dart.str(member) + " (eager winner)";
-          return dart.str(member);
-        }, T.GestureArenaMemberToString()))[$join](", "));
-      }
-      if (dart.test(this.isOpen)) buffer.write(" [open]");
-      if (dart.test(this.isHeld)) buffer.write(" [held]");
-      if (dart.test(this.hasPendingSweep)) buffer.write(" [hasPendingSweep]");
-      return buffer.toString();
-    }
-  };
-  (arena._GestureArena.new = function() {
-    this.members = T.JSArrayOfGestureArenaMember().of([]);
-    this.isOpen = true;
-    this.isHeld = false;
-    this.hasPendingSweep = false;
-    this.eagerWinner = null;
-    ;
-  }).prototype = arena._GestureArena.prototype;
-  dart.addTypeTests(arena._GestureArena);
-  dart.addTypeCaches(arena._GestureArena);
-  dart.setMethodSignature(arena._GestureArena, () => ({
-    __proto__: dart.getMethods(arena._GestureArena.__proto__),
-    add: dart.fnType(dart.void, [arena.GestureArenaMember])
-  }));
-  dart.setLibraryUri(arena._GestureArena, I[1]);
-  dart.setFieldSignature(arena._GestureArena, () => ({
-    __proto__: dart.getFields(arena._GestureArena.__proto__),
-    members: dart.finalFieldType(core.List$(arena.GestureArenaMember)),
-    isOpen: dart.fieldType(core.bool),
-    isHeld: dart.fieldType(core.bool),
-    hasPendingSweep: dart.fieldType(core.bool),
-    eagerWinner: dart.fieldType(dart.nullable(arena.GestureArenaMember))
-  }));
-  dart.defineExtensionMethods(arena._GestureArena, ['toString']);
-  var _arenas = dart.privateName(arena, "_arenas");
-  var _debugLogDiagnostic = dart.privateName(arena, "_debugLogDiagnostic");
-  var _tryToResolveArena = dart.privateName(arena, "_tryToResolveArena");
-  var _resolveInFavorOf = dart.privateName(arena, "_resolveInFavorOf");
-  var _resolveByDefault = dart.privateName(arena, "_resolveByDefault");
-  arena.GestureArenaManager = class GestureArenaManager extends core.Object {
-    add(pointer, member) {
-      if (pointer == null) dart.nullFailed(I[0], 107, 29, "pointer");
-      if (member == null) dart.nullFailed(I[0], 107, 57, "member");
-      let state = this[_arenas][$putIfAbsent](pointer, dart.fn(() => {
-        if (!dart.test(this[_debugLogDiagnostic](pointer, "★ Opening new gesture arena."))) dart.assertFailed(null, I[0], 109, 14, "_debugLogDiagnostic(pointer, '★ Opening new gesture arena.')");
-        return new arena._GestureArena.new();
-      }, T.VoidTo_GestureArena()));
-      state.add(member);
-      if (!dart.test(this[_debugLogDiagnostic](pointer, "Adding: " + dart.str(member)))) dart.assertFailed(null, I[0], 113, 12, "_debugLogDiagnostic(pointer, 'Adding: $member')");
-      return new arena.GestureArenaEntry.__(this, pointer, member);
-    }
-    close(pointer) {
-      if (pointer == null) dart.nullFailed(I[0], 120, 18, "pointer");
-      let state = this[_arenas][$_get](pointer);
-      if (state == null) return;
-      state.isOpen = false;
-      if (!dart.test(this[_debugLogDiagnostic](pointer, "Closing", state))) dart.assertFailed(null, I[0], 125, 12, "_debugLogDiagnostic(pointer, 'Closing', state)");
-      this[_tryToResolveArena](pointer, state);
-    }
-    sweep(pointer) {
-      if (pointer == null) dart.nullFailed(I[0], 142, 18, "pointer");
-      let state = this[_arenas][$_get](pointer);
-      if (state == null) return;
-      if (!!dart.test(state.isOpen)) dart.assertFailed(null, I[0], 146, 12, "!state.isOpen");
-      if (dart.test(state.isHeld)) {
-        state.hasPendingSweep = true;
-        if (!dart.test(this[_debugLogDiagnostic](pointer, "Delaying sweep", state))) dart.assertFailed(null, I[0], 149, 14, "_debugLogDiagnostic(pointer, 'Delaying sweep', state)");
-        return;
-      }
-      if (!dart.test(this[_debugLogDiagnostic](pointer, "Sweeping", state))) dart.assertFailed(null, I[0], 152, 12, "_debugLogDiagnostic(pointer, 'Sweeping', state)");
-      this[_arenas][$remove](pointer);
-      if (dart.test(state.members[$isNotEmpty])) {
-        if (!dart.test(this[_debugLogDiagnostic](pointer, "Winner: " + dart.str(state.members[$first])))) dart.assertFailed(null, I[0], 156, 14, "_debugLogDiagnostic(pointer, 'Winner: ${state.members.first}')");
-        state.members[$first].acceptGesture(pointer);
-        for (let i = 1; i < dart.notNull(state.members[$length]); i = i + 1)
-          state.members[$_get](i).rejectGesture(pointer);
-      }
-    }
-    hold(pointer) {
-      if (pointer == null) dart.nullFailed(I[0], 176, 17, "pointer");
-      let state = this[_arenas][$_get](pointer);
-      if (state == null) return;
-      state.isHeld = true;
-      if (!dart.test(this[_debugLogDiagnostic](pointer, "Holding", state))) dart.assertFailed(null, I[0], 181, 12, "_debugLogDiagnostic(pointer, 'Holding', state)");
-    }
-    release(pointer) {
-      if (pointer == null) dart.nullFailed(I[0], 193, 20, "pointer");
-      let state = this[_arenas][$_get](pointer);
-      if (state == null) return;
-      state.isHeld = false;
-      if (!dart.test(this[_debugLogDiagnostic](pointer, "Releasing", state))) dart.assertFailed(null, I[0], 198, 12, "_debugLogDiagnostic(pointer, 'Releasing', state)");
-      if (dart.test(state.hasPendingSweep)) this.sweep(pointer);
-    }
-    [_resolve](pointer, member, disposition) {
+    buildHandle(context, type, textHeight) {
       let t0;
-      if (pointer == null) dart.nullFailed(I[0], 206, 21, "pointer");
-      if (member == null) dart.nullFailed(I[0], 206, 49, "member");
-      if (disposition == null) dart.nullFailed(I[0], 206, 76, "disposition");
-      let state = this[_arenas][$_get](pointer);
-      if (state == null) return;
-      if (!dart.test(this[_debugLogDiagnostic](pointer, (disposition == arena.GestureDisposition.accepted ? "Accepting" : "Rejecting") + ": " + dart.str(member)))) dart.assertFailed(null, I[0], 210, 12, "_debugLogDiagnostic(pointer, '${ disposition == GestureDisposition.accepted ? \"Accepting\" : \"Rejecting\" }: $member')");
-      if (!dart.test(state.members[$contains](member))) dart.assertFailed(null, I[0], 211, 12, "state.members.contains(member)");
-      if (disposition == arena.GestureDisposition.rejected) {
-        state.members[$remove](member);
-        member.rejectGesture(pointer);
-        if (!dart.test(state.isOpen)) this[_tryToResolveArena](pointer, state);
-      } else {
-        if (!(disposition == arena.GestureDisposition.accepted)) dart.assertFailed(null, I[0], 218, 14, "disposition == GestureDisposition.accepted");
-        if (dart.test(state.isOpen)) {
-          t0 = state;
-          t0.eagerWinner == null ? t0.eagerWinner = member : null;
-        } else {
-          if (!dart.test(this[_debugLogDiagnostic](pointer, "Self-declared winner: " + dart.str(member)))) dart.assertFailed(null, I[0], 222, 16, "_debugLogDiagnostic(pointer, 'Self-declared winner: $member')");
-          this[_resolveInFavorOf](pointer, state, member);
+      if (context == null) dart.nullFailed(I[0], 59, 35, "context");
+      if (type == null) dart.nullFailed(I[0], 59, 68, "type");
+      if (textHeight == null) dart.nullFailed(I[0], 59, 81, "textHeight");
+      let theme = theme$.Theme.of(context);
+      let handleColor = (t0 = text_selection_theme.TextSelectionTheme.of(context).selectionHandleColor, t0 == null ? theme.colorScheme.primary : t0);
+      let handle = new basic.SizedBox.new({width: 22, height: 22, child: new basic.CustomPaint.new({painter: new text_selection$._TextSelectionHandlePainter.new({color: handleColor}), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13}), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16});
+      switch (type) {
+        case C[25] || CT.C25:
+        {
+          return new basic.Transform.rotate({angle: 3.141592653589793 / 2.0, child: handle, $creationLocationd_0dea112b090073317d4: C[21] || CT.C21});
+        }
+        case C[26] || CT.C26:
+        {
+          return handle;
+        }
+        case C[31] || CT.C31:
+        {
+          return new basic.Transform.rotate({angle: 3.141592653589793 / 4.0, child: handle, $creationLocationd_0dea112b090073317d4: C[27] || CT.C27});
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
         }
       }
     }
-    [_tryToResolveArena](pointer, state) {
-      if (pointer == null) dart.nullFailed(I[0], 228, 31, "pointer");
-      if (state == null) dart.nullFailed(I[0], 228, 54, "state");
-      if (!dart.equals(this[_arenas][$_get](pointer), state)) dart.assertFailed(null, I[0], 229, 12, "_arenas[pointer] == state");
-      if (!!dart.test(state.isOpen)) dart.assertFailed(null, I[0], 230, 12, "!state.isOpen");
-      if (state.members[$length] === 1) {
-        async.scheduleMicrotask(dart.fn(() => this[_resolveByDefault](pointer, state), T.VoidTovoid()));
-      } else if (dart.test(state.members[$isEmpty])) {
-        this[_arenas][$remove](pointer);
-        if (!dart.test(this[_debugLogDiagnostic](pointer, "Arena empty."))) dart.assertFailed(null, I[0], 235, 14, "_debugLogDiagnostic(pointer, 'Arena empty.')");
-      } else if (state.eagerWinner != null) {
-        if (!dart.test(this[_debugLogDiagnostic](pointer, "Eager winner: " + dart.str(state.eagerWinner)))) dart.assertFailed(null, I[0], 237, 14, "_debugLogDiagnostic(pointer, 'Eager winner: ${state.eagerWinner}')");
-        this[_resolveInFavorOf](pointer, state, dart.nullCheck(state.eagerWinner));
-      }
-    }
-    [_resolveByDefault](pointer, state) {
-      if (pointer == null) dart.nullFailed(I[0], 242, 30, "pointer");
-      if (state == null) dart.nullFailed(I[0], 242, 53, "state");
-      if (!dart.test(this[_arenas][$containsKey](pointer))) return;
-      if (!dart.equals(this[_arenas][$_get](pointer), state)) dart.assertFailed(null, I[0], 245, 12, "_arenas[pointer] == state");
-      if (!!dart.test(state.isOpen)) dart.assertFailed(null, I[0], 246, 12, "!state.isOpen");
-      let members = state.members;
-      if (!(members[$length] === 1)) dart.assertFailed(null, I[0], 248, 12, "members.length == 1");
-      this[_arenas][$remove](pointer);
-      if (!dart.test(this[_debugLogDiagnostic](pointer, "Default winner: " + dart.str(state.members[$first])))) dart.assertFailed(null, I[0], 250, 12, "_debugLogDiagnostic(pointer, 'Default winner: ${state.members.first}')");
-      state.members[$first].acceptGesture(pointer);
-    }
-    [_resolveInFavorOf](pointer, state, member) {
-      if (pointer == null) dart.nullFailed(I[0], 254, 30, "pointer");
-      if (state == null) dart.nullFailed(I[0], 254, 53, "state");
-      if (member == null) dart.nullFailed(I[0], 254, 79, "member");
-      if (!dart.equals(state, this[_arenas][$_get](pointer))) dart.assertFailed(null, I[0], 255, 12, "state == _arenas[pointer]");
-      if (!(state != null)) dart.assertFailed(null, I[0], 256, 12, "state != null");
-      if (!(state.eagerWinner == null || dart.equals(state.eagerWinner, member))) dart.assertFailed(null, I[0], 257, 12, "state.eagerWinner == null || state.eagerWinner == member");
-      if (!!dart.test(state.isOpen)) dart.assertFailed(null, I[0], 258, 12, "!state.isOpen");
-      this[_arenas][$remove](pointer);
-      for (let rejectedMember of state.members) {
-        if (!dart.equals(rejectedMember, member)) rejectedMember.rejectGesture(pointer);
-      }
-      member.acceptGesture(pointer);
-    }
-    [_debugLogDiagnostic](pointer, message, state = null) {
-      if (pointer == null) dart.nullFailed(I[0], 267, 32, "pointer");
-      if (message == null) dart.nullFailed(I[0], 267, 48, "message");
-      if (!dart.test(dart.fn(() => {
-        if (dart.test(debug.debugPrintGestureArenaDiagnostics)) {
-          let count = state != null ? state.members[$length] : null;
-          let s = count !== 1 ? "s" : "";
-          print.debugPrint("Gesture arena " + dart.toString(pointer)[$padRight](4) + " ❙ " + dart.str(message) + (count != null ? " with " + dart.str(count) + " member" + s + "." : ""));
+    getHandleAnchor(type, textLineHeight) {
+      if (type == null) dart.nullFailed(I[0], 95, 50, "type");
+      if (textLineHeight == null) dart.nullFailed(I[0], 95, 63, "textLineHeight");
+      switch (type) {
+        case C[25] || CT.C25:
+        {
+          return C[32] || CT.C32;
         }
-        return true;
-      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 268, 12, "() {\r\n      if (debugPrintGestureArenaDiagnostics) {\r\n        final int? count = state != null ? state.members.length : null;\r\n        final String s = count != 1 ? 's' : '';\r\n        debugPrint('Gesture arena ${pointer.toString().padRight(4)} ❙ $message${ count != null ? \" with $count member$s.\" : \"\"}');\r\n      }\r\n      return true;\r\n    }()");
-      return true;
+        case C[26] || CT.C26:
+        {
+          return ui.Offset.zero;
+        }
+        default:
+        {
+          return C[33] || CT.C33;
+        }
+      }
+    }
+    canSelectAll(delegate) {
+      if (delegate == null) dart.nullFailed(I[0], 107, 43, "delegate");
+      let value = delegate.textEditingValue;
+      return dart.test(delegate.selectAllEnabled) && value.text[$isNotEmpty] && !(value.selection.start === 0 && value.selection.end === value.text.length);
     }
   };
-  (arena.GestureArenaManager.new = function() {
-    this[_arenas] = new (T.IdentityMapOfint$_GestureArena()).new();
+  (text_selection$.MaterialTextSelectionControls.new = function() {
     ;
-  }).prototype = arena.GestureArenaManager.prototype;
-  dart.addTypeTests(arena.GestureArenaManager);
-  dart.addTypeCaches(arena.GestureArenaManager);
-  dart.setMethodSignature(arena.GestureArenaManager, () => ({
-    __proto__: dart.getMethods(arena.GestureArenaManager.__proto__),
-    add: dart.fnType(arena.GestureArenaEntry, [core.int, arena.GestureArenaMember]),
-    close: dart.fnType(dart.void, [core.int]),
-    sweep: dart.fnType(dart.void, [core.int]),
-    hold: dart.fnType(dart.void, [core.int]),
-    release: dart.fnType(dart.void, [core.int]),
-    [_resolve]: dart.fnType(dart.void, [core.int, arena.GestureArenaMember, arena.GestureDisposition]),
-    [_tryToResolveArena]: dart.fnType(dart.void, [core.int, arena._GestureArena]),
-    [_resolveByDefault]: dart.fnType(dart.void, [core.int, arena._GestureArena]),
-    [_resolveInFavorOf]: dart.fnType(dart.void, [core.int, arena._GestureArena, arena.GestureArenaMember]),
-    [_debugLogDiagnostic]: dart.fnType(core.bool, [core.int, core.String], [dart.nullable(arena._GestureArena)])
+  }).prototype = text_selection$.MaterialTextSelectionControls.prototype;
+  dart.addTypeTests(text_selection$.MaterialTextSelectionControls);
+  dart.addTypeCaches(text_selection$.MaterialTextSelectionControls);
+  dart.setMethodSignature(text_selection$.MaterialTextSelectionControls, () => ({
+    __proto__: dart.getMethods(text_selection$.MaterialTextSelectionControls.__proto__),
+    getHandleSize: dart.fnType(ui.Size, [core.double]),
+    buildToolbar: dart.fnType(framework.Widget, [framework.BuildContext, ui.Rect, core.double, ui.Offset, core.List$(editable.TextSelectionPoint), text_input.TextSelectionDelegate, text_selection.ClipboardStatusNotifier, dart.nullable(ui.Offset)]),
+    buildHandle: dart.fnType(framework.Widget, [framework.BuildContext, text_selection.TextSelectionHandleType, core.double]),
+    getHandleAnchor: dart.fnType(ui.Offset, [text_selection.TextSelectionHandleType, core.double])
   }));
-  dart.setLibraryUri(arena.GestureArenaManager, I[1]);
-  dart.setFieldSignature(arena.GestureArenaManager, () => ({
-    __proto__: dart.getFields(arena.GestureArenaManager.__proto__),
-    [_arenas]: dart.finalFieldType(core.Map$(core.int, arena._GestureArena))
+  dart.setLibraryUri(text_selection$.MaterialTextSelectionControls, I[1]);
+  var label$ = dart.privateName(text_selection$, "_TextSelectionToolbarItemData.label");
+  var onPressed$ = dart.privateName(text_selection$, "_TextSelectionToolbarItemData.onPressed");
+  text_selection$._TextSelectionToolbarItemData = class _TextSelectionToolbarItemData extends core.Object {
+    get label() {
+      return this[label$];
+    }
+    set label(value) {
+      super.label = value;
+    }
+    get onPressed() {
+      return this[onPressed$];
+    }
+    set onPressed(value) {
+      super.onPressed = value;
+    }
+  };
+  (text_selection$._TextSelectionToolbarItemData.new = function(opts) {
+    let label = opts && 'label' in opts ? opts.label : null;
+    if (label == null) dart.nullFailed(I[0], 120, 19, "label");
+    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
+    if (onPressed == null) dart.nullFailed(I[0], 121, 19, "onPressed");
+    this[label$] = label;
+    this[onPressed$] = onPressed;
+    ;
+  }).prototype = text_selection$._TextSelectionToolbarItemData.prototype;
+  dart.addTypeTests(text_selection$._TextSelectionToolbarItemData);
+  dart.addTypeCaches(text_selection$._TextSelectionToolbarItemData);
+  dart.setLibraryUri(text_selection$._TextSelectionToolbarItemData, I[1]);
+  dart.setFieldSignature(text_selection$._TextSelectionToolbarItemData, () => ({
+    __proto__: dart.getFields(text_selection$._TextSelectionToolbarItemData.__proto__),
+    label: dart.finalFieldType(core.String),
+    onPressed: dart.finalFieldType(dart.fnType(dart.void, []))
   }));
-  dart.trackLibraries("packages/flutter/src/gestures/arena.dart", {
-    "package:flutter/src/gestures/arena.dart": arena
+  var clipboardStatus$ = dart.privateName(text_selection$, "_TextSelectionControlsToolbar.clipboardStatus");
+  var delegate$ = dart.privateName(text_selection$, "_TextSelectionControlsToolbar.delegate");
+  var endpoints$ = dart.privateName(text_selection$, "_TextSelectionControlsToolbar.endpoints");
+  var globalEditableRegion$ = dart.privateName(text_selection$, "_TextSelectionControlsToolbar.globalEditableRegion");
+  var handleCut$ = dart.privateName(text_selection$, "_TextSelectionControlsToolbar.handleCut");
+  var handleCopy$ = dart.privateName(text_selection$, "_TextSelectionControlsToolbar.handleCopy");
+  var handlePaste$ = dart.privateName(text_selection$, "_TextSelectionControlsToolbar.handlePaste");
+  var handleSelectAll$ = dart.privateName(text_selection$, "_TextSelectionControlsToolbar.handleSelectAll");
+  var selectionMidpoint$ = dart.privateName(text_selection$, "_TextSelectionControlsToolbar.selectionMidpoint");
+  var textLineHeight$ = dart.privateName(text_selection$, "_TextSelectionControlsToolbar.textLineHeight");
+  text_selection$._TextSelectionControlsToolbar = class _TextSelectionControlsToolbar extends framework.StatefulWidget {
+    get clipboardStatus() {
+      return this[clipboardStatus$];
+    }
+    set clipboardStatus(value) {
+      super.clipboardStatus = value;
+    }
+    get delegate() {
+      return this[delegate$];
+    }
+    set delegate(value) {
+      super.delegate = value;
+    }
+    get endpoints() {
+      return this[endpoints$];
+    }
+    set endpoints(value) {
+      super.endpoints = value;
+    }
+    get globalEditableRegion() {
+      return this[globalEditableRegion$];
+    }
+    set globalEditableRegion(value) {
+      super.globalEditableRegion = value;
+    }
+    get handleCut() {
+      return this[handleCut$];
+    }
+    set handleCut(value) {
+      super.handleCut = value;
+    }
+    get handleCopy() {
+      return this[handleCopy$];
+    }
+    set handleCopy(value) {
+      super.handleCopy = value;
+    }
+    get handlePaste() {
+      return this[handlePaste$];
+    }
+    set handlePaste(value) {
+      super.handlePaste = value;
+    }
+    get handleSelectAll() {
+      return this[handleSelectAll$];
+    }
+    set handleSelectAll(value) {
+      super.handleSelectAll = value;
+    }
+    get selectionMidpoint() {
+      return this[selectionMidpoint$];
+    }
+    set selectionMidpoint(value) {
+      super.selectionMidpoint = value;
+    }
+    get textLineHeight() {
+      return this[textLineHeight$];
+    }
+    set textLineHeight(value) {
+      super.textLineHeight = value;
+    }
+    createState() {
+      return new text_selection$._TextSelectionControlsToolbarState.new();
+    }
+  };
+  (text_selection$._TextSelectionControlsToolbar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let clipboardStatus = opts && 'clipboardStatus' in opts ? opts.clipboardStatus : null;
+    if (clipboardStatus == null) dart.nullFailed(I[0], 132, 19, "clipboardStatus");
+    let delegate = opts && 'delegate' in opts ? opts.delegate : null;
+    if (delegate == null) dart.nullFailed(I[0], 133, 19, "delegate");
+    let endpoints = opts && 'endpoints' in opts ? opts.endpoints : null;
+    if (endpoints == null) dart.nullFailed(I[0], 134, 19, "endpoints");
+    let globalEditableRegion = opts && 'globalEditableRegion' in opts ? opts.globalEditableRegion : null;
+    if (globalEditableRegion == null) dart.nullFailed(I[0], 135, 19, "globalEditableRegion");
+    let handleCut = opts && 'handleCut' in opts ? opts.handleCut : null;
+    let handleCopy = opts && 'handleCopy' in opts ? opts.handleCopy : null;
+    let handlePaste = opts && 'handlePaste' in opts ? opts.handlePaste : null;
+    let handleSelectAll = opts && 'handleSelectAll' in opts ? opts.handleSelectAll : null;
+    let selectionMidpoint = opts && 'selectionMidpoint' in opts ? opts.selectionMidpoint : null;
+    if (selectionMidpoint == null) dart.nullFailed(I[0], 140, 19, "selectionMidpoint");
+    let textLineHeight = opts && 'textLineHeight' in opts ? opts.textLineHeight : null;
+    if (textLineHeight == null) dart.nullFailed(I[0], 141, 19, "textLineHeight");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[clipboardStatus$] = clipboardStatus;
+    this[delegate$] = delegate;
+    this[endpoints$] = endpoints;
+    this[globalEditableRegion$] = globalEditableRegion;
+    this[handleCut$] = handleCut;
+    this[handleCopy$] = handleCopy;
+    this[handlePaste$] = handlePaste;
+    this[handleSelectAll$] = handleSelectAll;
+    this[selectionMidpoint$] = selectionMidpoint;
+    this[textLineHeight$] = textLineHeight;
+    text_selection$._TextSelectionControlsToolbar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = text_selection$._TextSelectionControlsToolbar.prototype;
+  dart.addTypeTests(text_selection$._TextSelectionControlsToolbar);
+  dart.addTypeCaches(text_selection$._TextSelectionControlsToolbar);
+  dart.setMethodSignature(text_selection$._TextSelectionControlsToolbar, () => ({
+    __proto__: dart.getMethods(text_selection$._TextSelectionControlsToolbar.__proto__),
+    createState: dart.fnType(text_selection$._TextSelectionControlsToolbarState, [])
+  }));
+  dart.setLibraryUri(text_selection$._TextSelectionControlsToolbar, I[1]);
+  dart.setFieldSignature(text_selection$._TextSelectionControlsToolbar, () => ({
+    __proto__: dart.getFields(text_selection$._TextSelectionControlsToolbar.__proto__),
+    clipboardStatus: dart.finalFieldType(text_selection.ClipboardStatusNotifier),
+    delegate: dart.finalFieldType(text_input.TextSelectionDelegate),
+    endpoints: dart.finalFieldType(core.List$(editable.TextSelectionPoint)),
+    globalEditableRegion: dart.finalFieldType(ui.Rect),
+    handleCut: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    handleCopy: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    handlePaste: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    handleSelectAll: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    selectionMidpoint: dart.finalFieldType(ui.Offset),
+    textLineHeight: dart.finalFieldType(core.double)
+  }));
+  var _onChangedClipboardStatus = dart.privateName(text_selection$, "_onChangedClipboardStatus");
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var SingleChildRenderObjectWidget_child = dart.privateName(framework, "SingleChildRenderObjectWidget.child");
+  var SizedBox_height = dart.privateName(basic, "SizedBox.height");
+  var SizedBox_width = dart.privateName(basic, "SizedBox.width");
+  const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(text_selection$._TextSelectionControlsToolbar) {};
+  (State_TickerProviderStateMixin$36.new = function() {
+    ticker_provider.TickerProviderStateMixin$(text_selection$._TextSelectionControlsToolbar)[dart.mixinNew].call(this);
+    State_TickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_TickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(text_selection$._TextSelectionControlsToolbar));
+  text_selection$._TextSelectionControlsToolbarState = class _TextSelectionControlsToolbarState extends State_TickerProviderStateMixin$36 {
+    [_onChangedClipboardStatus]() {
+      this.setState(dart.fn(() => {
+      }, T.VoidTovoid()));
+    }
+    initState() {
+      super.initState();
+      this.widget.clipboardStatus.addListener(dart.bind(this, _onChangedClipboardStatus));
+      this.widget.clipboardStatus.update();
+    }
+    didUpdateWidget(oldWidget) {
+      text_selection$._TextSelectionControlsToolbar.as(oldWidget);
+      if (oldWidget == null) dart.nullFailed(I[0], 174, 54, "oldWidget");
+      super.didUpdateWidget(oldWidget);
+      if (!dart.equals(this.widget.clipboardStatus, oldWidget.clipboardStatus)) {
+        this.widget.clipboardStatus.addListener(dart.bind(this, _onChangedClipboardStatus));
+        oldWidget.clipboardStatus.removeListener(dart.bind(this, _onChangedClipboardStatus));
+      }
+      this.widget.clipboardStatus.update();
+    }
+    dispose() {
+      super.dispose();
+      if (!dart.test(this.widget.clipboardStatus.disposed)) {
+        this.widget.clipboardStatus.removeListener(dart.bind(this, _onChangedClipboardStatus));
+      }
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 194, 29, "context");
+      if (this.widget.handleCut == null && this.widget.handleCopy == null && this.widget.handlePaste == null && this.widget.handleSelectAll == null) {
+        return C[34] || CT.C34;
+      }
+      if (this.widget.handlePaste != null && this.widget.clipboardStatus.value == text_selection.ClipboardStatus.unknown) {
+        return C[37] || CT.C37;
+      }
+      let startTextSelectionPoint = this.widget.endpoints[$_get](0);
+      let endTextSelectionPoint = dart.notNull(this.widget.endpoints[$length]) > 1 ? this.widget.endpoints[$_get](1) : this.widget.endpoints[$_get](0);
+      let anchorAbove = new ui.Offset.new(dart.notNull(this.widget.globalEditableRegion.left) + dart.notNull(this.widget.selectionMidpoint.dx), dart.notNull(this.widget.globalEditableRegion.top) + dart.notNull(startTextSelectionPoint.point.dy) - dart.notNull(this.widget.textLineHeight) - 8);
+      let anchorBelow = new ui.Offset.new(dart.notNull(this.widget.globalEditableRegion.left) + dart.notNull(this.widget.selectionMidpoint.dx), dart.notNull(this.widget.globalEditableRegion.top) + dart.notNull(endTextSelectionPoint.point.dy) + 20);
+      if (!dart.test(debug.debugCheckHasMaterialLocalizations(context))) dart.assertFailed(null, I[0], 225, 12, "debugCheckHasMaterialLocalizations(context)");
+      let localizations = material_localizations.MaterialLocalizations.of(context);
+      let itemDatas = (() => {
+        let t0 = T.JSArrayOf_TextSelectionToolbarItemData().of([]);
+        if (this.widget.handleCut != null) t0[$add](new text_selection$._TextSelectionToolbarItemData.new({label: localizations.cutButtonLabel, onPressed: dart.nullCheck(this.widget.handleCut)}));
+        if (this.widget.handleCopy != null) t0[$add](new text_selection$._TextSelectionToolbarItemData.new({label: localizations.copyButtonLabel, onPressed: dart.nullCheck(this.widget.handleCopy)}));
+        if (this.widget.handlePaste != null && this.widget.clipboardStatus.value == text_selection.ClipboardStatus.pasteable) t0[$add](new text_selection$._TextSelectionToolbarItemData.new({label: localizations.pasteButtonLabel, onPressed: dart.nullCheck(this.widget.handlePaste)}));
+        if (this.widget.handleSelectAll != null) t0[$add](new text_selection$._TextSelectionToolbarItemData.new({label: localizations.selectAllButtonLabel, onPressed: dart.nullCheck(this.widget.handleSelectAll)}));
+        return t0;
+      })();
+      if (dart.test(itemDatas[$isEmpty])) {
+        return C[39] || CT.C39;
+      }
+      return new text_selection_toolbar.TextSelectionToolbar.new({anchorAbove: anchorAbove, anchorBelow: anchorBelow, children: itemDatas[$asMap]()[$entries][$map](text_selection_toolbar_text_button.TextSelectionToolbarTextButton, dart.fn(entry => {
+          if (entry == null) dart.nullFailed(I[0], 259, 93, "entry");
+          return new text_selection_toolbar_text_button.TextSelectionToolbarTextButton.new({padding: text_selection_toolbar_text_button.TextSelectionToolbarTextButton.getPadding(entry.key, itemDatas[$length]), onPressed: entry.value.onPressed, child: new text.Text.new(entry.value.label, {$creationLocationd_0dea112b090073317d4: C[44] || CT.C44}), $creationLocationd_0dea112b090073317d4: C[47] || CT.C47});
+        }, T.MapEntryOfint$_TextSelectionToolbarItemDataToTextSelectionToolbarTextButton()))[$toList](), $creationLocationd_0dea112b090073317d4: C[52] || CT.C52});
+    }
+  };
+  (text_selection$._TextSelectionControlsToolbarState.new = function() {
+    text_selection$._TextSelectionControlsToolbarState.__proto__.new.call(this);
+    ;
+  }).prototype = text_selection$._TextSelectionControlsToolbarState.prototype;
+  dart.addTypeTests(text_selection$._TextSelectionControlsToolbarState);
+  dart.addTypeCaches(text_selection$._TextSelectionControlsToolbarState);
+  dart.setMethodSignature(text_selection$._TextSelectionControlsToolbarState, () => ({
+    __proto__: dart.getMethods(text_selection$._TextSelectionControlsToolbarState.__proto__),
+    [_onChangedClipboardStatus]: dart.fnType(dart.void, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(text_selection$._TextSelectionControlsToolbarState, I[1]);
+  text_selection$._TextSelectionHandlePainter = class _TextSelectionHandlePainter extends custom_paint.CustomPainter {
+    paint(canvas, size) {
+      let t1, t1$;
+      if (canvas == null) dart.nullFailed(I[0], 277, 21, "canvas");
+      if (size == null) dart.nullFailed(I[0], 277, 34, "size");
+      let paint = (t1 = ui.Paint.new(), (() => {
+        t1.color = this.color;
+        return t1;
+      })());
+      let radius = dart.notNull(size.width) / 2.0;
+      let circle = new ui.Rect.fromCircle({center: new ui.Offset.new(radius, radius), radius: radius});
+      let point = new ui.Rect.fromLTWH(0.0, 0.0, radius, radius);
+      let path = (t1$ = ui.Path.new(), (() => {
+        t1$.addOval(circle);
+        t1$.addRect(point);
+        return t1$;
+      })());
+      canvas.drawPath(path, paint);
+    }
+    shouldRepaint(oldPainter) {
+      text_selection$._TextSelectionHandlePainter.as(oldPainter);
+      if (oldPainter == null) dart.nullFailed(I[0], 287, 50, "oldPainter");
+      return !dart.equals(this.color, oldPainter.color);
+    }
+  };
+  (text_selection$._TextSelectionHandlePainter.new = function(opts) {
+    let color = opts && 'color' in opts ? opts.color : null;
+    if (color == null) dart.nullFailed(I[0], 272, 47, "color");
+    this.color = color;
+    text_selection$._TextSelectionHandlePainter.__proto__.new.call(this);
+    ;
+  }).prototype = text_selection$._TextSelectionHandlePainter.prototype;
+  dart.addTypeTests(text_selection$._TextSelectionHandlePainter);
+  dart.addTypeCaches(text_selection$._TextSelectionHandlePainter);
+  dart.setMethodSignature(text_selection$._TextSelectionHandlePainter, () => ({
+    __proto__: dart.getMethods(text_selection$._TextSelectionHandlePainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(text_selection$._TextSelectionHandlePainter, I[1]);
+  dart.setFieldSignature(text_selection$._TextSelectionHandlePainter, () => ({
+    __proto__: dart.getFields(text_selection$._TextSelectionHandlePainter.__proto__),
+    color: dart.finalFieldType(ui.Color)
+  }));
+  dart.defineLazy(text_selection$, {
+    /*text_selection$._kHandleSize*/get _kHandleSize() {
+      return 22;
+    },
+    /*text_selection$._kToolbarContentDistanceBelow*/get _kToolbarContentDistanceBelow() {
+      return 20;
+    },
+    /*text_selection$._kToolbarContentDistance*/get _kToolbarContentDistance() {
+      return 8;
+    },
+    /*text_selection$.materialTextSelectionControls*/get materialTextSelectionControls() {
+      return new text_selection$.MaterialTextSelectionControls.new();
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/text_selection.dart", {
+    "package:flutter/src/material/text_selection.dart": text_selection$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["arena.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/gestures/arena.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["text_selection.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UA4B4B;AAAmB;IAAsC;iBAKpE,SACR,sBACE,gBACA,mBACkB,WACH,UACE,iBAChB;UAPK;UACR;UACE;UACA;UACkB;UACH;UACE;AAGxB,YAAO,8EACiB,oBAAoB,kBAC1B,cAAc,qBACX,iBAAiB,aACzB,SAAS,YACV,QAAQ,mBACD,eAAe,uBACrB,YAAO,QAAQ,KAAI,cAAM,eAAU,QAAQ,qBAAI,4BAC9C,aAAQ,QAAQ,KAAI,cAAM,gBAAW,QAAQ,EAAE,eAAe,qBAAI,6BACjE,cAAS,QAAQ,KAAI,cAAM,iBAAY,QAAQ,qBAAI,iCAC/C,kBAAa,QAAQ,KAAI,cAAM,qBAAgB,QAAQ,qBAAI;IAEhF;gBAIgC,SAAiC,MAAa;;UAA9C;UAAiC;UAAa;AAC5D,kBAAc,gBAAG,OAAO;AAC5B,yBAAkE,KAAjC,AAAY,2CAAT,OAAO,wBAAE,aAAwB,AAAM,AAAY,KAAb;AACzE,mBAAS,sDAGb,oCACI,4DACA,WAAW;AAQxB,cAAQ,IAAI;;;AAER,gBAAiB,oCACA,oBAAE,YACV,MAAM;;;;AAGf,gBAAO,OAAM;;;;AAEb,gBAAiB,oCACA,oBAAE,YACV,MAAM;;;;AAXnB;;;IAcF;oBAM+C,MAAa;UAAb;UAAa;AAC1D,cAAQ,IAAI;;;AAER;;;;AAEA,gBAAc;;;;AAEd;;;IAEN;;UAGwC;AAGf,kBAAQ,AAAS,QAAD;AACvC,YAC6B,WADtB,AAAS,QAAD,sBACR,AAAM,AAAK,KAAN,wBACH,AAAM,AAAU,AAAM,KAAjB,qBAAoB,KAAK,AAAM,AAAU,AAAI,KAAf,mBAAkB,AAAM,AAAK,KAAN;IACrE;;;;EACF;;;;;;;;;;;;;;IASe;;;;;;IACM;;;;;;;;QALH;;QACA;;IADA;IACA;;EACd;;;;;;;;;;;;;;;;;;;;IAsB4B;;;;;;IACF;;;;;;IACG;;;;;;IACpB;;;;;;IACS;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACP;;;;;;IACA;;;;;;;AAGuC;IAAoC;;;QAzBjF;QACS;;QACA;;QACA;;QACA;;QACA;QACA;QACA;QACA;QACA;;QACA;;;IATA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;AACX,iFAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAqBhB,MAFF,cAAS;;IAGX;;AAImB,MAAX;AACuD,MAA7D,AAAO,AAAgB,kDAAY;AACJ,MAA/B,AAAO,AAAgB;IACzB;;uDAGmD;;AACjB,MAA1B,sBAAgB,SAAS;AAC/B,UAA2B,aAAvB,AAAO,6BAAmB,AAAU,SAAD;AACwB,QAA7D,AAAO,AAAgB,kDAAY;AACgC,QAAnE,AAAU,AAAgB,SAAjB,0CAAgC;;AAEZ,MAA/B,AAAO,AAAgB;IACzB;;AAIiB,MAAT;AAGN,qBAAK,AAAO,AAAgB;AACsC,QAAhE,AAAO,AAAgB,qDAAe;;IAE1C;;UAG0B;AAExB,UAAI,AAAO,AAAU,iCAAW,AAAO,AAAW,kCAC3C,AAAO,AAAY,mCAAW,AAAO,AAAgB;AAC1D;;AAIF,UAAI,AAAO,AAAY,mCAChB,AAAO,AAAgB,AAAM,qCAAmB;AACrD;;AAKuB,oCAA0B,AAAO,AAAS,6BAAC;AAC3C,kCAAgD,aAAxB,AAAO,AAAU,kCAAS,IACvE,AAAO,AAAS,6BAAC,KACjB,AAAO,AAAS,6BAAC;AACR,wBAAc,kBACQ,aAAjC,AAAO,AAAqB,sDAAO,AAAO,AAAkB,mCAC5B,AAAmC,AAAwB,aAA3F,AAAO,AAAqB,qDAAM,AAAwB,AAAM,uBAAP,0BAAY,AAAO;AAEjE,wBAAc,kBACQ,aAAjC,AAAO,AAAqB,sDAAO,AAAO,AAAkB,mCAC5B,AAAiC,aAAjE,AAAO,AAAqB,qDAAM,AAAsB,AAAM,qBAAP;AAMzD,qBAAO,yCAAmC,OAAO;AACrB,0BAAsC,gDAAG,OAAO;AAClC,sBAA2C;;AACnF,YAAI,AAAO,AAAU,+BACnB,uEACS,AAAc,aAAD,4BACO,eAAhB,AAAO;AAEtB,YAAI,AAAO,AAAW,gCACpB,uEACS,AAAc,aAAD,6BACQ,eAAjB,AAAO;AAEtB,YAAI,AAAO,AAAY,mCAChB,AAAO,AAAgB,AAAM,qCAAmB,0CACrD,uEACS,AAAc,aAAD,8BACS,eAAlB,AAAO;AAEtB,YAAI,AAAO,AAAgB,qCACzB,uEACS,AAAc,aAAD,kCACa,eAAtB,AAAO;;;AAKxB,oBAAI,AAAU,SAAD;AACX;;AAGF,YAAO,mEACQ,WAAW,eACX,WAAW,YACd,AAAU,AAAQ,AAAQ,AAMjC,SANgB,8FAAqB;cAA8C;AACpF,gBAAO,qFACmC,6EAAW,AAAM,KAAD,MAAM,AAAU,SAAD,uBAC5D,AAAM,AAAM,KAAP,yBACT,kBAAK,AAAM,AAAM,KAAP;;IAIzB;;;;;EACF;;;;;;;;;;UASoB,QAAa;;UAAb;UAAa;AACjB,wCAAQ;AAAS,mBAAQ;;;AACxB,mBAAmB,aAAV,AAAK,IAAD,UAAO;AACtB,mBAAc,gCAAmB,kBAAO,MAAM,EAAE,MAAM,WAAW,MAAM;AACvE,kBAAa,qBAAS,KAAK,KAAK,MAAM,EAAE,MAAM;AAC9C,uCAAO;AAAQ,oBAAQ,MAAM;AAAG,oBAAQ,KAAK;;;AAC5B,MAA5B,AAAO,MAAD,UAAU,IAAI,EAAE,KAAK;IAC7B;;qDAG+C;;AAC7C,YAAa,cAAN,YAAS,AAAW,UAAD;IAC5B;;;QAjB4C;;;AAA5C;;EAAoD;;;;;;;;;;;;;;MA7PzC,4BAAY;;;MAGZ,6CAA6B;;;MAC7B,wCAAwB;;;MA8QT,6CAA6B;YAAG","file":"../../../../../../../../D:/packages/flutter/src/material/text_selection.dart.lib.js"}');
   // Exports:
   return {
-    src__gestures__arena: arena
+    src__material__text_selection: text_selection$
   };
 }));
 
-//# sourceMappingURL=arena.dart.lib.js.map
+//# sourceMappingURL=text_selection.dart.lib.js.map
