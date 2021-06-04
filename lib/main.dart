@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_drawer/Custom%20Widgets/MyDrawer.dart';
 import 'package:flutter_drawer/Screens/AddRecors.dart';
 import 'package:flutter_drawer/Screens/RegisterScreen.dart';
+import 'package:flutter_drawer/Screens/SCreenSlider.dart';
 import 'package:flutter_drawer/Screens/Screen2.dart';
 import 'package:flutter_drawer/Screens/SetProfile.dart';
 import 'package:flutter_drawer/Custom%20Widgets/aesthetic.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/RegistrationForm' : (context) => RegisterForm(),
         '/TabsForButtons': (context) => TabsForButtons(),
         '/TabsForSelection':(context) => TabsForSelection(),
+        '/ScreenSlider' : (context) => ScreenSlider(),
       },
       home: Scaffold(
         appBar: AppBar(

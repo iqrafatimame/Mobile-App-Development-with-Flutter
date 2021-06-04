@@ -89,13 +89,13 @@ class MyDrawer extends StatelessWidget {
                     child: 
                       ListTile(
                         leading: Icon(
-                          Icons.image
+                          Icons.slideshow
                         ),
                         title: Text(
-                          'Set Profile Image',
+                          'Image Slider',
                         ),
                         onTap: () {
-                          Navigator.pushNamed(context, '/setProfile');
+                          Navigator.pushNamed(context, '/ScreenSlider');
                         },
                       ),
                   ),

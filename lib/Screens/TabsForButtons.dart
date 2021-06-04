@@ -8,6 +8,7 @@ const List<Tab> tabs = <Tab>[
   Tab(text: 'Outlined Button'),
 ];
 
+
 class TabsForButtons extends StatefulWidget {
   const TabsForButtons({Key key}) : super(key: key);
 
@@ -16,6 +17,7 @@ class TabsForButtons extends StatefulWidget {
 }
 
 class _TabsForButtonsState extends State<TabsForButtons> {
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
