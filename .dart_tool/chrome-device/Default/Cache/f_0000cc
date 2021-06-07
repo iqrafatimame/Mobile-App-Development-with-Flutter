@@ -1,27 +1,32 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/icon_theme.dart', 'packages/flutter/src/rendering/paragraph.dart', 'packages/flutter/src/painting/placeholder_span.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/painting/colors.dart'], (function load__packages__flutter__src__widgets__icon_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__icon_theme$46dart, packages__flutter__src__rendering__paragraph$46dart, packages__flutter__src__painting__placeholder_span$46dart, packages__flutter__src__painting__strut_style$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__painting__colors$46dart) {
+define(['dart_sdk'], (function load__packages__flutter__src__foundation__licenses_dart(dart_sdk) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
   const _internal = dart_sdk._internal;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const icon_theme = packages__flutter__src__widgets__icon_theme$46dart.src__widgets__icon_theme;
-  const paragraph = packages__flutter__src__rendering__paragraph$46dart.src__rendering__paragraph;
-  const text_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_span;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const colors = packages__flutter__src__painting__colors$46dart.src__painting__colors;
-  var icon$ = Object.create(dart.library);
+  var licenses = Object.create(dart.library);
+  var $substring = dartx.substring;
+  var $add = dartx.add;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $join = dartx.join;
+  var $trimLeft = dartx.trimLeft;
+  var $clear = dartx.clear;
+  var $_get = dartx._get;
+  var $truncate = dartx.truncate;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+    _LicenseEntryWithLineBreaksParserStateL: () => (T._LicenseEntryWithLineBreaksParserStateL = dart.constFn(dart.legacy(licenses._LicenseEntryWithLineBreaksParserState)))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    VoidToLicenseParagraph: () => (T.VoidToLicenseParagraph = dart.constFn(dart.fnType(licenses.LicenseParagraph, [])))(),
+    SyncIterableOfLicenseParagraph: () => (T.SyncIterableOfLicenseParagraph = dart.constFn(_js_helper.SyncIterable$(licenses.LicenseParagraph)))(),
+    StreamOfLicenseEntry: () => (T.StreamOfLicenseEntry = dart.constFn(async.Stream$(licenses.LicenseEntry)))(),
+    VoidToStreamOfLicenseEntry: () => (T.VoidToStreamOfLicenseEntry = dart.constFn(dart.fnType(T.StreamOfLicenseEntry(), [])))(),
+    JSArrayOfVoidToStreamOfLicenseEntry: () => (T.JSArrayOfVoidToStreamOfLicenseEntry = dart.constFn(_interceptors.JSArray$(T.VoidToStreamOfLicenseEntry())))(),
+    _AsyncStarImplOfLicenseEntry: () => (T._AsyncStarImplOfLicenseEntry = dart.constFn(async._AsyncStarImpl$(licenses.LicenseEntry)))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -36,378 +41,251 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 25,
-        [_Location_line]: 164,
-        [_Location_file]: null
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 42,
-        [_Location_line]: 164,
-        [_Location_file]: null
-      });
-    },
-    get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3], T._LocationL());
-    },
     get C0() {
       return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 164,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/icon.dart"
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "label",
-        [_Location_column]: 9,
-        [_Location_line]: 163,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 164,
-        [_Location_file]: null
-      });
-    },
-    get C5() {
-      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7], T._LocationL());
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[5] || CT.C5,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 162,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/icon.dart"
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "overflow",
-        [_Location_column]: 7,
-        [_Location_line]: 174,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "textDirection",
-        [_Location_column]: 7,
-        [_Location_line]: 175,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "text",
-        [_Location_column]: 7,
-        [_Location_line]: 176,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 173,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/icon.dart"
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "transform",
-        [_Location_column]: 13,
-        [_Location_line]: 192,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 13,
-        [_Location_line]: 193,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "transformHitTests",
-        [_Location_column]: 13,
-        [_Location_line]: 194,
-        [_Location_file]: null
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 195,
-        [_Location_file]: null
-      });
-    },
-    get C14() {
-      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18], T._LocationL());
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[14] || CT.C14,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 191,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/icon.dart"
-      });
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name]: "TextDirection.rtl",
+        __proto__: licenses._LicenseEntryWithLineBreaksParserState.prototype,
+        [_name$]: "_LicenseEntryWithLineBreaksParserState.beforeParagraph",
         index: 0
       });
     },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name]: "TextDirection.ltr",
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: licenses._LicenseEntryWithLineBreaksParserState.prototype,
+        [_name$]: "_LicenseEntryWithLineBreaksParserState.inParagraph",
         index: 1
       });
     },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 210,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.constList([C[23] || CT.C23], T._LocationL());
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[22] || CT.C22,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 209,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/icon.dart"
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 11,
-        [_Location_line]: 207,
-        [_Location_file]: null
-      });
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 11,
-        [_Location_line]: 208,
-        [_Location_file]: null
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 209,
-        [_Location_file]: null
-      });
-    },
-    get C25() {
-      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28], T._LocationL());
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[25] || CT.C25,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 206,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/icon.dart"
-      });
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 206,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.constList([C[31] || CT.C31], T._LocationL());
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[30] || CT.C30,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 205,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/icon.dart"
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "label",
-        [_Location_column]: 7,
-        [_Location_line]: 204,
-        [_Location_file]: null
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 205,
-        [_Location_file]: null
-      });
-    },
-    get C33() {
-      return C[33] = dart.constList([C[34] || CT.C34, C[35] || CT.C35], T._LocationL());
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[33] || CT.C33,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 203,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/icon.dart"
-      });
+    get C2() {
+      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], T._LicenseEntryWithLineBreaksParserStateL());
     }
   }, false);
-  var C = Array(36).fill(void 0);
+  var C = Array(3).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/widgets/icon.dart",
-    "package:flutter/src/widgets/icon.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/foundation/licenses.dart",
+    "package:flutter/src/foundation/licenses.dart"
   ];
-  var icon$0 = dart.privateName(icon$, "Icon.icon");
-  var size$ = dart.privateName(icon$, "Icon.size");
-  var color$ = dart.privateName(icon$, "Icon.color");
-  var semanticLabel$ = dart.privateName(icon$, "Icon.semanticLabel");
-  var textDirection$ = dart.privateName(icon$, "Icon.textDirection");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var _name = dart.privateName(ui, "_name");
-  icon$.Icon = class Icon extends framework.StatelessWidget {
-    get icon() {
-      return this[icon$0];
+  var text$ = dart.privateName(licenses, "LicenseParagraph.text");
+  var indent$ = dart.privateName(licenses, "LicenseParagraph.indent");
+  licenses.LicenseParagraph = class LicenseParagraph extends core.Object {
+    get text() {
+      return this[text$];
     }
-    set icon(value) {
-      super.icon = value;
+    set text(value) {
+      super.text = value;
     }
-    get size() {
-      return this[size$];
+    get indent() {
+      return this[indent$];
     }
-    set size(value) {
-      super.size = value;
+    set indent(value) {
+      super.indent = value;
     }
-    get color() {
-      return this[color$];
+  };
+  (licenses.LicenseParagraph.new = function(text, indent) {
+    if (text == null) dart.nullFailed(I[0], 15, 31, "text");
+    if (indent == null) dart.nullFailed(I[0], 15, 42, "indent");
+    this[text$] = text;
+    this[indent$] = indent;
+    ;
+  }).prototype = licenses.LicenseParagraph.prototype;
+  dart.addTypeTests(licenses.LicenseParagraph);
+  dart.addTypeCaches(licenses.LicenseParagraph);
+  dart.setLibraryUri(licenses.LicenseParagraph, I[1]);
+  dart.setFieldSignature(licenses.LicenseParagraph, () => ({
+    __proto__: dart.getFields(licenses.LicenseParagraph.__proto__),
+    text: dart.finalFieldType(core.String),
+    indent: dart.finalFieldType(core.int)
+  }));
+  dart.defineLazy(licenses.LicenseParagraph, {
+    /*licenses.LicenseParagraph.centeredIndent*/get centeredIndent() {
+      return -1;
     }
-    set color(value) {
-      super.color = value;
+  }, false);
+  licenses.LicenseEntry = class LicenseEntry extends core.Object {};
+  (licenses.LicenseEntry.new = function() {
+    ;
+  }).prototype = licenses.LicenseEntry.prototype;
+  dart.addTypeTests(licenses.LicenseEntry);
+  dart.addTypeCaches(licenses.LicenseEntry);
+  dart.setLibraryUri(licenses.LicenseEntry, I[1]);
+  var _name$ = dart.privateName(licenses, "_name");
+  licenses._LicenseEntryWithLineBreaksParserState = class _LicenseEntryWithLineBreaksParserState extends core.Object {
+    toString() {
+      return this[_name$];
     }
-    get semanticLabel() {
-      return this[semanticLabel$];
+  };
+  (licenses._LicenseEntryWithLineBreaksParserState.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 56, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 56, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = licenses._LicenseEntryWithLineBreaksParserState.prototype;
+  dart.addTypeTests(licenses._LicenseEntryWithLineBreaksParserState);
+  dart.addTypeCaches(licenses._LicenseEntryWithLineBreaksParserState);
+  dart.setLibraryUri(licenses._LicenseEntryWithLineBreaksParserState, I[1]);
+  dart.setFieldSignature(licenses._LicenseEntryWithLineBreaksParserState, () => ({
+    __proto__: dart.getFields(licenses._LicenseEntryWithLineBreaksParserState.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(licenses._LicenseEntryWithLineBreaksParserState, ['toString']);
+  licenses._LicenseEntryWithLineBreaksParserState.beforeParagraph = C[0] || CT.C0;
+  licenses._LicenseEntryWithLineBreaksParserState.inParagraph = C[1] || CT.C1;
+  licenses._LicenseEntryWithLineBreaksParserState.values = C[2] || CT.C2;
+  var packages$ = dart.privateName(licenses, "LicenseEntryWithLineBreaks.packages");
+  var text$0 = dart.privateName(licenses, "LicenseEntryWithLineBreaks.text");
+  licenses.LicenseEntryWithLineBreaks = class LicenseEntryWithLineBreaks extends licenses.LicenseEntry {
+    get packages() {
+      return this[packages$];
     }
-    set semanticLabel(value) {
-      super.semanticLabel = value;
+    set packages(value) {
+      super.packages = value;
     }
-    get textDirection() {
-      return this[textDirection$];
+    get text() {
+      return this[text$0];
     }
-    set textDirection(value) {
-      super.textDirection = value;
+    set text(value) {
+      super.text = value;
     }
-    build(context) {
-      let t0, t0$, t0$0, t0$1, t0$2;
-      if (context == null) dart.nullFailed(I[0], 153, 29, "context");
-      if (!(this.textDirection != null || dart.test(debug.debugCheckHasDirectionality(context)))) dart.assertFailed(null, I[0], 154, 12, "this.textDirection != null || debugCheckHasDirectionality(context)");
-      let textDirection = (t0 = this.textDirection, t0 == null ? basic.Directionality.of(context) : t0);
-      let iconTheme = icon_theme.IconTheme.of(context);
-      let iconSize = (t0$ = this.size, t0$ == null ? iconTheme.size : t0$);
-      if (this.icon == null) {
-        return new basic.Semantics.new({label: this.semanticLabel, child: new basic.SizedBox.new({width: iconSize, height: iconSize, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4});
-      }
-      let iconOpacity = (t0$0 = iconTheme.opacity, t0$0 == null ? 1.0 : t0$0);
-      let iconColor = (t0$1 = this.color, t0$1 == null ? dart.nullCheck(iconTheme.color) : t0$1);
-      if (iconOpacity !== 1.0) iconColor = iconColor.withOpacity(dart.notNull(iconColor.opacity) * dart.notNull(iconOpacity));
-      let iconWidget = new basic.RichText.new({overflow: paragraph.TextOverflow.visible, textDirection: textDirection, text: new text_span.TextSpan.new({text: core.String.fromCharCode(dart.nullCheck(this.icon).codePoint), style: new text_style.TextStyle.new({inherit: false, color: iconColor, fontSize: iconSize, fontFamily: dart.nullCheck(this.icon).fontFamily, package: dart.nullCheck(this.icon).fontPackage})}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8});
-      if (dart.test(dart.nullCheck(this.icon).matchTextDirection)) {
-        switch (textDirection) {
-          case C[19] || CT.C19:
+    get paragraphs() {
+      return new (T.SyncIterableOfLicenseParagraph()).new((function* paragraphs() {
+        let lineStart = 0;
+        let currentPosition = 0;
+        let lastLineIndent = 0;
+        let currentLineIndent = 0;
+        let currentParagraphIndentation = null;
+        let state = licenses._LicenseEntryWithLineBreaksParserState.beforeParagraph;
+        let lines = T.JSArrayOfString().of([]);
+        const addLine = () => {
+          if (!(lineStart < currentPosition)) dart.assertFailed(null, I[0], 152, 14, "lineStart < currentPosition");
+          lines[$add](this.text[$substring](lineStart, currentPosition));
+        };
+        dart.fn(addLine, T.VoidTovoid());
+        function getParagraph() {
+          if (!dart.test(lines[$isNotEmpty])) dart.assertFailed(null, I[0], 157, 14, "lines.isNotEmpty");
+          if (!(currentParagraphIndentation != null)) dart.assertFailed(null, I[0], 158, 14, "currentParagraphIndentation != null");
+          let result = new licenses.LicenseParagraph.new(lines[$join](" "), dart.nullCheck(currentParagraphIndentation));
+          if (!(result.text[$trimLeft]() === result.text)) dart.assertFailed(null, I[0], 160, 14, "result.text.trimLeft() == result.text");
+          if (!result.text[$isNotEmpty]) dart.assertFailed(null, I[0], 161, 14, "result.text.isNotEmpty");
+          lines[$clear]();
+          return result;
+        }
+        dart.fn(getParagraph, T.VoidToLicenseParagraph());
+        while (currentPosition < this.text.length) {
+          switch (state) {
+            case C[0] || CT.C0:
+            {
+              if (!(lineStart === currentPosition)) dart.assertFailed(null, I[0], 169, 18, "lineStart == currentPosition");
+              let labelState = this.text[$_get](currentPosition);
+              SL0:
+                while (true) {
+                  switch (labelState) {
+                    case " ":
+                    {
+                      lineStart = currentPosition + 1;
+                      currentLineIndent = currentLineIndent + 1;
+                      state = licenses._LicenseEntryWithLineBreaksParserState.beforeParagraph;
+                      break SL0;
+                    }
+                    case "\t":
+                    {
+                      lineStart = currentPosition + 1;
+                      currentLineIndent = currentLineIndent + 8;
+                      state = licenses._LicenseEntryWithLineBreaksParserState.beforeParagraph;
+                      break SL0;
+                    }
+                    case "\r":
+                    case "\n":
+                    case "\f":
+                    {
+                      if (dart.test(lines[$isNotEmpty])) {
+                        yield getParagraph();
+                      }
+                      if (this.text[$_get](currentPosition) === "\r" && currentPosition < this.text.length - 1 && this.text[$_get](currentPosition + 1) === "\n") {
+                        currentPosition = currentPosition + 1;
+                      }
+                      lastLineIndent = 0;
+                      currentLineIndent = 0;
+                      currentParagraphIndentation = null;
+                      lineStart = currentPosition + 1;
+                      state = licenses._LicenseEntryWithLineBreaksParserState.beforeParagraph;
+                      break SL0;
+                    }
+                    case "[":
+                    {
+                      currentLineIndent = currentLineIndent + 1;
+                      labelState = Symbol('_default');
+                      continue SL0;
+                    }
+                    default:
+                    {
+                      if (dart.test(lines[$isNotEmpty]) && currentLineIndent > lastLineIndent) {
+                        yield getParagraph();
+                        currentParagraphIndentation = null;
+                      }
+                      if (currentParagraphIndentation == null) {
+                        if (currentLineIndent > 10)
+                          currentParagraphIndentation = -1;
+                        else
+                          currentParagraphIndentation = (currentLineIndent / 3)[$truncate]();
+                      }
+                      state = licenses._LicenseEntryWithLineBreaksParserState.inParagraph;
+                      break SL0;
+                    }
+                  }
+                  break;
+                }
+              break;
+            }
+            case C[1] || CT.C1:
+            {
+              switch (this.text[$_get](currentPosition)) {
+                case "\n":
+                {
+                  addLine();
+                  lastLineIndent = currentLineIndent;
+                  currentLineIndent = 0;
+                  lineStart = currentPosition + 1;
+                  state = licenses._LicenseEntryWithLineBreaksParserState.beforeParagraph;
+                  break;
+                }
+                case "\f":
+                {
+                  addLine();
+                  yield getParagraph();
+                  lastLineIndent = 0;
+                  currentLineIndent = 0;
+                  currentParagraphIndentation = null;
+                  lineStart = currentPosition + 1;
+                  state = licenses._LicenseEntryWithLineBreaksParserState.beforeParagraph;
+                  break;
+                }
+                default:
+                {
+                  state = licenses._LicenseEntryWithLineBreaksParserState.inParagraph;
+                }
+              }
+              break;
+            }
+            default:
+            {
+              dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+            }
+          }
+          currentPosition = currentPosition + 1;
+        }
+        switch (state) {
+          case C[0] || CT.C0:
           {
-            iconWidget = new basic.Transform.new({transform: (t0$2 = vector_math_64.Matrix4.identity(), (() => {
-                t0$2.scale(-1.0, 1.0, 1.0);
-                return t0$2;
-              })()), alignment: alignment.Alignment.center, transformHitTests: false, child: iconWidget, $creationLocationd_0dea112b090073317d4: C[13] || CT.C13});
+            if (dart.test(lines[$isNotEmpty])) {
+              yield getParagraph();
+            }
             break;
           }
-          case C[20] || CT.C20:
+          case C[1] || CT.C1:
           {
+            addLine();
+            yield getParagraph();
             break;
           }
           default:
@@ -415,55 +293,68 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
             dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
           }
         }
-      }
-      return new basic.Semantics.new({label: this.semanticLabel, child: new basic.ExcludeSemantics.new({child: new basic.SizedBox.new({width: iconSize, height: iconSize, child: new basic.Center.new({child: iconWidget, $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29}), $creationLocationd_0dea112b090073317d4: C[32] || CT.C32});
-    }
-    debugFillProperties(properties) {
-      if (properties == null) dart.nullFailed(I[0], 218, 56, "properties");
-      super.debugFillProperties(properties);
-      properties.add(new icon_data.IconDataProperty.new("icon", this.icon, {ifNull: "<empty>", showName: false}));
-      properties.add(new diagnostics.DoubleProperty.new("size", this.size, {defaultValue: null}));
-      properties.add(new colors.ColorProperty.new("color", this.color, {defaultValue: null}));
+      }).bind(this));
     }
   };
-  (icon$.Icon.new = function(icon, opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let size = opts && 'size' in opts ? opts.size : null;
-    let color = opts && 'color' in opts ? opts.color : null;
-    let semanticLabel = opts && 'semanticLabel' in opts ? opts.semanticLabel : null;
-    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[icon$0] = icon;
-    this[size$] = size;
-    this[color$] = color;
-    this[semanticLabel$] = semanticLabel;
-    this[textDirection$] = textDirection;
-    icon$.Icon.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (licenses.LicenseEntryWithLineBreaks.new = function(packages, text) {
+    if (packages == null) dart.nullFailed(I[0], 121, 41, "packages");
+    if (text == null) dart.nullFailed(I[0], 121, 56, "text");
+    this[packages$] = packages;
+    this[text$0] = text;
+    licenses.LicenseEntryWithLineBreaks.__proto__.new.call(this);
     ;
-  }).prototype = icon$.Icon.prototype;
-  dart.addTypeTests(icon$.Icon);
-  dart.addTypeCaches(icon$.Icon);
-  dart.setMethodSignature(icon$.Icon, () => ({
-    __proto__: dart.getMethods(icon$.Icon.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = licenses.LicenseEntryWithLineBreaks.prototype;
+  dart.addTypeTests(licenses.LicenseEntryWithLineBreaks);
+  dart.addTypeCaches(licenses.LicenseEntryWithLineBreaks);
+  dart.setGetterSignature(licenses.LicenseEntryWithLineBreaks, () => ({
+    __proto__: dart.getGetters(licenses.LicenseEntryWithLineBreaks.__proto__),
+    paragraphs: core.Iterable$(licenses.LicenseParagraph)
   }));
-  dart.setLibraryUri(icon$.Icon, I[1]);
-  dart.setFieldSignature(icon$.Icon, () => ({
-    __proto__: dart.getFields(icon$.Icon.__proto__),
-    icon: dart.finalFieldType(dart.nullable(icon_data.IconData)),
-    size: dart.finalFieldType(dart.nullable(core.double)),
-    color: dart.finalFieldType(dart.nullable(ui.Color)),
-    semanticLabel: dart.finalFieldType(dart.nullable(core.String)),
-    textDirection: dart.finalFieldType(dart.nullable(ui.TextDirection))
+  dart.setLibraryUri(licenses.LicenseEntryWithLineBreaks, I[1]);
+  dart.setFieldSignature(licenses.LicenseEntryWithLineBreaks, () => ({
+    __proto__: dart.getFields(licenses.LicenseEntryWithLineBreaks.__proto__),
+    packages: dart.finalFieldType(core.List$(core.String)),
+    text: dart.finalFieldType(core.String)
   }));
-  dart.trackLibraries("packages/flutter/src/widgets/icon.dart", {
-    "package:flutter/src/widgets/icon.dart": icon$
+  licenses.LicenseRegistry = class LicenseRegistry extends core.Object {
+    static addLicense(collector) {
+      if (collector == null) dart.nullFailed(I[0], 303, 48, "collector");
+      licenses.LicenseRegistry._collectors == null ? licenses.LicenseRegistry._collectors = T.JSArrayOfVoidToStreamOfLicenseEntry().of([]) : null;
+      dart.nullCheck(licenses.LicenseRegistry._collectors)[$add](collector);
+    }
+    static get licenses() {
+      return new (T._AsyncStarImplOfLicenseEntry()).new(function* licenses$(stream) {
+        if (licenses.LicenseRegistry._collectors == null) return;
+        for (let collector of dart.nullCheck(licenses.LicenseRegistry._collectors)) {
+          if (stream.addStream(collector())) return;
+          yield;
+        }
+      }).stream;
+    }
+    static reset() {
+      licenses.LicenseRegistry._collectors = null;
+    }
+  };
+  (licenses.LicenseRegistry.__ = function() {
+    ;
+  }).prototype = licenses.LicenseRegistry.prototype;
+  dart.addTypeTests(licenses.LicenseRegistry);
+  dart.addTypeCaches(licenses.LicenseRegistry);
+  dart.setLibraryUri(licenses.LicenseRegistry, I[1]);
+  dart.defineLazy(licenses.LicenseRegistry, {
+    /*licenses.LicenseRegistry._collectors*/get _collectors() {
+      return null;
+    },
+    set _collectors(_) {}
+  }, false);
+  dart.trackLibraries("packages/flutter/src/foundation/licenses.dart", {
+    "package:flutter/src/foundation/licenses.dart": licenses
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["icon.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAkFkB;;;;;;IAcF;;;;;;IA6BD;;;;;;IASC;;;;;;IAeO;;;;;;UAGK;;;AACxB,YAAY,AAAc,AAAQ,wCAAG,kCAA4B,OAAO;AACpD,2BAAmC,yBAAd,aAAgC,wBAAG,OAAO;AAE/D,sBAAsB,wBAAG,OAAO;AAEtC,sBAAgB,iBAAL,cAAQ,AAAU,SAAD;AAE1C,UAAI,AAAK;AACP,cAAO,iCACE,2BACA,+BAAgB,QAAQ,UAAU,QAAQ;;AAIxC,yBAAgC,OAAlB,AAAU,SAAD,UAAC,eAAW;AAC1C,uBAAkB,mBAAN,eAAwB,eAAf,AAAU,SAAD;AACpC,UAAI,AAAY,WAAD,KAAI,KACjB,AAAkE,YAAtD,AAAU,SAAD,aAA+B,aAAlB,AAAU,SAAD,yBAAW,WAAW;AAE5D,uBAAa,kCACK,+CACR,aAAa,QACtB,kCACS,yBAAiB,AAAE,eAAN,8BACnB,uCACI,cACF,SAAS,YACN,QAAQ,cACF,AAAE,eAAN,gCACC,AAAE,eAAN;AAKf,oBAAQ,AAAE,eAAN;AACF,gBAAQ,aAAa;;;AAOhB,YALD,aAAa,+EACQ;AAAY,2BAAM,CAAC,KAAK,KAAK;;gCAC3B,+CACF,cACZ,UAAU;AAEnB;;;;AAEA;;;;AAVJ;;;;AAcF,YAAO,iCACE,2BACA,uCACE,+BACE,QAAQ,UACP,QAAQ,SACT,6BACE,UAAU;IAK3B;;UAGqD;AACd,MAA/B,0BAAoB,UAAU;AAC8C,MAAlF,AAAW,UAAD,KAAK,mCAAiB,QAAQ,oBAAc,qBAAqB;AACX,MAAhE,AAAW,UAAD,KAAK,mCAAe,QAAQ,0BAAoB;AACO,MAAjE,AAAW,UAAD,KAAK,6BAAc,SAAS,2BAAqB;IAC7D;;6BAxJO;QACA;QACA;QACA;QACA;QACA;;IALA;IAEA;IACA;IACA;IACA;AACF,8CAAW,GAAG;;EAAC","file":"../../../../../../../../D:/packages/flutter/src/widgets/icon.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["licenses.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/foundation/licenses.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__icon: icon$
+    src__foundation__licenses: licenses
   };
 }));
 
-//# sourceMappingURL=icon.dart.lib.js.map
+//# sourceMappingURL=licenses.dart.lib.js.map

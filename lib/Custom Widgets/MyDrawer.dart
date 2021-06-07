@@ -63,10 +63,10 @@ class MyDrawer extends StatelessWidget {
                           Icons.select_all
                         ),
                         title: Text(
-                          'Tabs For Selection'
+                          'Flutter Card Assignment'
                         ),
                         onTap: () {
-                          Navigator.pushNamed(context, '/TabsForSelection');
+                          Navigator.pushNamed(context, '/ScreenSlider3');
                         },
                       ),
                   ),
@@ -77,10 +77,10 @@ class MyDrawer extends StatelessWidget {
                         leading: Icon(
                           Icons.radio_button_checked_rounded),
                         title: Text(
-                          'Tabs for Buttons'
+                          'Web API Integration'
                         ),
                         onTap: () {
-                          Navigator.pushNamed(context, '/TabsForButtons');
+                          Navigator.pushNamed(context, '/ScreenSlider2');
                         },
                       ),
                     ),
@@ -92,10 +92,10 @@ class MyDrawer extends StatelessWidget {
                           Icons.slideshow
                         ),
                         title: Text(
-                          'Image Slider',
+                          'Flutter Forms',
                         ),
                         onTap: () {
-                          Navigator.pushNamed(context, '/ScreenSlider');
+                          Navigator.pushNamed(context, '/ScreenSlider4');
                         },
                       ),
                   ),
@@ -107,44 +107,13 @@ class MyDrawer extends StatelessWidget {
                           Icons.album
                         ),
                         title: Text(
-                          'Aesthetic FIeld'
+                          'Flutter TabBar'
                         ),
                         onTap: () {
-                          Navigator.pushNamed(context, '/Aesthetic');
+                          Navigator.pushNamed(context, '/ScreenSliderTabBar');
                         },
                       ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: 
-                      ListTile(
-                        leading: Icon(
-                          Icons.add
-                        ),
-                        title: Text(
-                          'Add Records'
-                        ),
-                        onTap: () {
-                          Navigator.pushNamed(context, '/AddRecords');
-                        },
-                      ),
-                  ),
-                   
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: 
-                      ListTile(
-                        leading: Icon(
-                          Icons.account_box
-                        ),
-                        title: Text(
-                          'Registration Form'
-                        ),
-                        onTap: () {
-                          Navigator.pushNamed(context, '/RegistrationForm');
-                        },
-                      ),
-                    ),
                 ],
               ),
             ],

@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_drawer/Custom%20Widgets/MyDrawer.dart';
 import 'package:flutter_drawer/Screens/AddRecors.dart';
 import 'package:flutter_drawer/Screens/RegisterScreen.dart';
-import 'package:flutter_drawer/Screens/SCreenSlider.dart';
 import 'package:flutter_drawer/Screens/Screen2.dart';
+import 'package:flutter_drawer/Screens/ScreenSlider2.dart';
+import 'package:flutter_drawer/Screens/ScreenSlider3.dart';
+import 'package:flutter_drawer/Screens/ScreenSlider4.dart';
+import 'package:flutter_drawer/Screens/ScreenSliderTabBar.dart';
 import 'package:flutter_drawer/Screens/SetProfile.dart';
 import 'package:flutter_drawer/Custom%20Widgets/aesthetic.dart';
 import 'package:flutter_drawer/Screens/SuccessfullyRegistered.dart';
@@ -30,7 +33,11 @@ class MyApp extends StatelessWidget {
         '/RegistrationForm' : (context) => RegisterForm(),
         '/TabsForButtons': (context) => TabsForButtons(),
         '/TabsForSelection':(context) => TabsForSelection(),
-        '/ScreenSlider' : (context) => ScreenSlider(),
+        '/ScreenSliderTabBar' : (context) => ScreenSlider(),
+        '/ScreenSlider2': (context) => ScreenSlider2(),
+        '/ScreenSlider3' : (context) => ScreenSlider3(),
+        '/ScreenSlider4' : (context) => ScreenSlider4(),
+        
       },
       home: Scaffold(
         appBar: AppBar(
