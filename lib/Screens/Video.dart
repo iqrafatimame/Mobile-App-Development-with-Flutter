@@ -38,7 +38,7 @@ class _VideoState extends State<Video> {
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
-        title: Text("Image Slider"),
+        title: Text("Demo Video"),
         backgroundColor: Colors.brown,
       ),
       body: FutureBuilder(

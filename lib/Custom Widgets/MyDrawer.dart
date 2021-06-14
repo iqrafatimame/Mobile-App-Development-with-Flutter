@@ -60,7 +60,7 @@ class MyDrawer extends StatelessWidget {
                     child: 
                       ListTile(
                         leading: Icon(
-                          Icons.select_all
+                          Icons.slideshow
                         ),
                         title: Text(
                           'Flutter Card Assignment'
@@ -75,7 +75,7 @@ class MyDrawer extends StatelessWidget {
                     child: 
                       ListTile(
                         leading: Icon(
-                          Icons.radio_button_checked_rounded),
+                          Icons.slideshow),
                         title: Text(
                           'Web API Integration'
                         ),
@@ -104,7 +104,7 @@ class MyDrawer extends StatelessWidget {
                     child: 
                       ListTile(
                         leading: Icon(
-                          Icons.album
+                         Icons.slideshow
                         ),
                         title: Text(
                           'Flutter TabBar'

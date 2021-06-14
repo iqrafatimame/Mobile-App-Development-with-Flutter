@@ -42,6 +42,7 @@ class _ScreenSliderState extends State<ScreenSlider> {
                 scrollDirection: Axis.horizontal,
               ),
               items: [
+                
                 Container(
                   width: MediaQuery.of(context).size.width,
                   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
@@ -81,7 +82,7 @@ class _ScreenSliderState extends State<ScreenSlider> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                        Container(
-                            child: Image.asset('images/colImg.PNG'),
+                            child: Image.asset('images/colImg.PNG', height: 200, width: 200),
                             ),
                       Text(
                         'To see the demo',
@@ -98,7 +99,7 @@ class _ScreenSliderState extends State<ScreenSlider> {
                             MaterialPageRoute(
                               builder: (context) => Video(
                                 url:
-                                'images/InShot_20210607_155500815.mp4')));
+                                'images/TabBarVid.mp4')));
                           },
                         child: Padding(
                             padding: const EdgeInsets.all(8.0),

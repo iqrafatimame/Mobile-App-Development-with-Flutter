@@ -5929,6 +5929,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 flutter_plugin_android_lifecycle
 image_picker_platform_interface
+video_player
+video_player_platform_interface
+video_player_web
 
 Copyright 2013 The Flutter Authors. All rights reserved.
 
