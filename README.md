@@ -11,3 +11,5 @@
 - User registration form with all the validation
 - Tab bar showing 5 different kinds of buttons in Flutter
 - Tab bar showing 6 different kinds of Inputs & Selection in Flutter  
+- Carousel Slider
+- Video Player with pause anad play button
